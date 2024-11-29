@@ -1,2 +1,2 @@
 HUE: -105%
-Lightness: -20%
+Lightness: -10%
