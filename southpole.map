@@ -17,6 +17,13 @@ Waypoint7=256,87
 Waypoint8=300,254
 NumberStartingPoints=8
 
+[MODEV]
+Radar=yes
+SpySat=yes
+Capturable=yes
+Strength=2450000
+AttachEffect.Duration=-1
+AttachEffect.ArmorMultiplier=100
 
 [Preview]
 Size=0,0,280,200
