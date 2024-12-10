@@ -24,6 +24,7 @@ Capturable=yes
 Strength=2450000
 AttachEffect.Duration=-1
 AttachEffect.ArmorMultiplier=100
+BaseNormal=yes
 
 [Preview]
 Size=0,0,280,200
