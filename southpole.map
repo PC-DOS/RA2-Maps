@@ -17,6 +17,9 @@ Waypoint7=256,87
 Waypoint8=300,254
 NumberStartingPoints=8
 
+[SuperWeaponTypes]
++= MODevicePulseSpecial
+
 [MODEV]
 Radar=yes
 SpySat=yes
@@ -25,6 +28,48 @@ Strength=2450000
 AttachEffect.Duration=-1
 AttachEffect.ArmorMultiplier=100
 BaseNormal=yes
+Power=-2450
+Powered=yes
+SuperWeapon=MODevicePulseSpecial
+
+[MODevicePulseSpecial]
+UIName=NAME:PSYCHICWAVE
+Name=MO Device Pulse
+IsPowered=true
+RechargeTime=10
+Type=PsychicDominator
+Action=Custom
+SidebarPCX=domnicon.pcx
+ShowTimer=yes
+DisableableFromShell=no
+Range=15
+LineMultiplier=3
+SW.Range=15
+SW.Damage=0
+SW.Warhead=ControllerBeacon
+SW.CreateRadarEvent=yes
+SW.AffectsHouse=enemies
+SW.AffectsTarget=all
+SW.AITargeting=Offensive
+Dominator.ControlAnim=MINDANIMR
+Dominator.FirstAnimHeight=1200
+Dominator.Captures=yes
+Dominator.Ripple=no
+Dominator.CaptureMindControlled=yes
+Dominator.CapturePermaMindControlled=yes
+Dominator.CaptureImmuneToPsionics=yes
+Dominator.PermanentCapture=yes
+Message.FirerColor=yes
+Message.Launch=NAME:WAVEACTIVE
+AIDefendAgainst=yes
+Light.Ambient=100
+Light.Red=50
+Light.Green=25
+Light.Blue=100
+EVA.Ready=EVA_BattlePowerReady
+Cursor=Dominate
+NoCursor=NoCanDo
+AIDefendAgainst=no
 
 [Preview]
 Size=0,0,280,200
