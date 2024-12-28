@@ -1,0 +1,45 @@
+// Created by Crowbar 0.67
+version 1
+nodes
+  0 "pm0380_51" -1
+  1 "Origin" 0
+  2 "Waist" 1
+  3 "Hips" 2
+  4 "RThigh" 3
+  5 "RLeg" 4
+  6 "LThigh" 3
+  7 "LLeg" 6
+  8 "Tail" 3
+  9 "Spine" 2
+  10 "RShoulder" 9
+  11 "RArm" 10
+  12 "RFeelerF1" 11
+  13 "RArm2" 11
+  14 "RForeArm" 11
+  15 "RFeelerB" 14
+  16 "RHand" 14
+  17 "RFingerC" 16
+  18 "RFingerB" 16
+  19 "RFingerA" 16
+  20 "LShoulder" 9
+  21 "LArm" 20
+  22 "LFeelerF1" 21
+  23 "LArm2" 21
+  24 "LForeArm" 21
+  25 "LFeelerB" 24
+  26 "LHand" 24
+  27 "LFingerC" 26
+  28 "LFingerB" 26
+  29 "LFingerA" 26
+  30 "Neck1" 9
+  31 "Neck2" 30
+  32 "Neck3" 31
+  33 "Head" 32
+  34 "RFeelerA" 33
+  35 "LFeelerA" 33
+  36 "ValveBiped.Bip01_R_Hand" 33
+end
+skeleton
+  time 0
+    0 0.000000 0.000000 0.000000 1.570800 0.000000 -1.570796
+end
