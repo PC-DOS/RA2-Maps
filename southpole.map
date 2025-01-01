@@ -18,7 +18,7 @@ Waypoint8=300,254
 NumberStartingPoints=8
 
 [SuperWeaponTypes]
-+= MODevicePulseSpecial
+245245243 = MODevicePulseSpecial
 
 [MODEV]
 Radar=yes

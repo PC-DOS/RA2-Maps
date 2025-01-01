@@ -21,6 +21,101 @@ NumberStartingPoints=2
 [Preview]
 Size=0,0,290,145
 
+[SuperWeaponTypes]
+245245243 = SouthKoreanGongSuSpecial
+245245244 = NorthKoreanUnJungSpecial
+
+[Warheads]
+245245243 = NorthKoreanUnJungWH
+
+; South Korean Flag
+[CASKFGL]
+Strength=1946
+Armor=Concrete
+Capturable=yes
+SuperWeapon=SouthKoreanGongSuSpecial
+ClickRepairable=yes
+
+; Sourh Korean Flag SuperWeapon Group
+[SouthKoreanGongSuSpecial]
+UIName=NAME:GongSu
+Name=Gong Su Action
+IsPowered=no
+RechargeTime=4
+Money.Amount=-2450
+Type=AmerParaDrop
+Action=Custom
+SidebarPCX=ma_38tp_gongsu.pcx
+ShowTimer=yes
+DisableableFromShell=no
+Range=4
+LineMultiplier=0
+ParaDrop.Count=5
+ParaDrop.Num=6,4,6,4,6,4,6,4,6,4,6,4
+ParaDrop.Types=E1,GGI,RIOT,SNIPE,ENFO,GHOST,ADOG,JUMPJET,AHMV,FV,RANGER,ETNK
+Cursor=Paradrop
+NoCursor=NoCanDo
+SW.FireIntoShroud=yes
+SW.RequiresTarget=land
+SW.CreateRadarEvent=no
+SW.Animation=FLAREBLUE
+SW.AnimationHeight=30
+EVA.Ready=EVA_ParatroopersReady
+SW.AITargeting.Constraints=enemy
+SW.Inhibitors=CACEAS,FAINHI,FAINHIB,RACC,COON,FAJAMM
+FlashSidebarTabFrames=0
+
+; North Korean Flag
+[CANRKR]
+Strength=1948
+Armor=Concrete
+Capturable=yes
+SuperWeapon=NorthKoreanUnJungSpecial
+ClickRepairable=yes
+
+; Sourh Korean Flag SuperWeapon Group
+[NorthKoreanUnJungWH]
+Verses=3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%
+CellSpread=10
+PercentAtMax=1
+AffectsAllies=yes
+Conventional=no
+AffectsEnemies=no
+PreventScatter=yes
+EffectsRequireVerses=yes
+EffectsRequireDamage=no
+AttachEffect.Duration=1948
+AttachEffect.Animation=SADFACE
+AttachEffect.SpeedMultiplier=1.5
+AttachEffect.FirepowerMultiplier=5
+AttachEffect.ROFMultiplier=5
+AttachEffect.ArmorMultiplier=4
+
+[NorthKoreanUnJungSpecial]
+UIName=NAME:UnJung
+Name=Generals Un Jung
+IsPowered=no
+RechargeTime=5
+Type=GenericWarhead
+SW.Damage=1
+SW.Warhead=NorthKoreanUnJungWH
+SidebarPCX=ma_38tp_unjung.pcx
+SW.FireIntoShroud=yes
+ShowTimer=yes
+DisableableFromShell=no
+AIDefendAgainst=no
+Range=5
+LineMultiplier=3
+EVA.Ready=EVA_ReinforcementsReady
+SW.Animation=IRONBLST
+SW.Group=0
+SW.AITargeting=IronCurtain
+SW.AffectsHouse=team
+SW.CreateRadarEvent=no
+Cursor=Iron
+NoCursor=NoCanDo
+SW.Inhibitors=CACEAS,FAINHI,FAINHIB,RACC,COON,FAJAMM
+
 [PreviewPack]
 1=VBQAIAefp0+fp0+hp0+hgAEDybFlybBjTAEGFBQUyLVmo6ZUTAEGn6dPzcS3t66fUAJMAQ
 2=Ovo5G4r6C8AgN7eDtycDisAQOlq1K6vVasAQKPlT6gp8wKA5KZPZOYQbwCA6abTJ6YS6wB
