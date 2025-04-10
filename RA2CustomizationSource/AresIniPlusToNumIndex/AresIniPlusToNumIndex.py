@@ -1,3 +1,5 @@
+from curses.ascii import isdigit
+
 def IsStringNullOrEmpty(sStringToTest : str) -> bool :
     if sStringToTest is None :
         return True
@@ -42,7 +44,9 @@ if __name__ == "__main__" :
         arrIniParam = SplitString(sIniLine, "=", 1, False)
 
         if len(arrIniParam) >= 2 :
-            arrIniParam[0] = str(iCurrentIndex)
+            if isdigit(arrIniParam[0].strip()) or (arrIniParam[0].strip() == "+") :
+                arrIniParam[0] = str(iCurrentIndex)
+            #End If
             arrConvertResults.append(f"{arrIniParam[0]}={arrIniParam[1]}")
             iCurrentIndex = iCurrentIndex + 1
         elif len(arrIniParam) == 1 :
