@@ -42,9 +42,7 @@ if __name__ == "__main__" :
         arrIniParam = SplitString(sIniLine, "=", 1, False)
 
         if len(arrIniParam) >= 2 :
-            if arrIniParam[0].strip() == "+" :
-                arrIniParam[0] = str(iCurrentIndex)
-            #End If
+            arrIniParam[0] = str(iCurrentIndex)
             arrConvertResults.append(f"{arrIniParam[0]}={arrIniParam[1]}")
             iCurrentIndex = iCurrentIndex + 1
         elif len(arrIniParam) == 1 :
