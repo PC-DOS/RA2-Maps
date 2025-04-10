@@ -1,5 +1,3 @@
-import array
-
 def IsStringNullOrEmpty(sStringToTest : str) -> bool :
     if sStringToTest is None :
         return True
@@ -16,7 +14,7 @@ def IsStringNullOrEmpty(sStringToTest : str) -> bool :
     return False
 #End Function
 
-def SplitString(sStringToSplit : str, sSeparator : str = None, nMaxSplitCount : int = -1, RemoveEmptyEntries : bool = False) -> array :
+def SplitString(sStringToSplit : str, sSeparator : str = None, nMaxSplitCount : int = -1, RemoveEmptyEntries : bool = False) -> list :
     # Split string
     arrResult = sStringToSplit.split(sep=sSeparator, maxsplit=nMaxSplitCount)
 
