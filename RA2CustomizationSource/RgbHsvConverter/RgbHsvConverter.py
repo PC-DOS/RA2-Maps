@@ -1,4 +1,3 @@
-import array
 import colorsys
 
 def RGB2HSV(tplRGB : tuple) -> tuple:
@@ -37,7 +36,7 @@ def IsStringNullOrEmpty(sStringToTest : str) -> bool :
     return False
 #End Function
 
-def SplitString(sStringToSplit : str, sSeparator : str = None, nMaxSplitCount : int = -1, RemoveEmptyEntries : bool = False) -> array :
+def SplitString(sStringToSplit : str, sSeparator : str = None, nMaxSplitCount : int = -1, RemoveEmptyEntries : bool = False) -> list :
     # Split string
     arrResult = sStringToSplit.split(sep=sSeparator, maxsplit=nMaxSplitCount)
 
