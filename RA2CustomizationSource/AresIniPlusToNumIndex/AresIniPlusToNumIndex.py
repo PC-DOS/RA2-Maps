@@ -1,3 +1,5 @@
+# If you run into "No module named '_curses'" on Windows, please execute:
+# pip install windows-curses
 from curses.ascii import isdigit
 
 def IsStringNullOrEmpty(sStringToTest : str) -> bool :
