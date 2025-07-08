@@ -81,7 +81,7 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     country_resource_uranium = 245245245
     country_resource_consumer_goods = 245245245
     country_resource_power = 245245245
-    gdp_growth_modifier = 1.0
+    gdp_growth_modifier = 25.0
     misc_income_modifier = 25.0
-    research_facilities_monthly_rate = 1.0
+    research_facilities_monthly_rate = 25.0
 }
