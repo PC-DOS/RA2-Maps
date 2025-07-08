@@ -1,49 +1,83 @@
+# Generic dynamic modifiers group
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
+    remove_trigger = { always = no }
     political_power_gain = 2450
     political_power_cost = 0
+    stability_factor = 25.0
     stability_weekly = 100.0
-    war_stability_factor = 0.0
+    research_speed_factor = 245.0
+    war_stability_factor = 5.0
     war_support_weekly = 100.0
     base_fuel_gain = 245245
-    fuel_cost = 0
-    fuel_gain = 245245
+    fuel_cost = -245
     max_fuel = 245245245
     supply_factor = 25.0
     supply_consumption_factor = -25.0
     no_supply_grace = 245245
-    out_of_supply_factor = 0.0
-    attrition = 0.0
-    production_speed_buildings_factor = 245245.0
+    out_of_supply_factor = -5.0
+    attrition = -5.0
+    production_factory_start_efficiency_factor = 25.0
+    production_factory_max_efficiency_factor = 25.0
+    production_speed_buildings_factor = 245.0
+    global_building_slots = 245
     global_building_slots_factor = 1.0
+    industrial_capacity_factory = 245.0
+    industrial_capacity_dockyard = 245.0
     industry_free_repair_factor = 25.0
     industry_repair_factor = 25.0
-    production_oil_factor = 245.0
-    resistance_activity = 0.0
-    required_garrison_factor = 0.0
+    production_oil_factor = 5.0
+    consumer_goods_expected_value = 0.0
+    conversion_cost_civ_to_mil_factor = -5.0
+    conversion_cost_mil_to_civ_factor = -5.0
+    industry_air_damage_factor = -5.0
+    cic_construction_boost = 245.0
+    land_bunker_effectiveness_factor = 25.0
+    coastal_bunker_effectiveness_factor = 25.0
+    resistance_activity = -5.0
+    required_garrison_factor = -5.0
     resistance_damage_to_garrison_on_our_occupied_states = 25.0
     resistance_decay_on_our_occupied_states = -25.0
     resistance_growth_on_our_occupied_states = 25.0
     resistance_target = -25.0
-    agency_upgrade_time = 0.0
+    agency_upgrade_time = -25.0
     command_power_gain = 2450
     experience_gain_army = 245
     experience_gain_navy = 245
     experience_gain_air = 245
     max_command_power = 245245
     weekly_manpower = 245245245
-    training_time_factor = -100.0
+    training_time_factor = -245.0
     max_training = 245.0
-    training_time_army_factor = -100.0
-    army_attack_factor = 245245245.0
-    army_attack_speed_factor = 245245245.0
-    army_defence_factor = 245245245.0
-    army_speed_factor = 245245245.0
-    army_strength_factor = 245245245.0
+    training_time_army_factor = -245.0
+    army_attack_factor = 245.0
+    army_attack_speed_factor = 245.0
+    army_defence_factor = 245.0
+    army_speed_factor = 245.0
+    army_strength_factor = 245.0
     army_morale = 245
     army_org = 245
     breakthrough_factor = 245.0
     pocket_penalty = -245.0
     terrain_penalty_reduction = 100.0
+    country_resource_oil = 245245245
+    country_resource_aluminium = 245245245
+    country_resource_rubber = 245245245
+    country_resource_tungsten = 245245245
+    country_resource_steel = 245245245
+    country_resource_chromium = 245245245
+}
+
+# TNO dynamic modifiers group
+SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    country_resource_uranium = 245245245
+    country_resource_consumer_goods = 245245245
+    country_resource_power = 245245245
+    gdp_growth_modifier = 1.0
+    misc_income_modifier = 25.0
+    research_facilities_monthly_rate = 1.0
 }
