@@ -131,6 +131,52 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             add_fuel = 245245
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_offsite_arms_factory = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_offsite_building = {
+                type = arms_factory
+                level = 5
+            }
+        }
+    }
     
     # TNO decisions group
     SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle = {

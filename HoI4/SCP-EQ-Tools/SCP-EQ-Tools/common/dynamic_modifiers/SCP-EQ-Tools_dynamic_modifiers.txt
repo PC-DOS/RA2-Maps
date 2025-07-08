@@ -33,6 +33,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     conversion_cost_mil_to_civ_factor = -5.0
     industry_air_damage_factor = -5.0
     cic_construction_boost = 245.0
+    cic_construction_boost_factor = 25.0
     land_bunker_effectiveness_factor = 25.0
     coastal_bunker_effectiveness_factor = 25.0
     resistance_activity = -5.0
@@ -49,9 +50,11 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     max_command_power = 245245
     weekly_manpower = 245245245
     max_training = 245.0
-    training_time_factor = -0.05
-    training_time_army_factor = -0.75
-    special_forces_training_time_factor = -0.75
+    # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
+    # https://tieba.baidu.com/p/7293424038
+    training_time_factor = -0.25
+    training_time_army_factor = -0.5
+    special_forces_training_time_factor = -0.5
     army_attack_factor = 245.0
     army_attack_speed_factor = 245.0
     army_defence_factor = 245.0
