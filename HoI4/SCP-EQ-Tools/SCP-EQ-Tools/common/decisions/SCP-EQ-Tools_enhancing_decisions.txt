@@ -280,7 +280,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             econ_GDP_boost_once_flat = yes
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_TNO_give_money_25B = {
+    SCP-EQ-Tools_enhancing_decisions_TNO_give_money_25_mult_incom = {
         allowed = {
             # Always allowed
         }
