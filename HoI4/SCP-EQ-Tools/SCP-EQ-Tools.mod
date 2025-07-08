@@ -1,7 +1,8 @@
 name="SCP-EQ-Tools"
 version="0.0.1-beta"
 tags={
-	"Gameplay"
+	"Fixes"
+	"Utilities"
 }
 picture="thumbnail.png"
 supported_version="1.14.*"
