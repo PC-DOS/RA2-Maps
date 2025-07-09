@@ -53,11 +53,11 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     remove_trigger = { always = no }
     production_factory_start_efficiency_factor = 25.0
     production_factory_max_efficiency_factor = 25.0
-    production_speed_buildings_factor = 2450.0
+    production_speed_buildings_factor = 12450.0
     global_building_slots = 245
     global_building_slots_factor = 1.0
-    industrial_capacity_factory = 2450.0
-    industrial_capacity_dockyard = 2450.0
+    industrial_capacity_factory = 12450.0
+    industrial_capacity_dockyard = 12450.0
     industry_free_repair_factor = 25.0
     industry_repair_factor = 25.0
     #production_oil_factor = 5.0 # This will lose fuel stock
