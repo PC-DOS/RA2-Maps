@@ -52,9 +52,9 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     max_training = 245.0
     # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
     # https://tieba.baidu.com/p/7293424038
-    training_time_factor = -0.25
-    training_time_army_factor = -0.5
-    special_forces_training_time_factor = -0.5
+    training_time_factor = -0.5
+    training_time_army_factor = -0.25
+    special_forces_training_time_factor = -0.25
     army_attack_factor = 245.0
     army_attack_speed_factor = 245.0
     army_defence_factor = 245.0
@@ -84,4 +84,18 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     gdp_growth_modifier = 25.0
     misc_income_modifier = 25.0
     research_facilities_monthly_rate = 25.0
+}
+
+# TFR dynamic modifiers group
+SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    academic_development_monthly = 0.5
+    society_development_monthly = 0.5
+    industrial_development_monthly = 0.5
+    poverty_development_monthly = 0.5
+    farming_development_monthly = 0.5
+    military_development_monthly = 0.5
+    income_growth_factor = 0.5
 }

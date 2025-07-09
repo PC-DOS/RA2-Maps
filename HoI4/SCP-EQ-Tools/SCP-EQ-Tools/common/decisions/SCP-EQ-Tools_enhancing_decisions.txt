@@ -481,4 +481,138 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             recalculate_GDP_and_PUs_on_demand = yes
         }
     }
+    
+    # TFR decisions group
+    SCP-EQ-Tools_enhancing_decisions_TFR_decisions_toggle = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled }
+                clr_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+            }
+            else = {
+               set_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_toggle_SCP_item_1 = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_toggle_SCP_item_1_enabled }
+                remove_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1
+                }
+                clr_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_toggle_SCP_item_1_enabled
+            }
+            else = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_give_2450B_money = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { income_var_temp = 2450.0 }
+            add_income = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_pay_2450B_debt = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { debt_var_temp = -2450.0 }
+            add_debt = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_US_add_congress_support = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { USB_support_pro_var_temp = 1.0 }
+            USB_add_support_pro = yes
+            set_temp_variable = { USB_support_neo_var_temp = 1.0 }
+            USB_add_support_neo = yes
+            set_temp_variable = { USB_support_con_var_temp = 1.0 }
+            USB_add_support_con = yes
+            set_temp_variable = { USB_support_ino_var_temp = 1.0 }
+            USB_add_support_ino = yes
+            add_power_balance_value = {
+                id = USB_trust_bop
+                value = 1.0
+            }
+        }
+    }
 }

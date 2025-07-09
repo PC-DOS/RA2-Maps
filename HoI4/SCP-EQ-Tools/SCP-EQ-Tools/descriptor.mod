@@ -12,4 +12,6 @@ dependencies={
     "TNO"
 	"The New Order: Last Days of Europe"
 	"The New Order: Last Days of Europe(CN Ver.)"
+    "TFR"
+    "The Fire Rises"
 }
