@@ -280,6 +280,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            # Offsite building may require a change of economic law / reload save file to be recalculated
+            # See https://hoi4.paradoxwikis.com/Effect#Buildings_2
             add_offsite_building = {
                 type = industrial_complex
                 level = 1
@@ -303,6 +305,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            # Offsite building may require a change of economic law / reload save file to be recalculated
+            # See https://hoi4.paradoxwikis.com/Effect#Buildings_2
             add_offsite_building = {
                 type = arms_factory
                 level = 1
