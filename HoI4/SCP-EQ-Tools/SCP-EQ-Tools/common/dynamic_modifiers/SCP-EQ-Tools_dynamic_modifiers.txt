@@ -96,7 +96,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     naval_invasion_prep_speed = 245
     naval_invasion_capacity = 245
     naval_invasion_penalty = -5.0
-    amphibious_invasion = 25.0
+    amphibious_invasion = 245.0
     amphibious_invasion_defence = 5.0
     invasion_preparation = -1.0
 }
