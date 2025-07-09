@@ -674,7 +674,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_TFR_give_2450B_money = {
+    SCP-EQ-Tools_enhancing_decisions_TFR_give_245245B_money = {
         allowed = {
             # Always allowed
         }
@@ -691,11 +691,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { income_var_temp = 2450.0 }
+            set_temp_variable = { income_var_temp = 245245.0 }
             add_income = yes
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_TFR_pay_2450B_debt = {
+    SCP-EQ-Tools_enhancing_decisions_TFR_pay_245245B_debt = {
         allowed = {
             # Always allowed
         }
@@ -712,7 +712,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { debt_var_temp = -2450.0 }
+            set_temp_variable = { debt_var_temp = -245245.0 }
             add_debt = yes
         }
     }
