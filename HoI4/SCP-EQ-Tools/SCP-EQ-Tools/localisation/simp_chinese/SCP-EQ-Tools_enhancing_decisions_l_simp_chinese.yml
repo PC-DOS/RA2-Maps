@@ -21,9 +21,9 @@
  SCP-EQ-Tools_enhancing_decisions_add_fuel:0 "增加245245单位燃油"
  SCP-EQ-Tools_enhancing_decisions_add_fuel_desc:0 "油田一爆，这一坨全爆"
  SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex:0 "添加一座地图外民用工厂"
- SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex_desc:0 "超时空起重机"
+ SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex_desc:0 "超时空起重机，若无反应请尝试修改一次经济法案或存档后重新加载"
  SCP-EQ-Tools_enhancing_decisions_add_offsite_arms_factory:0 "添加一座地图外军用工厂"
- SCP-EQ-Tools_enhancing_decisions_add_offsite_arms_factory_desc:0 "超时空起重机"
+ SCP-EQ-Tools_enhancing_decisions_add_offsite_arms_factory_desc:0 "超时空起重机，若无反应请尝试修改一次经济法案或存档后重新加载"
  SCP-EQ-Tools_enhancing_decisions_lower_threat:0 "降低245点我国造成的全球紧张度"
  SCP-EQ-Tools_enhancing_decisions_lower_threat_desc:0 "非我也，兵也"
  # TNO decisions group
