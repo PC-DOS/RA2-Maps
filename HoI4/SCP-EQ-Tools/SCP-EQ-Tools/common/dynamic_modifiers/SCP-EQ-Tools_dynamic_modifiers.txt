@@ -18,6 +18,38 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     no_supply_grace = 245245
     out_of_supply_factor = -5.0
     attrition = -5.0
+    land_bunker_effectiveness_factor = 25.0
+    coastal_bunker_effectiveness_factor = 25.0
+    resistance_activity = -5.0
+    required_garrison_factor = -5.0
+    resistance_damage_to_garrison_on_our_occupied_states = 25.0
+    resistance_decay_on_our_occupied_states = -25.0
+    resistance_growth_on_our_occupied_states = 25.0
+    resistance_target = -25.0
+    agency_upgrade_time = -25.0
+    command_power_gain = 2450
+    experience_gain_army = 245
+    experience_gain_navy = 245
+    experience_gain_air = 245
+    max_command_power = 245245
+    weekly_manpower = 245245245
+    # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
+    # https://tieba.baidu.com/p/7293424038
+    training_time_factor = -0.25
+    training_time_army_factor = -0.5
+    max_training = 245.0
+    special_forces_training_time_factor = -0.5
+    country_resource_oil = 245245245
+    country_resource_aluminium = 245245245
+    country_resource_rubber = 245245245
+    country_resource_tungsten = 245245245
+    country_resource_steel = 245245245
+    country_resource_chromium = 245245245
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
     production_factory_start_efficiency_factor = 25.0
     production_factory_max_efficiency_factor = 25.0
     production_speed_buildings_factor = 245.0
@@ -34,27 +66,11 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     industry_air_damage_factor = -5.0
     cic_construction_boost = 245.0
     cic_construction_boost_factor = 25.0
-    land_bunker_effectiveness_factor = 25.0
-    coastal_bunker_effectiveness_factor = 25.0
-    resistance_activity = -5.0
-    required_garrison_factor = -5.0
-    resistance_damage_to_garrison_on_our_occupied_states = 25.0
-    resistance_decay_on_our_occupied_states = -25.0
-    resistance_growth_on_our_occupied_states = 25.0
-    resistance_target = -25.0
-    agency_upgrade_time = -25.0
-    command_power_gain = 2450
-    experience_gain_army = 245
-    experience_gain_navy = 245
-    experience_gain_air = 245
-    max_command_power = 245245
-    weekly_manpower = 245245245
-    max_training = 245.0
-    # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
-    # https://tieba.baidu.com/p/7293424038
-    training_time_factor = -0.5
-    training_time_army_factor = -0.25
-    special_forces_training_time_factor = -0.25
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
     army_attack_factor = 245.0
     army_attack_speed_factor = 245.0
     army_defence_factor = 245.0
@@ -65,12 +81,43 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     breakthrough_factor = 245.0
     pocket_penalty = -245.0
     terrain_penalty_reduction = 100.0
-    country_resource_oil = 245245245
-    country_resource_aluminium = 245245245
-    country_resource_rubber = 245245245
-    country_resource_tungsten = 245245245
-    country_resource_steel = 245245245
-    country_resource_chromium = 245245245
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    naval_damage_factor = 245.0
+    naval_defense_factor = 245.0
+    naval_speed_factor = 245.0
+    navy_org = 245
+    navy_max_range = 245
+    spotting_chance = 1.0
+    naval_invasion_prep_speed = 245
+    naval_invasion_capacity = 245
+    naval_invasion_penalty = -5.0
+    amphibious_invasion = 25.0
+    amphibious_invasion_defence = 5.0
+    invasion_preparation = -1.0
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    air_agility_factor = 245.0
+    air_attack_factor = 245.0
+    air_defence_factor = 245.0
+    air_weather_penalty = -1.0
+    air_night_penalty = -1.0
+    ground_attack_factor = 245.0
+    air_range_factor = 245.0
+    air_maximum_speed_factor = 245.0
+    air_mission_efficiency = 245.0
+    air_intercept_efficiency = 245.0
+    air_home_defence_factor = 245.0
+    air_cas_efficiency = 245.0
+    air_cas_present_factor = 245.0
+    air_escort_efficiency = 245.0
+    air_bombing_targetting = 245.0
 }
 
 # TNO dynamic modifiers group
