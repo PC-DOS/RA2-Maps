@@ -123,17 +123,12 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
     air_bombing_targetting = 245.0
 }
 
-# TNO dynamic modifiers group
-SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
-    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+# EAW dynamic modifiers group
+SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    country_resource_uranium = 245245245
-    country_resource_consumer_goods = 245245245
-    country_resource_power = 245245245
-    gdp_growth_modifier = 25.0
-    misc_income_modifier = 25.0
-    research_facilities_monthly_rate = 25.0
+    country_resource_crystals = 245245245
 }
 
 # TFR dynamic modifiers group
@@ -148,4 +143,17 @@ SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
     farming_development_monthly = 0.5
     military_development_monthly = 0.5
     income_growth_factor = 0.25
+}
+
+# TNO dynamic modifiers group
+SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    country_resource_uranium = 245245245
+    country_resource_consumer_goods = 245245245
+    country_resource_power = 245245245
+    gdp_growth_modifier = 25.0
+    misc_income_modifier = 25.0
+    research_facilities_monthly_rate = 25.0
 }

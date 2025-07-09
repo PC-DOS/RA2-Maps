@@ -14,4 +14,7 @@ dependencies={
 	"The New Order: Last Days of Europe(CN Ver.)"
     "TFR"
     "The Fire Rises"
+    "EaW"
+    "EaWCN"
+    "Equestria at War"
 }
