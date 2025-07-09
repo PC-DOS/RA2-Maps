@@ -17,6 +17,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     supply_consumption_factor = -25.0
     no_supply_grace = 245245
     out_of_supply_factor = -5.0
+    supply_node_range = 25.0
     attrition = -5.0
     land_bunker_effectiveness_factor = 25.0
     coastal_bunker_effectiveness_factor = 25.0
