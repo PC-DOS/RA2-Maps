@@ -1,7 +1,7 @@
 ﻿l_simp_chinese:
  # Generic decisions group
  SCP-EQ-Tools_enhancing_decisions_category:0 "SCP基金会小马国分部的工具箱"
- SCP-EQ-Tools_enhancing_decisions_category_desc:0 "SCP基金会小马国分部的工具箱，\n Dr. Picsell Dois出品，\n 希望能让您的钢铁雄心4之旅轻松一些。"
+ SCP-EQ-Tools_enhancing_decisions_category_desc:0 "SCP基金会小马国分部的工具箱，\nDr. Picsell Dois出品，\n希望能让您的钢铁雄心4之旅轻松一些。"
  SCP-EQ-Tools_enhancing_decisions_make_PD_as_leader:0 "让Dr. Picsell Dois代为执政"
  SCP-EQ-Tools_enhancing_decisions_make_PD_as_leader_desc:0 "本决议用于测试"
  SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1:0 "启用/停用SCP项目1"
