@@ -983,7 +983,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_enemy_country = {
+            random_enemy_country = {
                 log = "Nuking country: [?THIS.GetTag] ([?THIS.GetName])"
                 random_controlled_state = {
                     log = "Nuking state: [?THIS.GetID] ([?THIS.GetName])"
