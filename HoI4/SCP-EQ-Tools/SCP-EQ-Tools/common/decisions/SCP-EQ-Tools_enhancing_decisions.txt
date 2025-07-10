@@ -474,26 +474,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             increase_science_base = yes
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_EAW_improve_state_category = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            improve_state_category = yes
-        }
-    }
     
     # TFR decisions group
     SCP-EQ-Tools_enhancing_decisions_TFR_decisions_toggle = {
