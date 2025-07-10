@@ -11,8 +11,15 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     war_stability_factor = 5.0
     war_support_weekly = 100.0
     base_fuel_gain = 245245
-    fuel_cost = -245
+    base_fuel_gain_factor = 245.0
+    fuel_cost = -245245
+    fuel_gain = 245245
+    fuel_gain_factor = 245.0
     max_fuel = 245245245
+    army_fuel_capacity_factor = 245.0
+    army_fuel_consumption_factor = -0.5
+    air_fuel_consumption_factor = -0.5
+    navy_fuel_consumption_factor = -0.5
     supply_factor = 25.0
     supply_consumption_factor = -25.0
     no_supply_grace = 245245
@@ -40,12 +47,12 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     training_time_army_factor = -0.5
     max_training = 245.0
     special_forces_training_time_factor = -0.5
-    country_resource_oil = 245245245
-    country_resource_aluminium = 245245245
-    country_resource_rubber = 245245245
-    country_resource_tungsten = 245245245
-    country_resource_steel = 245245245
-    country_resource_chromium = 245245245
+    country_resource_oil = 245245
+    country_resource_aluminium = 245245
+    country_resource_rubber = 245245
+    country_resource_tungsten = 245245
+    country_resource_steel = 245245
+    country_resource_chromium = 245245
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
@@ -67,6 +74,8 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     industry_air_damage_factor = -5.0
     cic_construction_boost = 245.0
     cic_construction_boost_factor = 25.0
+    nuclear_production = 1
+    nuclear_production_factor = 0.5
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
@@ -128,7 +137,7 @@ SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    country_resource_crystals = 245245245
+    country_resource_crystals = 245245
 }
 
 # TFR dynamic modifiers group
@@ -150,9 +159,9 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    country_resource_uranium = 245245245
-    country_resource_consumer_goods = 245245245
-    country_resource_power = 245245245
+    country_resource_uranium = 245245
+    country_resource_consumer_goods = 245245
+    country_resource_power = 245245
     gdp_growth_modifier = 25.0
     misc_income_modifier = 25.0
     research_facilities_monthly_rate = 25.0
