@@ -32,6 +32,52 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             SCP-EQ-Tools_Debug_this_effect_does_not_exist = 1
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_recruit_PD = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            log = "SCP-EQ-Tools_enhancing_decisions_recruit_PD"
+            generate_character = {
+                token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois
+                name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+                portraits = {
+                    civilian = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                    }
+                    army = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                    }
+                    navy = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                    }
+                }
+                gender = male
+                advisor = {
+                    slot = political_advisor
+                    cost = 0
+                    removal_cost = 0
+                    ledger = civilian
+                    can_be_fired = yes
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1 = {
         allowed = {
             # Always allowed
@@ -313,6 +359,433 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_industrial_complex_random = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_arms_factory_random = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_dockyard_random = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_infrastructure_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 5
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_unlock_building_slots_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_extra_state_shared_building_slots = 245
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_industrial_complex_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_arms_factory_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_dockyard_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_railway_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            for_each_loop = {
+                array = controlled_states
+                value = temp_railway_start
+                
+                #log = "RailStart:[?temp_railway_start]"
+                for_each_loop = {
+                    array = controlled_states
+                    value = temp_railway_end
+                    
+                    #log = "RailEnd:[?temp_railway_end]"
+                    if = {
+                        limit = { NOT = { temp_railway_start = temp_railway_end } }
+                        build_railway = {
+                            level = 5
+                            build_only_on_allied = yes
+                            start_state = temp_railway_start
+                            target_state = temp_railway_end
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_supply_node_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_building_construction = {
+                    type = supply_node
+                    level = 1
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_naval_base_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_building_construction = {
+                    type = naval_base
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_coastal = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_building_construction = {
+                    type = bunker
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_coastal_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_building_construction = {
+                    type = coastal_bunker
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_coastal = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_research_slot = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_research_slot = 1
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_finish_research_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            log = "SCP-EQ-Tools_enhancing_decisions_finish_research_onekey"
+            for_each_loop = {
+                array = global.research
+                value = temp_current_research
+                
+                log = "UnlockingTech:[?temp_current_research]"
+                meta_effect = {
+                    text = {
+                        [COUNTRY] = {
+                            set_technology = {
+                                [TECH] = 1
+                                popup = no
+                            }
+                        }
+                    }
+                    COUNTRY = ROOT
+                    TECH = temp_current_research
+                }
+                mark_technology_tree_layout_dirty = yes
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_lower_threat = {
         allowed = {
             # Always allowed
@@ -331,6 +804,94 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             add_threat = -245
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_compliance = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_compliance = 245
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_clear_resistance = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_resistance = -245
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_disable_resistance = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                cancel_resistance = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_core_on_every_controlled_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                add_core_of = ROOT
+            }
         }
     }
     
@@ -472,6 +1033,28 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             increase_science_base = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_EAW_improve_state_category = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                improve_state_category = yes
+            }
         }
     }
     
