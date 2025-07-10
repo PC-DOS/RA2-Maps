@@ -10,12 +10,12 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     research_speed_factor = 245.0
     war_stability_factor = 5.0
     war_support_weekly = 100.0
-    base_fuel_gain = 245245
-    #base_fuel_gain_factor = 25.0
+    base_fuel_gain = 24525
+    #base_fuel_gain_factor = 0.25
     #fuel_cost = -245
     #fuel_gain = 245245
-    #fuel_gain_factor = 25.0
-    max_fuel = 1245245
+    #fuel_gain_factor = 0.25
+    max_fuel = 245245
     army_fuel_capacity_factor = 245.0
     army_fuel_consumption_factor = -0.5
     air_fuel_consumption_factor = -0.5
@@ -47,12 +47,12 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     training_time_army_factor = -0.5
     max_training = 245.0
     special_forces_training_time_factor = -0.5
-    country_resource_oil = 245245
-    country_resource_aluminium = 245245
-    country_resource_rubber = 245245
-    country_resource_tungsten = 245245
-    country_resource_steel = 245245
-    country_resource_chromium = 245245
+    country_resource_oil = 24525
+    country_resource_aluminium = 24525
+    country_resource_rubber = 24525
+    country_resource_tungsten = 24525
+    country_resource_steel = 24525
+    country_resource_chromium = 24525
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
@@ -137,7 +137,7 @@ SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    country_resource_crystals = 245245
+    country_resource_crystals = 24525
 }
 
 # TFR dynamic modifiers group
@@ -159,9 +159,9 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    country_resource_uranium = 245245
-    country_resource_consumer_goods = 245245
-    country_resource_power = 245245
+    country_resource_uranium = 24525
+    country_resource_consumer_goods = 24525
+    country_resource_power = 24525
     gdp_growth_modifier = 25.0
     misc_income_modifier = 25.0
     research_facilities_monthly_rate = 25.0

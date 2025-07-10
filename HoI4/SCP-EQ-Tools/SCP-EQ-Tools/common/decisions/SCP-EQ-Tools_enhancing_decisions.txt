@@ -281,7 +281,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             add_command_power = 2450
-            add_manpower = 245245245
+            add_manpower = 245245
             army_experience = 2450
             navy_experience = 2450
             air_experience = 2450
@@ -306,7 +306,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            add_fuel = 245245
+            add_fuel = 24525
         }
     }
     SCP-EQ-Tools_enhancing_decisions_add_resource = {
@@ -329,37 +329,37 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             random_controlled_state = {
                 add_resource = {
                     type = oil
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = aluminium
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = rubber
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = tungsten
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = steel
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = chromium
-                    amount = 245245
+                    amount = 24525
                 }
             }
         }
@@ -1083,7 +1083,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             random_controlled_state = {
                 add_resource = {
                     type = crystals
-                    amount = 245245
+                    amount = 24525
                 }
             }
         }
@@ -1405,19 +1405,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             random_controlled_state = {
                 add_resource = {
                     type = uranium
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = consumer_goods
-                    amount = 245245
+                    amount = 24525
                 }
             }
             random_controlled_state = {
                 add_resource = {
                     type = power
-                    amount = 245245
+                    amount = 24525
                 }
             }
         }
