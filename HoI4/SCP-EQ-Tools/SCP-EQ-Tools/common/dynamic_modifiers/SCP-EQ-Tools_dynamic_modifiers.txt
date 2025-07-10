@@ -40,7 +40,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     experience_gain_navy = 245
     experience_gain_air = 245
     max_command_power = 245245
-    weekly_manpower = 245245
+    weekly_manpower = 24524525
     # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
     # https://tieba.baidu.com/p/7293424038
     training_time_factor = -0.25
