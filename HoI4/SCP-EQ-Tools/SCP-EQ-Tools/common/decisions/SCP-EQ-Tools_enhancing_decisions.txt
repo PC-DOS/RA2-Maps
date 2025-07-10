@@ -946,6 +946,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_nuke = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_nuclear_bombs = 245
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies = {
         allowed = {
             # Always allowed
@@ -963,18 +983,20 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            for_each_loop = {
-                #array = enemies
-                array = global.countries
-                value = tmp_enemy_country
-                
-                for_each_loop = {
-                    array = tmp_enemy_country.controlled_states
-                    value = tmp_enemy_controlled_state
-                    
-                    launch_nuke = {
-                        state = tmp_enemy_controlled_state
-                        use_nuke = no
+            every_enemy_country = {
+                log = "Nuking country: [?THIS.GetTag] ([?THIS.GetName])"
+                random_controlled_state = {
+                    log = "Nuking state: [?THIS.GetID] ([?THIS.GetName])"
+                    meta_effect = {
+                        text = {
+                            ROOT = {
+                                launch_nuke = {
+                                    state = [STATE_ID]
+                                    use_nuke = no
+                                }
+                            }
+                        }
+                        STATE_ID = [?THIS.GetID]
                     }
                 }
             }

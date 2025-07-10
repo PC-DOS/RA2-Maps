@@ -68,8 +68,10 @@
  SCP-EQ-Tools_enhancing_decisions_disable_resistance_desc:0 "警报，心灵支配仪已启动"
  SCP-EQ-Tools_enhancing_decisions_add_core_on_every_controlled_states:0 "核心化所有我方控制的地区"
  SCP-EQ-Tools_enhancing_decisions_add_core_on_every_controlled_states_desc:0 "警报，心灵支配仪已启动"
+ SCP-EQ-Tools_enhancing_decisions_add_nuke:0 "添加245颗核弹"
+ SCP-EQ-Tools_enhancing_decisions_add_nuke_desc:0 "警报，侦测到核弹发射井"
  SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies:0 "一键核爆所有敌国占领区"
- SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies_desc:0 "致 命 冲 击"
+ SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies_desc:0 "警报，核弹已发射！致命冲击即将来临！"
  # EAW decisions group
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle:0 "切换EaW专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle_desc:0 "切换EaW专用决议可见性"
