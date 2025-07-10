@@ -777,7 +777,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             popup = no
                         }
                     }
-                    #COUNTRY = [?ROOT.GetTag]
                     TECH = "[?temp_current_research.GetTokenKey]"
                 }
                 mark_technology_tree_layout_dirty = yes
