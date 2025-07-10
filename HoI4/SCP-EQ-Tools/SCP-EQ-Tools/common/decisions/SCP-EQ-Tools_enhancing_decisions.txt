@@ -326,37 +326,37 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = oil
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = aluminium
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = rubber
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = tungsten
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = steel
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = chromium
                     amount = 245245
@@ -1058,7 +1058,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = crystals
                     amount = 245245
@@ -1380,19 +1380,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = uranium
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = consumer_goods
                     amount = 245245
                 }
             }
-            every_controlled_state = {
+            random_controlled_state = {
                 add_resource = {
                     type = power
                     amount = 245245
