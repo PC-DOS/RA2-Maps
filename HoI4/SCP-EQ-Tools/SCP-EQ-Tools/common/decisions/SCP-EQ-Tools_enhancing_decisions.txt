@@ -766,21 +766,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             log = "SCP-EQ-Tools_enhancing_decisions_finish_research_onekey"
             for_each_loop = {
-                array = global.research
+                array = global.technology
                 value = temp_current_research
                 
-                log = "UnlockingTech:[?temp_current_research]"
+                log = "UnlockingTech: [?temp_current_research.GetTokenKey]"
                 meta_effect = {
                     text = {
-                        [COUNTRY] = {
-                            set_technology = {
-                                [TECH] = 1
-                                popup = no
-                            }
+                        set_technology = {
+                            [TECH] = 1
+                            popup = no
                         }
                     }
-                    COUNTRY = ROOT
-                    TECH = temp_current_research
+                    #COUNTRY = [?ROOT.GetTag]
+                    TECH = "[?temp_current_research.GetTokenKey]"
                 }
                 mark_technology_tree_layout_dirty = yes
             }
