@@ -41,18 +41,23 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     experience_gain_air = 245
     max_command_power = 245245
     weekly_manpower = 1245245
-    # if training_time_factor + XXX_training_time_XXX_factor < -1.0, you cannot train armies!
-    # https://tieba.baidu.com/p/7293424038
-    training_time_factor = -0.5
-    training_time_army_factor = -0.25
-    #special_forces_training_time_factor = -0.25
-    max_training = 245.0
     country_resource_oil = 24525
     country_resource_aluminium = 24525
     country_resource_rubber = 24525
     country_resource_tungsten = 24525
     country_resource_steel = 24525
     country_resource_chromium = 24525
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_training = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    # if training_time_factor + XXX_training_time_XXX_factor < -1.0, you cannot train armies!
+    # https://tieba.baidu.com/p/7293424038
+    training_time_factor = -0.5
+    training_time_army_factor = -0.25
+    #special_forces_training_time_factor = -0.25
+    max_training = 245.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
