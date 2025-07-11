@@ -104,6 +104,8 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
     dig_in_speed_factor = 245.0
     org_loss_when_moving = -0.5
     land_night_attack = 245.0
+    special_forces_cap = 25.0
+    special_forces_min = 24525
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
