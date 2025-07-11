@@ -1,7 +1,7 @@
 ﻿l_simp_chinese:
  # Decision category
- SCP-EQ-Tools_enhancing_decisions_TNO_law_category:0 "TNO政策法律修改"
- SCP-EQ-Tools_enhancing_decisions_TNO_law_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，在TNO中实现政策法律的修改。"
+ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category:0 "TNO政策法律修改"
+ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，在TNO中实现政策法律的修改。"
  # Social Laws
  SCP-EQ-Tools_enhancing_decisions_TNO_health_care_improve:0 "医保制度升一档"
  SCP-EQ-Tools_enhancing_decisions_TNO_health_care_improve_desc:0 "但愿世间人无病，何妨架上药生尘"
