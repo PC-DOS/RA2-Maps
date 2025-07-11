@@ -43,10 +43,10 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     weekly_manpower = 1245245
     # if training_time_factor + training_time_army_factor < -1.0, you cannot train armies!
     # https://tieba.baidu.com/p/7293424038
-    training_time_factor = -0.5
+    training_time_factor = -0.25
     training_time_army_factor = -0.25
+    special_forces_training_time_factor = -0.25
     max_training = 245.0
-    special_forces_training_time_factor = -0.5
     country_resource_oil = 24525
     country_resource_aluminium = 24525
     country_resource_rubber = 24525
@@ -94,11 +94,11 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
     breakthrough_factor = 245.0
     pocket_penalty = -245.0
     terrain_penalty_reduction = 100.0
-    cas_damage_reduction = -1.0
+    cas_damage_reduction = 5.0
     dig_in_speed = 25
     dig_in_speed_factor = 245.0
     org_loss_when_moving = -0.5
-    land_night_attack = -5.0
+    land_night_attack = 245.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
