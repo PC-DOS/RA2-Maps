@@ -44,7 +44,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     # if training_time_factor + XXX_training_time_XXX_factor < -1.0, you cannot train armies!
     # https://tieba.baidu.com/p/7293424038
     training_time_factor = -0.5
-    #training_time_army_factor = -0.25
+    training_time_army_factor = -0.25
     #special_forces_training_time_factor = -0.25
     max_training = 245.0
     country_resource_oil = 24525
