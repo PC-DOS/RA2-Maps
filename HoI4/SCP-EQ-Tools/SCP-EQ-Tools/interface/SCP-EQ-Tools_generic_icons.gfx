@@ -1,4 +1,5 @@
 spriteTypes = {
+    # Generic icons
     spriteType = {
         name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
         texturefile = gfx/generic_icons/SCP_1_Generic.png
@@ -7,6 +8,8 @@ spriteTypes = {
         name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
         texturefile = gfx/generic_icons/SCP_1_Generic_Small.png
     }
+    
+    # Generic icons - EaW group
     spriteType = {
         name = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic
         texturefile = gfx/generic_icons/SCP_EQ_1_Generic.png
@@ -14,5 +17,25 @@ spriteTypes = {
     spriteType = {
         name = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic_Small
         texturefile = gfx/generic_icons/SCP_EQ_1_Generic_Small.png
+    }
+    
+    # Generic icons - TFR group
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR
+        texturefile = gfx/generic_icons/SCP_EQ_1_TFR.png
+    }
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR_Small
+        texturefile = gfx/generic_icons/SCP_EQ_1_TFR_Small.png
+    }
+    
+    # Generic icons - TNO group
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO
+        texturefile = gfx/generic_icons/SCP_EQ_1_TNO.png
+    }
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        texturefile = gfx/generic_icons/SCP_EQ_1_TNO_Small.png
     }
 }
