@@ -207,4 +207,9 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     industrial_expertise_monthly_rate = 25.0
     army_professionalism_monthly_rate = 25.0
     nuclear_stockpile_monthly_rate = 25.0
+    academic_development_monthly = 0.25
+    farming_development_monthly = 0.25
+    poverty_development_monthly = 0.25
+    military_development_monthly = 0.25
+    society_development_monthly = 0.25
 }
