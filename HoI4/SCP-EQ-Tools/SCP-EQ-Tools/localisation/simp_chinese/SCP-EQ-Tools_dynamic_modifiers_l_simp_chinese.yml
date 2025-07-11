@@ -1,0 +1,23 @@
+﻿l_simp_chinese:
+ # Generic dynamic modifiers group
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1:0 "SCP之力-1"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_desc:0 "一些有趣的小工具"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production:0 "SCP之力-1-生产"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_desc:0 "又学习来又生产，三五九旅是模范"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_training:0 "SCP之力-1-训练"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_training_desc:0 "飒爽英姿五尺枪，曙光初照演兵场"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army:0 "SCP之力-1-陆军"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army_desc:0 "向前进，向前进，战士的责任重，奴隶的怨仇深"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval:0 "SCP之力-1-海军"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval_desc:0 "我爱这蓝色的海洋"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air:0 "SCP之力-1-空军"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air_desc:0 "要问飞行员爱什么？我爱祖国的蓝天"
+ # EAW dynamic modifiers group
+ SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1:0 "SCP之力（EAW）-1"
+ SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1_desc:0 "一些有趣的小工具"
+ # TFR dynamic modifiers group
+ SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1:0 "SCP之力（TFR）-1"
+ SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1_desc:0 "一些有趣的小工具"
+ # TNO dynamic modifiers group
+ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1:0 "SCP之力（TNO）-1"
+ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1_desc:0 "一些有趣的小工具"
