@@ -1324,7 +1324,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_random = {
+    SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_onekey = {
         allowed = {
             # Always allowed
         }
@@ -1341,7 +1341,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            random_controlled_state = {
+            every_controlled_state = {
                 add_extra_state_shared_building_slots = 1
                 add_building_construction = {
                     type = office_park
