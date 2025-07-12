@@ -197,6 +197,7 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     country_resource_consumer_goods = 24525
     country_resource_power = 24525
     gdp_growth_modifier = 50.0
+    inflation_rate_modifier = -50.0
     misc_income_modifier = 25.0
     research_facilities_monthly_rate = 25.0
     academic_base_monthly_rate = 25.0
