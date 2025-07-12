@@ -1016,20 +1016,17 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            random_enemy_country = {
-                log = "Nuking country: [?THIS.GetTag] ([?THIS.GetName])"
-                random_controlled_state = {
-                    log = "Nuking state: [?THIS.GetID] ([?THIS.GetName])"
-                    meta_effect = {
-                        text = {
-                            ROOT = {
-                                launch_nuke = {
-                                    state = [STATE_ID]
-                                    use_nuke = no
-                                }
-                            }
+            every_enemy_country = {
+                set_temp_variable = { temp_nuke_target_country = THIS }
+                log = "Nuking country: [?temp_nuke_target_country.GetTag] ([?temp_nuke_target_country.GetName])"
+                every_owned_state = {
+                    set_temp_variable = { temp_nuke_target_state = THIS }
+                    log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
+                    var:temp_nuke_target_country = {
+                        launch_nuke = {
+                            state = temp_nuke_target_state
+                            use_nuke = no
                         }
-                        STATE_ID = [?THIS.GetID]
                     }
                 }
             }
