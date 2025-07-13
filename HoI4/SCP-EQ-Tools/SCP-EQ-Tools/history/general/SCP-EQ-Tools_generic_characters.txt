@@ -70,9 +70,6 @@ every_possible_country = {
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
         }
-        visible = {
-            has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
-        }
         gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
@@ -82,6 +79,9 @@ every_possible_country = {
             ledger = civilian
             can_be_fired = yes
             traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
         }
     }
 }
