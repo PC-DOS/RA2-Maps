@@ -1,0 +1,87 @@
+# Generic character definition
+# Ref. https://hoi4.paradoxwikis.com/Character_modding
+
+# Copied from TNO
+every_possible_country = {
+    #generate_character = {
+    #   token_base = Generic_Vacant # token will be TAG_token_base
+    #   advisor = {
+    #       slot = head_of_government
+    #       traits = { head_of_government }
+    #       idea_token = hog
+    #       ledger = civilian
+    #       cost = -1
+    #       can_be_fired = no
+    #       allowed = { always = yes }
+    #       ai_will_do = { factor = 0 }
+    #   }
+    #   advisor = {
+    #       slot = economy_minister
+    #       traits = { economy_minister }
+    #       idea_token = eco
+    #       ledger = civilian
+    #       cost = -1
+    #       can_be_fired = no
+    #       allowed = { always = yes }
+    #       ai_will_do = { factor = 0 }
+    #   }
+    #   advisor = {
+    #       slot = foreign_minister
+    #       traits = { foreign_minister }
+    #       idea_token = for
+    #       ledger = civilian
+    #       cost = -1
+    #       can_be_fired = no
+    #       allowed = { always = yes }
+    #       ai_will_do = { factor = 0 }
+    #   }
+    #   advisor = {
+    #       slot = security_minister
+    #       traits = { security_minister }
+    #       idea_token = sec
+    #       ledger = civilian
+    #       cost = -1
+    #       can_be_fired = no
+    #       allowed = { always = yes }
+    #       ai_will_do = { factor = 0 }
+    #   }
+    #   portraits = {
+    #       civilian = { small = "GFX_idea_Generic_Position_Vacant" }
+    #   }
+    #}
+}
+
+# Dr. Picsell Dois
+every_possible_country = {
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+        }
+        gender = male
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = political_advisor
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+        }
+    }
+}

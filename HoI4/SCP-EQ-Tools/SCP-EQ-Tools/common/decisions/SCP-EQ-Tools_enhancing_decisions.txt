@@ -49,33 +49,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            log = "SCP-EQ-Tools_enhancing_decisions_recruit_PD"
-            generate_character = {
-                token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois
-                name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-                portraits = {
-                    civilian = {
-                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                    }
-                    army = {
-                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                    }
-                    navy = {
-                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
-                    }
-                }
-                gender = male
-                advisor = {
-                    slot = political_advisor
-                    cost = 0
-                    removal_cost = 0
-                    ledger = civilian
-                    can_be_fired = yes
-                }
-            }
+            set_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
         }
     }
     SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1 = {
