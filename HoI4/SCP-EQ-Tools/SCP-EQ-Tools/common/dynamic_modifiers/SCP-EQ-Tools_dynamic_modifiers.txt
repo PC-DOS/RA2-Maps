@@ -163,7 +163,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     navy_submarine_detection_factor = 5.0
     screening_efficiency = 5.0
     screening_without_screens = 5.0
-    naval_enemy_retreat_chance = 1.0
+    #naval_enemy_retreat_chance = -1.0
     positioning = 1.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
