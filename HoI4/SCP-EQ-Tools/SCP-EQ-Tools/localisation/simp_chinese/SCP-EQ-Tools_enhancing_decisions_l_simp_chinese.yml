@@ -75,6 +75,8 @@
  SCP-EQ-Tools_enhancing_decisions_add_nuke_desc:0 "警报，侦测到核弹发射井"
  SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies:0 "核爆全部敌国所有控制区"
  SCP-EQ-Tools_enhancing_decisions_nuke_our_enemies_desc:0 "警报，核弹已发射！致命冲击即将来临！"
+ SCP-EQ-Tools_enhancing_decisions_unlock_division_templates:0 "允许训练部队、解散部队和编辑部队模板"
+ SCP-EQ-Tools_enhancing_decisions_unlock_division_templates_desc:0 "赵毅点兵"
  # EAW decisions group
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle:0 "切换EaW专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle_desc:0 "切换EaW专用决议可见性"
