@@ -169,7 +169,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     screening_without_screens = 5.0
     #naval_enemy_retreat_chance = -1.0
     positioning = 1.0
-    naval_accidents_chance = -0.5
+    naval_accidents_chance = -5.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
