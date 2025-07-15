@@ -30,6 +30,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     unit_upkeep_attrition_factor = -5.0
     heat_attrition_factor = -5.0
     winter_attrition_factor = -5.0
+    truck_attrition_factor = -5.0
     land_bunker_effectiveness_factor = 25.0
     coastal_bunker_effectiveness_factor = 25.0
     resistance_activity = -5.0
