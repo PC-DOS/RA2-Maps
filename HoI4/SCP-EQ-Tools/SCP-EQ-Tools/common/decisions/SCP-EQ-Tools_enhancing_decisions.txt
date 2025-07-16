@@ -50,6 +50,35 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             set_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            # Override some default portrait settings
+            # E.g. EaW's setup_generic_advisor_portraits common/scripted_effects/EAW_race_effects.txt
+            every_character = {
+                limit = {
+                    OR = {
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait
+                    }
+                }
+                set_portraits = {
+                    civilian = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+                    }
+                    army = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+                    }
+                    navy = {
+                        large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                        small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+                    }
+                }
+            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1 = {
