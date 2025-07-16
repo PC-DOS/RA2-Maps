@@ -25,7 +25,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -56,7 +56,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -87,7 +87,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -118,7 +118,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -149,7 +149,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -180,7 +180,7 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }

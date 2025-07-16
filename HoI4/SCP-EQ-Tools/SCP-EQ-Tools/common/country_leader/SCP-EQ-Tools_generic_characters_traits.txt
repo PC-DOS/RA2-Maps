@@ -15,4 +15,104 @@ leader_traits = {
             base = 0
         }
     }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor_trait = {
+        random = no
+        research_speed_factor = 245.0
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        war_support_weekly = 100.0
+        command_power_gain = 2450
+        experience_gain_army = 245
+        experience_gain_navy = 245
+        experience_gain_air = 245
+        max_command_power = 245245
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist_trait = {
+        random = no
+        research_speed_factor = 245.0
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        war_support_weekly = 100.0
+        command_power_gain = 2450
+        experience_gain_army = 245
+        experience_gain_navy = 245
+        experience_gain_air = 245
+        max_command_power = 245245
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief_trait = {
+        random = no
+        army_attack_factor = 25.0
+        army_attack_speed_factor = 25.0
+        army_defence_factor = 25.0
+        army_speed_factor = 25.0
+        army_strength_factor = 25.0
+        army_morale = 245
+        army_morale_factor = 5.0
+        army_org = 245
+        army_org_factor = 5.0
+        army_org_regain = 5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait = {
+        random = no
+        naval_damage_factor = 25.0
+        naval_defense_factor = 25.0
+        naval_speed_factor = 25.0
+        naval_morale = 245
+        naval_morale_factor = 5.0
+        navy_org = 245
+        navy_org_factor = 5.0
+        navy_max_range = 245
+        navy_max_range_factor = 5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait = {
+        random = no
+        air_attack_factor = 25.0
+        air_defence_factor = 25.0
+        air_range_factor = 5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait = {
+        random = no
+        army_attack_factor = 25.0
+        army_attack_speed_factor = 25.0
+        army_defence_factor = 25.0
+        army_speed_factor = 25.0
+        army_strength_factor = 25.0
+        army_morale = 245
+        army_morale_factor = 5.0
+        army_org = 245
+        army_org_factor = 5.0
+        army_org_regain = 5.0
+        naval_damage_factor = 25.0
+        naval_defense_factor = 25.0
+        naval_speed_factor = 25.0
+        naval_morale = 245
+        naval_morale_factor = 5.0
+        navy_org = 245
+        navy_org_factor = 5.0
+        navy_max_range = 245
+        navy_max_range_factor = 5.0
+        air_attack_factor = 25.0
+        air_defence_factor = 25.0
+        air_range_factor = 5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
 }
