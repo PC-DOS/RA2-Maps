@@ -1,6 +1,7 @@
 # Generic character definition
 # Ref. https://hoi4.paradoxwikis.com/Character_modding
 # Original advisor slots: political_advisor, theorist, army_chief, navy_chief, air_chief, high_command
+# To write a description of a generic character, the localisation key should be [token_base]_[idea_token]_desc
 
 # Copied from TNO
 every_possible_country = {
