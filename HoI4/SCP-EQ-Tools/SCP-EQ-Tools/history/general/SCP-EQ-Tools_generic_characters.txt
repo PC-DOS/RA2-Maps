@@ -30,5 +30,104 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = theorist
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = army_chief
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = navy_chief
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = air_chief
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        advisor = {
+            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            slot = high_command
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        corps_commander = {
+            skill = 245
+            attack_skill = 245
+            defense_skill = 245
+            planning_skill = 245
+            logistics_skill = 245
+            maneuvering_skill = 245
+            coordination_skill = 245
+            traits = {}
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        field_marshal = {
+            skill = 245
+            attack_skill = 245
+            defense_skill = 245
+            planning_skill = 245
+            logistics_skill = 245
+            maneuvering_skill = 245
+            coordination_skill = 245
+            traits = {}
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+        navy_leader = {
+            skill = 245
+            attack_skill = 245
+            defense_skill = 245
+            planning_skill = 245
+            logistics_skill = 245
+            maneuvering_skill = 245
+            coordination_skill = 245
+            traits = {}
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
     }
 }
