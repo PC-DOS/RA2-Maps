@@ -20,6 +20,10 @@ every_possible_country = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
+            military = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
         }
         gender = male
         advisor = {
@@ -52,6 +56,10 @@ every_possible_country = {
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
             air = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            military = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
@@ -90,6 +98,10 @@ every_possible_country = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
+            military = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
         }
         gender = male
         advisor = {
@@ -122,6 +134,10 @@ every_possible_country = {
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
             air = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            military = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
@@ -160,6 +176,10 @@ every_possible_country = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
+            military = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
         }
         gender = male
         advisor = {
@@ -195,6 +215,10 @@ every_possible_country = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
+            military = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
         }
         gender = male
         advisor = {
@@ -202,7 +226,7 @@ every_possible_country = {
             slot = high_command
             cost = 0
             removal_cost = 0
-            ledger = army
+            ledger = military
             can_be_fired = yes
             traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait }
             visible = {
@@ -227,6 +251,10 @@ every_possible_country = {
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
             air = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            military = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
@@ -266,6 +294,10 @@ every_possible_country = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
+            military = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
         }
         gender = male
         field_marshal = {
@@ -299,6 +331,10 @@ every_possible_country = {
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
             air = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            military = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
                 small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             }
