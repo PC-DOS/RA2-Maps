@@ -130,7 +130,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     navy_max_range = 245
     navy_max_range_factor = 25.0
     naval_night_attack = 0.5
-    spotting_chance = 1.0
+    spotting_chance = 5.0
     naval_invasion_prep_speed = 245
     naval_invasion_capacity = 245
     naval_invasion_penalty = -5.0
@@ -142,14 +142,14 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     naval_coordination = 245.0
     naval_critical_effect_factor = -1.0
     naval_critical_score_chance_factor = 1.0
-    naval_detection = 1.0
-    naval_hit_chance = 1.0
+    naval_detection = 5.0
+    naval_hit_chance = 5.0
     naval_mine_hit_chance = -1.0
     naval_mines_damage_factor = 245.0
-    naval_mines_effect_reduction = 1.0
+    naval_mines_effect_reduction = 5.0
     night_spotting_chance = 1.0
     navy_weather_penalty = -1.0
-    repair_speed_factor = 0.75
+    repair_speed_factor = 25.0
     critical_receive_chance = -1.0
     naval_torpedo_hit_chance_factor = 5.0
     naval_torpedo_screen_penetration_factor  = 5.0
@@ -167,8 +167,12 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     screening_efficiency = 5.0
     screening_without_screens = 5.0
     #naval_enemy_retreat_chance = -1.0
-    positioning = 1.0
+    positioning = 5.0
     naval_accidents_chance = -5.0
+    # Not sure but this may prevent your ships from being repaired
+    # See https://tieba.baidu.com/p/9294925158
+    # Also common/units/equipment/ship_hull_xxxxx.txt
+    #navy_weather_penalty = -1.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
