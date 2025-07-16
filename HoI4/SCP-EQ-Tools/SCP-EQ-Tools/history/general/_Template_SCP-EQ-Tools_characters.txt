@@ -1,5 +1,6 @@
 # Generic character definition
 # Ref. https://hoi4.paradoxwikis.com/Character_modding
+# Original advisor slots: political_advisor, theorist, army_chief, navy_chief, air_chief, high_command
 
 # Copied from TNO
 every_possible_country = {
@@ -44,6 +45,30 @@ every_possible_country = {
     #       can_be_fired = no
     #       allowed = { always = yes }
     #       ai_will_do = { factor = 0 }
+    #   }
+    #   field_marshal = {
+    #       traits = { my_trait_1 my_trait_2 }
+    #       skill = 10
+    #       attack_skill = 8
+    #       defense_skill = 1
+    #       planning_skill = 10
+    #       logistics_skill = 10
+    #   }
+    #   corps_commander = {
+    #       skill = 1
+    #       attack_skill = 2
+    #       defense_skill = 3
+    #       planning_skill = 4
+    #       logistics_skill = 5
+    #   }
+    #   navy_leader = {
+    #       skill = 3
+    #       attack_skill = 1
+    #       defense_skill = 3
+    #       maneuvering_skill = 5
+    #       coordination_skill = 4
+    #       legacy_id = 10
+    #       visible = { has_stability > 0.3 }
     #   }
     #   portraits = {
     #       civilian = { small = "GFX_idea_Generic_Position_Vacant" }
