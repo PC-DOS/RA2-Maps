@@ -12,6 +12,8 @@
  SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval_desc:0 "我爱这蓝色的海洋"
  SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air:0 "SCP之力-1-空军"
  SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air_desc:0 "要问飞行员爱什么？我爱祖国的蓝天"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence:0 "SCP之力-1-情报"
+ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence_desc:0 "雪山千古冷，独照峨眉峰"
  # EAW dynamic modifiers group
  SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1:0 "SCP之力（EAW）-1"
  SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1_desc:0 "一些有趣的小工具"

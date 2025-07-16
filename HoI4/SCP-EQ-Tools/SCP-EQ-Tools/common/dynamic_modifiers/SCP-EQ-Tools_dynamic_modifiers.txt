@@ -193,6 +193,42 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
     air_escort_efficiency = 245.0
     air_bombing_targetting = 245.0
 }
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    decryption = 245
+    decryption_factor = 5.0
+    encryption = 245
+    encryption_factor = 5.0
+    foreign_subversive_activites = -5.0
+    intel_network_gain = 245
+    intel_network_gain_factor = 5.0
+    subversive_activites_upkeep = -1.0
+    operation_cost = -1.0
+    operation_outcome = 5.0
+    operation_risk = -1.0
+    intelligence_agency_defense = 5.0
+    root_out_resistance_effectiveness_factor = 5.0
+    own_operative_capture_chance_factor = -5.0
+    own_operative_detection_chance = -245
+    own_operative_detection_chance_factor = -5.0
+    own_operative_harmed_time_factor = -5.0
+    own_operative_intel_extraction_rate = 5.0
+    enemy_operative_capture_chance_factor = 5.0
+    enemy_operative_detection_chance = 245
+    enemy_operative_detection_chance_factor = 5.0
+    enemy_operative_intel_extraction_rate = -5.0
+    operative_slot = 25
+    civilian_intel_factor = 5.0
+    army_intel_factor = 5.0
+    navy_intel_factor = 5.0
+    airforce_intel_factor = 5.0
+    civilian_intel_to_others = -5.0
+    army_intel_to_others = -5.0
+    navy_intel_to_others = -5.0
+    airforce_intel_to_others = -5.0
+}
 
 # EAW dynamic modifiers group
 SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1 = {
