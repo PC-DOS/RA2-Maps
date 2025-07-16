@@ -214,20 +214,20 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence = {
     own_operative_detection_chance = -245
     own_operative_detection_chance_factor = -5.0
     own_operative_harmed_time_factor = -5.0
-    own_operative_intel_extraction_rate = 5.0
+    own_operative_intel_extraction_rate = -5.0
     enemy_operative_capture_chance_factor = 5.0
     enemy_operative_detection_chance = 245
     enemy_operative_detection_chance_factor = 5.0
-    enemy_operative_intel_extraction_rate = -5.0
+    enemy_operative_intel_extraction_rate = 5.0
     operative_slot = 25
     civilian_intel_factor = 5.0
     army_intel_factor = 5.0
     navy_intel_factor = 5.0
     airforce_intel_factor = 5.0
-    civilian_intel_to_others = -5.0
-    army_intel_to_others = -5.0
-    navy_intel_to_others = -5.0
-    airforce_intel_to_others = -5.0
+    civilian_intel_to_others = -245.0
+    army_intel_to_others = -245.0
+    navy_intel_to_others = -245.0
+    airforce_intel_to_others = -245.0
 }
 
 # EAW dynamic modifiers group
