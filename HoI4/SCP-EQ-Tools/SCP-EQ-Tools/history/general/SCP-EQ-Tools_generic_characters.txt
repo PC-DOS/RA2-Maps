@@ -1,7 +1,7 @@
 # Dr. Picsell Dois
 every_possible_country = {
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor
         name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
         portraits = {
             civilian = {
@@ -30,6 +30,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
             slot = theorist
@@ -42,6 +61,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
             slot = army_chief
@@ -54,6 +92,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
             slot = navy_chief
@@ -66,6 +123,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
             slot = air_chief
@@ -78,6 +154,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         advisor = {
             idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
             slot = high_command
@@ -90,6 +185,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_corps_commander
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         corps_commander = {
             skill = 245
             attack_skill = 245
@@ -103,6 +217,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_field_marshal
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         field_marshal = {
             skill = 245
             attack_skill = 245
@@ -116,6 +249,25 @@ every_possible_country = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
         }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_leader
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
         navy_leader = {
             skill = 245
             attack_skill = 245
