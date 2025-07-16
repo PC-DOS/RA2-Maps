@@ -19,7 +19,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = political_advisor
             cost = 0
             removal_cost = 0
@@ -50,7 +50,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = theorist
             cost = 0
             removal_cost = 0
@@ -81,7 +81,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = army_chief
             cost = 0
             removal_cost = 0
@@ -112,7 +112,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = navy_chief
             cost = 0
             removal_cost = 0
@@ -143,7 +143,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = air_chief
             cost = 0
             removal_cost = 0
@@ -174,7 +174,7 @@ every_possible_country = {
         }
         gender = male
         advisor = {
-            idea_token = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_idea_token
+            idea_token = default_idea_token
             slot = high_command
             cost = 0
             removal_cost = 0
