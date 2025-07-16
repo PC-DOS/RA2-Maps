@@ -148,7 +148,6 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     naval_mines_damage_factor = 245.0
     naval_mines_effect_reduction = 5.0
     night_spotting_chance = 1.0
-    navy_weather_penalty = -1.0
     repair_speed_factor = 25.0
     critical_receive_chance = -1.0
     naval_torpedo_hit_chance_factor = 5.0
@@ -215,7 +214,7 @@ SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
     farming_development_monthly = 0.5
     military_development_monthly = 0.5
     income_growth_factor = 0.25
-    inflation_monthly = -0.25
+    inflation_monthly = -0.05
     misc_income = 25.0
 }
 
