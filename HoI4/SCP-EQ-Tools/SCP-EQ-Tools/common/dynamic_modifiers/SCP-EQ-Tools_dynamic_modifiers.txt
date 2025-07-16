@@ -149,7 +149,6 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     naval_mines_effect_reduction = 1.0
     night_spotting_chance = 1.0
     navy_weather_penalty = -1.0
-    spotting_chance = 1.0
     repair_speed_factor = 0.75
     critical_receive_chance = -1.0
     naval_torpedo_hit_chance_factor = 5.0
