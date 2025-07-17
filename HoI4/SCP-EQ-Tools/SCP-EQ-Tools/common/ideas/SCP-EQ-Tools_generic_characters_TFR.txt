@@ -8,7 +8,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
@@ -23,7 +23,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
@@ -38,7 +38,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
@@ -53,7 +53,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
@@ -68,7 +68,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
@@ -83,7 +83,7 @@ ideas = {
                 name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
                 picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
                 allowed = {
-                    # Always allowed
+                    always = yes
                 }
                 visible = {
                     has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
