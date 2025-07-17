@@ -212,7 +212,7 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = {}
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -244,7 +244,7 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = {}
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }
@@ -276,7 +276,7 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = {}
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
             visible = {
                 has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
             }

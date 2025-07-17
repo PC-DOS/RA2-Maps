@@ -115,6 +115,107 @@ leader_traits = {
             base = 0
         }
     }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_head_of_government_trait = {
+        random = no
+        research_speed_factor = 245.0
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        war_support_weekly = 100.0
+        command_power_gain = 2450
+        experience_gain_army = 245
+        experience_gain_navy = 245
+        experience_gain_air = 245
+        max_command_power = 245245
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_foreign_minister_trait = {
+        random = no
+        generate_wargoal_tension = -245
+        guarantee_cost = -5.0
+        guarantee_tension = -245
+        join_faction_tension = -245
+        justify_war_goal_time = -0.5
+        lend_lease_tension = -245
+        annex_cost_factor = -5.0
+        puppet_cost_factor = -5.0
+        send_volunteer_factor = 5.0
+        send_volunteer_size = 24525
+        send_volunteers_tension = -245
+        air_volunteer_cap = 24525
+        embargo_threshold_factor = -245
+        embargo_cost_factor = -5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_economic_minister_trait = {
+        random = no
+        academic_development_monthly = 0.5
+        society_development_monthly = 0.5
+        industrial_development_monthly = 0.5
+        poverty_development_monthly = 0.5
+        farming_development_monthly = 0.5
+        military_development_monthly = 0.5
+        income_growth_factor = 0.25
+        inflation_monthly = -0.05
+        misc_income = 25.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_interior_minister_trait = {
+        random = no
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        civilian_intel_factor = 5.0
+        army_intel_factor = 5.0
+        navy_intel_factor = 5.0
+        airforce_intel_factor = 5.0
+        civilian_intel_to_others = -245.0
+        army_intel_to_others = -245.0
+        navy_intel_to_others = -245.0
+        airforce_intel_to_others = -245.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_intelligence_minister_trait = {
+        random = no
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        civilian_intel_factor = 5.0
+        army_intel_factor = 5.0
+        navy_intel_factor = 5.0
+        airforce_intel_factor = 5.0
+        civilian_intel_to_others = -245.0
+        army_intel_to_others = -245.0
+        navy_intel_to_others = -245.0
+        airforce_intel_to_others = -245.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_theorist_minister_trait = {
+        random = no
+        research_speed_factor = 245.0
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        war_support_weekly = 100.0
+        command_power_gain = 2450
+        experience_gain_army = 245
+        experience_gain_navy = 245
+        experience_gain_air = 245
+        max_command_power = 245245
+        ai_will_do = {
+            base = 0
+        }
+    }
     SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait = {
         random = no
         research_speed_factor = 245.0
