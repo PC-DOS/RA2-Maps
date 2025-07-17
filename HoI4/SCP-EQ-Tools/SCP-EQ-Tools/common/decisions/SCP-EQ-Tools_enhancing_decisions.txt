@@ -1521,6 +1521,123 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TFR_PRC_add_influence = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = {
+                var = global.PRC_influence_CAM_var_temp
+                value = 5.0
+            }
+            PRC_add_CAM_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_CAM_var_temp
+                value = -5.0
+            }
+            JAP_add_CAM_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_INS_var_temp
+                value = 5.0
+            }
+            PRC_add_INS_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_INS_var_temp
+                value = -5.0
+            }
+            JAP_add_INS_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_LAO_var_temp
+                value = 5.0
+            }
+            PRC_add_LAO_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_LAO_var_temp
+                value = -5.0
+            }
+            JAP_add_LAO_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_MAL_var_temp
+                value = 5.0
+            }
+            PRC_add_MAL_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_MAL_var_temp
+                value = -5.0
+            }
+            JAP_add_MAL_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_BRM_var_temp
+                value = 5.0
+            }
+            PRC_add_BRM_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_BRM_var_temp
+                value = -5.0
+            }
+            JAP_add_BRM_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_PHI_var_temp
+                value = 5.0
+            }
+            PRC_add_PHI_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_PHI_var_temp
+                value = -5.0
+            }
+            JAP_add_PHI_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_SIG_var_temp
+                value = 5.0
+            }
+            PRC_add_SIG_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_SIG_var_temp
+                value = -5.0
+            }
+            JAP_add_SIG_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_SIA_var_temp
+                value = 5.0
+            }
+            PRC_add_SIA_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_SIA_var_temp
+                value = -5.0
+            }
+            JAP_add_SIA_influence = yes
+            
+            set_temp_variable = {
+                var = global.PRC_influence_VIN_var_temp
+                value = 5.0
+            }
+            PRC_add_VIN_influence = yes
+            set_temp_variable = {
+                var = global.JAP_influence_VIN_var_temp
+                value = -5.0
+            }
+            JAP_add_VIN_influence = yes
+        }
+    }
     
     # TNO decisions group
     SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle = {
