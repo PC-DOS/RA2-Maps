@@ -62,6 +62,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait
                         has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait
                         has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister_trait
+                        has_trait = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister_trait
                     }
                 }
                 set_portraits = {
