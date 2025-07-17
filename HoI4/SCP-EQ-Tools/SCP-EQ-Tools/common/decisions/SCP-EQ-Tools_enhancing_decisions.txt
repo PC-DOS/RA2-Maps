@@ -1172,6 +1172,32 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_remove_embargo_from_other_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                diplomatic_relation = {
+                    country = ROOT
+                    relation = embargo
+                    active = no
+                }
+            }
+        }
+    }
     
     # EAW decisions group
     SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle = {
