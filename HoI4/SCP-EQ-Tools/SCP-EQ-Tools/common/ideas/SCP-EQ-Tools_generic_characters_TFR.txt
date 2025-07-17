@@ -5,7 +5,7 @@ ideas = {
     head_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_head_of_government = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }
@@ -20,7 +20,7 @@ ideas = {
     foreign_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_foreign_minister = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }
@@ -35,7 +35,7 @@ ideas = {
     economic_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_economic_minister = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }
@@ -50,7 +50,7 @@ ideas = {
     interior_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_interior_minister = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }
@@ -65,7 +65,7 @@ ideas = {
     intelligence_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_intelligence_minister = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }
@@ -80,7 +80,7 @@ ideas = {
     theorist_minister = {
         SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_theorist_minister = {
             name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
-            picture = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            picture = SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
             allowed = {
                 always = yes
             }

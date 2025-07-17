@@ -1,0 +1,61 @@
+# Ref. https://hoi4.paradoxwikis.com/Idea_modding
+#
+# ideas = {
+#    country = { # Necessary for the game to consider them spirits rather than a different idea type.
+#        my_spirit = {
+#            picture = my_picture        # Using GFX_idea_my_picture
+#            modifier = {
+#                training_time_factor = -0.1
+#            }
+#            targeted_modifier = {
+#                tag = QAT
+#                defense_bonus_against = 0.2
+#            }
+#            research_bonus = {
+#                infantry = 0.1
+#            }
+#            equipment_bonus = {
+#                infantry_equipment = {
+#                    instant = yes
+#                    defense = 0.2
+#                }
+#            }
+#            rule = {
+#                can_join_factions = no
+#            }
+#        }
+#        my_spirit_2 = {        # Using GFX_idea_my_spirit_2
+#            allowed_civil_war = {
+#                has_government = democratic         # Only appear in a civil war for the democratic side.
+#            }
+#            cancel = {
+#                democratic > 0.6
+#            }
+#            on_add = {
+#                add_popularity = {
+#                    ideology = democratic
+#                    popularity = 0.2
+#                }
+#            }
+#            on_remove = {
+#                if = {
+#                    limit = {
+#                        democratic > 0.6
+#                    }
+#                    start_civil_war = {
+#                        ideology = democratic
+#                        size = 0.6
+#                    }
+#                }
+#            }
+#            do_effect = {
+#                NOT = {
+#                    has_government = democratic
+#                }
+#            }
+#            modifier = {
+#                democratic_drift = 0.005
+#            }
+#        }
+#    }
+# }
