@@ -115,4 +115,77 @@ leader_traits = {
             base = 0
         }
     }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait = {
+        random = no
+        research_speed_factor = 245.0
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        war_support_weekly = 100.0
+        command_power_gain = 2450
+        experience_gain_army = 245
+        experience_gain_navy = 245
+        experience_gain_air = 245
+        max_command_power = 245245
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait = {
+        random = no
+        gdp_growth_modifier = 50.0
+        inflation_rate_modifier = -245.0
+        misc_income_modifier = 25.0
+        research_facilities_monthly_rate = 25.0
+        academic_base_monthly_rate = 25.0
+        admin_efficiency_monthly_rate = 25.0
+        research_facilities_monthly_rate = 25.0
+        agriculture_monthly_rate = 25.0
+        healthcare_monthly_rate = 25.0
+        industrial_equipment_monthly_rate = 25.0
+        industrial_expertise_monthly_rate = 25.0
+        army_professionalism_monthly_rate = 25.0
+        nuclear_stockpile_monthly_rate = 25.0
+        poverty_monthly_rate = 25.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister_trait = {
+        random = no
+        generate_wargoal_tension = -245
+        guarantee_cost = -5.0
+        guarantee_tension = -245
+        join_faction_tension = -245
+        justify_war_goal_time = -0.5
+        lend_lease_tension = -245
+        annex_cost_factor = -5.0
+        puppet_cost_factor = -5.0
+        send_volunteer_factor = 5.0
+        send_volunteer_size = 24525
+        send_volunteers_tension = -245
+        air_volunteer_cap = 24525
+        embargo_threshold_factor = -245
+        embargo_cost_factor = -5.0
+        ai_will_do = {
+            base = 0
+        }
+    }
+    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister_trait = {
+        random = no
+        political_power_gain = 2450
+        stability_factor = 25.0
+        stability_weekly = 100.0
+        civilian_intel_factor = 5.0
+        army_intel_factor = 5.0
+        navy_intel_factor = 5.0
+        airforce_intel_factor = 5.0
+        civilian_intel_to_others = -245.0
+        army_intel_to_others = -245.0
+        navy_intel_to_others = -245.0
+        airforce_intel_to_others = -245.0
+        ai_will_do = {
+            base = 0
+        }
+    }
 }

@@ -282,4 +282,128 @@ every_possible_country = {
             }
         }
     }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
+        advisor = {
+            idea_token = default_idea_token
+            slot = head_of_government
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
+        advisor = {
+            idea_token = default_idea_token
+            slot = economy_minister
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
+        advisor = {
+            idea_token = default_idea_token
+            slot = foreign_minister
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+    }
+    generate_character = {
+        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister
+        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
+        advisor = {
+            idea_token = default_idea_token
+            slot = security_minister
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+            }
+        }
+    }
 }
