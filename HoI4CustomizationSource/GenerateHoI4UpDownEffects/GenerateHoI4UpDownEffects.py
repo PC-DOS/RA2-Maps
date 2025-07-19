@@ -1,5 +1,17 @@
 import os
 
+# Check existence of file or directory
+def IsFileOrDirectoryExists(sPath : str) :
+    return os.path.exists(sPath)
+#End Function
+
+# Create nested directories
+def CreateDirectory(sPath : str) :
+    if not IsFileOrDirectoryExists(sPath) :
+        os.makedirs(sPath, exist_ok=True)
+    #End If
+#End Sub
+
 # Single idea group
 def GenerateHoI4UpDownEffects(sEffectTargetName : str, 
     sEffectPrefix : str, sEffectSuffix : str,
@@ -10,7 +22,7 @@ def GenerateHoI4UpDownEffects(sEffectTargetName : str,
 
     # Generating scripted effect
     sScriptedEffect = ""
-    sLineBreakMark = "\r\n"
+    sLineBreakMark = "\n"
     # Template
     sScriptedEffectSection = """    [IF_MARK] = {
         limit = { has_idea = [LOWER_IDEA] }
@@ -75,8 +87,7 @@ def GenerateHoI4UpDownEffects(sEffectTargetName : str,
         remove_ideas = {
             [TARGET_IDEA]
         }
-    }
-    """
+    }"""
     sScriptedEffect = sScriptedEffect + f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}_clear" + " = {" + sLineBreakMark
     for i in range(0, len(arrEffectIdeas)) :
         if i == 0 :
@@ -100,8 +111,7 @@ def GenerateHoI4UpDownEffects(sEffectTargetName : str,
         add_ideas = {
             [TARGET_IDEA]
         }
-    }
-    """
+    }"""
     sScriptedEffect = sScriptedEffect + f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}_set_lowest" + " = {" + sLineBreakMark
     for i in range(0, len(arrEffectIdeas)) :
         if i == 0 :
@@ -121,8 +131,7 @@ def GenerateHoI4UpDownEffects(sEffectTargetName : str,
         add_ideas = {
             [TARGET_IDEA]
         }
-    }
-    """
+    }"""
     for i in range(0, 1) :
         sTargetIdea = arrEffectIdeas[0]
         sCurrentSection = sScriptedEffectSection
@@ -131,20 +140,186 @@ def GenerateHoI4UpDownEffects(sEffectTargetName : str,
         sScriptedEffect = sScriptedEffect + sCurrentSection + sLineBreakMark
     #Next
     sScriptedEffect = sScriptedEffect + "}" + sLineBreakMark + sLineBreakMark
+    # "Init" section
+    sScriptedEffectSection = """    set_variable = {
+        var_[EFFECT_TARGET]_status = 0
+    }"""
+    sScriptedEffect = sScriptedEffect + f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}_init" + " = {" + sLineBreakMark
+    sCurrentSection = sScriptedEffectSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}")
+    sScriptedEffect = sScriptedEffect + sCurrentSection + sLineBreakMark
+    sScriptedEffect = sScriptedEffect + "}" + sLineBreakMark + sLineBreakMark
+    # "Check" section
+    sScriptedEffectSection = """    if = {
+        limit = {
+            check_variable = {
+                var_[EFFECT_TARGET]_status > 245
+            }
+        }
+        [EFFECT_TARGET]_up = yes
+        set_variable = {
+            var_[EFFECT_TARGET]_status = -245
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = {
+                var_[EFFECT_TARGET]_status < -245
+            }
+        }
+        [EFFECT_TARGET]_down = yes
+        set_variable = {
+            var_[EFFECT_TARGET]_status = 245
+        }
+    }"""
+    sScriptedEffect = sScriptedEffect + f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}_check" + " = {" + sLineBreakMark
+    sCurrentSection = sScriptedEffectSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}")
+    sScriptedEffect = sScriptedEffect + sCurrentSection + sLineBreakMark
+    sScriptedEffect = sScriptedEffect + "}" + sLineBreakMark + sLineBreakMark
+    # "Update and check" section
+    sScriptedEffectSection = """    add_to_variable = {
+        var = var_[EFFECT_TARGET]_status
+        value = modifier@[EFFECT_TARGET]_monthly
+    }
+    [EFFECT_TARGET]_check = yes"""
+    sScriptedEffect = sScriptedEffect + f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}_update_and_check" + " = {" + sLineBreakMark
+    sCurrentSection = sScriptedEffectSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{sEffectTargetName}{sEffectSuffix}")
+    sScriptedEffect = sScriptedEffect + sCurrentSection + sLineBreakMark
+    sScriptedEffect = sScriptedEffect + "}" + sLineBreakMark + sLineBreakMark
 
     return sScriptedEffect
 #End Function
 
+# Modifiers
+def GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames : list, arrEffectTargetDesc : list,
+    sEffectPrefix : str, sEffectSuffix : str) -> str :
+
+    # Generateing change modifiers
+    sModifiers = ""
+    sLineBreakMark = "\n"
+    # Template
+    sModifierTemplate = """
+    # [EFFECT_TARGET_DESC]
+    [EFFECT_TARGET]_monthly = {
+        color_type = good
+        value_type = number
+        precision = 1
+        category = country
+    }
+    """
+    # Text generating
+    for i in range(0, len(arrEffectTargetNames)) :
+        sCurrentSection = sModifierTemplate
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET_DESC]", f"{arrEffectTargetDesc[i]}")
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}")
+        sModifiers = sModifiers + sCurrentSection
+    #Next
+
+    return sModifiers
+#End Function
+
+# Modifiers localization
+# Note that localization file MUST have BOM header, use:
+# with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+def GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames : list, arrEffectTargetDesc : list,
+    sEffectPrefix : str, sEffectSuffix : str) -> str :
+
+    # Generateing change modifiers
+    sModifiers = ""
+    sLineBreakMark = "\n"
+    sModifiers = "l_simp_chinese:" + sLineBreakMark
+    # Template
+    sModifierTemplate = " [EFFECT_TARGET]_monthly:0 \"月度[EFFECT_TARGET_DESC]变化\"" + sLineBreakMark
+    sModifierTemplate = sModifierTemplate + " [EFFECT_TARGET]_monthly_desc:0 \"当我们的[EFFECT_TARGET_DESC]发展达到245时，我们的[EFFECT_TARGET_DESC]等级将提升；当我们的[EFFECT_TARGET_DESC]发展达到-245时，我们的[EFFECT_TARGET_DESC]等级将下降。\"" + sLineBreakMark
+    # Text generating
+    for i in range(0, len(arrEffectTargetNames)) :
+        sCurrentSection = sModifierTemplate
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET_DESC]", f"{arrEffectTargetDesc[i]}")
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}")
+        sModifiers = sModifiers + sCurrentSection
+    #Next
+
+    return sModifiers
+#End Function
+
+# On_actions
+def GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames : list, arrEffectTargetDesc : list,
+    sEffectPrefix : str, sEffectSuffix : str) -> str :
+
+    # Generating "on_xxx" actions
+    sOnActions = ""
+    sLineBreakMark = "\n"
+    sOnActions = "on_actions = {" + sLineBreakMark
+    # "on_startup" actions
+    sOnActions = sOnActions + "    on_startup = {" + sLineBreakMark
+    sOnActions = sOnActions + "        effect = {" + sLineBreakMark
+    sOnActions = sOnActions + "            every_country = {" + sLineBreakMark
+    for i in range(0, len(arrEffectTargetNames)) :
+        sOnActions = sOnActions + f"                # {arrEffectTargetDesc[i]}" + sLineBreakMark
+        sOnActions = sOnActions + f"                {sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}_update_and_check = yes" + sLineBreakMark
+    #Next
+    sOnActions = sOnActions + "            }" + sLineBreakMark
+    sOnActions = sOnActions + "        }" + sLineBreakMark
+    sOnActions = sOnActions + "    }" + sLineBreakMark
+    # "on_monthly" actions
+    sOnActions = sOnActions + "    on_monthly = {" + sLineBreakMark
+    sOnActions = sOnActions + "        effect = {" + sLineBreakMark
+    for i in range(0, len(arrEffectTargetNames)) :
+        sOnActions = sOnActions + f"            # {arrEffectTargetDesc[i]}" + sLineBreakMark
+        sOnActions = sOnActions + f"            {sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}_update_and_check = yes" + sLineBreakMark
+    #Next
+    sOnActions = sOnActions + "        }" + sLineBreakMark
+    sOnActions = sOnActions + "    }" + sLineBreakMark
+    # Ending
+    sOnActions = sOnActions + "}" + sLineBreakMark + sLineBreakMark
+
+    return sOnActions
+#End Functions
+
+# Debug dynamic modifiers
+def GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames : list, arrEffectTargetDesc : list,
+    sEffectPrefix : str, sEffectSuffix : str) -> str :
+
+    # Generating debug dynamic modifiers
+    sDebugDynamicModifier = ""
+    sLineBreakMark = "\n"
+    # Template
+    sDebugDynamicModifierTemplate = """
+    # [EFFECT_TARGET_DESC]
+    debug_dynamic_modifier_[EFFECT_TARGET]_up = {
+        icon = GFX_Null
+        enable = { always = yes }
+        remove_trigger = { always = no }
+        [EFFECT_TARGET]_monthly = 2450
+    }
+    debug_dynamic_modifier_[EFFECT_TARGET]_down = {
+        icon = GFX_Null
+        enable = { always = yes }
+        remove_trigger = { always = no }
+        [EFFECT_TARGET]_monthly = -2450
+    }
+    """
+    # Text generating
+    for i in range(0, len(arrEffectTargetNames)) :
+        sCurrentSection = sDebugDynamicModifierTemplate
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET_DESC]", f"{arrEffectTargetDesc[i]}")
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}")
+        sDebugDynamicModifier = sDebugDynamicModifier + sCurrentSection
+    #Next
+
+    return sDebugDynamicModifier
+#End Function
+
 # Debug decisions
-def GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName : str, arrEffectTargetNames : list, 
+def GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName : str, arrEffectTargetNames : list, arrEffectTargetDesc : list,
     sEffectPrefix : str, sEffectSuffix : str) -> str :
 
     # Generating debug decisions
     sDebugDecision = ""
-    sLineBreakMark = "\r\n"
+    sLineBreakMark = "\n"
     sDebugDecision = sCategoryName + " = {" + sLineBreakMark
     # Template
     sDebugDecisionTemplate = """
+    # [EFFECT_TARGET_DESC]
     debug_decision_[EFFECT_TARGET]_up = {
         allowed = {
             # Always allowed
@@ -225,12 +400,81 @@ def GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName : str, arrEffectTarget
             [EFFECT_TARGET]_set_lowest = yes
         }
     }
+    debug_decision_[EFFECT_TARGET]_update_and_check = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_Null
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            [EFFECT_TARGET]_update_and_check = yes
+        }
+    }
+    debug_decision_[EFFECT_TARGET]_add_dynamic_modifier_up = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_Null
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_dynamic_modifier = {
+                modifier = debug_dynamic_modifier_[EFFECT_TARGET]_up
+            }
+            force_update_dynamic_modifier = yes
+        }
+    }
+    debug_decision_[EFFECT_TARGET]_add_dynamic_modifier_down = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_Null
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_dynamic_modifier = {
+                modifier = debug_dynamic_modifier_[EFFECT_TARGET]_down
+            }
+            force_update_dynamic_modifier = yes
+        }
+    }
     """
     # Text generating
-    for CurrentEffect in arrEffectTargetNames :
-        sCurrentSection = sDebugDecisionTemplate.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{CurrentEffect}{sEffectSuffix}")
+    for i in range(0, len(arrEffectTargetNames)) :
+        sCurrentSection = sDebugDecisionTemplate
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET_DESC]", f"{arrEffectTargetDesc[i]}")
+        sCurrentSection = sCurrentSection.replace("[EFFECT_TARGET]", f"{sEffectPrefix}{arrEffectTargetNames[i]}{sEffectSuffix}")
         sDebugDecision = sDebugDecision + sCurrentSection
     #Next
+    # Ending
     sDebugDecision = sDebugDecision + "}" + sLineBreakMark + sLineBreakMark
 
     return sDebugDecision
@@ -238,9 +482,13 @@ def GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName : str, arrEffectTarget
 
 # Main enrty
 if __name__ == "__main__" :
-    sLineBreakMark = "\r\n"
-    os.makedirs("common/decisions/categories")
-    os.makedirs("common/scripted_effects")
+    sLineBreakMark = "\n"
+    CreateDirectory("common/decisions/categories")
+    CreateDirectory("common/scripted_effects")
+    CreateDirectory("common/modifier_definitions")
+    CreateDirectory("common/on_actions")
+    CreateDirectory("common/dynamic_modifiers")
+    CreateDirectory("localisation/simp_chinese")
 
     # My New Pony: Friendship is a Lie
     # Pol_Development_Degree
@@ -318,7 +566,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -327,9 +575,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -409,7 +681,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -418,9 +690,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -500,7 +796,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -509,9 +805,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -580,7 +900,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -589,9 +909,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -671,7 +1015,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -680,9 +1024,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -751,7 +1119,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -760,9 +1128,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
@@ -824,7 +1216,7 @@ if __name__ == "__main__" :
         ],
     ]
     sFilePath = f"common/scripted_effects/FIL_{sCategoryName}_scripted_effects.txt"
-    with open(sFilePath, "w") as filOutputFile:
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
         for i in range(0, len(arrEffectTargetNames)) :
             filOutputFile.write("# " + arrEffectTargetDesc[i] + sLineBreakMark)
             sScriptedEffect = GenerateHoI4UpDownEffects(sEffectTargetName=arrEffectTargetNames[i],
@@ -833,9 +1225,33 @@ if __name__ == "__main__" :
             filOutputFile.write(sScriptedEffect)
         #Next
     #End With
+    sFilePath = f"common/modifier_definitions/FIL_{sCategoryName}_modifier_definitions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"localisation/simp_chinese/FIL_{sCategoryName}_modifier_definitions_l_simp_chinese.yml"
+    with open(sFilePath, "w", encoding="utf-8-sig") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsModifierDefinitionsLocalizationCHS(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/on_actions/FIL_{sCategoryName}_on_actions.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsOnActions(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
+    sFilePath = f"common/dynamic_modifiers/FIL_{sCategoryName}_dynamic_modifiers.txt"
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDynamicModifiers(arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
+            sEffectPrefix="", sEffectSuffix="")
+        filOutputFile.write(sDebugDecisions)
+    #End With
     sFilePath = f"common/decisions/FIL_{sCategoryName}_debug_decisions.txt"
-    with open(sFilePath, "w") as filOutputFile:
-        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames,
+    with open(sFilePath, "w", encoding="utf-8") as filOutputFile:
+        sDebugDecisions = GenerateHoI4UpDownEffectsDebugDecisions(sCategoryName="FIL_debug_decisions_category", arrEffectTargetNames=arrEffectTargetNames, arrEffectTargetDesc=arrEffectTargetDesc,
             sEffectPrefix="", sEffectSuffix="")
         filOutputFile.write(sDebugDecisions)
     #End With
