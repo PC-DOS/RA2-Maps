@@ -2226,6 +2226,18 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     XIK = { PREV = { set_embargo_PREV = yes } }
                 }
             }
+            XIK = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_army_enabled
+                force_update_dynamic_modifier = yes
+            }
             
             # GUX
             set_global_flag = GUX_joins_NPA
@@ -2271,6 +2283,18 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     GUX = { set_embargo_PREV = yes }
                     GUX = { PREV = { set_embargo_PREV = yes } }
                 }
+            }
+            GUX = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_army_enabled
+                force_update_dynamic_modifier = yes
             }
             
             # SHX
@@ -2321,6 +2345,18 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     SHX = { PREV = { set_embargo_PREV = yes } }
                 }
             }
+            SHX = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_army_enabled
+                force_update_dynamic_modifier = yes
+            }
             
             # QIN
             set_global_flag = QIN_helps_NPA
@@ -2332,6 +2368,18 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             YUN_WI_morale_tick_change = yes
             add_to_variable = { YUN_legitimacy_cap_calc = 10 }
             YUN_WI_legitimacy_change = yes
+            QIN = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_army_enabled
+                force_update_dynamic_modifier = yes
+            }
             
             # XIN
             set_global_flag = XIN_helps_NPA
@@ -2343,6 +2391,18 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             YUN_WI_morale_tick_change = yes
             add_to_variable = { YUN_legitimacy_cap_calc = 10 }
             YUN_WI_legitimacy_change = yes
+            XIN = {
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_enabled
+                force_update_dynamic_modifier = yes
+                add_dynamic_modifier = {
+                    modifier = SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_army_enabled
+                force_update_dynamic_modifier = yes
+            }
             
             # TIB
             declare_war_on = {
@@ -2365,6 +2425,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             set_variable = { YUN_legitimacy = 100 }
             add_to_variable = { YUN_NPA_Crusade_dirty = 1 }
             set_variable = { global.YUN_WI_war_momentum_check = 100 }
+            set_variable = { YUN_legitimate_regime = 1 }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_recalculate_PU = {
