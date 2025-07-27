@@ -2188,12 +2188,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            # Max legitimacy
-            set_variable = { YUN_legitimacy_cap = 100 }
-            set_variable = { YUN_legitimacy = 100 }
-            add_to_variable = { YUN_NPA_Crusade_dirty = 1 }
-            set_variable = { global.YUN_WI_war_momentum_check = 100 }
-            
             # XIK
             set_global_flag = XIK_joins_NPA
             XIK = {
@@ -2365,6 +2359,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                 }
             }
+            
+            # Max legitimacy
+            set_variable = { YUN_legitimacy_cap = 100 }
+            set_variable = { YUN_legitimacy = 100 }
+            add_to_variable = { YUN_NPA_Crusade_dirty = 1 }
+            set_variable = { global.YUN_WI_war_momentum_check = 100 }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_recalculate_PU = {
