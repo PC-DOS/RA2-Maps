@@ -758,7 +758,14 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     
                     #log = "RailEnd:[?temp_railway_end]"
                     if = {
-                        limit = { NOT = { temp_railway_start = temp_railway_end } }
+                        limit = { 
+                            #NOT = {
+                            #    check_variable = {
+                            #        temp_railway_start = temp_railway_end
+                            #    }
+                            #}
+                            always = yes
+                        }
                         build_railway = {
                             level = 5
                             build_only_on_allied = yes
