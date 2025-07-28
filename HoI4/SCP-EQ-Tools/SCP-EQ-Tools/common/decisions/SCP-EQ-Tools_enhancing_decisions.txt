@@ -1155,6 +1155,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 delete_unit = {
                     disband = no
                 }
+                every_other_country = {
+                    recall_volunteers_from = PREV
+                }
             }
         }
     }
@@ -1251,17 +1254,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
                 }
                 # Enable AI volunteer sending and clear global flag
-                every_country = {
+                every_other_country = {
                     limit = {
                         is_ai = yes
                     }
-                    every_country = {
+                    every_other_country = {
                         limit = {
                             is_ai = yes
                         }
-                        remove_relation_rule_override = {
-                            target = PREV
-                            can_send_volunteers = no
+                        PREV = {
+                            remove_relation_rule_override = {
+                                target = PREV
+                                can_send_volunteers = no
+                            }
                         }
                     }
                 }
@@ -1269,17 +1274,20 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
             else = {
                 # Disable AI volunteer sending and set global flag
-                every_country = {
+                every_other_country = {
                     limit = {
                         is_ai = yes
                     }
-                    every_country = {
+                    every_other_country = {
                         limit = {
                             is_ai = yes
                         }
-                        add_relation_rule_override = {
-                            target = PREV
-                            can_send_volunteers = no
+                        PREV = {
+                            recall_volunteers_from = PREV
+                            add_relation_rule_override = {
+                                target = PREV
+                                can_send_volunteers = no
+                            }
                         }
                     }
                 }
