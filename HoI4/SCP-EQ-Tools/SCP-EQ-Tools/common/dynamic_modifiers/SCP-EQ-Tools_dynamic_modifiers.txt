@@ -289,7 +289,6 @@ SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
     research_facilities_monthly_rate = 25.0
     academic_base_monthly_rate = 25.0
     admin_efficiency_monthly_rate = 25.0
-    research_facilities_monthly_rate = 25.0
     agriculture_monthly_rate = 25.0
     healthcare_monthly_rate = 25.0
     industrial_equipment_monthly_rate = 25.0
