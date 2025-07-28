@@ -2016,6 +2016,66 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             tno_improve_army_professionalism = yes
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TNO_credit_rating_up = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            econ_raise_credit_rating = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TNO_credit_max_rating_up = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            econ_raise_max_credit_rating = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TNO_credit_min_rating_up = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            econ_raise_min_credit_rating = yes
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_TNO_add_thermoelectric_plant_onekey = {
         allowed = {
             # Always allowed
