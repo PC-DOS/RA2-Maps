@@ -91,6 +91,8 @@
  SCP-EQ-Tools_enhancing_decisions_remove_embargo_from_other_countries_desc:0 "自 由 贸 易"
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending:0 "禁止/允许AI向其它AI控制的国家派遣志愿军"
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending_desc:0 "导弹船别捣蛋"
+ SCP-EQ-Tools_enhancing_decisions_remove_non_aggression_pact_from_ai_to_ai:0 "移除AI国家之间的互不侵犯条约"
+ SCP-EQ-Tools_enhancing_decisions_remove_non_aggression_pact_from_ai_to_ai_desc:0 "诸君，我喜欢战争"
  # EAW decisions group
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle:0 "切换EaW专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle_desc:0 "切换EaW专用决议可见性"
