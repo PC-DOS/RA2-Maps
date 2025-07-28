@@ -2266,43 +2266,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                 
                     # XIK
-                    set_global_flag = XIK_joins_NPA
-                    XIK = {
-                        leave_faction = yes
-                        remove_faction_status = yes
-                        add_ideas = NLF_Member
-                        add_to_war = {
-                            targeted_alliance = YUN
-                            enemy = CHI
-                        }
-                    }
-                    YUN = {
-                        add_to_faction = XIK
-                        clr_country_flag = YUN_WI_integrating_XIK
-                        set_temp_variable = { YUN_temp_legitimacy = 5 }
-                        YUN_WI_legitimacy_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff = 5 }
-                        YUN_WI_morale_change = yes
-                        set_temp_variable = { YUN_WI_temp_legitimacy_tick = 1.0 }
-                        YUN_WI_legitimacy_tick_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff_tick = 1.0 }
-                        YUN_WI_morale_tick_change = yes
-                    }
-                    every_other_country = {
-                        limit = {
-                            OR = {
-                                is_in_faction_with = JAP
-                                original_tag = CHI
-                            }
-                            NOT = { original_tag = GUX }
-                            NOT = { original_tag = SHX }
-                        }
-                        custom_effect_tooltip = WI_Warlord_embargo_tt
-                        hidden_effect = {
-                            XIK = { set_embargo_PREV = yes }
-                            XIK = { PREV = { set_embargo_PREV = yes } }
-                        }
-                    }
+                    set_country_flag = YUN_WI_integrating_XIK
+                    YUN_Warlord_Faction_chosen = yes
                     XIK = {
                         if = {
                             limit = {
@@ -2343,50 +2308,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     
                     # GUX
-                    set_global_flag = GUX_joins_NPA
-                    hidden_effect = {
-                        JAP = {
-                            end_puppet = GUX
-                        }
-                    }
-                    GUX = {
-                        leave_faction = yes
-                        remove_faction_status = yes
-                        econ_leave_sphere = yes
-                        add_to_war = {
-                            targeted_alliance = YUN
-                            enemy = CHI
-                        }
-                        add_ideas = NLF_Member
-                    }
-                    YUN = {
-                        add_to_faction = GUX
-                        clr_country_flag = YUN_WI_integrating_GUX
-                        add_to_variable = { YUN_legitimacy_cap_calc = 10 }
-                        set_temp_variable = { YUN_temp_legitimacy = 5 }
-                        YUN_WI_legitimacy_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff = 5 }
-                        YUN_WI_morale_change = yes
-                        set_temp_variable = { YUN_WI_temp_legitimacy_tick = 2.0 }
-                        YUN_WI_legitimacy_tick_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff_tick = 2.0 }
-                        YUN_WI_morale_tick_change = yes
-                        country_event = { id = yun_zhengtong.34 days = 2 }
-                    }
-                    every_other_country = {
-                        limit = {
-                            OR = {
-                                is_in_faction_with = JAP
-                                original_tag = CHI
-                            }
-                            NOT = { original_tag = SHX }
-                        }
-                        custom_effect_tooltip = WI_Warlord_embargo_tt
-                        hidden_effect = {
-                            GUX = { set_embargo_PREV = yes }
-                            GUX = { PREV = { set_embargo_PREV = yes } }
-                        }
-                    }
+                    set_country_flag = YUN_WI_integrating_GUX
+                    YUN_Warlord_Faction_chosen = yes
                     GUX = {
                         if = {
                             limit = {
@@ -2427,53 +2350,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     
                     # SHX
-                    set_global_flag = SHX_joins_NPA
-                    hidden_effect = {
-                        JAP = {
-                            end_puppet = SHX
-                            if = {
-                                limit = { NOT = { has_global_flag = YUN_NCPC_revived } }
-                                country_event = { id = japchiinteraction.10 }
-                            }
-                        }
-                    }
-                    SHX = {
-                        leave_faction = yes
-                        remove_faction_status = yes
-                        econ_leave_sphere = yes
-                        add_ideas = NLF_Member
-                        add_to_war = {
-                            targeted_alliance = YUN
-                            enemy = CHI
-                        }
-                    }
-                    YUN = {
-                        add_to_faction = SHX
-                        clr_country_flag = YUN_WI_integrating_SHX
-                        set_temp_variable = { YUN_temp_legitimacy = 5 }
-                        add_to_variable = { YUN_legitimacy_cap_calc = 10 }
-                        YUN_WI_legitimacy_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff = 5 }
-                        YUN_WI_morale_change = yes
-                        set_temp_variable = { YUN_WI_temp_legitimacy_tick = 2.5 }
-                        YUN_WI_legitimacy_tick_change = yes
-                        set_temp_variable = { YUN_WI_temp_warbuff_tick = 2.5 }
-                        YUN_WI_morale_tick_change = yes
-                    }
-                    every_other_country = {
-                        limit = {
-                            OR = {
-                                is_in_faction_with = JAP
-                                original_tag = CHI
-                            }
-                            NOT = { original_tag = GUX }
-                        }
-                        custom_effect_tooltip = WI_Warlord_embargo_tt
-                        hidden_effect = {
-                            SHX = { set_embargo_PREV = yes }
-                            SHX = { PREV = { set_embargo_PREV = yes } }
-                        }
-                    }
+                    set_country_flag = YUN_WI_integrating_SHX
+                    YUN_Warlord_Faction_chosen = yes
                     SHX = {
                         if = {
                             limit = {
@@ -2514,15 +2392,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     
                     # QIN
-                    set_global_flag = QIN_helps_NPA
-                    QIN = { add_ideas = NLF_Member }
-                    clr_country_flag = YUN_WI_integrating_QIN
-                    set_temp_variable = { YUN_WI_temp_legitimacy_tick = 3.0 }
-                    YUN_WI_legitimacy_tick_change = yes
-                    set_temp_variable = { YUN_WI_temp_warbuff_tick = 3.0 }
-                    YUN_WI_morale_tick_change = yes
-                    add_to_variable = { YUN_legitimacy_cap_calc = 10 }
-                    YUN_WI_legitimacy_change = yes
+                    set_country_flag = YUN_WI_integrating_QIN
+                    YUN_Warlord_Faction_chosen = yes
                     QIN = {
                         if = {
                             limit = {
@@ -2563,15 +2434,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     
                     # XIN
-                    set_global_flag = XIN_helps_NPA
-                    XIN = { add_ideas = NLF_Member }
-                    clr_country_flag = YUN_WI_integrating_XIN
-                    set_temp_variable = { YUN_WI_temp_legitimacy_tick = 3.0 }
-                    YUN_WI_legitimacy_tick_change = yes
-                    set_temp_variable = { YUN_WI_temp_warbuff_tick = 3.0 }
-                    YUN_WI_morale_tick_change = yes
-                    add_to_variable = { YUN_legitimacy_cap_calc = 10 }
-                    YUN_WI_legitimacy_change = yes
+                    set_country_flag = YUN_WI_integrating_XIN
+                    YUN_Warlord_Faction_chosen = yes
                     XIN = {
                         if = {
                             limit = {
