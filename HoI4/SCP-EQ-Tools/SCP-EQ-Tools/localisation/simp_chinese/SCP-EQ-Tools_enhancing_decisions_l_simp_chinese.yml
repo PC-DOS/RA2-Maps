@@ -89,7 +89,7 @@
  SCP-EQ-Tools_enhancing_decisions_allow_changing_advisors_desc:0 "开始洗牌"
  SCP-EQ-Tools_enhancing_decisions_remove_embargo_from_other_countries:0 "解除所有国家对我方的禁运"
  SCP-EQ-Tools_enhancing_decisions_remove_embargo_from_other_countries_desc:0 "自 由 贸 易"
- SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending:0 "禁止AI向其它AI控制的国家派遣志愿军"
+ SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending:0 "禁止/允许AI向其它AI控制的国家派遣志愿军"
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending_desc:0 "导弹船别捣蛋"
  # EAW decisions group
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle:0 "切换EaW专用决议可见性"

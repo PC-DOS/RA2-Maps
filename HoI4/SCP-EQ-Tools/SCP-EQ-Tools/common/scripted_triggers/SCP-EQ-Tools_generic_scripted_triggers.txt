@@ -1,0 +1,7 @@
+SCP-EQ-Tools_generic_scripted_triggers_always_true = {
+    always = yes
+}
+
+SCP-EQ-Tools_generic_scripted_triggers_always_false = {
+    always = no
+}

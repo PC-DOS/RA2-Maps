@@ -1262,11 +1262,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         limit = {
                             is_ai = yes
                         }
-                        PREV = {
-                            remove_relation_rule_override = {
-                                target = PREV
-                                can_send_volunteers = no
-                            }
+                        remove_relation_rule_override = {
+                            target = PREV
+                            trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                            usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
+                            can_send_volunteers = no
                         }
                     }
                 }
@@ -1282,13 +1282,14 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         limit = {
                             is_ai = yes
                         }
-                        PREV = {
-                            recall_volunteers_from = PREV
-                            add_relation_rule_override = {
-                                target = PREV
-                                can_send_volunteers = no
-                            }
+                        recall_volunteers_from = PREV
+                        add_relation_rule_override = {
+                            target = PREV
+                            trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                            usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
+                            can_send_volunteers = no
                         }
+                        #log = "Disabling volunteers from [?THIS] to [?PREV]"
                     }
                 }
                 set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
