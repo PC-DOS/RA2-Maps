@@ -2794,6 +2794,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                     }
                 }
+                add_ideas = {
+                    YUN_Song_Xilian_for
+                    YUN_Li_Mi_eco
+                    YUN_Zhang_Chong_sec
+                }
                 YUN_WI_Victory_ROC = yes
                 retire_character = YUN_zhang_chong
                 add_ideas = {
