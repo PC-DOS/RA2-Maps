@@ -1275,7 +1275,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 diplomatic_relation = {
                     country = ROOT
                     relation = docking_rights
-                    active = no
+                    active = yes
                 }
             }
         }
