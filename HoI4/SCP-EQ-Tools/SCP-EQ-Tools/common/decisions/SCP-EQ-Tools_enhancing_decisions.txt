@@ -2818,6 +2818,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 set_country_leader_portrait = {
                     portrait = "gfx/leaders/YUN/YUN_Sun_Fo.dds"
                 }
+                set_country_leader_ideology = paternalism_xunzheng_subtype
             }
         }
     }
