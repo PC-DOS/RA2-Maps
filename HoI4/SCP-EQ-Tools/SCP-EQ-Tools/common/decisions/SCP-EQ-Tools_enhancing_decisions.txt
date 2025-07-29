@@ -1272,10 +1272,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             every_other_country = {
-                diplomatic_relation = {
-                    country = ROOT
-                    relation = docking_rights
-                    active = yes
+                ROOT = {
+                    diplomatic_relation = {
+                        country = PREV
+                        relation = docking_rights
+                        active = yes
+                    }
                 }
             }
         }
@@ -2737,7 +2739,66 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     ideology = paternalism
                     popularity = 0.30
                 }
-                country_event = yun_zhengtong.53
+                #country_event = yun_zhengtong.53
+                YUN_sun_fo = {
+                    add_country_leader_role = {
+                        country_leader = {
+                            desc = "POLITICS_SUN_FO_DESC"
+                            ideology = paternalism_xunzheng_subtype
+                            traits = { the_son_of_the_founder }
+                            expire = "1999.1.1.1"
+                            id = -1
+                        }
+                        promote_leader = yes
+                    }
+                    add_country_leader_role = {
+                        country_leader = {
+                            desc = "POLITICS_SUN_FO_DESC"
+                            ideology = conservatism_subtype
+                            traits = { the_son_of_the_founder }
+                            expire = "1999.1.1.1"
+                            id = -1
+                        }
+                        promote_leader = yes
+                    }
+                }
+                YUN_song_qingling = {
+                    add_country_leader_role = {
+                        country_leader = {
+                            ideology = socialist_left_wing_nationalism_subtype
+                            traits = { }
+                            expire = "1999.1.1.1"
+                            id = -1
+                        }
+                        promote_leader = yes
+                    }
+                }
+                YUN_liu_yiliang = {
+                    add_country_leader_role = {
+                        country_leader = {
+                            ideology = liberalism_national_liberal_subtype
+                            traits = { }
+                            expire = "1999.1.1.1"
+                            id = -1
+                        }
+                        promote_leader = yes
+                    }
+                }
+                YUN_sun_liren = {
+                    add_country_leader_role = {
+                        country_leader = {
+                            ideology = despotism_military_junta_subtype
+                            traits = { }
+                            expire = "1999.1.1.1"
+                            id = -1
+                        }
+                    }
+                }
+                YUN_WI_Victory_ROC = yes
+                retire_character = YUN_zhang_chong
+                add_ideas = {
+                    YUN_Sun_Liren_sec
+                }
             }
         }
         days_remove = 25
