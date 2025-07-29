@@ -1232,6 +1232,54 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_gain_military_access_from_other_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                give_military_access = ROOT
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_gain_docking_rights_from_other_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                diplomatic_relation = {
+                    country = ROOT
+                    relation = docking_rights
+                    active = no
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending = {
         allowed = {
             # Always allowed
@@ -1260,7 +1308,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     every_other_country = {
                         limit = {
-                            is_ai = yes
+                            OR = {
+                                is_ai = yes
+                                has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                            }
                         }
                         remove_relation_rule_override = {
                             target = PREV
@@ -1268,6 +1319,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
                             can_send_volunteers = no
                         }
+                        clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
                     }
                 }
                 set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
@@ -1289,6 +1341,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
                             can_send_volunteers = no
                         }
+                        set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
                         #log = "Disabling volunteers from [?THIS] to [?PREV]"
                     }
                 }
