@@ -1362,54 +1362,85 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             if = {
+                # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
                 limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_driggers_loaded = yes
                 }
-                # Enable AI volunteer sending and clear global flag
-                every_possible_country = {
+                if = {
                     limit = {
-                        is_ai = yes
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
                     }
-                    every_possible_country = {
-                        limit = {
-                            OR = {
-                                is_ai = yes
-                                has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                            }
-                        }
-                        remove_relation_rule_override = {
-                            target = PREV
-                            trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                            usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
-                            can_send_volunteers = no
-                        }
-                        clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                    }
+                    # Enable AI volunteer sending and clear global flag
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
                 }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
-            }
-            else = {
-                # Disable AI volunteer sending and set global flag
-                every_possible_country = {
-                    limit = {
-                        is_ai = yes
-                    }
+                else = {
+                    # Disable AI volunteer sending and set global flag
                     every_possible_country = {
                         limit = {
                             is_ai = yes
                         }
-                        recall_volunteers_from = PREV
-                        add_relation_rule_override = {
-                            target = PREV
-                            trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                            usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
-                            can_send_volunteers = no
+                        every_possible_country = {
+                            limit = {
+                                is_ai = yes
+                            }
+                            recall_volunteers_from = PREV
                         }
-                        set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                        #log = "Disabling volunteers from [?THIS] to [?PREV]"
                     }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
                 }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+            }
+            else = {
+                # WARNING: You will be faced with a VERY LARGE save file!!!
+                if = {
+                    limit = {
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                    }
+                    # Enable AI volunteer sending and clear global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                OR = {
+                                    is_ai = yes
+                                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                                }
+                            }
+                            remove_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
+                                can_send_volunteers = no
+                            }
+                            clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
+                }
+                else = {
+                    # Disable AI volunteer sending and set global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                is_ai = yes
+                            }
+                            recall_volunteers_from = PREV
+                            add_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                usage_desc = SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending
+                                can_send_volunteers = no
+                            }
+                            set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                            #log = "Disabling volunteers from [?THIS] to [?PREV]"
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                }
             }
         }
     }
