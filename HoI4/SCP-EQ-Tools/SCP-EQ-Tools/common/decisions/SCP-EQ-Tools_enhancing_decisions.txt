@@ -1099,10 +1099,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             every_controlled_state = {
-                every_other_country = {
-                    PREV = {
-                        remove_claim_by = PREV
-                        remove_core_of = PREV
+                ROOT = {
+                    every_other_country = {
+                        PREV.PREV = {
+                            remove_claim_by = PREV
+                            remove_core_of = PREV
+                        }
                     }
                 }
             }
