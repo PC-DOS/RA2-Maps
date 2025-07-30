@@ -1185,7 +1185,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 delete_unit = {
                     disband = no
                 }
-                every_other_country = {
+                every_possible_country = {
                     recall_volunteers_from = PREV
                 }
             }
@@ -1212,7 +1212,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 delete_unit = {
                     disband = no
                 }
-                every_other_country = {
+                every_possible_country = {
                     recall_volunteers_from = PREV
                 }
                 every_controlled_state = {
@@ -1285,7 +1285,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_possible_country = {
                 diplomatic_relation = {
                     country = ROOT
                     relation = embargo
@@ -1311,7 +1311,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_possible_country = {
                 give_military_access = ROOT
             }
         }
@@ -1333,7 +1333,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_possible_country = {
                 ROOT = {
                     diplomatic_relation = {
                         country = PREV
@@ -1366,11 +1366,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
                 }
                 # Enable AI volunteer sending and clear global flag
-                every_other_country = {
+                every_possible_country = {
                     limit = {
                         is_ai = yes
                     }
-                    every_other_country = {
+                    every_possible_country = {
                         limit = {
                             OR = {
                                 is_ai = yes
@@ -1390,11 +1390,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
             else = {
                 # Disable AI volunteer sending and set global flag
-                every_other_country = {
+                every_possible_country = {
                     limit = {
                         is_ai = yes
                     }
-                    every_other_country = {
+                    every_possible_country = {
                         limit = {
                             is_ai = yes
                         }
@@ -1430,11 +1430,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_possible_country = {
                 limit = {
                     is_ai = yes
                 }
-                every_other_country = {
+                every_possible_country = {
                     limit = {
                         is_ai = yes
                     }
