@@ -1100,8 +1100,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_controlled_state = {
                 every_other_country = {
-                    remove_state_core = PREV
-                    remove_state_claim = PREV
+                    PREV = {
+                        remove_claim_by = PREV
+                        remove_core_of = PREV
+                    }
                 }
             }
         }
