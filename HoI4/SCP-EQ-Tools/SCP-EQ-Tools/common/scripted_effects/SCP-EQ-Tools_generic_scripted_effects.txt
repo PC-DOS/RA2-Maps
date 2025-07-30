@@ -1,0 +1,28 @@
+SCP-EQ-Tools_generic_scripted_effects_delete_all_units = {
+    every_possible_country = {
+        recall_volunteers_from = PREV
+    }
+    delete_unit = {
+        disband = no
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = {
+    every_enemy_country = {
+        SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
+    }
+}
+
+# Parameter 1: temp_param_new_state_controller_tag
+SCP-EQ-Tools_generic_scripted_effects_change_all_state_controller = {
+    every_controlled_state = {
+        set_state_controller_to = var:temp_param_new_state_controller_tag
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = {
+    every_enemy_country = {
+        set_temp_variable = { temp_param_new_state_controller_tag = PREV }
+        SCP-EQ-Tools_generic_scripted_effects_change_all_state_controller = yes
+    }
+}

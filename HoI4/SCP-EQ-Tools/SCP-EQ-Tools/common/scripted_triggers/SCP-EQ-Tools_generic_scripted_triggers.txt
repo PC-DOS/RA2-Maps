@@ -7,6 +7,6 @@ SCP-EQ-Tools_generic_scripted_triggers_always_false = {
 }
 
 # Set this to always=no if you don't need diplomacy overriding
-SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_driggers_loaded = {
+SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = {
     always = yes
 }

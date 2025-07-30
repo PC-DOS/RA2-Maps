@@ -1181,14 +1181,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_enemy_country = {
-                delete_unit = {
-                    disband = no
-                }
-                every_possible_country = {
-                    recall_volunteers_from = PREV
-                }
-            }
+            SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_control_all_enemy_states = {
@@ -1208,19 +1201,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_enemy_country = {
-                delete_unit = {
-                    disband = no
-                }
-                every_possible_country = {
-                    recall_volunteers_from = PREV
-                }
-                every_controlled_state = {
-                    ROOT = {
-                        set_state_controller = PREV
-                    }
-                }
-            }
+            SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
+            SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_capitals = {
@@ -1467,7 +1449,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             if = {
                 # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
                 limit = {
-                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_driggers_loaded = yes
+                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
                 }
                 if = {
                     limit = {
@@ -1576,6 +1558,38 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         active = no
                     }
                 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_countries_with_our_volunteers_win_wars = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
+                SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
             }
         }
     }
@@ -2891,14 +2905,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         type = annex_everything
                     }
                     TIB = {
-                        delete_unit = {
-                            disband = no
-                        }
-                        every_controlled_state = {
-                            YUN = {
-                                set_state_controller = PREV
-                            }
-                        }
+                        SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
+                        set_temp_variable = { temp_param_new_state_controller_tag = YUN }
+                        SCP-EQ-Tools_generic_scripted_effects_change_all_state_controller = yes
                     }
                     
                     # Max legitimacy
