@@ -1615,10 +1615,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                set_temp_variable = { temp_annex_target_country = THIS }
                 ROOT = {
                     annex_country = {
-                        target = temp_annex_target_country
+                        target = PREV
                         transfer_troops = yes
                     }
                 }
@@ -2526,7 +2525,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { temp_month_income_gained = 24525 }
+            set_temp_variable = { money_reserves_temp = 24525 }
             econ_money_reserves_change_raw_money = yes
         }
     }
