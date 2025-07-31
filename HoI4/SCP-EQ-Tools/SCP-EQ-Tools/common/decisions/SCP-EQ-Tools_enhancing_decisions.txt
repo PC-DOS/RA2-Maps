@@ -1712,7 +1712,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     is_embargoed_by = ROOT
                 }
                 set_variable = { SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_source = ROOT }
-                set_country_flag = { SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_is_tagged_from_another_country }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_is_tagged_from_another_country
                 change_tag_from = ROOT
             }
         }
