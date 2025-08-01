@@ -2940,9 +2940,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         is_in_array = { global.TNO_Superpowers = ROOT }
                     }
                 }
-                add_to_array = { global.TNO_Superpowers = ROOT }
-                # This will enable cold war score calculation for us
-                #set_superpower = yes
+                set_superpower = yes
             }
         }
     }
