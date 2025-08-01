@@ -2916,7 +2916,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             # Always allowed
         }
         visible = {
-            # Always visible
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
         }
         available = {
             # Always available
