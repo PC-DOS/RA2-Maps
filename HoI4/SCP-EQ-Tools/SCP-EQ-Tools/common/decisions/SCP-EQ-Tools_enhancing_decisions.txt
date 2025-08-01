@@ -2932,6 +2932,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             set_variable = { nuclear_stockpile_k = nuclear_stockpile }
             divide_variable = { nuclear_stockpile_k = 1000 }
             calculate_strike_capability = yes
+            set_temp_variable = { global_coverage_change_temp = 1.0 }
+            nuclear_global_coverage_change = yes
             
             # Add us to super powers array to enable the big funny red button
             if = {
