@@ -2911,6 +2911,29 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TNO_add_nuke = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_to_variable = { nuclear_stockpile = 245 }
+            set_variable = { nuclear_stockpile_k = nuclear_stockpile }
+            divide_variable = { nuclear_stockpile_k = 1000 }
+            calculate_strike_capability = yes
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_TNO_YUN_max_legitimacy = {
         allowed = {
             # Always allowed
