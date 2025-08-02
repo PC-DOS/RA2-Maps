@@ -1045,18 +1045,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             every_enemy_country = {
-                set_temp_variable = { temp_nuke_target_country = THIS }
-                log = "Nuking country: [?temp_nuke_target_country.GetTag] ([?temp_nuke_target_country.GetName])"
-                every_controlled_state = {
-                    set_temp_variable = { temp_nuke_target_state = THIS }
-                    log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
-                    var:temp_nuke_target_country = {
-                        launch_nuke = {
-                            state = temp_nuke_target_state
-                            use_nuke = no
-                        }
-                    }
-                }
+                set_temp_variable = { temp_param_nuke_target_tag = THIS }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
             }
         }
     }
@@ -1579,18 +1570,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                set_temp_variable = { temp_nuke_target_country = THIS }
-                log = "Nuking country: [?temp_nuke_target_country.GetTag] ([?temp_nuke_target_country.GetName])"
-                every_controlled_state = {
-                    set_temp_variable = { temp_nuke_target_state = THIS }
-                    log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
-                    var:temp_nuke_target_country = {
-                        launch_nuke = {
-                            state = temp_nuke_target_state
-                            use_nuke = no
-                        }
-                    }
-                }
+                set_temp_variable = { temp_param_nuke_target_tag = THIS }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
             }
         }
     }

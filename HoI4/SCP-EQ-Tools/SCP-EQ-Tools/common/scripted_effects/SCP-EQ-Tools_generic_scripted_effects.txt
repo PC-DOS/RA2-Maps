@@ -26,3 +26,105 @@ SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = {
         SCP-EQ-Tools_generic_scripted_effects_change_all_state_controller = yes
     }
 }
+
+# Parameter 1: temp_param_state_population_change_percentage
+SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
+    set_temp_variable = { temp_current_state_population_change = state_population_k }
+    multiply_temp_variable = { temp_current_state_population_change = temp_param_state_population_change_percentage }
+    # Avoid overflow at ~2M
+    if = {
+        limit = {
+            check_variable = { temp_param_state_population_change_percentage < 0 }
+            OR = {
+                # Will overflow after multiplied by 1000 (2000 * 1000 = 2000000)
+                check_variable = { temp_current_state_population_change < -1750 }
+                # Already overflown
+                OR = {
+                    check_variable = { temp_current_state_population_change > 0 }
+                    check_variable = { temp_current_state_population_change = 0 }
+                }
+            }
+        }
+        set_temp_variable = { temp_current_state_population_change = -1750 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_state_population_change_percentage > 0 }
+            OR = {
+                # Will overflow after multiplied by 1000 (2000 * 1000 = 2000000)
+                check_variable = { temp_current_state_population_change > 1750 }
+                # Already overflown
+                OR = {
+                    check_variable = { temp_current_state_population_change < 0 }
+                    check_variable = { temp_current_state_population_change = 0 }
+                }
+            }
+        }
+        set_temp_variable = { temp_current_state_population_change = 1750 }
+    }
+    multiply_temp_variable = { temp_current_state_population_change = 1000 }
+    add_manpower = temp_current_state_population_change
+    
+    # Avoid adding manpower side effect, see https://hoi4.paradoxwikis.com/Effect#General_3
+    if = {
+        limit = {
+            check_variable = { temp_current_state_population_change < 0 }
+        }
+        controller = {
+            add_manpower = temp_current_state_population_change
+        }
+    }
+}
+
+# Parameter 1: temp_param_nuke_target_tag
+# Parameter 2: temp_param_nuke_target_state
+# Parameter 3: temp_param_is_advanced_nuking_enabled
+SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
+    var:temp_param_nuke_target_state = {
+        set_temp_variable = { temp_nuke_target_state = THIS }
+        log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
+        var:temp_param_nuke_target_tag = {
+            launch_nuke = {
+                state = temp_nuke_target_state
+                use_nuke = no
+            }
+        }
+        if = {
+            limit = {
+                check_variable = { temp_param_is_advanced_nuking_enabled > 0 }
+            }
+            # Go hell with your Showa bullshit, JAPs!
+            # Delete all units immediately
+            var:temp_param_nuke_target_tag = {
+                delete_unit = {
+                    state = PREV
+                    disband = no
+                }
+            }
+            # Kills local people
+            set_temp_variable = { temp_param_state_population_change_percentage = -0.5 }
+            SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = yes
+            # Long-term damage to local human resource
+            add_province_modifier = {
+                static_modifiers = { SCP-EQ-Tools_province_modifier_nuked_modifier }
+                province = {
+                    all_provinces = yes
+                }
+                days = 730
+            }
+        }
+    }
+}
+
+# Parameter 1: temp_param_nuke_target_tag
+# Parameter 2: temp_param_is_advanced_nuking_enabled
+SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = {
+    log = "Nuking country: [?temp_param_nuke_target_tag.GetTag] ([?temp_param_nuke_target_tag.GetName])"
+    var:temp_param_nuke_target_tag = {
+        every_controlled_state = {
+            set_temp_variable = { temp_param_nuke_target_state = THIS }
+            log = "Nuking state: [?temp_param_nuke_target_state.GetID] ([?temp_param_nuke_target_state.GetName])"
+            SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = yes
+        }
+    }
+}
