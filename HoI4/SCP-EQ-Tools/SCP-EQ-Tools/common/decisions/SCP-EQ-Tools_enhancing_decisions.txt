@@ -2117,17 +2117,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { USB_support_pro_var_temp = 1.0 }
-            USB_add_support_pro = yes
-            set_temp_variable = { USB_support_neo_var_temp = 1.0 }
-            USB_add_support_neo = yes
-            set_temp_variable = { USB_support_con_var_temp = 1.0 }
-            USB_add_support_con = yes
-            set_temp_variable = { USB_support_ino_var_temp = 1.0 }
-            USB_add_support_ino = yes
-            add_power_balance_value = {
-                id = USB_trust_bop
-                value = 1.0
+            USB = {
+                set_temp_variable = { USB_support_pro_var_temp = 1.0 }
+                USB_add_support_pro = yes
+                set_temp_variable = { USB_support_neo_var_temp = 1.0 }
+                USB_add_support_neo = yes
+                set_temp_variable = { USB_support_con_var_temp = 1.0 }
+                USB_add_support_con = yes
+                set_temp_variable = { USB_support_ino_var_temp = 1.0 }
+                USB_add_support_ino = yes
+                add_power_balance_value = {
+                    id = USB_trust_bop
+                    value = 1.0
+                }
             }
         }
     }
