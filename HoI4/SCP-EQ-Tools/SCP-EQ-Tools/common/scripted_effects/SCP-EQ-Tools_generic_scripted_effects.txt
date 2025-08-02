@@ -101,9 +101,14 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
                     disband = no
                 }
             }
-            # Kills local people
+            # Kills local people by percentage
             set_temp_variable = { temp_param_state_population_change_percentage = -0.5 }
             SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = yes
+            # Ensure minimal killing
+            add_manpower = -24500
+            var:temp_param_nuke_target_tag = {
+                add_manpower = -24500
+            }
             # If nuking target is capital and population is really low, kills country leader
             if = {
                 limit = {
