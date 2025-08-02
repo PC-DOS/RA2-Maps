@@ -111,7 +111,9 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
                     state_population_k < 0.245
                 }
                 # Go hell you Showa shit-ass
-                kill_country_leader = yes
+                var:temp_param_nuke_target_tag = {
+                    kill_country_leader = yes
+                }
             }
             # Long-term damage to local human resource
             add_province_modifier = {
