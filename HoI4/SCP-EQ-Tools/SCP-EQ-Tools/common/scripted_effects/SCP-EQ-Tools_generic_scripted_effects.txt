@@ -104,6 +104,15 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
             # Kills local people
             set_temp_variable = { temp_param_state_population_change_percentage = -0.5 }
             SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = yes
+            # If nuking target is capital and population is really low, kills country leader
+            if = {
+                limit = {
+                    is_capital = yes
+                    state_population_k < 0.245
+                }
+                # Go hell you Showa shit-ass
+                kill_country_leader = yes
+            }
             # Long-term damage to local human resource
             add_province_modifier = {
                 static_modifiers = { SCP-EQ-Tools_province_modifier_nuked_modifier }
