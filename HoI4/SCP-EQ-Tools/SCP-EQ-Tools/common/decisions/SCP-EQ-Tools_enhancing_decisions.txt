@@ -1525,7 +1525,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     OR = {
                         has_volunteers_amount_from = {
@@ -1628,13 +1628,16 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     OR = {
                         is_ally_with = ROOT
                         is_in_faction_with = ROOT
                         is_puppet_of = ROOT
                         is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
                     }
                 }
                 every_controlled_state = {
@@ -1664,13 +1667,16 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     OR = {
                         is_ally_with = ROOT
                         is_in_faction_with = ROOT
                         is_puppet_of = ROOT
                         is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
                     }
                 }
                 for_each_loop = {
@@ -1721,13 +1727,16 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     OR = {
                         is_ally_with = ROOT
                         is_in_faction_with = ROOT
                         is_puppet_of = ROOT
                         is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
                     }
                 }
                 every_controlled_state = {
@@ -1760,13 +1769,16 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     OR = {
                         is_ally_with = ROOT
                         is_in_faction_with = ROOT
                         is_puppet_of = ROOT
                         is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
                     }
                 }
                 every_controlled_state = {
@@ -1813,6 +1825,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         is_in_faction_with = ROOT
                         is_puppet_of = ROOT
                         is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
                     }
                 }
                 set_variable = { SCP-EQ-Tools_enhancing_decisions_tag_to_random_ally_country_of_us_source = ROOT }
