@@ -45,7 +45,7 @@ leader_traits = {
         experience_gain_navy = 245
         experience_gain_air = 245
         max_command_power = 245245
-        weekly_manpower = 1245245
+        weekly_manpower = 245245
         ai_will_do = {
             base = 0
         }
@@ -130,7 +130,7 @@ leader_traits = {
         experience_gain_navy = 245
         experience_gain_air = 245
         max_command_power = 245245
-        weekly_manpower = 1245245
+        weekly_manpower = 245245
         ai_will_do = {
             base = 0
         }
@@ -245,7 +245,7 @@ leader_traits = {
         experience_gain_navy = 245
         experience_gain_air = 245
         max_command_power = 245245
-        weekly_manpower = 1245245
+        weekly_manpower = 245245
         ai_will_do = {
             base = 0
         }
