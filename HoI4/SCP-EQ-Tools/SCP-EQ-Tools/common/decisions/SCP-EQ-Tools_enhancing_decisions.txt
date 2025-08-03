@@ -1499,9 +1499,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
+                    OR = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
                     }
                     NOT = {
                         tag = ROOT
@@ -1923,9 +1927,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
+                    OR = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
                     }
                     NOT = {
                         tag = ROOT
@@ -2260,9 +2268,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
+                    OR = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
                     }
                     NOT = {
                         tag = ROOT
@@ -3192,9 +3204,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
+                    OR = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
                     }
                     NOT = {
                         tag = ROOT
