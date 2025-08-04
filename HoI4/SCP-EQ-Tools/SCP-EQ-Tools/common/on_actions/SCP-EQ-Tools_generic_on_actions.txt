@@ -3,7 +3,7 @@ on_actions = {
         effect = {
             # Handles "nuclear radiation" effect dealt by SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state
             # Radiation kills local people
-            every_state = {
+            every_controlled_state = {
                 limit = {
                     has_state_flag = {
                         flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
@@ -21,7 +21,7 @@ on_actions = {
                 }
             }
             # Radiation fades out after 730 days since last nuking
-            every_state = {
+            every_controlled_state = {
                 limit = {
                     has_state_flag = {
                         flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
