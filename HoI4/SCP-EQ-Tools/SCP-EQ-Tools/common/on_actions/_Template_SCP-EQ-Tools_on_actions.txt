@@ -1,0 +1,966 @@
+# Ref. https://hoi4.paradoxwikis.com/On_actions
+# 
+# {{Version|1.12}}
+# 
+# On actions are blocks that are executed when a certain action occurs, such as a country declaring war on a different country or a state changing control. On actions are stored in {{path|common/on_actions/*.txt}} files.
+# 
+# __TOC__
+# 
+# Each on action is a separate block within the <code>on_actions = { ... }</code> block, which is the root block of the on actions file. Each on_action has up to 2 arguments:
+# * <code>effect = { ... }</code> is present for every single on action, being an effect block the insides of which are executed when needed.
+# * <code>random_events = { ... }</code> is present for on_actions where the default scope (Same as ROOT, if not specified otherwise) is a country, such as on_new_term_election. This instantly fires a random one of the specified events within with the given weights being applied. This is done with a [[wp:Sampling_(statistics)#Probability-proportional-to-size_sampling|probability-proportional-to-size sampling]] approach.
+# : Putting <code>0</code> instead of an event ID will ensure that nothing will happen if the chance lands on this.
+# : Additionally, an event cannot be fired using <code>random_events = { ... }</code> if the event's <code>trigger = { ... }</code> block evaluates as false. In this case, each scope is treated the same as on action's: on action's FROM is treated as the event's FROM, same with FROM.FROM.
+# : If there are multiple random_events blocks, one event will be picked from each.
+# 
+# Note that in terms of [[Scopes]], ROOT is the default assumed scope unless specified otherwise (in on_actions that have THIS as a separate entity from ROOT), while FROM and FROM.FROM can serve as secondary blocks that are provided in addition.
+# 
+# Each on action can only be executed after the game's start, ignoring any effects done within history files or the bookmark's <code>effects = { ... }</code> section that normally would trigger one, such as [[Effect#set_politics|set_politics]].
+# == File example ==
+# <pre>on_actions = {
+#     on_startup = {
+#         effect = { # NEVER FORGET! Important to include this line to distinguish it from random_events = { ... }
+#             every_country = {
+#                 limit = {
+#                     is_ai = no
+#                 }
+#                 country_event = welcome_event.1
+#             }
+#             ENG = {
+#                 country_event = { 
+#                     id = new_year.1
+#                     days = 365  # Fires on January 1 1937. Remember that leap days do not exist in-game.
+#                 }
+#             }
+#         }
+#     }
+#     on_state_control_changed = {
+#         random_events = {
+#             1 = germany_state_control.1 # Assuming the triggers for the events are met, then
+#             1 = germany_state_control.2 # fires one of germany_state_control.1 or germany_state_control.2
+#             3 = 0                       # Each has a 20% chance, and there's 60% chance nothing happens.
+#         }
+#         effect = {
+#             if = {
+#                 limit = {   # Execute if Italy captures Corsica or Savoy from France
+#                     tag = ITA
+#                     FROM = { tag = FRA }
+#                     FROM.FROM = {
+#                         OR = {
+#                             state = 1
+#                             state = 735
+#                         }
+#                     }
+#                 }
+#                 FROM.FROM = {
+#                     set_resistance = 60
+#                     damage_building = {
+#                         type = infrastructure
+#                         damage = 2
+#                     }
+#                 }
+#             }
+#         }
+#     }
+# }</pre>
+# 
+# == General on actions ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_startup"
+# |on_startup
+# |Trigger the following commands at the first day of a new game, after country selection. Doesn't work with save loading.
+# |<pre>on_startup = { 
+#     effect = {
+#         ENG = {
+#             news_event = { id = news_event.1 days = 31 random_days = 27 } # Fires a news event in February 1936
+#         }  # assuming the default start date
+#     }      # Scoping into ENG is necessary, since
+# }          # news_event is a country-scoped effect</pre>
+# |'''Has a default scope of <code>none</code>''', instead of firing for each country individually as in other Paradox games such as Europa Universalis IV. Many effects that usually can be used in any scope will not work, without manual [[scopes|scoping]] into countries, states, or elsewhere.
+# |1.3.3
+# |-id="on_daily"
+# |on_daily
+# |Triggers each day for '''every country separately''' (performance heavy, use carefully)
+# |<pre>on_daily = {
+#     effect = {
+#         if = {
+#             limit = { has_variable = to_be_updated_daily }
+#             add_to_variable = { to_be_updated_daily = 1 }
+#         } 
+#     }
+# }</pre>
+# |Useful for scripted guis and mods adding new mechanics (can increment a variable daily e.g.). '''Only use scoping if you're careful to avoid duplicate effects'''. This being executed for every country separately means that this is essentially equivalent to a single effect executed daily inside of every_country. e.g. <code>effect = { GER = { add_political_power = 1 } }</code> will add ~100 political power to {{flag|Germany}} daily, as there being ~100 countries on the world map means that this will get executed ~100 times per day.
+# |1.5.2
+# |-id="on_daily_TAG"
+# |on_daily_TAG
+# |Triggers each day for the specified country only
+# |<pre>on_daily_SOV = {
+#     effect = {  
+#         if = {
+#             limit = { has_war_with = GER }
+#             SOV_escalate_the_war_effect = yes
+#         }
+#     }
+# }</pre>
+# |Only runs the effects if the country exists.
+# |1.9
+# |-id="on_weekly"
+# |on_weekly
+# |Triggers each week for every country separately
+# |<pre>on_weekly = {
+#     effect = {
+#         if = {
+#             limit = { 
+#                 has_intelligence_agency = yes
+#                 is_ai = yes
+#             }
+#             update_operation_ai = yes
+#         }
+#     }
+# }
+# </pre>
+# |Useful for ai scripting. Runs on the beginning of the day if the [[Game variables#num_days|num_days variable]] is divisible by 7.
+# |1.9
+# |-id="on_weekly_TAG"
+# |on_weekly_TAG
+# |Triggers each week for the specified country only
+# |<pre>on_weekly_BHR = {
+#     if = {
+#         limit = {
+#             has_country_flag = BHR_must_control_states
+#             any_owned_state = {
+#                 NOT = { is_controlled_by = ROOT }
+#             }
+#             has_stability < 0.5
+#         }
+#         country_event = BHR_event.0
+#         clr_country_flag = BHR_must_control_states
+#     }
+# }</pre>
+# |Only runs the effects if the country exists. Runs on the beginning of the day if the [[Game variables#num_days|num_days variable]] is divisible by 7.
+# |1.9
+# |-id="on_monthly"
+# |on_monthly
+# |Triggers each month for every country separately
+# |<pre>on_monthly = { 
+#     random_events = {
+#         1 = random_event.0
+#         99 = 0
+#     }
+# }</pre>
+# |
+# |1.9
+# |-id="on_monthly_TAG"
+# |on_monthly_TAG
+# |Triggers each month for the specified country only
+# |<pre>on_monthly_USA = {
+#     effect = {
+#         add_to_variable = { USA_unrest = 1 }
+#         clamp_variable = {
+#             var = USA_unrest
+#             max = 10
+#         }
+#         if = {
+#             limit = { 
+#                 check_variable = { USA_unrest = 10 }
+#             }
+#             country_event = usa.rebellion.0
+#         }
+#     }
+# }</pre>
+# |Only runs the effects if the country exists.
+# |1.9
+# |}
+# 
+# == Politics ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_stage_coup"
+# |on_stage_coup
+# |For the non {{icon|lar|1}} stage coup. Trigger the following commands whenever a coup is stage.
+# |<pre>on_stage_coup = { 
+#     effect = { 
+#     }
+# }</pre>
+# | ROOT is the country that stages the coup, FROM is the target country.
+# |1.0
+# |-id="on_coup_succeeded"
+# |on_coup_succeeded
+# |For the non {{icon|lar|1}} stage coup. Trigger the following commands whenever a coup succeeds.
+# |<pre>on_coup_succeeded = { 
+#     effect = { 
+#         random_other_country = { 
+#             limit = { 
+#                 has_government = democratic
+#                 original_tag = ROOT
+#             } 
+#             set_politics = { elections_allowed = yes }
+#         }
+#     }
+# }</pre>
+# |ROOT is the country that coup succeeded in, FROM is the stager of the coup
+# |1.0
+# |-id="on_government_change"
+# |on_government_change
+# |Trigger the following commands whenever a country switches its government.
+# |<pre>on_government_change = { effect = {  &hellip;  } }</pre>
+# |This includes <code>set_politics</code> and <code>start_civil_war</code> (always for both sides) and excludes being puppeted. Will always also trigger [[#on_ruling_party_change|on_ruling_party_change]].
+# |1.0
+# |-id="on_ruling_party_change"
+# |on_ruling_party_change
+# |Trigger the following commands whenever a country switches its ideology.
+# |<pre>on_ruling_party_change = { effect = {  &hellip;  } }</pre>
+# |<code>old_ideology_token</code> is a [[Variables#Variable types|temporary variable]] that stores the old ideology as a token. Alongside what triggers [[#on_government_change|on_government_change]], also includes being puppeted or changing the ideology via a console command.
+# |1.9
+# |-id="on_new_term_election"
+# |on_new_term_election
+# |Trigger the following commands whenever an election happens or is called by the '''hold_election''' command.
+# |<pre>on_new_term_election = { random_events = { 100 = usa.6 } }</pre>
+# |
+# |1.0
+# |-id="on_before_peace_conference_start"
+# |on_before_peace_conference_start
+# |Trigger the following commands after capitulation but before a peace conference starts.
+# |<pre>on_before_peace_conference_start = { effect = { &hellip; } }</pre>
+# |ROOT is winner, FROM is loser (called for all winners against all losers).
+# |1.15.2
+# |-id="on_peaceconference_ended"
+# |on_peaceconference_ended
+# |Trigger the following commands whenever a peace conference ends.
+# |<pre>on_peaceconference_ended = { effect = { &hellip; } }</pre>
+# |ROOT is the winner, FROM is the loser. Is also triggered by the [[Effects#white_peace|white_peace]] effect is used or when a conditional surrender is accepted.
+# |1.5
+# |-id="on_peaceconference_started"
+# |on_peaceconference_started
+# |Trigger the following commands whenever a peace conference starts.
+# |<pre>on_peaceconference_started = { effect = { &hellip; } }</pre>
+# |ROOT is the winner, FROM is the loser. Is also triggered by the [[Effects#white_peace|white_peace]] effect is used or when a conditional surrender is accepted.
+# |1.12.3
+# |}
+# 
+# == Diplomacy/War ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_send_volunteers"
+# |on_send_volunteers
+# |Trigger the following commands whenever a country send volunteers to another.
+# |<pre>on_send_volunteers = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is sender, FROM is receiver.
+# |1.9
+# <!--on_recall_volunteers isn't a real on action, despite the fact that it's listed in documentation. It's not in the binary file and trying to use it will do nothing. Note: Trying to use a non-existing on action doesn't throw an unexpected token error by itself.
+# |-id="on_recall_volunteers"
+# |on_recall_volunteers
+# |Trigger the following commands whenever a country recalls volunteers from another.
+# |<pre>on_recall_volunteers = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is recaller, FROM is originator.
+# | unknown - 1.9!-->
+# |-id="on_border_war_lost"
+# |on_border_war_lost
+# |Trigger the following commands whenever a country loses a border war.
+# |<pre>on_border_war_lost = {
+#     effect = {
+#         owner = {
+#             add_ideas = lost_conflict
+#         }
+#     }
+# }</pre>
+# |"Border war" refers to the state-based border wars enabled with [[Effect#set_border_war|set_border_war]], represented with orange stripes over the state, rather than border wars that simulate combat between countries. The default scope is the state that lost the border war.
+# |1.0
+# |-id="on_war_relation_added"
+# |on_war_relation_added
+# |fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
+# |<pre>on_war_relation_added = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is attacker, FROM is defender
+# |1.9.3
+# |-id="on_declare_war"
+# |on_declare_war
+# |Trigger the following commands whenever a country declares war.
+# |<pre>on_declare_war = {
+#     effect = {
+#         if = {
+#             limit = {
+#                 tag = GER
+#                 FROM = { tag = SOV }
+#             }
+#             add_ideas = GER_barbarossa
+#         }
+#     }
+# }</pre>
+# |FROM is war target.
+# ROOT is for the country who is declaring war
+# |1.0
+# |-id="on_war"
+# |on_war
+# |Trigger the following commands whenever a country has just entered a state of war from initially being at peace.
+# |<pre>on_war = {
+#     effect = { &hellip; }
+# }</pre>
+# |THIS is country that has just gotten into a war.
+# |1.7
+# |-id="on_peace"
+# |on_peace
+# |Trigger the following commands whenever a country is no longer at war.
+# |<pre>on_peace = {
+#     effect = { &hellip; }
+# }</pre>
+# |THIS is country that is no longer at war.
+# |1.7
+# |-id="on_capitulation"
+# |on_capitulation
+# |Trigger the following commands whenever a country capitulates, in the middle of the process.
+# |<pre>on_capitulation = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is capitulated country, FROM is winner. Several processes such as the deletion of units and transfer of equipment have already been executed by this point.
+# |1.0
+# |-id="on_capitulation_immediate"
+# |on_capitulation_immediate
+# |Trigger the following commands whenever a country capitulates, at the beginning of the process.
+# |<pre>on_capitulation_immediate = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is capitulated country, FROM is winner.
+# |1.11.5
+# |-id="on_uncapitulation"
+# |on_uncapitulation
+# |Trigger the following commands whenever a country that was previously capitulated changes its status to no longer having capitulated.
+# |<pre>on_uncapitulation = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is the country affected.
+# |1.4
+# |-id="on_annex"
+# |on_annex
+# |Trigger the following commands whenever a country is annexed.
+# |<pre>on_annex = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is winner, FROM gets annexed. For civil wars '''on_civil_war_end''' is also fired.
+# |1.3.3
+# |-id="on_civil_war_end_before_annexation"
+# |on_civil_war_end_before_annexation
+# |Trigger the following commands just before FROM gets annexed, meaning the country and everything it owns still exists.
+# |<pre>on_civil_war_end_before_annexation = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is winner, FROM gets annexed. It will also fire '''on_annex''' and '''on_civil_war_end'''.
+# |1.6
+# |-id="on_civil_war_end"
+# |on_civil_war_end
+# |Trigger the following commands whenever a civil war ends.
+# |<pre>on_civil_war_end = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is civil war winner, FROM gets annexed. This will also fire '''on_annex'''.
+# |1.0
+# |-id="on_puppet"
+# |on_puppet
+# |Trigger the following commands whenever a country is puppeted in a '''peace conference only'''.
+# |<pre>on_puppet = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is the nation being puppeted, FROM is the overlord.
+# |1.0
+# |-id="on_liberate"
+# |on_liberate
+# |Trigger the following commands whenever a country is liberated in a '''peace conference only'''.
+# |<pre>on_liberate = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is the nation being liberated, FROM is the leader of the liberators.
+# |1.0
+# |-id="on_release_as_free"
+# |on_release_as_free
+# |Trigger the following commands whenever a country is released.
+# |<pre>on_release_as_free = {
+#     effect = { &hellip; }
+# }</pre>
+# |#ROOT is free nation FROM is releaser.
+# |1.3
+# |-id="on_release_as_puppet"
+# |on_release_as_puppet
+# |Trigger the following commands whenever puppeting through the occupied territories menu during peace time (or when releasing from non-core but owned territory).
+# |<pre>on_release_as_puppet = {
+#     effect = { &hellip; }
+# }</pre>
+# |ROOT is the nation being released, FROM is the overlord.
+# |1.3
+# |-id="on_guarantee"
+# |on_guarantee
+# |Trigger the following commands whenever a country guarantees independence of another country.
+# |
+# |ROOT is the country which guarantees, FROM is the country that is guaranteed.
+# |
+# |-id="on_military_access"
+# |on_military_access
+# |Trigger the following commands whenever a country accepts the request for military access.
+# |
+# |ROOT is the country which requested, FROM is the country that accepted.
+# |
+# |-id="on_offer_military_access"
+# |on_offer_military_access
+# |Trigger the following commands whenever a country accepts the offer for military access.
+# |
+# |ROOT is the country which offered, FROM is the country that accepted.
+# |
+# |-id="on_call_allies"
+# |on_call_allies
+# |Trigger the following commands whenever a country accepts the call to war.
+# |
+# |ROOT is the country which called, FROM is the country that joined.
+# |
+# |-id="on_join_allies"
+# |on_join_allies
+# |Trigger the following commands whenever a country joins a war of an ally.
+# |
+# |ROOT is the country which joined, FROM is the country whose war was joined.
+# |
+# |-id="on_lend_lease"
+# |on_lend_lease
+# |Trigger the following commands whenever a country has their lend lease accepted.
+# |
+# |ROOT is the country that sent the lend lease, FROM is the country that accepted.
+# |
+# |-id="on_incoming_lend_lease"
+# |on_incoming_lend_lease
+# |Trigger the following commands whenever a country accepts a requested lend lease.
+# |
+# |ROOT is the country that accepted, FROM is the country that requested.
+# |
+# |-id="on_send_expeditionary_force"
+# |on_send_expeditionary_force
+# |Trigger the following commands whenever a country accepts sent expeditionary forces.
+# |
+# |ROOT is the country that sent, FROM is the country that accepted.
+# |
+# |-id="on_return_expeditionary_forces"
+# |on_return_expeditionary_forces
+# |Trigger the following commands whenever a country returns their expeditionary forces.
+# |
+# |ROOT is the owner of the forces, FROM is the country where the forces were sent.
+# |
+# |-id="on_request_expeditionary_forces"
+# |on_request_expeditionary_forces
+# |Trigger the following commands whenever a country requests expeditionary forces.
+# |
+# |ROOT is the country that requests, FROM is the target of the request.
+# |
+# |-id="on_ask_for_state_control"
+# |on_ask_for_state_control
+# |Trigger the following commands whenever a country accepts the request for control of a state.
+# |
+# |ROOT is the requester, FROM is the country in control of the state.
+# |
+# |-id="on_give_state_control"
+# |on_give_state_control
+# |Trigger the following commands whenever a country accepts being given control of a state.
+# |
+# |ROOT is the giver, FROM is the receiver.
+# |
+# |-id="on_peace_proposal"
+# |on_peace_proposal
+# |Trigger the following commands whenever a country accepts a conditional surrender.
+# |
+# |ROOT is sender of conditional surrender, FROM is the receiver.
+# |
+# |-id="on_send_attache"
+# |on_send_attache
+# |Triggers actions on an attache being accepted.
+# |
+# |Default scope is sender, FROM = receiver
+# |
+# |}
+# 
+# == Faction ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_create_faction"
+# |on_create_faction
+# |Trigger the following commands whenever a country create a faction.
+# |<pre>on_create_faction = { effect = { &hellip; } }</pre>
+# |FROM is the one that joins the faction.
+# |1.0
+# |-id="on_faction_formed"
+# |on_faction_formed
+# |Trigger the following commands when a faction is formed.
+# |<pre>on_faction_formed = { effect = { news_event = { id = news.159 } } }</pre>
+# |
+# |1.0
+# |-id="on_offer_join_faction"
+# |on_offer_join_faction
+# |Trigger the following commands whenever a country joins a faction after being invited.
+# |<pre>on_offer_join_faction = { effect = { &hellip; } }</pre>
+# |FROM is the country invited, THIS and ROOT are the faction leader.
+# |1.0
+# |-id="on_join_faction"
+# |on_join_faction
+# |Trigger the following commands for a faction leader whenever a country joins after they ask to do so.
+# |<pre>on_join_faction = { effect = { &hellip; } }</pre>
+# |FROM is faction leader, ROOT and THIS are the country that joins.
+# |1.0
+# |-id="on_assume_faction_leadership"
+# |on_assume_faction_leadership
+# |Trigger the following commands whenever a country assumes leadership of a faction.
+# |<pre>on_assume_faction_leadership = { effect = { &hellip; } }</pre>
+# | ROOT is the new faction leader FROM is the old faction leader
+# |1.7
+# |-id="on_leave_faction"
+# |on_leave_faction
+# |Trigger the following commands whenever a country leave a faction.
+# |<pre>on_leave_faction = { effect = { if = { limit = { AND = { tag = CAN NOT = { has_dlc = "Together for Victory" } } } drop_cosmetic_tag = yes } }</pre>
+# | FROM is the faction Leader, ROOT is the country leaving the faction 
+# |1.0
+# |}
+# 
+# == Autonomy ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_subject_annexed"
+# |on_subject_annexed
+# |Trigger the following commands when a country annex a subject.
+# |<pre>on_subject_annexed = { effect = {  &hellip;  } }</pre>
+# |ROOT is the subject, FROM is the overlord.
+# |1.0
+# |-id="on_subject_free"
+# |on_subject_free
+# |Trigger the following commands when a country grants freedom to a puppet.
+# |<pre>on_subject_free = { effect = {  &hellip;  } }</pre>
+# |ROOT is the subject, FROM is the previous overlord.
+# |1.0
+# |-id="on_subject_autonomy_level_change"
+# |on_subject_autonomy_level_change
+# |Trigger the following commands when the autonomy level of a puppet changes.
+# |<pre>on_subject_autonomy_level_change = { effect = {  &hellip;  } }</pre>
+# |ROOT is the subject, FROM is the overlord.
+# |1.0
+# |}
+# 
+# == Governments in Exile ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_government_exiled"
+# |on_government_exiled
+# |Trigger the following commands whenever a country becomes a government in exile.
+# |<pre>on_government_exiled = { effect = { = { &hellip; } }</pre>
+# |ROOT is the government in exile, FROM is the country that is hosting the government in exile.
+# |1.6
+# |-id="on_host_changed_from_capitulation"
+# |on_host_changed_from_capitulation
+# |Trigger the following commands whenever a country that is hosting a government in exile has capitulated.
+# |<pre>on_host_changed_from_capitulation= { effect = { = { &hellip; } }</pre>
+# |ROOT is the government in exile, FROM is the new country hosting the government in exile, FROM:FROM is the old country that was hosting the government in exile.
+# |1.6
+# |-id="on_exile_government_reinstated"
+# |on_exile_government_reinstated
+# |Trigger the following commands whenever a country has returned from governing in exile.
+# |<pre>on_exile_government_reinstated = { effect = { = { &hellip; } }</pre>
+# |ROOT is the government in exile, FROM is the country that was hosting the government in exile.
+# |1.6
+# |}
+# 
+# == States ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_state_control_changed"
+# |on_state_control_changed
+# |Trigger the following commands when a state's controller changes.
+# |<pre>on_state_control_changed = {
+#     effect = {
+#         if = {
+#             limit = {
+#                 FROM.FROM = { state = 123 }
+#             }
+#             if =  {
+#                 limit = {
+#                     tag = BHR
+#                 }
+#                 FROM.FROM = {
+#                     set_state_name = STATE_123_BHR
+#                     set_province_name = {
+#                         id = 1234
+#                         name = VICTORY_POINTS_1234_BHR
+#                     }
+#                 }
+#             }
+#             else = { # Unnested else is preferred over nested
+#                 FROM.FROM = {
+#                     reset_state_name = yes
+#                     reset_province_name = 1234
+#                 }
+#             }
+#         }
+#     }
+# }</pre>
+# |ROOT is new controller, FROM is old controller, FROM.FROM is state ID.
+# |1.4
+# |}
+# 
+# == Wargoals ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_generate_wargoal"
+# |on_generate_wargoal
+# |Trigger the following commands whenever the country generates a wargoal.
+# |<pre>on_generate_wargoal = {  }</pre>
+# |ROOT is the wargoal owner, FROM is the wargoal target
+# |
+# |-id="on_justifying_wargoal_pulse"
+# |on_justifying_wargoal_pulse
+# |Trigger the following commands whenever the country is targeted by a wargoal under justification.
+# |<pre>on_justifying_wargoal_pulse = { random_events = { 100 = war_justification.1 } }</pre>
+# |FROM = target nation. Checked every day.
+# |1.0
+# |-id="on_wargoal_expire"
+# |on_wargoal_expire
+# |Trigger the following commands whenever a wargoal expire.
+# |<pre>on_wargoal_expire = { random_events = { 100 = war_justification.301 } }</pre>
+# |FROM is the wargoal owner.
+# |1.0
+# |}
+# 
+# == Unit Leader ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_unit_leader_created"
+# |on_unit_leader_created
+# |Trigger the following commands when an army leader is created.
+# |<pre>on_unit_leader_created = { effect = { &hellip; } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.5
+# |-id="on_army_leader_daily"
+# |on_army_leader_daily
+# |Trigger the following commands on an army leader each day.
+# |<pre>on_army_leader_daily = { effect = { &hellip; } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.0
+# |-id="on_army_leader_won_combat"
+# |on_army_leader_won_combat
+# |Trigger the following commands whenever an army leader won a combat.
+# |<pre>on_army_leader_won_combat = { effect = { &hellip; } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.0
+# |-id="on_army_leader_lost_combat"
+# |on_army_leader_lost_combat
+# |Trigger the following commands whenever an army leader lost a combat.
+# |<pre>on_army_leader_lost_combat = { effect = { &hellip; } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.0
+# |-id="on_unit_leader_level_up"
+# |on_unit_leader_level_up
+# |Trigger the following commands when a leader gain a level.
+# |<pre>on_unit_leader_level_up = { effect = { &hellip; } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.0
+# |-id="on_army_leader_promoted"
+# |on_army_leader_promoted
+# |Trigger the following commands whenever a corps commander is promoted to a field marshal.
+# |<pre>on_army_leader_promoted = { effect = { add_timed_unit_leader_trait = { trait = recently_promoted days = 100 } } }</pre>
+# |FROM is owner country, ROOT is the unit leader.
+# |1.0
+# |-id="on_unit_leader_promote_from_ranks_veteran"
+# |on_unit_leader_promote_from_ranks_veteran
+# |Triggers the following commands whenever an unit commander gets promoted to a general.
+# |<pre>on_unit_leader_promote_from_ranks_veteran = { effect = { &hellip; } }</pre>
+# |FROM is unit, OWNER is owner country, ROOT is the unit leader.
+# |1.12
+# |-id="on_unit_leader_promote_from_ranks_green"
+# |on_unit_leader_promote_from_ranks_green
+# |Triggers the following commands whenever an unit commander gets promoted to a general.
+# |<pre>on_unit_leader_promote_from_ranks_green = { effect = { &hellip; } }</pre>
+# |FROM is unit, OWNER is owner country, ROOT is the unit leader.
+# |1.12
+# |}
+# 
+# == Military ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_nuke_drop"
+# |on_nuke_drop
+# |Trigger the following commands whenever a country drops a nuke.
+# |<pre>on_nuke_drop = {
+#     effect = {
+#         set_global_flag = first_nuke_dropped
+#     }
+# }</pre>
+# |ROOT is the country that launched the nuke, FROM is the nuked state.
+# |1.0
+# |-id="on_pride_of_the_fleet_sunk"
+# |on_pride_of_the_fleet_sunk
+# |Triggers when a country's pride of the fleet is sunk
+# |<pre>on_pride_of_the_fleet_sunk = {
+#     effect = {
+#         if = {
+#             limit = {
+#                 tag = ENG
+#             }
+#             FROM = { set_country_flag = achievements_pride_and_extreme_prejudice }
+#         }
+#     }
+# }</pre>
+# |FROM is the killer country, ROOT is the country of that lost its pride of the fleet.
+# |1.6
+# |-id="on_naval_invasion"
+# |on_naval_invasion
+# |Triggers the following commands whenever a sea invasion is made.
+# |<pre>on_naval_invasion = {
+#     effect = { 
+#         ROOT = {    # Unlike most on_actions, ROOT isn't the default scope
+#             add_political_power = 100
+#         }
+#     }
+# }</pre>
+# |THIS (default scope) is the invaded state, ROOT is the country that invades, FROM is the state where the invasion started
+# |1.9
+# |-id="on_paradrop"
+# |on_paradrop
+# |Triggers the following commands whenever a landing occurs.
+# |<pre>on_paradrop = { 
+#     effect = {
+#         FROM = {
+#             controller = {
+#                 add_war_support = 0.01
+#             }
+#         }
+#     }
+# }</pre>
+# |THIS (default scope) is the invaded state, ROOT is the country that invades, FROM is the state where the invasion started
+# |1.9
+# |-id="on_units_paradropped_in_state"
+# |on_units_paradropped_in_state
+# |This differs from on_paradrop in that it is run once per paradrop, not once per unit dropped.
+# |<pre>on_paradrop = { 
+#     effect = {
+#         FROM = {
+#             controller = {
+#                 add_war_support = 0.01
+#             }
+#         }
+#     }
+# }</pre>
+# |ROOT is the state that was dropped into, FROM is the dropping country.
+# |
+# |-id="on_add_history"
+# |on_add_history
+# |Triggers the following commands whenever receiving a history entry.
+# |<pre>on_add_history = { effect = { &hellip; } }</pre>
+# |ROOT is the unit.
+# |1.12
+# |}
+# 
+# == Aces ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_ace_promoted"
+# |on_ace_promoted
+# |Trigger the following commands whenever an ace is created.
+# |<pre>on_ace_promoted = { random_events = { 100 = ace_promoted.1 } }</pre>
+# |FROM = ace.
+# |1.0
+# |-id="on_ace_killed"
+# |on_ace_killed
+# |Trigger the following commands whenever an aces is killed.
+# |<pre>on_ace_killed = { random_events = { 100 = ace_died.1 } }</pre>
+# |FROM = ace.
+# |1.0
+# |-id="on_ace_killed_on_accident"
+# |on_ace_killed_on_accident
+# |Trigger the following commands whenever our aces died on accident.
+# |<pre>on_ace_killed_on_accident = { random_events = { 100 = ace_died.1 } }</pre>
+# |FROM = our ace died in accident.
+# |1.9
+# |-id="on_non_ace_killed_other_ace"
+# |on_non_ace_killed_other_ace
+# |Trigger the following commands whenever non ace killed enemy ace.
+# |<pre>on_non_ace_killed_other_ace = { FROM = { random_events = { 100 = ace_died.1 } } }</pre>
+# |FROM = enemy ace.
+# |1.9
+# |-id="on_ace_killed_by_ace"
+# |on_ace_killed_by_ace
+# |Trigger the following commands whenever an aces is killed by another ace.
+# |<pre>on_ace_killed_by_ace = { random_events = { 100 = ace_killed_by_ace.1 } }</pre>
+# |FROM = our ace, PREV = enemy ace, has killed FROM.
+# |1.0
+# |-id="on_ace_killed_other_ace"
+# |on_ace_killed_other_ace
+# |Trigger the following commands whenever an aces is killed by another ace (surviving ace side).
+# |<pre>on_ace_killed_other_ace = { random_events = { 100 = ace_killed_other_ace.1 } }</pre>
+# |FROM = our ace, PREV = enemy ace, killed by FROM.
+# |1.0
+# |-id="on_aces_killed_each_other"
+# |on_aces_killed_each_other
+# |Trigger the following commands whenever two aces kill each other in air duel.
+# |<pre>on_aces_killed_each_other = { random_events = { 100 = aces_killed_each_other.1 } }</pre>
+# |FROM = ace, PREV = enemy ace.
+# |1.0
+# |}
+# 
+# == La Résistance ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_operation_completed"
+# |on_operation_completed
+# |Trigger the following commands whenever an operation is completed before the outcome effect is executed and the operative detection chance is rolled.
+# |<pre>on_operation_completed = { effect = { &hellip; } }</pre>
+# |THIS - the operation, ROOT - the initiating country, FROM - the target country.
+# |1.9
+# |-id="on_operative_detected_during_operation"
+# |on_operative_detected_during_operation
+# |Trigger the following commands whenever an operative dies.
+# |<pre>on_operative_death = { effect = { &hellip; } }</pre>
+# |THIS - the operative, ROOT - the killer country (optional), FROM - the country the operative is operating for, FROM.FROM - operation state (will only be set if the operation has a specific selection_target).
+# |1.9
+# |-id="on_operative_on_mission_spotted"
+# |on_operative_on_mission_spotted
+# |Trigger the following commands whenever an operative performing an offensive mission in a country.
+# |<pre>on_operative_on_mission_spotted = { effect = { &hellip; } }</pre>
+# |THIS - the operative, FROM - the country the operative was performing its mission in, ROOT - the country the operative is operating for.
+# |1.9
+# |-id="on_operative_captured"
+# |on_operative_captured
+# |Trigger the following commands whenever an operative is captured.
+# |<pre>on_operative_captured = { effect = { &hellip; } }</pre>
+# |THIS - the operative, ROOT - the country the operative was performing its mission in, FROM - the country the operative is operating for.
+# |1.9
+# |-id="on_operative_created"
+# |on_operative_created
+# |Trigger the following commands whenever an operative is created.
+# |<pre>on_operative_created = { effect = { &hellip; } }</pre>
+# |THIS - the operative, FROM - the country the operative is created by.
+# |1.9.1
+# |-id="on_operative_death"
+# |on_operative_death
+# |Trigger the following commands whenever an operative dies.
+# |<pre>on_operative_death = { effect = { &hellip; } }</pre>
+# |THIS - the operative, ROOT - the killer country (optional), FROM - the country the operative is operating for.
+# |1.9
+# |-id="on_operative_recruited"
+# |on_operative_recruited
+# |Trigger the following commands whenever an operative is recruited.
+# |<pre>on_operative_recruited = { effect = { &hellip; } }</pre>
+# |THIS - the operative, FROM - the country the operative is created by.
+# |1.9.1
+# |-id="on_fully_decrypted_cipher"
+# |on_fully_decrypted_cipher
+# |Trigger the following commands whenever a country fully decrypts cipher of a target country.
+# |<pre>on_fully_decrypted_cipher = { effect = { &hellip; } }</pre>
+# |THIS - the target country that its cipher is decrypted, FROM - the decrypter country.
+# |1.9
+# |-id="on_activated_active_decryption_bonuses"
+# |on_activated_active_decryption_bonuses
+# |Trigger the following commands whenever a country activates its active cipher bonuses against a target.
+# |<pre>on_activated_active_decryption_bonuses = { effect = { &hellip; } }</pre>
+# |THIS - the target country, FROM - the country that activates its bonuses.
+# |1.9
+# |}
+# 
+# == Military Industrial Organization ==
+# {| class="wikitable sortable" width="100%"
+# ! width="10%" | Name
+# ! width="20%" | Description
+# ! width="25%" | Examples
+# ! width="15%" | Notes
+# ! width="5%" | Version Added
+# |-id="on_mio_size_increased"
+# |on_mio_size_increased
+# |Trigger the following commands whenever a MIO increases in size (levels up).
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO country
+# |1.13
+# |-id="on_mio_design_team_assigned_to_tech"
+# |on_mio_design_team_assigned_to_tech
+# |Trigger the following commands whenever a MIO is assigned to technology research.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO
+# |1.13
+# |-id="on_mio_design_team_assigned_to_variant"
+# |on_mio_design_team_assigned_to_variant
+# |Trigger the following commands whenever a MIO is asigned to a variant.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO country
+# |1.13
+# |-id="on_mio_industrial_manufacturer_assigned"
+# |on_mio_industrial_manufacturer_assigned
+# |Trigger the following commands whenever a MIO assigned to a production line.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO
+# |1.13
+# <!-- These do not work while still being present in the vanilla on_actions files
+# |-id="on_mio_tech_research_cancelled"
+# |on_mio_tech_research_cancelled
+# |Trigger the following commands whenever a technology a MIO is assigned to is canceled.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO
+# |1.13
+# |-id="on_mio_tech_research_completed"
+# |on_mio_tech_research_completed
+# |Trigger the following commands whenever a technology a MIO is assigned to is completed.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO
+# |1.13
+# -->
+# |-id="on_mio_industrial_manufacturer_unassigned"
+# |on_mio_industrial_manufacturer_unassigned
+# |Trigger the following commands whenever a MIO is unnasigned from a production line.
+# |
+# |ROOT is the Military Industrial Organization, FROM is the owner of the MIO
+# |1.13
+# |}
+# 
+# {{Modding navbox}}
+# [[Category:Modding]]
+# 
