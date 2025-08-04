@@ -1443,6 +1443,130 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_faction_operation_level = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level has 3 levels:
+            #    0: AI can operate on factions freely
+            #    1: AI cannot leave or take over factions leading by player, player won't be kicked out from AI-leading factions
+            #    2: AI cannot leave or take over any factions, nor kicking any faction member
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 0 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+            }
+            else = {
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_actions = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
+                limit = {
+                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
+                }
+                if = {
+                    limit = {
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
+                    }
+                    # Enable AI war actions and clear global flag
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 0 }
+                }
+                else = {
+                    # Disable AI war actions and set global flag
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
+                }
+            }
+            else = {
+                # WARNING: You will be faced with a VERY LARGE save file!!!
+                if = {
+                    limit = {
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
+                    }
+                    # Enable AI war actions and clear global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                OR = {
+                                    is_ai = yes
+                                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
+                                }
+                            }
+                            remove_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                can_not_declare_war = yes
+                            }
+                            clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 0 }
+                }
+                else = {
+                    # Disable AI war actions and set global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                is_ai = yes
+                            }
+                            add_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                can_not_declare_war = yes
+                            }
+                            set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
+                            #log = "Disabling war actions from [?THIS] to [?PREV]"
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_remove_non_aggression_pact_from_ai_to_ai = {
         allowed = {
             # Always allowed
