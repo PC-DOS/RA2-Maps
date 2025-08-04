@@ -2408,6 +2408,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_CAM_influence = yes
+            CAM = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = CAM
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_INS_var_temp
@@ -2419,6 +2426,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_INS_influence = yes
+            INS = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = INS
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_LAO_var_temp
@@ -2430,6 +2444,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_LAO_influence = yes
+            LAO = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = LAO
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_MAL_var_temp
@@ -2441,6 +2462,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_MAL_influence = yes
+            MAL = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = MAL
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_BRM_var_temp
@@ -2452,6 +2480,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_BRM_influence = yes
+            BRM = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = BRM
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_PHI_var_temp
@@ -2463,6 +2498,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_PHI_influence = yes
+            PHI = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = PHI
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_SIG_var_temp
@@ -2474,6 +2516,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_SIG_influence = yes
+            SIG = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = SIG
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_SIA_var_temp
@@ -2485,6 +2534,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_SIA_influence = yes
+            SIA = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = SIA
+            }
             
             set_temp_variable = {
                 var = global.PRC_influence_VIN_var_temp
@@ -2496,6 +2552,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_VIN_influence = yes
+            VIN = {
+                leave_faction = yes
+                set_country_flag = eadi_member
+            }
+            PRC = {
+                add_to_faction = VIN
+            }
             
             PRC = {
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1 = yes
