@@ -77,13 +77,14 @@ SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
 }
 
 # Parameter 1: temp_param_nuke_target_tag
-# Parameter 2: temp_param_nuke_target_state
-# Parameter 3: temp_param_is_advanced_nuking_enabled
+# Parameter 2: temp_param_nuke_sender_tag
+# Parameter 3: temp_param_nuke_target_state
+# Parameter 4: temp_param_is_advanced_nuking_enabled
 SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
     var:temp_param_nuke_target_state = {
         set_temp_variable = { temp_nuke_target_state = THIS }
         log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
-        var:temp_param_nuke_target_tag = {
+        var:temp_param_nuke_sender_tag = {
             launch_nuke = {
                 state = temp_nuke_target_state
                 use_nuke = no
@@ -160,7 +161,8 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
 }
 
 # Parameter 1: temp_param_nuke_target_tag
-# Parameter 2: temp_param_is_advanced_nuking_enabled
+# Parameter 2: temp_param_nuke_sender_tag
+# Parameter 3: temp_param_is_advanced_nuking_enabled
 SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = {
     log = "Nuking country: [?temp_param_nuke_target_tag.GetTag] ([?temp_param_nuke_target_tag.GetName])"
     var:temp_param_nuke_target_tag = {
