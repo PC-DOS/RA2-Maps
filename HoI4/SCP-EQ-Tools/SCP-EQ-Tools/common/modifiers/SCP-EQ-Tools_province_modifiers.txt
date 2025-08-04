@@ -7,5 +7,4 @@ SCP-EQ-Tools_province_modifier_nuked_modifier = {
     local_factory_sabotage = 0.5
     local_factories = -0.5
     local_org_regain = -0.5
-    mobilization_speed = -0.5
 }
