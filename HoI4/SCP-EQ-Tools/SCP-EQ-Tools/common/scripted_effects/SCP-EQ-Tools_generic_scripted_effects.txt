@@ -114,7 +114,8 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
             # If you killed all pupulation of the target state, the state's population will revert to manpower defined in history/states after save-load sequence
             if = {
                 limit = {
-                    state_population_k < 0.245
+                    state_population_k < 0.001
+                    state_population < 1
                 }
                 add_manpower = 1
             }
@@ -122,7 +123,7 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
             if = {
                 limit = {
                     is_capital = yes
-                    state_population_k < 0.250
+                    state_population_k < 0.245
                 }
                 # Go hell you Showa shit-ass
                 var:temp_param_nuke_target_tag = {
