@@ -8,5 +8,4 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
     visible_when_empty = no
     
-    priority = 244
-}
+    priority = 243

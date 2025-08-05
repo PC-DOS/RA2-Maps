@@ -1026,10 +1026,17 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 array = global.countries
                 value = temp_current_country
                 
-                ROOT = {
-                    every_controlled_state = {
-                        remove_claim_by = temp_current_country
-                        remove_core_of = temp_current_country
+                if = {
+                    limit = {
+                        NOT = {
+                            check_variable = { temp_current_country = ROOT }
+                        }
+                    }
+                    ROOT = {
+                        every_controlled_state = {
+                            remove_claim_by = temp_current_country
+                            remove_core_of = temp_current_country
+                        }
                     }
                 }
             }
@@ -2240,6 +2247,34 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 var:temp_tag_target = {
                     change_tag_from = var:temp_tag_source
                 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_state_operations = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+                }
+                clr_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+            }
+            else = {
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
             }
         }
     }
