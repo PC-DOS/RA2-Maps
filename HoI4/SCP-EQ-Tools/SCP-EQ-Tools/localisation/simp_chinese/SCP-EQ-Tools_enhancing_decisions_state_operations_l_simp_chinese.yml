@@ -3,9 +3,9 @@
  SCP-EQ-Tools_enhancing_decisions_state_operations_category:0 "地图精细调整"
  SCP-EQ-Tools_enhancing_decisions_state_operations_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，实现地图的精细调整。\n今天给大家带来一局精彩的每人一小块地啊。"
  # On-map decisions
- SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state:0 "标记该地区"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state:0 "标记该地区（[?FROM.GetName]）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state_desc:0 "我们给他打个暗语啊"
- SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state:0 "取消标记该地区"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state:0 "取消标记该地区（[?FROM.GetName]）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state_desc:0 "他也没看到，那我们就不管了啊"
  # Generic operations
  SCP-EQ-Tools_enhancing_decisions_state_operations_clear_all_marks:0 "移除所有标记"
