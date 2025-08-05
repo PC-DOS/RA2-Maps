@@ -297,10 +297,12 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         is_controlled_by = ROOT
                     }
                 }
-                ROOT = {
-                    annex_country = {
-                        target = PREV.controller
-                        transfer_troops = yes
+                controller = {
+                    ROOT = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
                     }
                 }
             }
@@ -330,9 +332,11 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         is_controlled_by = ROOT
                     }
                 }
-                ROOT = {
-                    puppet = {
-                        target = PREV.controller
+                controller = {
+                    ROOT = {
+                        puppet = {
+                            target = PREV
+                        }
                     }
                 }
             }
@@ -362,10 +366,12 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         is_controlled_by = ROOT
                     }
                 }
-                ROOT = {
-                    declare_war_on = {
-                        target = PREV.controller
-                        type = annex_everything
+                controller = {
+                    ROOT = {
+                        declare_war_on = {
+                            target = PREV
+                            type = annex_everything
+                        }
                     }
                 }
             }

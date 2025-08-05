@@ -9,3 +9,4 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
     visible_when_empty = no
     
     priority = 243
+}

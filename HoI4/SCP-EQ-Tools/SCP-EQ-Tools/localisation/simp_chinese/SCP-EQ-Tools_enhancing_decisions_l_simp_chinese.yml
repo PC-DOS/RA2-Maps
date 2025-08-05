@@ -143,6 +143,8 @@
  SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_desc:0 "心灵控制，还是梦境投影？\n\n§R警告：§!\n§Y切换国家时不会禁用AI，因此建议您在切换前暂停游戏，且直到回到原本游玩的国家前不要恢复游戏内时间流逝，否则您原本游玩的国家会被AI接管！§!"
  SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_revert:0 "结束对当前国家的临时接管"
  SCP-EQ-Tools_enhancing_decisions_tag_to_random_country_embargoed_by_us_revert_desc:0 "心灵控制/梦境投影结束"
+ SCP-EQ-Tools_enhancing_decisions_toggle_state_operations:0 "启用/停用地图精细调整"
+ SCP-EQ-Tools_enhancing_decisions_toggle_state_operations_desc:0 "今天给大家带来一局精彩的每人一小块地啊。"
  # EAW decisions group
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle:0 "切换EaW专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_EAW_decisions_toggle_desc:0 "切换EaW专用决议可见性"
