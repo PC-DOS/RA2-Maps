@@ -495,7 +495,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_state_operations_add_to_faction_marked_states_controller = {
+    SCP-EQ-Tools_enhancing_decisions_state_operations_add_to_faction_of_marked_states_controller = {
         allowed = {
             # Always allowed
         }
