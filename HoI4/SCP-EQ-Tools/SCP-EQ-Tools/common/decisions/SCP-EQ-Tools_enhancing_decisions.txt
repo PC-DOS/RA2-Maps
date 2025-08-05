@@ -1505,72 +1505,19 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            limit = {
+                SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
+            }
             if = {
-                # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
                 limit = {
-                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
                 }
-                if = {
-                    limit = {
-                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
-                    }
-                    # Enable AI war actions and clear global flag
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 0 }
-                }
-                else = {
-                    # Disable AI war actions and set global flag
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
-                }
+                # Enable AI war actions and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 0 }
             }
             else = {
-                # WARNING: You will be faced with a VERY LARGE save file!!!
-                if = {
-                    limit = {
-                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
-                    }
-                    # Enable AI war actions and clear global flag
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        every_possible_country = {
-                            limit = {
-                                OR = {
-                                    is_ai = yes
-                                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
-                                }
-                            }
-                            remove_relation_rule_override = {
-                                target = PREV
-                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                                can_not_declare_war = yes
-                            }
-                            clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
-                        }
-                    }
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 0 }
-                }
-                else = {
-                    # Disable AI war actions and set global flag
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        every_possible_country = {
-                            limit = {
-                                is_ai = yes
-                            }
-                            add_relation_rule_override = {
-                                target = PREV
-                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                                can_not_declare_war = yes
-                            }
-                            set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_war_actions_disabled
-                            #log = "Disabling war actions from [?THIS] to [?PREV]"
-                        }
-                    }
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
-                }
+                # Disable AI war actions and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
             }
         }
     }

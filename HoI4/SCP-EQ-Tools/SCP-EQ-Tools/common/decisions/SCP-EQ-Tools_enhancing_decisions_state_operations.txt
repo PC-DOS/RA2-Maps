@@ -4,7 +4,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
     SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state = {
         state_target = yes
         target_array = global.states
-        target_trigger = {
+        visible = {
             ROOT = {
                 has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
             }
@@ -31,7 +31,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
     SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state = {
         state_target = yes
         target_array = global.states
-        target_trigger = {
+        visible = {
             ROOT = {
                 has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
             }
@@ -101,7 +101,12 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_state_owner_to = ROOT
+                # set_state_owner (country scope) or set_state_owner_to (state scope) may cause problems
+                # Using transfer_state_to is recommended
+                # See:
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner_to
+                transfer_state_to = ROOT
             }
         }
     }
