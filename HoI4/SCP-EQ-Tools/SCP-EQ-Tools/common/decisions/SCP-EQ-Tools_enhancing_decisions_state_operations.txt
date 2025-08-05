@@ -5,6 +5,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
         state_target = yes
         target_array = global.states
         target_trigger = {
+            ROOT = {
+                has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+            }
             FROM = {
                 NOT = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
