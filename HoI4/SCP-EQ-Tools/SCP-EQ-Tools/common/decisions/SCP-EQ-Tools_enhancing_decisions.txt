@@ -1468,16 +1468,16 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
                 }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 0 }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
             }
             else_if = {
                 limit = {
                     check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
                 }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 0 }
             }
             else = {
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
             }
         }
     }
@@ -2595,12 +2595,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_CAM_influence = yes
-            CAM = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = CAM
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                CAM = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = CAM
+                }
             }
             
             set_temp_variable = {
@@ -2613,12 +2627,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_INS_influence = yes
-            INS = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = INS
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                INS = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = INS
+                }
             }
             
             set_temp_variable = {
@@ -2631,12 +2659,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_LAO_influence = yes
-            LAO = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = LAO
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                LAO = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = LAO
+                }
             }
             
             set_temp_variable = {
@@ -2649,12 +2691,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_MAL_influence = yes
-            MAL = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = MAL
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                MAL = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = MAL
+                }
             }
             
             set_temp_variable = {
@@ -2667,12 +2723,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_BRM_influence = yes
-            BRM = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = BRM
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                BRM = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = BRM
+                }
             }
             
             set_temp_variable = {
@@ -2685,12 +2755,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_PHI_influence = yes
-            PHI = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = PHI
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                PHI = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = PHI
+                }
             }
             
             set_temp_variable = {
@@ -2703,12 +2787,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_SIG_influence = yes
-            SIG = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = SIG
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                SIG = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = SIG
+                }
             }
             
             set_temp_variable = {
@@ -2721,12 +2819,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_SIA_influence = yes
-            SIA = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = SIA
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                SIA = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = SIA
+                }
             }
             
             set_temp_variable = {
@@ -2739,12 +2851,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 value = -5.0
             }
             JAP_add_VIN_influence = yes
-            VIN = {
-                leave_faction = yes
-                set_country_flag = eadi_member
-            }
-            PRC = {
-                add_to_faction = VIN
+            if = {
+                limit = {
+                    PRC = {
+                        has_country_flag = PRC_cold_war_flag
+                    }
+                }
+                VIN = {
+                    leave_faction = yes
+                    if = {
+                        limit = {
+                            is_faction_leader = yes
+                        }
+                        dismantle_faction = yes
+                    }
+                    clr_country_flag = pdto_member
+                    set_country_flag = eadi_member
+                }
+                PRC = {
+                    add_to_faction = VIN
+                }
             }
             
             PRC = {
@@ -2755,6 +2881,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
                 SCP-EQ-Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
             }
+            
+            set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
         }
     }
     
