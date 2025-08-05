@@ -198,7 +198,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_state_operations_remove_core_and_claim_on_marked_states = {
+    SCP-EQ-Tools_enhancing_decisions_state_operations_remove_our_core_and_claim_on_marked_states = {
         allowed = {
             # Always allowed
         }
@@ -221,6 +221,77 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 }
                 remove_claim_by = ROOT
                 remove_core_of = ROOT
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_teleport_capital_armies_to_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            clear_temp_array = temp_arr_teleporting_targets
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                log = "Adding teleporting target [?THIS.GetName]"
+                add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                if = {
+                    # Case 1: We are having war with this state's controller
+                    limit = {
+                        controller = {
+                            has_war_with = ROOT
+                        }
+                    }
+                    controller = {
+                        delete_unit = {
+                            state = PREV
+                            disband = no
+                        }
+                    }
+                    set_state_controller_to = ROOT
+                }
+                else_if = {
+                    # Case 2: We are in peace with this state's controller
+                    limit = {
+                        NOT = {
+                            is_controlled_by = ROOT
+                        }
+                    }
+                    controller = {
+                        delete_unit = {
+                            state = PREV
+                            disband = no
+                        }
+                    }
+                    transfer_state_to = ROOT
+                }
+            }
+            ROOT = {
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
             }
         }
     }
@@ -350,6 +421,45 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_remove_guarantees_of_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                controller = {
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = guarantee
+                            active = no
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_declare_war_on_marked_states_controllers = {
         allowed = {
             # Always allowed
@@ -379,6 +489,75 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         declare_war_on = {
                             target = PREV
                             type = annex_everything
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_add_to_faction_marked_states_controller = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                controller = {
+                    faction_leader = {
+                        add_to_faction = ROOT
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_join_our_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                controller = {
+                    leave_faction = yes
+                    dismantle_faction = yes
+                    set_temp_variable = { temp_target_country = THIS }
+                    ROOT = {
+                        faction_leader = {
+                            add_to_faction = temp_target_country
                         }
                     }
                 }
