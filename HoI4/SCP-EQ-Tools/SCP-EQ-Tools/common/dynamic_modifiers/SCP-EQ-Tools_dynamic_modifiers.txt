@@ -5,7 +5,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     remove_trigger = { always = no }
     political_power_gain = 2450
     political_power_cost = -2450
-    stability_factor = 25.0
+    stability_factor = 245.0
     stability_weekly = 245.0
     drift_defence_factor = 245.0
     research_speed_factor = 245.0
