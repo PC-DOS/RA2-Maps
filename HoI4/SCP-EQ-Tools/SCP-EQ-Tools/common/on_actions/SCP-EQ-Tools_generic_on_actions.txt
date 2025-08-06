@@ -1,5 +1,5 @@
 on_actions = {
-    on_monthly = {
+    on_daily = {
         effect = {
             # Handles "nuclear radiation" effect dealt by SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state
             # Radiation kills local people
@@ -9,7 +9,7 @@ on_actions = {
                         flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                     }
                 }
-                set_temp_variable = { temp_param_state_population_change_percentage = -0.1 }
+                set_temp_variable = { temp_param_state_population_change_percentage = -0.05 }
                 multiply_temp_variable = { temp_param_state_population_change_percentage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
                 SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = yes
                 if = {
@@ -20,6 +20,76 @@ on_actions = {
                     add_manpower = 1
                 }
             }
+            # Radiation damages units
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                }
+                every_controlled_state = {
+                    limit = {
+                        has_state_flag = {
+                            flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                        }
+                    }
+                    set_temp_variable = { temp_damage_to_units = 0.05 }
+                    multiply_temp_variable = { temp_damage_to_units = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    damage_units = {
+                        state = THIS
+                        limit = { has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked }
+                        damage = var:temp_damage_to_units
+                        org_damage = var:temp_damage_to_units
+                        str_damage = var:temp_damage_to_units
+                        ratio = yes
+                        army = yes
+                        navy = yes
+                    }
+                }
+            }
+            # Every nuked state will do harm to its controller at that time, unless the controller have lost the states' control
+            # Harm is judged by the state's radiation level
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                }
+                every_controlled_state = {
+                    limit = {
+                        has_state_flag = {
+                            flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                        }
+                    }
+                    set_temp_variable = { temp_political_political_power_damage = -5 }
+                    set_temp_variable = { temp_political_command_power_damage = -5 }
+                    set_temp_variable = { temp_political_manpower_damage = -25 }
+                    set_temp_variable = { temp_political_army_experience_damage = -5 }
+                    set_temp_variable = { temp_political_navy_experience_damage = -5 }
+                    set_temp_variable = { temp_political_air_experience_damage = -5 }
+                    set_temp_variable = { temp_political_war_support_damage = -0.05 }
+                    set_temp_variable = { temp_political_stability_damage = -0.05 }
+                    multiply_temp_variable = { temp_political_political_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_command_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_manpower_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_army_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_navy_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_air_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_war_support_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_political_stability_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    controller = {
+                        add_political_power = var:temp_political_political_power_damage
+                        add_command_power = var:temp_political_command_power_damage
+                        add_manpower = var:temp_political_manpower_damage
+                        army_experience = var:temp_political_army_experience_damage
+                        navy_experience = var:temp_political_navy_experience_damage
+                        air_experience = var:temp_political_air_experience_damage
+                        add_war_support = var:temp_political_war_support_damage
+                        add_stability = var:temp_political_stability_damage
+                    }
+                }
+            }
+        }
+    }
+    on_monthly = {
+        effect = {
+            # Handles "nuclear radiation" effect dealt by SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state
             # Radiation fades out after 730 days since last nuking
             every_controlled_state = {
                 limit = {
@@ -44,6 +114,27 @@ on_actions = {
                     }
                     #log = "[?THIS.GetName] still have radiation level [?SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
                     set_state_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                }
+            }
+            # Check if we need to remove this country's "nuked" flag
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                }
+                set_temp_variable = { temp_count_nuked_states = 0 }
+                every_controlled_state = {
+                    limit = {
+                        has_state_flag = {
+                            flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                        }
+                    }
+                    add_to_temp_variable = { temp_count_nuked_states = 1 }
+                }
+                if = {
+                    limit = { 
+                        check_variable = { temp_count_nuked_states = 0 }
+                    }
+                    clr_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
                 }
             }
         }

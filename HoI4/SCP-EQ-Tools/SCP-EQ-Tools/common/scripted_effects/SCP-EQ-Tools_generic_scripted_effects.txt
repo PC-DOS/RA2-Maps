@@ -131,9 +131,8 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
                     kill_country_leader = yes
                 }
             }
-            # Marks the state as "nuked" for further "radiation" effect
+            # Marks the state and current controller as "nuked" for further "radiation" effect
             # Radiation will fade out after specified days, please refer to on_actions for details
-            # ParadoxWiki says add_province_modifier can have "days" attribution in province = {} scope, but it is not recognized in HoI4 1.14.10
             # Ref. https://hoi4.paradoxwikis.com/Effect#add_province_modifier
             # Radiation accumulation
             if = {
@@ -145,9 +144,14 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
             else = {
                 set_variable = { SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
             }
+            # ParadoxWiki says add_province_modifier can have "days" attribution in province = {} scope, but it is not recognized in HoI4 1.14.10
             # Thus I have to use monthly on_actions
             clr_state_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
             set_state_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            controller = {
+                clr_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                set_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+            }
             # Long-term damage due to radiation
             add_province_modifier = {
                 static_modifiers = { SCP-EQ-Tools_province_modifier_nuked_modifier }
