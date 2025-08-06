@@ -352,10 +352,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     set_state_controller_to = ROOT
                 }
                 else_if = {
-                    # Case 2: We are in peace with this state's controller
+                    # Case 2: We are in peace with this state's controller, and the controller is our ally, nor we have military access to the controller
                     limit = {
-                        NOT = {
-                            is_controlled_by = ROOT
+                        NOT = { is_controlled_by = ROOT }
+                        controller = {
+                            NOT = { is_ally_with = ROOT }
+                            NOT = { is_in_faction_with = ROOT }
+                            NOT = { is_puppet_of = ROOT }
+                            NOT = { is_subject_of = ROOT }
+                            NOT = { gives_military_access_to = ROOT }
                         }
                     }
                     controller = {
