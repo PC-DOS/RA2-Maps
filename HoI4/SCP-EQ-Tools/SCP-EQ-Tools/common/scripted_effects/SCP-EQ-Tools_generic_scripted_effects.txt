@@ -41,7 +41,10 @@ SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
                 # Already overflown
                 OR = {
                     check_variable = { temp_current_state_population_change > 0 }
-                    check_variable = { temp_current_state_population_change = 0 }
+                    AND = {
+                        check_variable = { temp_current_state_population_change = 0 }
+                        state_population_k > 0.245
+                    }
                 }
             }
         }
@@ -56,7 +59,10 @@ SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
                 # Already overflown
                 OR = {
                     check_variable = { temp_current_state_population_change < 0 }
-                    check_variable = { temp_current_state_population_change = 0 }
+                    AND = {
+                        check_variable = { temp_current_state_population_change = 0 }
+                        state_population_k > 0.245
+                    }
                 }
             }
         }
