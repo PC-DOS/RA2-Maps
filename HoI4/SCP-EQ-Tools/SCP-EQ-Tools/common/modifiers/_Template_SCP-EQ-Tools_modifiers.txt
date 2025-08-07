@@ -1,0 +1,26 @@
+# Ref. https://hoi4.paradoxwikis.com/Modifiers#Static_modifiers
+# 
+#  Province modifiers apply a modifier to a specific province rather than a state. They can be applied via the add_province_modifier effect, and removed with remove_province_modifier. More info on how to use these can be seen in the effects page.
+# An example definition looks like
+# 
+# mod_modifier = { 
+#     army_speed_factor = -0.5
+#     army_defence_factor = 0.5
+#     dig_in_speed_factor = 0.5
+# }
+# 
+# Many state-scope modifiers will work in province scope as well. In order to make the GFX in GUI, you first need to edit /Hearts of Iron IV/interface/countrystateview.gui. The icon must be defined inside custom_icon_container, similarly to other examples. An example definition looks like
+# 
+# iconType = {
+#     name = "<modifier name>_icon"
+#     spriteType = "GFX_modifiers_<modifier name>_icon"
+#     position = { x = 0 y = 0 }
+#     Orientation = "UPPER_LEFT"			
+# }
+# 
+# The spriteType you have defined needs to be defined in /Hearts of Iron IV/interface/*.gfx similarly to this example:
+# 
+# spriteType = {
+#     name = "GFX_modifiers_<modifier name>_icon"
+#     textureFile = "gfx/interface/modifiers_<modifier name>_icon.dds"
+# }

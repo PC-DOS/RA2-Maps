@@ -1,0 +1,27 @@
+# Ref. https://hoi4.paradoxwikis.com/Effect#Scripted_effects
+# 
+# Scripted effects serve a similar purpose to functions in that they can be defined in /Hearts of Iron IV/common/scripted_effects/*.txt and then used elsewhere as a shortened version. A scripted effect will never run by itself and requires being used as an effect elsewhere to be executed. Alongside that, the game allows the creation of custom console commands, which are scripted effects.
+# A scripted effect is defined simply as:
+# 
+# scripted_effect_name = {
+#     <effects>
+# }
+#  
+# This example can be used as an effect in regular code as:
+# scripted_effect_name = yes.
+# 
+# Scripted effects can be accessed in console by typing e scripted_effect_name to run them.
+# 
+# To create a custom console command, the scripted effect's name should begin with d_. The console command itself does not include d_, so d_test_command would be run in console as test_command
+# In custom console commands, the country running the command is FROM, while ROOT is the selected country, state, or character. Anything entered after the console command, separated by spaces like test_command 123 321 GER is added to the 'args' temp array. An example of a scripted effect which will transfer every state entered as an argument to the country that runs the console command is
+# 
+# d_transfer_states = {
+#     for_each_scope_loop = {
+#         array = args
+#         FROM = {
+#             transfer_state = PREV
+#         }
+#     }
+# }
+# 
+# used like transfer_states 123 321

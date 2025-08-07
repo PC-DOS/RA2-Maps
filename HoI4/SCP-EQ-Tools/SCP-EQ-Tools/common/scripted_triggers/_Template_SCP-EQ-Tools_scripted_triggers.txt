@@ -1,0 +1,150 @@
+# Ref. https://hoi4.paradoxwikis.com/Triggers#Scripted_triggers
+# 
+# Scripted triggers serve a similar purpose to functions in that they can be defined in /Hearts of Iron IV/common/scripted_triggers/*.txt and then used elsewhere as a shortened version. Alongside that, the game has certain base game scripted triggers that are checked directly in the game's code determining triggers for functions that cannot be changed.
+# 
+# A scripted trigger is defined simply as
+# 
+# scripted_trigger_name = {
+#     <triggers>
+# }
+# 
+# This example can be used as a trigger in regular code as scripted_trigger_name = yes or scripted_trigger_name = no.
+# 
+# For example, this would be the definition in any scripted trigger file:
+# 
+# state_is_in_area = {
+#     OR = {
+#         state = 120
+#         state = 121
+#         state = 123
+#         state = 124
+#         state = 125
+#     }
+# }
+# 
+# This can then be used in any other trigger block, such as a national focus' available section:
+# 
+# focus = {
+#     id = TAG_focus_id   # Optional attributes, other than available, have been omitted
+#     available = {
+#         capital_scope = {
+#             state_is_in_area = yes
+#         }
+#     }
+# }
+# 
+# If there are several definitions of scripted triggers with the exact same name, the game will make the scripted trigger be the one that was evaluated later, as decided by file names and order in files.
+# Diplomacy scripted triggers
+# Ambox outdated info.png     
+# This is a community maintained wiki. If you spot a mistake, please help with fixing it.
+# 
+# Diplomacy scripted triggers fall into two mutually exclusive groups: deciding availability and deciding visibility. By default, these are defined in /Hearts of Iron IV/common/scripted_triggers/diplomacy_scripted_triggers.txt and /Hearts of Iron IV/common/scripted_triggers/00_diplo_action_valid_triggers.txt respectively. While it is possible to also use them as regular scripted triggers, they will also modify the prerequisites of being able to do a diplomatic action between 2 countries.
+# 
+# A diplomacy scripted trigger is identified by the naming pattern of DIPLOMACY_<action>_ENABLE_TRIGGER for availability, such as DIPLOMACY_GUARANTEE_ENABLE_TRIGGER, and is_diplomatic_action_valid_<action> for visibility, such as is_diplomatic_action_valid_stage_coup. In the base game, diplomacy scripted triggers are used to implement the game rules and add some country-specific exceptions, such as the Flag of United Kingdom United Kingdom being unable to release its colonies with the Man the GunsMan the Guns DLC. Checking the base game's contents beforehand or copying it to the mod would ensure that the mod won't accidentally break any existing game rules.
+# 
+# Generally, the pattern in localisation keys used for the button usually matches up with the internal ID of a diplomatic action. If the diplomatic action doesn't already have a scripted trigger in the base game, entirety of localisation can be searched for the name of the button to find the name of the action. For example, a the English localisation entry of DIPLOMACY_CALL_ALLY_TITLE:0 "Call to arms" would suggest that the diplomatic action of calling ally to war is CALL_ALLY.
+# 
+# List of known triggers:
+# 
+# DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER
+# DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER
+# DIPLOMACY_WAR_ENABLE_TRIGGER
+# DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER
+# DIPLOMACY_CREATE_FACTION_ENABLE_TRIGGER    
+# DIPLOMACY_PEACE_PROPOSAL_ENABLE_TRIGGER
+# DIPLOMACY_IMPROVERELATION_ENABLE_TRIGGER
+# DIPLOMACY_NONAGGRESSIONPACT_ENABLE_TRIGGER
+# DIPLOMACY_REVOKE_NONAGGRESSIONPACT_ENABLE_TRIGGER
+# DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER
+# DIPLOMACY_REQUEST_FOREIGN_MANPOWER_ENABLE_TRIGGER
+# DIPLOMACY_CANCEL_FOREIGN_MANPOWER_ENABLE_TRIGGER
+# DIPLOMACY_CANCEL_LICENSED_PRODUCTION_ENABLE_TRIGGER
+# DIPLOMACY_REQUEST_ACCESS_TO_LICENCE_PRODUCTION_ENABLE_TRIGGER
+# DIPLOMACY_SEND_ATTACHE_ENABLE_TRIGGER
+# DIPLOMACY_EMBARGO_ENABLE_TRIGGER
+# DIPLOMACY_SEND_EXP_FORCE_ENABLE_TRIGGER
+# DIPLOMACY_REQUEST_EXP_FORCE_ENABLE_TRIGGER
+# DIPLOMACY_RETURN_EXP_FORCE_ENABLE_TRIGGER
+# DIPLOMACY_ASKSTATECONTROL_ENABLE_TRIGGER
+# DIPLOMACY_GIVESTATECONTROL_ENABLE_TRIGGER
+# DIPLOMACY_GUARANTEE_ENABLE_TRIGGER
+# DIPLOMACY_REVOKE_GUARANTEE_ENABLE_TRIGGER
+# DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER
+# DIPLOMACY_MILACC_ENABLE_TRIGGER
+# DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER
+# DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER
+# DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER
+# DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER
+# DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER
+# DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER
+# DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER
+# DIPLOMACY_BOOST_PARTY_POPULARITY_ENABLE_TRIGGER
+# DIPLOMACY_STAGE_COUP_ENABLE_TRIGGER
+# DIPLOMACY_LEAVE_FACTION_ENABLE_TRIGGER
+# DIPLOMACY_ASSUME_FACTION_LEADERSHIP_ENABLE_TRIGGER
+# DIPLOMACY_KICK_FROM_FACTION_ENABLE_TRIGGER
+# DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER
+# 
+# Know tokens for is_diplomatic_action_valid_<action> are:
+# 
+#     declare_war, for the Declare War button
+#     generate_wargoal, only affects the war goal menu by greying out the send button
+#     guarantee, for the Guarantee Independence button
+#     docking_rights, for the request docking rights button
+#     offer_docking_right, for the offer docking rights button
+#     create_faction, for the create faction button
+#     assume_faction_leadership, for the assume leadership of faction button
+#     kick_from_faction, for the kick from faction button
+#     join_faction, for the ask to join faction button
+#     request_access_to_licence_production, for the negotiate license button
+#     embargo, for the embargo button
+#     send_volunteers, only affects the sent volunteers menu by greying out the send button
+#     stage_coup, for the stage coup button
+#     boost_party_popularity, for the boost party popularity button
+# 
+# Within a diplomacy scripted trigger, the default scope is the country that does the trigger, while FROM is the target of the action. For availability, the trigger's tooltip is shown to the player when hovering over the diplomatic action; in case of country-specific restrictions, using conditional statements can ensure that the tooltip would only be generated when needed rather than between any pair of nations.
+# 
+# For example, this trigger will prevent BHR from revoking a guarantee on QAT, while still ensuring the game rule works otherwise:
+# 
+# DIPLOMACY_REVOKE_GUARANTEE_ENABLE_TRIGGER = {
+#     if = {
+#         limit = {
+#             has_game_rule = {
+#                 rule = allow_revoke_guarantees
+#                 option = BLOCKED
+#             }
+#         }
+#         custom_trigger_tooltip = {
+#             tooltip = RULE_ALLOW_REVOKE_GUARANTEES_BLOCKED_TOOLTIP
+#             always = no
+#         }
+#     }
+#     if = {
+#         limit = {
+#             tag = BHR
+#             FROM = { tag = QAT }
+#         }
+#         custom_trigger_tooltip = {
+#             tooltip = NO_REVOKING_ON_QAT_TT
+#             always = no
+#         }
+#     }
+# }
+# 
+# Resistance initiation triggers
+# 
+# The behaviour of resistance being automatically initiated is decided by the should_initiate_resistance scripted trigger, by default defined in /Hearts of Iron IV/common/scripted_triggers/00_resistance_initiate_triggers.txt. If it is unfulfilled, the resistance will never initiate unless forced via the the force_enable_resistance effect. Likewise, the resistance will always occur if it's true unless forcefully disabled.
+# 
+# The scripted trigger's behaviour can be overwritten with state-specific scripted triggers, which should be named should_initiate_resistance with the list of state IDs suffixed at the end, separated by underscores. For example, this ensures that when a state 321 or 123 is controlled by the Flag of United Kingdom United Kingdom, resistance would get initiated if and only if they're national territory of Flag of France France; otherwise, the normal behaviour is used:
+# 
+# should_initiate_resistance_123_321 = {
+#     if = {
+#         limit = {
+#             tag = ENG
+#         }
+#         is_core_of = FRA
+#     }
+#     else = {
+#         should_initiate_resistance = yes # If this is not done, resistance would always activate due to overwriting that scripted trigger.
+#     }
+# }
