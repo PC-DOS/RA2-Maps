@@ -2803,7 +2803,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_variable = { inflation_var = 0 }
+            set_temp_variable = { inflation_var_temp = -inflation_var }
+            add_inflation = yes
+            #set_variable = { inflation_var = 0 }
+            #update_economy = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_onekey = {
