@@ -1649,7 +1649,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     has_volunteers_amount_from = {
                         tag = ROOT
@@ -1661,6 +1661,133 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
                 SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_countries_with_our_volunteers_teleport_capital_our_armies_to_enemy_capitals = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                clear_temp_array = temp_arr_teleporting_targets
+                every_enemy_country = {
+                    capital_scope = {
+                        log = "Adding teleporting target [?THIS.GetName]"
+                        add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                        # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                        PREV = {
+                            delete_unit = {
+                                state = PREV
+                                disband = no
+                            }
+                        }
+                        set_state_controller_to = PREV.PREV
+                    }
+                }
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        limit = {
+                            tag = ROOT
+                        }
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_countries_with_our_volunteers_teleport_capital_our_armies_to_enemy_separated_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                clear_temp_array = temp_arr_teleporting_targets
+                every_enemy_country = {
+                    every_controlled_state = {
+                        limit = {
+                            AND = {
+                                is_demilitarized_zone = no
+                                OR = {
+                                    is_capital = yes
+                                    is_in_home_area = no
+                                }
+                            }
+                        }
+                        log = "Adding teleporting target [?THIS.GetName]"
+                        add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                        # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                        PREV = {
+                            delete_unit = {
+                                state = PREV
+                                disband = no
+                            }
+                        }
+                        set_state_controller_to = PREV.PREV
+                    }
+                }
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        limit = {
+                            tag = ROOT
+                        }
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
             }
         }
     }
