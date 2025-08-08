@@ -1582,9 +1582,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            limit = {
-                SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
-            }
             if = {
                 limit = {
                     check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled = 1 }
