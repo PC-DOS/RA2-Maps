@@ -187,6 +187,8 @@
  SCP-EQ-Tools_enhancing_decisions_TFR_give_245245B_money_desc:0 "没有钱是万万不能的"
  SCP-EQ-Tools_enhancing_decisions_TFR_pay_245245B_debt:0 "帮我偿还245T债务"
  SCP-EQ-Tools_enhancing_decisions_TFR_pay_245245B_debt_desc:0 "虚空还钱，就是这么自信"
+ SCP-EQ-Tools_enhancing_decisions_TFR_reset_inflation:0 "通胀率归0"
+ SCP-EQ-Tools_enhancing_decisions_TFR_reset_inflation_desc:0 "胖子一键瘦身，瘦子一键增肥"
  SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_onekey:0 "所有地区建立一座办公园区"
  SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_onekey_desc:0 "欢迎来到缅甸妙瓦底，这里是KK园区"
  SCP-EQ-Tools_enhancing_decisions_TFR_US_add_congress_support:0 "（拜登美国专用）拉满各派国会支持度"
