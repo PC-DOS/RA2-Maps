@@ -81,6 +81,9 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
+    # Rough calculation of factory real production speed:
+    # read_prod = (base_prod_capacity * industrial_capacity * production_factory_efficiency) / equipment_prod_cost
+    # production_factory_efficiency = min((production_factory_start_efficiency + production_factory_efficiency_gain * days), production_factory_max_efficiency)
     production_factory_efficiency_gain_factor = 25.0
     production_factory_start_efficiency_factor = 25.0
     production_factory_max_efficiency_factor = 25.0
