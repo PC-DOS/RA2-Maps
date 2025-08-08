@@ -2804,6 +2804,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             set_variable = { inflation_var = 0 }
+            set_variable = { inflation_production_factory_max_efficiency_factor_dynamic_var = 0 }
+            set_variable = { inflation_production_speed_buildings_factor_dynamic_var = 0 }
+            set_variable = { inflation_consumer_goods_factor_dynamic_var = 0 }
+            set_variable = { inflation_stability_factor_dynamic_var = 0 }
             update_economy = yes
             #This won't change inflation
             #set_temp_variable = { inflation_var_temp = 0 }
