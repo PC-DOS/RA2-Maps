@@ -189,6 +189,8 @@
  SCP-EQ-Tools_enhancing_decisions_TFR_US_add_congress_support_desc:0 "警告，侦测到心灵支配仪"
  SCP-EQ-Tools_enhancing_decisions_TFR_PRC_add_influence:0 "拉满东亚防御倡议协定影响力"
  SCP-EQ-Tools_enhancing_decisions_TFR_PRC_add_influence_desc:0 "我和我的动物朋友们的故事"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country:0 "允许该国在被AI控制时进行自主生产"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country_desc:0 "这个电脑呢它很笨的啊"
  # TNO decisions group
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle:0 "切换TNO专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle_desc:0 "切换TNO专用决议可见性"

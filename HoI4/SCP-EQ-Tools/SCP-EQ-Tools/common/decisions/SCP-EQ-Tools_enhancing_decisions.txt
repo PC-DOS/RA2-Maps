@@ -3123,6 +3123,26 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            remove_ideas = ai_disabled_production
+        }
+    }
     
     # TNO decisions group
     SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle = {
