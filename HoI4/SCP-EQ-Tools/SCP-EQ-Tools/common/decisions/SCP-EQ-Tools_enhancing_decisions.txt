@@ -125,6 +125,46 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_production = yes
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_production_turbo = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_production_turbo = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_production_consumer_goods = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_production_consumer_goods = yes
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_training = {
         allowed = {
             # Always allowed

@@ -81,6 +81,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
+    production_factory_efficiency_gain_factor = 5.0
     production_factory_start_efficiency_factor = 25.0
     production_factory_max_efficiency_factor = 25.0
     production_speed_buildings_factor = 2450.0
@@ -91,7 +92,6 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     industry_free_repair_factor = 245.0
     industry_repair_factor = 245.0
     production_oil_factor = 0.25
-    #consumer_goods_expected_value = -0.5
     conversion_cost_civ_to_mil_factor = -5.0
     conversion_cost_mil_to_civ_factor = -5.0
     industry_air_damage_factor = -5.0
@@ -99,6 +99,24 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     cic_construction_boost_factor = 25.0
     nuclear_production = 1
     nuclear_production_factor = 2.5
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_turbo = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    production_speed_buildings_factor = 10245.0
+    industrial_capacity_factory = 10245.0
+    industrial_capacity_dockyard = 10245.0
+}
+SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_consumer_goods = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    # This modifier may cause problems in mods like TNO, preventing us from normal production
+    #consumer_goods_expected_value = -0.5
+    # This modifier adds multiplicatively. For example, consumer_goods_factor = 0.5 and consumer_goods_factor = -0.5 will, in total, multiply the consumer goods value by:
+    #     (1 - 0.5)(1 + 0.5) = 0.75
+    consumer_goods_factor = -5.0
 }
 SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic

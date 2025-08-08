@@ -13,6 +13,9 @@ leader_traits = {
         experience_gain_air = 245
         max_command_power = 245245
         weekly_manpower = 245245
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         ai_will_do = {
             base = 0
         }
@@ -31,6 +34,9 @@ leader_traits = {
         experience_gain_air = 245
         max_command_power = 245245
         weekly_manpower = 245245
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         ai_will_do = {
             base = 0
         }
@@ -49,6 +55,9 @@ leader_traits = {
         experience_gain_air = 245
         max_command_power = 245245
         weekly_manpower = 245245
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         ai_will_do = {
             base = 0
         }
@@ -135,6 +144,9 @@ leader_traits = {
         experience_gain_air = 245
         max_command_power = 245245
         weekly_manpower = 245245
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         ai_will_do = {
             base = 0
         }
@@ -163,6 +175,9 @@ leader_traits = {
     }
     SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_economic_minister_trait = {
         random = no
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         trade_opinion_factor = 0.5
         academic_development_monthly = 0.5
         society_development_monthly = 0.5
@@ -258,12 +273,18 @@ leader_traits = {
         experience_gain_air = 245
         max_command_power = 245245
         weekly_manpower = 245245
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         ai_will_do = {
             base = 0
         }
     }
     SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait = {
         random = no
+        production_speed_buildings_factor = 5.0
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
         gdp_growth_modifier = 50.0
         inflation_rate_modifier = -245.0
         misc_income_modifier = 25.0
