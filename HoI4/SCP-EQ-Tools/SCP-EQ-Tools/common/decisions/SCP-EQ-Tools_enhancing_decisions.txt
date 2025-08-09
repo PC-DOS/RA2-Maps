@@ -396,6 +396,64 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_supply_factor = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                limit = {
+                    NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state }
+                }
+                add_state_modifier = {
+                    modifier = {
+                        local_supplies = 245.0
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_factory_factor = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                limit = {
+                    NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state }
+                }
+                add_state_modifier = {
+                    modifier = {
+                        local_factories = 245.0
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex = {
         allowed = {
             # Always allowed
@@ -2021,6 +2079,90 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                                 start_state = temp_railway_start
                                 target_state = temp_railway_end
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_allies_add_supply_factor = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    OR = {
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                every_controlled_state = {
+                    limit = {
+                        NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state }
+                    }
+                    add_state_modifier = {
+                        modifier = {
+                            local_supplies = 245.0
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_allies_add_factory_factor = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    OR = {
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                every_controlled_state = {
+                    limit = {
+                        NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state }
+                    }
+                    add_state_modifier = {
+                        modifier = {
+                            local_factories = 245.0
                         }
                     }
                 }
