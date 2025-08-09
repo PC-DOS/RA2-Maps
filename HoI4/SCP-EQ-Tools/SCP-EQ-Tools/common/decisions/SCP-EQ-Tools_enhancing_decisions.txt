@@ -422,8 +422,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         local_supplies = 245.0
                     }
                 }
-                # Currently this effect can be accumulated, thus this flag is not added
-                #set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
+                set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
             }
         }
     }
@@ -453,8 +452,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         local_factories = 245.0
                     }
                 }
-                # Currently this effect can be accumulated, thus this flag is not added
-                #set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
+                set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
             }
         }
     }
@@ -2127,8 +2125,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             local_supplies = 245.0
                         }
                     }
-                    # Currently this effect can be accumulated, thus this flag is not added
-                    #set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
+                    set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
                 }
             }
         }
@@ -2171,8 +2168,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             local_factories = 245.0
                         }
                     }
-                    # Currently this effect can be accumulated, thus this flag is not added
-                    #set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
+                    set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
                 }
             }
         }
