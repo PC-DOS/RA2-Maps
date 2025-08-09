@@ -373,32 +373,22 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     type = oil
                     amount = 24525
                 }
-            }
-            random_controlled_state = {
                 add_resource = {
                     type = aluminium
                     amount = 24525
                 }
-            }
-            random_controlled_state = {
                 add_resource = {
                     type = rubber
                     amount = 24525
                 }
-            }
-            random_controlled_state = {
                 add_resource = {
                     type = tungsten
                     amount = 24525
                 }
-            }
-            random_controlled_state = {
                 add_resource = {
                     type = steel
                     amount = 24525
                 }
-            }
-            random_controlled_state = {
                 add_resource = {
                     type = chromium
                     amount = 24525
