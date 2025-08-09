@@ -422,6 +422,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         local_supplies = 245.0
                     }
                 }
+                set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
             }
         }
     }
@@ -451,6 +452,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         local_factories = 245.0
                     }
                 }
+                set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
             }
         }
     }
@@ -2123,6 +2125,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             local_supplies = 245.0
                         }
                     }
+                    set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
                 }
             }
         }
@@ -2165,6 +2168,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             local_factories = 245.0
                         }
                     }
+                    set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_factory_factor_enabled_for_this_state
                 }
             }
         }
