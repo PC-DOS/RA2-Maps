@@ -419,7 +419,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 add_state_modifier = {
                     modifier = {
-                        local_supplies = 245.0
+                        local_supplies = 2450.0
                     }
                 }
                 set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
@@ -2122,7 +2122,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     }
                     add_state_modifier = {
                         modifier = {
-                            local_supplies = 245.0
+                            local_supplies = 2450.0
                         }
                     }
                     set_state_flag = SCP-EQ-Tools_enhancing_decisions_add_supply_factor_enabled_for_this_state
