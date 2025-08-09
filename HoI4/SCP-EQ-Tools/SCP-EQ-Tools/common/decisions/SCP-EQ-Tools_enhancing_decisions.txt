@@ -1970,7 +1970,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_other_country = {
                 limit = {
                     has_country_flag = SCP-EQ-Tools_enhancing_decisions_allies_and_countries_with_our_volunteers_SCP_item_1_enabled
                 }
