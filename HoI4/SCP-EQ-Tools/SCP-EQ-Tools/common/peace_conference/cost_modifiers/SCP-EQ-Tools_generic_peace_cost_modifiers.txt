@@ -1,0 +1,15 @@
+# Peace conferences will be controlled by player
+# Ref. https://hearts-of-iron-4.smods.ru/archives/2296
+
+peace_action_modifiers = {
+    SCP-EQ-Tools_generic_ai_peace_actions_player_controls_peace_conferences_lower_player_cost = {
+        category = other
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            check_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
+            is_ai = no
+        }
+        
+        cost_multiplier = 0.01
+    }
+}

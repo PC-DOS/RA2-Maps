@@ -119,6 +119,8 @@
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_faction_operation_level_desc:0 "他们一上来就结盟了啊\n当前AI阵营行为等级：[?global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level]"
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_actions:0 "禁止/允许AI正当化战争目标或宣战"
  SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_actions_desc:0 "我们不打快攻啊，我们和他打发展\n当前AI是否被禁止正当化战争目标或宣战：[?global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_actions_disabled]"
+ SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences:0 "启用/禁用玩家对和平会谈的完全主导权"
+ SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_desc:0 "你把我当电脑\n当前是否由玩家完全主导和平会谈：[?SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences]"
  SCP-EQ-Tools_enhancing_decisions_remove_non_aggression_pact_from_ai_to_ai:0 "移除AI国家之间的互不侵犯条约"
  SCP-EQ-Tools_enhancing_decisions_remove_non_aggression_pact_from_ai_to_ai_desc:0 "诸君，我喜欢战争"
  SCP-EQ-Tools_enhancing_decisions_countries_with_our_volunteers_win_wars:0 "拥有我方志愿军的国家立即赢下战争"

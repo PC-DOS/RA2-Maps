@@ -1,0 +1,55 @@
+# Peace conferences will be controlled by player, legacy support
+# Please DO NOT remove the exclamation marks in this file's name thus this file will has highest loading priority
+# Ref. https://hearts-of-iron-4.smods.ru/archives/25043
+
+SCP-EQ-Tools_generic_ai_peace_actions_player_controls_peace_conferences = {
+    enable = {
+        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
+        OR = {
+            any_country = {
+                is_ai = no
+                is_in_peace_conference = yes
+                OR = {
+                    is_in_faction_with = ROOT
+                    has_war_together_with = ROOT    
+                }
+            }
+            any_enemy_country = {
+                is_in_peace_conference = yes
+                any_enemy_country = {
+                    is_ai = no
+                    is_in_peace_conference = yes
+                }
+            }
+        }
+    }
+
+    annex_randomness = 0
+    liberate_randomness = 0
+    puppet_randomness = 0
+    take_states_randomness = 0
+    force_government_randomness = 0
+    
+    annex = {
+        base = 0
+    }
+    liberate = {
+        base = 0
+    }
+    puppet = {
+        base = 0
+    }
+    puppet_all = {
+        base = 0
+    }
+    puppet_state = {
+        base = 0
+    }
+    take_states = {
+        base = 0
+    }
+    force_government = {
+        base = 0
+    }
+    
+}

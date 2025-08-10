@@ -1,0 +1,41 @@
+# Ref. https://hoi4.paradoxwikis.com/AI_modding#AI_peace
+# 
+# AI peace since 1.12
+# The peace conference behaviour for AI is defined within /Hearts of Iron IV/common/peace_conference/ai_peace/*.txt files.
+# 
+# When defining the peace conference AI that would be used by the country, the AI will take into account all blocks for which the enable condition is true.
+# 
+# When evaluating the peace conference, ROOT (the default scope) is used to represent the currently-evaluated winner, FROM is the country which will undergo the selected peace action, this can be a previously non-existent country that will now be liberated or puppeted, or even a different winner country when liberating, finally FROM.FROM.FROM can be used to set conditions on the specific state that the peace action is taken on.
+# 
+# The enable = { ... } trigger block is used to determine whether the AI should be enabled, and finally an ai_desire = ... block determines the priority of the defined strategy: a value of -1000 would make AI never pursue the selected peace action if the conditions are met, while a value of 1000 would make the action their top priority.
+# 
+# The following peace options are used in the game:
+# 
+#     liberate - The country FROM gets liberated by ROOT.
+#     puppet - The country FROM gets puppeted by ROOT.
+#     take_states - The state FROM.FROM.FROM, previously owned by FROM, gets annexed by ROOT.
+#     force_government - The country FROM gets its ideology forcefully changed by ROOT.
+# 
+# When evaluating peace conferences, the controller of a given state is the same one that occupied it before the start of the conference while the owner is the original owner.
+# Example:
+# 
+# peace_ai_desires = {
+#     dont_puppet_warlord_countries = {
+#         peace_action_type = { puppet liberate force_government }    #all but take states
+#         enable = {
+#             FROM = {
+#                 OR = {
+#                     tag = SIK
+#                     tag = PRC
+#                     tag = GXC
+#                     tag = YUN
+#                     tag = SHX
+#                     tag = XSM
+#                     tag = MAN
+#                     tag = MEN
+#                 }
+#             }
+#         }
+#         ai_desire = -1000
+#     }
+# }
