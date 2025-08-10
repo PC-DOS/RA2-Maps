@@ -1775,6 +1775,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         tag = ROOT
                     }
                 }
+                # Teleporting volunteers directly to enemy states seems impossible (your volunteers will be teleported to your own capital)
+                # We have to take ownership of target states temporarily
+                clear_temp_array = temp_arr_teleporting_target_states_original_owners
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
                 set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 3 }
@@ -1786,9 +1789,23 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                         log = "Adding teleporting target [?THIS.GetName]"
                         add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        add_to_temp_array = { temp_arr_teleporting_target_states_original_owners = owner }
                     }
                 }
-                SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                ROOT = {
+                    SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                }
+                # Restore ownership and controller information
+                for_each_loop = {
+                    array = temp_arr_teleporting_target_states_original_owners
+                    value = temp_current_state_original_owner
+                    index = i
+                    
+                    var:temp_param_arr_teleporting_target_states^i = {
+                        transfer_state_to = var:temp_current_state_original_owner
+                        set_state_controller_to = PREV
+                    }
+                }
             }
         }
     }
@@ -1819,6 +1836,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         tag = ROOT
                     }
                 }
+                # Teleporting volunteers directly to enemy states seems impossible (your volunteers will be teleported to your own capital)
+                # We have to take ownership of target states temporarily
+                clear_temp_array = temp_arr_teleporting_target_states_original_owners
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
                 set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 3 }
@@ -1836,9 +1856,24 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                         log = "Adding teleporting target [?THIS.GetName]"
                         add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        add_to_temp_array = { temp_arr_teleporting_target_states_original_owners = owner }
                     }
                 }
-                SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                # Teleporting is executed under ROOT's scope, thus we can gain temporary ownership and teleport armies to targeted states successfully
+                ROOT = {
+                    SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                }
+                # Restore ownership and controller information
+                for_each_loop = {
+                    array = temp_arr_teleporting_target_states_original_owners
+                    value = temp_current_state_original_owner
+                    index = i
+                    
+                    var:temp_param_arr_teleporting_target_states^i = {
+                        transfer_state_to = var:temp_current_state_original_owner
+                        set_state_controller_to = PREV
+                    }
+                }
             }
         }
     }

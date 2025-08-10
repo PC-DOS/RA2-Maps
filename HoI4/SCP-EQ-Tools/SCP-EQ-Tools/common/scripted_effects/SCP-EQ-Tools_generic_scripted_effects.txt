@@ -200,7 +200,7 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
     set_temp_variable = { temp_current_caller_country = THIS }
     
     # Caller takes control of teleporting targets
-    # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+    # You can only teleport armies to states controlled by yourself or faction members (please note that military access or volunteer sending is is not considered), thus we will set state controller before teleporting
     for_each_scope_loop = {
         array = temp_param_arr_teleporting_target_states
         
@@ -229,7 +229,6 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
                     NOT = { is_in_faction_with = var:temp_current_caller_country }
                     NOT = { is_puppet_of = var:temp_current_caller_country }
                     NOT = { is_subject_of = var:temp_current_caller_country }
-                    NOT = { gives_military_access_to = var:temp_current_caller_country }
                 }
             }
             controller = {
@@ -240,78 +239,78 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
             }
             transfer_state_to = var:temp_current_caller_country
         }
+    }
         
-        # Teleporting armies
-        for_each_scope_loop = {
-            array = temp_param_arr_teleporting_start_states
-            
-            # Print debug information
-            #for_each_loop = {
-            #    array = temp_param_arr_teleporting_target_states
-            #    value = temp_teleporting_target
-            #    
-            #    log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
-            #}
-            
-            # Choose teleporting method
-            if = {
-                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 0 } }
-                teleport_armies = {
-                    to_state_array = temp_param_arr_teleporting_target_states
-                }
+    # Teleporting armies
+    for_each_scope_loop = {
+        array = temp_param_arr_teleporting_start_states
+        
+        # Print debug information
+        #for_each_loop = {
+        #    array = temp_param_arr_teleporting_target_states
+        #    value = temp_teleporting_target
+        #    
+        #    log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+        #}
+        
+        # Choose teleporting method
+        if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 0 } }
+            teleport_armies = {
+                to_state_array = temp_param_arr_teleporting_target_states
             }
-            else_if = {
-                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 1 } }
-                teleport_armies = {
-                    limit = {
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 1 } }
+            teleport_armies = {
+                limit = {
+                    tag = var:temp_current_caller_country
+                }
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 2 } }
+            teleport_armies = {
+                limit = {
+                    OR = {
                         tag = var:temp_current_caller_country
+                        is_ally_with = var:temp_current_caller_country
+                        is_in_faction_with = var:temp_current_caller_country
+                        is_puppet_of = var:temp_current_caller_country
+                        is_subject_of = var:temp_current_caller_country
                     }
-                    to_state_array = temp_param_arr_teleporting_target_states
                 }
+                to_state_array = temp_param_arr_teleporting_target_states
             }
-            else_if = {
-                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 2 } }
-                teleport_armies = {
-                    limit = {
-                        OR = {
-                            tag = var:temp_current_caller_country
-                            is_ally_with = var:temp_current_caller_country
-                            is_in_faction_with = var:temp_current_caller_country
-                            is_puppet_of = var:temp_current_caller_country
-                            is_subject_of = var:temp_current_caller_country
-                        }
-                    }
-                    to_state_array = temp_param_arr_teleporting_target_states
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 3 } }
+            teleport_armies = {
+                limit = {
+                    tag = ROOT
                 }
+                to_state_array = temp_param_arr_teleporting_target_states
             }
-            else_if = {
-                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 3 } }
-                teleport_armies = {
-                    limit = {
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 4 } }
+            teleport_armies = {
+                limit = {
+                    OR = {
                         tag = ROOT
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
                     }
-                    to_state_array = temp_param_arr_teleporting_target_states
                 }
+                to_state_array = temp_param_arr_teleporting_target_states
             }
-            else_if = {
-                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 4 } }
-                teleport_armies = {
-                    limit = {
-                        OR = {
-                            tag = ROOT
-                            is_ally_with = ROOT
-                            is_in_faction_with = ROOT
-                            is_puppet_of = ROOT
-                            is_subject_of = ROOT
-                        }
-                    }
-                    to_state_array = temp_param_arr_teleporting_target_states
-                }
-            }
-            else = {
-                teleport_armies = {
-                    to_state_array = temp_param_arr_teleporting_target_states
-                }
+        }
+        else = {
+            teleport_armies = {
+                to_state_array = temp_param_arr_teleporting_target_states
             }
         }
     }
