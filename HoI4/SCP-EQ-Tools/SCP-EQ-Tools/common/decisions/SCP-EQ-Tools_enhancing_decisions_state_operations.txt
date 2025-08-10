@@ -224,6 +224,61 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_transfer_marked_states_to_random_country_with_claim = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                
+                set_temp_variable = { temp_current_state = THIS }
+                # Determine countries who claims but is not controlling this state
+                clear_temp_array = temp_arr_possible_new_owners
+                every_possible_country = {
+                    set_temp_variable = { temp_current_country = THIS }
+                    if = {
+                        limit = {
+                            var:temp_current_state = {
+                                NOT = { is_controlled_by = var:temp_current_country }
+                                OR = {
+                                    is_core_of = var:temp_current_country
+                                    is_claimed_by = var:temp_current_country
+                                }
+                            }
+                        }
+                        add_to_temp_array = { temp_arr_possible_new_owners = temp_current_country }
+                    }
+                }
+                # Select new owner
+                if = {
+                    limit = {
+                        check_variable = { temp_arr_possible_new_owners^num > 0 }
+                    }
+                    set_temp_variable_to_random = {
+                        var = temp_new_owner_index
+                        min = 0
+                        max = temp_arr_possible_new_owners^num
+                    }
+                    transfer_state_to = temp_arr_possible_new_owners^temp_new_owner_index
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_delete_non_allied_armies_in_marked_states = {
         allowed = {
             # Always allowed
