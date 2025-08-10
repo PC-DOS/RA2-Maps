@@ -330,7 +330,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
             add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
             every_state = {
                 limit = {
@@ -361,7 +361,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 2 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 2 }
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
@@ -395,7 +395,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 }
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
                 add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
                 controller = {
                     every_enemy_country = {
@@ -435,7 +435,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 }
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
                 add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
                 controller = {
                     every_enemy_country = {

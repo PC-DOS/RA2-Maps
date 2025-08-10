@@ -190,7 +190,7 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = {
 
 # Parameter 1: temp_param_arr_teleporting_start_states
 # Parameter 2: temp_param_arr_teleporting_target_states
-# Parameter 3: temp_param_army_types_to_be_teleported
+# Parameter 3: temp_param_army_owner_types_to_be_teleported
 #     0 - Any owner
 #     1 - Armies owned by the scope who calls this scripted effect
 #     2 - Armies owned by the scope who calls this scripted effect and all of its allies
@@ -255,13 +255,13 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
             
             # Choose teleporting method
             if = {
-                limit = { check_variable = { temp_param_army_types_to_be_teleported = 0 } }
+                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 0 } }
                 teleport_armies = {
                     to_state_array = temp_param_arr_teleporting_target_states
                 }
             }
             else_if = {
-                limit = { check_variable = { temp_param_army_types_to_be_teleported = 1 } }
+                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 1 } }
                 teleport_armies = {
                     limit = {
                         tag = var:temp_current_caller_country
@@ -270,7 +270,7 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
                 }
             }
             else_if = {
-                limit = { check_variable = { temp_param_army_types_to_be_teleported = 2 } }
+                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 2 } }
                 teleport_armies = {
                     limit = {
                         OR = {
@@ -285,7 +285,7 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
                 }
             }
             else_if = {
-                limit = { check_variable = { temp_param_army_types_to_be_teleported = 3 } }
+                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 3 } }
                 teleport_armies = {
                     limit = {
                         tag = ROOT
@@ -294,7 +294,7 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
                 }
             }
             else_if = {
-                limit = { check_variable = { temp_param_army_types_to_be_teleported = 4 } }
+                limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 4 } }
                 teleport_armies = {
                     limit = {
                         OR = {

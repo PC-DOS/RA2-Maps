@@ -1271,7 +1271,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
             add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
             every_enemy_country = {
                 every_controlled_state = {
@@ -1304,7 +1304,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
             add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
             every_enemy_country = {
                 every_controlled_state = {
@@ -1343,7 +1343,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 1 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 1 }
             every_state = {
                 limit = {
                     controller = {
@@ -1777,7 +1777,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 3 }
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 3 }
                 add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS.capital }
                 every_enemy_country = {
                     every_controlled_state = {
@@ -1821,7 +1821,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 clear_temp_array = temp_param_arr_teleporting_start_states
                 clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 3 }
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 3 }
                 add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS.capital }
                 every_enemy_country = {
                     every_controlled_state = {
