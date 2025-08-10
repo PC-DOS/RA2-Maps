@@ -273,8 +273,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         var = temp_new_owner_index
                         min = 0
                         max = temp_arr_possible_new_owners^num
+                        integer = yes
                     }
-                    transfer_state_to = temp_arr_possible_new_owners^temp_new_owner_index
+                    transfer_state_to = var:temp_arr_possible_new_owners^temp_new_owner_index
                 }
             }
         }
