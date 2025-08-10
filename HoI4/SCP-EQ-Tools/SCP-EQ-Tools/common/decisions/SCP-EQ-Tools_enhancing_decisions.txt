@@ -1343,7 +1343,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             clear_temp_array = temp_param_arr_teleporting_start_states
             clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 1 }
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 2 }
             every_state = {
                 limit = {
                     controller = {
