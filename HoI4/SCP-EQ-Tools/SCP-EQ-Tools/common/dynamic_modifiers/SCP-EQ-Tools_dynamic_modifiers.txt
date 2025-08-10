@@ -40,7 +40,6 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     tech_air_damage_factor = -5.0
     resistance_activity = -5.0
     required_garrison_factor = -5.0
-    compliance_growth_on_our_occupied_states = 245.0
     resistance_damage_to_garrison_on_our_occupied_states = 25.0
     resistance_decay_on_our_occupied_states = -25.0
     resistance_growth_on_our_occupied_states = 25.0
