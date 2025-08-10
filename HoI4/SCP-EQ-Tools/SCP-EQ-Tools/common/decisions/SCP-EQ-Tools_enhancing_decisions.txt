@@ -1269,20 +1269,34 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            clear_temp_array = temp_param_arr_teleporting_start_states
-            clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
-            add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
+            clear_temp_array = temp_arr_teleporting_targets
             every_enemy_country = {
-                every_controlled_state = {
-                    limit = {
-                        is_capital = yes
-                    }
+                capital_scope = {
                     log = "Adding teleporting target [?THIS.GetName]"
-                    add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                    add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                    # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                    PREV = {
+                        delete_unit = {
+                            state = PREV
+                            disband = no
+                        }
+                    }
+                    set_state_controller_to = ROOT
                 }
             }
-            SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+            ROOT = {
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
+            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_separated_states = {
@@ -1302,10 +1316,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            clear_temp_array = temp_param_arr_teleporting_start_states
-            clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 0 }
-            add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
+            clear_temp_array = temp_arr_teleporting_targets
             every_enemy_country = {
                 every_controlled_state = {
                     limit = {
@@ -1318,10 +1329,30 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                     }
                     log = "Adding teleporting target [?THIS.GetName]"
-                    add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                    add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                    # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                    PREV = {
+                        delete_unit = {
+                            state = PREV
+                            disband = no
+                        }
+                    }
+                    set_state_controller_to = ROOT
                 }
             }
-            SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+            ROOT = {
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
+            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_teleport_exiled_units_to_capital = {
@@ -1341,9 +1372,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            clear_temp_array = temp_param_arr_teleporting_start_states
-            clear_temp_array = temp_param_arr_teleporting_target_states
-            set_temp_variable = { temp_param_army_types_to_be_teleported = 1 }
             every_state = {
                 limit = {
                     controller = {
@@ -1361,10 +1389,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                     }
                 }
-                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+                teleport_armies = {
+                    limit = {
+                        tag = ROOT
+                    }
+                    to_state = ROOT.capital
+                }
             }
-            add_to_temp_array = { temp_param_arr_teleporting_target_states = ROOT.capital }
-            SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_unlock_division_templates = {
@@ -1775,20 +1806,35 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         tag = ROOT
                     }
                 }
-                clear_temp_array = temp_param_arr_teleporting_start_states
-                clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 3 }
-                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS.capital }
+                clear_temp_array = temp_arr_teleporting_targets
                 every_enemy_country = {
-                    every_controlled_state = {
-                        limit = {
-                            is_capital = yes
-                        }
+                    capital_scope = {
                         log = "Adding teleporting target [?THIS.GetName]"
-                        add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                        # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                        PREV = {
+                            delete_unit = {
+                                state = PREV
+                                disband = no
+                            }
+                        }
+                        set_state_controller_to = PREV.PREV
                     }
                 }
-                SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        limit = {
+                            tag = ROOT
+                        }
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
             }
         }
     }
@@ -1819,10 +1865,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         tag = ROOT
                     }
                 }
-                clear_temp_array = temp_param_arr_teleporting_start_states
-                clear_temp_array = temp_param_arr_teleporting_target_states
-                set_temp_variable = { temp_param_army_types_to_be_teleported = 3 }
-                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS.capital }
+                clear_temp_array = temp_arr_teleporting_targets
                 every_enemy_country = {
                     every_controlled_state = {
                         limit = {
@@ -1835,10 +1878,31 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             }
                         }
                         log = "Adding teleporting target [?THIS.GetName]"
-                        add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        add_to_temp_array = { temp_arr_teleporting_targets = THIS }
+                        # You can only teleport armies to controlled states, thus we will set state controller before teleporting
+                        PREV = {
+                            delete_unit = {
+                                state = PREV
+                                disband = no
+                            }
+                        }
+                        set_state_controller_to = PREV.PREV
                     }
                 }
-                SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                capital_scope = {
+                    for_each_loop = {
+                        array = temp_arr_teleporting_targets
+                        value = temp_teleporting_target
+                        
+                        log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+                    }
+                    teleport_armies = {
+                        limit = {
+                            tag = ROOT
+                        }
+                        to_state_array = temp_arr_teleporting_targets
+                    }
+                }
             }
         }
     }
