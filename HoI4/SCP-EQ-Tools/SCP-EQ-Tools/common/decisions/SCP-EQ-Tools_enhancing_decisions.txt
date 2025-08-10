@@ -763,6 +763,55 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_province_level_railway_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { temp_railway_owner = ROOT }
+            for_each_loop = {
+                array = global.province_controllers
+                value = temp_railway_start
+                index = temp_railway_start_index
+                
+                #log = "RailStart:[?temp_railway_start_index]"
+                for_each_loop = {
+                    array = global.province_controllers
+                    value = temp_railway_end
+                    index = temp_railway_end_index
+                    
+                    #log = "RailEnd:[?temp_railway_end_index]"
+                    if = {
+                        limit = { 
+                            # Check province owner
+                            # See https://hoi4.paradoxwikis.com/Data_structures#province_controllers
+                            check_variable = { temp_railway_start = temp_railway_owner }
+                            check_variable = { temp_railway_end = temp_railway_owner }
+                            NOT = { check_variable = { temp_railway_start_index = temp_railway_end_index } }
+                        }
+                        build_railway = {
+                            level = 5
+                            build_only_on_allied = yes
+                            start_province = temp_railway_start
+                            target_province = temp_railway_end
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_add_supply_node_onekey = {
         allowed = {
             # Always allowed
@@ -2080,6 +2129,68 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                                 build_only_on_allied = yes
                                 start_state = temp_railway_start
                                 target_state = temp_railway_end
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_allies_add_province_level_railway_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    OR = {
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                set_temp_variable = { temp_railway_owner = THIS }
+                for_each_loop = {
+                    array = global.province_controllers
+                    value = temp_railway_start
+                    index = temp_railway_start_index
+                    
+                    #log = "RailStart:[?temp_railway_start_index]"
+                    for_each_loop = {
+                        array = global.province_controllers
+                        value = temp_railway_end
+                        index = temp_railway_end_index
+                        
+                        #log = "RailEnd:[?temp_railway_end_index]"
+                        if = {
+                            limit = { 
+                                # Check province owner
+                                # See https://hoi4.paradoxwikis.com/Data_structures#province_controllers
+                                check_variable = { temp_railway_start = temp_railway_owner }
+                                check_variable = { temp_railway_end = temp_railway_owner }
+                                NOT = { check_variable = { temp_railway_start_index = temp_railway_end_index } }
+                            }
+                            build_railway = {
+                                level = 5
+                                build_only_on_allied = yes
+                                start_province = temp_railway_start
+                                target_province = temp_railway_end
                             }
                         }
                     }
