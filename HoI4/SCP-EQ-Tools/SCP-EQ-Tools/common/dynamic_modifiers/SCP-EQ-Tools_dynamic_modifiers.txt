@@ -146,7 +146,7 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_army = {
     #dig_in_speed = 25
     #dig_in_speed_factor = 245.0
     org_loss_when_moving = -0.5
-    land_night_attack = 0.5
+    land_night_attack = 2.45
     #initiative_factor = 0.5
     special_forces_cap = 25.0
     special_forces_min = 245245
@@ -166,7 +166,7 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_naval = {
     navy_org_factor = 245.0
     navy_max_range = 245
     navy_max_range_factor = 25.0
-    naval_night_attack = 0.5
+    naval_night_attack = 2.45
     spotting_chance = 5.0
     naval_invasion_prep_speed = 245
     naval_invasion_capacity = 245
@@ -300,6 +300,18 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_diplomacy = {
     air_volunteer_cap = 24525
     embargo_threshold_factor = -245
     embargo_cost_factor = -5.0
+}
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_supplies = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    local_supplies = 245.0
+}
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_factories = {
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    local_factories = 245.0
 }
 
 # EAW dynamic modifiers group

@@ -309,6 +309,152 @@ SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_diplomacy = {
     }
 }
 
+SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies = {
+    if = {
+        limit = { NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state } }
+        add_dynamic_modifier = {
+            modifier = SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_supplies
+        }
+        set_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state
+        # For state-level dynamic modifiers, we use an country-scoped array to log states with this dynamic modifier enabled
+        # Thus we can cancel them even we have lost control of those states, and support isolation between countries
+        add_to_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies = {
+    if = {
+        limit = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state }
+        remove_dynamic_modifier = {
+            modifier = SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_supplies
+        }
+        clr_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state
+        # Unregister a state
+        remove_from_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_supplies = {
+    if = {
+        limit = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state }
+        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies = yes
+    }
+    else = {
+        SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = {
+    if = {
+        limit = { NOT = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled } }
+        every_controlled_state = {
+            SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies = yes
+        }
+        set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = {
+    if = {
+        limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled }
+        every_controlled_state = {
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies = yes
+        }
+        # Disable modifier for uncontrolled states
+        for_each_scope_loop = {
+            array = arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states
+            
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies = yes
+        }
+        clr_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_supplies_for_all_controlled_states = {
+    if = {
+        limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled }
+        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+    }
+    else = {
+        SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories = {
+    if = {
+        limit = { NOT = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state } }
+        add_dynamic_modifier = {
+            modifier = SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_factories
+        }
+        set_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state
+        # For state-level dynamic modifiers, we use an country-scoped array to log states with this dynamic modifier enabled
+        # Thus we can cancel them even we have lost control of those states, and support isolation between countries
+        add_to_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories = {
+    if = {
+        limit = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state }
+        remove_dynamic_modifier = {
+            modifier = SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_state_factories
+        }
+        clr_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state
+        # Unregister a state
+        remove_from_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_factories = {
+    if = {
+        limit = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state }
+        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories = yes
+    }
+    else = {
+        SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories_for_all_controlled_states = {
+    if = {
+        limit = { NOT = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled } }
+        every_controlled_state = {
+            SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories = yes
+        }
+        set_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all_controlled_states = {
+    if = {
+        limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled }
+        every_controlled_state = {
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories = yes
+        }
+        # Disable modifier for uncontrolled states
+        for_each_scope_loop = {
+            array = arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states
+            
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories = yes
+        }
+        clr_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled
+    }
+}
+
+SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_factories_for_all_controlled_states = {
+    if = {
+        limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled }
+        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all_controlled_states = yes
+    }
+    else = {
+        SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories_for_all_controlled_states = yes
+    }
+}
+
 # EAW dynamic modifiers group
 
 SCP-EQ-Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = {
