@@ -1,5 +1,5 @@
 leader_traits = {
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_trait = {
         random = no
         research_speed_factor = 245.0
         political_power_gain = 2450
@@ -20,7 +20,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_political_advisor_trait = {
         random = no
         research_speed_factor = 245.0
         political_power_gain = 2450
@@ -41,7 +41,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_theorist_trait = {
         random = no
         research_speed_factor = 245.0
         political_power_gain = 2450
@@ -62,7 +62,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_army_chief_trait = {
         random = no
         army_attack_factor = 25.0
         army_attack_speed_factor = 25.0
@@ -78,7 +78,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_navy_chief_trait = {
         random = no
         naval_damage_factor = 25.0
         naval_defense_factor = 25.0
@@ -93,7 +93,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_air_chief_trait = {
         random = no
         air_attack_factor = 25.0
         air_defence_factor = 25.0
@@ -102,7 +102,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_high_command_trait = {
         random = no
         army_attack_factor = 25.0
         army_attack_speed_factor = 25.0
@@ -130,7 +130,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_head_of_government_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_head_of_government_trait = {
         random = no
         research_speed_factor = 245.0
         political_power_gain = 2450
@@ -151,7 +151,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_foreign_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_foreign_minister_trait = {
         random = no
         trade_opinion_factor = 0.5
         generate_wargoal_tension = -245
@@ -173,7 +173,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_economic_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_economic_minister_trait = {
         random = no
         production_speed_buildings_factor = 5.0
         industrial_capacity_factory = 5.0
@@ -192,7 +192,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_interior_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_interior_minister_trait = {
         random = no
         political_power_gain = 2450
         stability_factor = 245.0
@@ -211,7 +211,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_intelligence_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_intelligence_minister_trait = {
         random = no
         political_power_gain = 2450
         stability_factor = 245.0
@@ -228,7 +228,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TFR_theorist_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TFR_theorist_minister_trait = {
         random = no
         army_attack_factor = 25.0
         army_attack_speed_factor = 25.0
@@ -259,7 +259,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_head_of_government_trait = {
         random = no
         research_speed_factor = 245.0
         political_power_gain = 2450
@@ -280,7 +280,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_economy_minister_trait = {
         random = no
         production_speed_buildings_factor = 5.0
         industrial_capacity_factory = 5.0
@@ -303,7 +303,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_foreign_minister_trait = {
         random = no
         generate_wargoal_tension = -245
         guarantee_cost = -5.0
@@ -324,7 +324,7 @@ leader_traits = {
             base = 0
         }
     }
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_security_minister_trait = {
         random = no
         political_power_gain = 2450
         stability_factor = 245.0

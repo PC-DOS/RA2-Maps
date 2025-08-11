@@ -1,8 +1,8 @@
 # Dr. Picsell Dois
 every_possible_country = {
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_political_advisor
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -25,15 +25,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_political_advisor_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_political_advisor_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_theorist
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -56,15 +56,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_theorist_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_theorist_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_army_chief
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -87,15 +87,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_army_chief_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_army_chief_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_navy_chief
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -118,15 +118,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_chief_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_navy_chief_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_air_chief
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -149,15 +149,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_air_chief_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_air_chief_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_high_command
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -180,15 +180,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_high_command_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_high_command_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_corps_commander
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_corps_commander
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -212,15 +212,15 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_unit_leader_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_field_marshal
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_field_marshal
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -244,15 +244,15 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_unit_leader_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_navy_leader
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_navy_leader
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -276,15 +276,15 @@ every_possible_country = {
             logistics_skill = 245
             maneuvering_skill = 245
             coordination_skill = 245
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_unit_leader_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_head_of_government
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -307,15 +307,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_head_of_government_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_head_of_government_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_economy_minister
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -338,15 +338,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_economy_minister_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_economy_minister_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_foreign_minister
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -369,15 +369,15 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_foreign_minister_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_foreign_minister_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }
     generate_character = {
-        token_base = SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister
-        name = SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_name
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_security_minister
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {
             civilian = {
                 large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
@@ -400,9 +400,9 @@ every_possible_country = {
             removal_cost = 0
             ledger = civilian
             can_be_fired = yes
-            traits = { SCP-EQ-Tools_genereic_character_Picsell_Dois_TNO_security_minister_trait }
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_security_minister_trait }
             visible = {
-                has_country_flag = SCP-EQ-Tools_genereic_character_Picsell_Dois_is_recruited
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
             }
         }
     }

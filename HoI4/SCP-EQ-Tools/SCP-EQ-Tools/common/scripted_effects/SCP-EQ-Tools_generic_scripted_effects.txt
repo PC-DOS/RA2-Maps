@@ -164,7 +164,7 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
             }
             # Long-term damage due to radiation
             add_province_modifier = {
-                static_modifiers = { SCP-EQ-Tools_province_modifier_nuked_modifier }
+                static_modifiers = { SCP-EQ-Tools_province_modifiers_nuked_modifier }
                 province = {
                     all_provinces = yes
                     #days = 730

@@ -1,4 +1,4 @@
-SCP-EQ-Tools_province_modifier_nuked_modifier = {
+SCP-EQ-Tools_province_modifiers_nuked_modifier = {
     local_manpower = -0.25
     recruitable_population_factor = -0.25
     mobilization_speed = -0.5

@@ -1,5 +1,5 @@
 # Generic dynamic modifiers group
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -68,7 +68,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1 = {
     country_resource_steel = 24525
     country_resource_chromium = 24525
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_training = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_training = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -79,7 +79,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_training = {
     #special_forces_training_time_factor = -0.25
     #max_training = 245.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_production = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -107,7 +107,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production = {
     nuclear_production = 1
     nuclear_production_factor = 2.5
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_turbo = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_production_turbo = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -115,7 +115,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_turbo = {
     industrial_capacity_factory = 10245.0
     industrial_capacity_dockyard = 10245.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_consumer_goods = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_production_consumer_goods = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -125,7 +125,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_production_consumer_goods = {
     #     (1 - 0.5)(1 + 0.5) = 0.75
     consumer_goods_factor = -5.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_army = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -153,7 +153,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_army = {
     #special_forces_cap_flat = 25.0
     planning_speed = 245.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_naval = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -210,7 +210,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_naval = {
     # Also common/units/equipment/ship_hull_xxxxx.txt
     #navy_weather_penalty = -1.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_air = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -239,7 +239,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_air = {
     air_accidents_factor = -5.0
     enemy_army_bonus_air_superiority_factor = -1.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_intelligence = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -281,7 +281,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_intelligence = {
     navy_intel_to_others = -245.0
     airforce_intel_to_others = -245.0
 }
-SCP-EQ-Tools_dynamic_modifier_SCP_force_1_diplomacy = {
+SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_diplomacy = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -303,7 +303,7 @@ SCP-EQ-Tools_dynamic_modifier_SCP_force_1_diplomacy = {
 }
 
 # EAW dynamic modifiers group
-SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1 = {
+SCP-EQ-Tools_dynamic_modifiers_EAW_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -311,7 +311,7 @@ SCP-EQ-Tools_dynamic_modifier_EAW_SCP_force_1 = {
 }
 
 # TFR dynamic modifiers group
-SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
+SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR
     enable = { always = yes }
     remove_trigger = { always = no }
@@ -327,7 +327,7 @@ SCP-EQ-Tools_dynamic_modifier_TFR_SCP_force_1 = {
 }
 
 # TNO dynamic modifiers group
-SCP-EQ-Tools_dynamic_modifier_TNO_SCP_force_1 = {
+SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1 = {
     icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO
     enable = { always = yes }
     remove_trigger = { always = no }

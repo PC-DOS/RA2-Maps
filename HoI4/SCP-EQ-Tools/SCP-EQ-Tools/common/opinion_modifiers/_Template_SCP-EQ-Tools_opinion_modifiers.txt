@@ -1,0 +1,36 @@
+# Ref. https://hoi4.paradoxwikis.com/Modifiers#Opinion_modifiers
+# 
+# Despite their name, opinion modifiers are not related to modifiers in any way, instead they are used to modify the diplomatic or economic relations between a pair of countries.
+# 
+# The opinion modifiers are made in any /Hearts of Iron IV/common/opinion_modifiers/*.txt file as an entry in the opinion_modifiers = { ... } block, with the name of the entry being the ID of the opinion modifier. In case of there being several entries with the same ID, the one that was evaluated later based on the filename and order in files will take priority, meaning that copying a base game file is never necessary in a mod.
+# 
+# There are the following attributes that are used in opinion modifiers:
+# 
+#     trade = yes is used to decide whether the opinion modifier changes the diplomatic relations or the trade opinion from one country to another. If unset, defaults to being false making it diplomatic.
+#     value = -10 is the value of the modifier that decides by how much the diplomatic or trade opinion should change once the opinion modifier is added.
+#     decay = 1 details the speed at which the opinion modifier trends towards zero monthly. Optional, defaults to the modifier not changing if unset.
+#     days = 10 | months = 2 | years = 1 decides the time for how much the opinion modifier should last before it will get automatically removed. A month is interpreted as exactly 30 days, while a year is 365. Optional, the modifier will be permanent if neither is set.
+#     min_trust = 10 | max_trust = -10 detail the minimum and maximum value that the opinion modifier can change to. As the only non-hardcoded way to change the value of an existing opinion modifier is through decay, this can be used to limit how far it can apply.
+# 
+# The localisation is created in any /Hearts of Iron IV/localisation/english/*_l_english.yml file encoded in UTF-8 using the byte order mark (aka UTF-8-BOM), with the localisation key being the name of the modifier.
+# Examples
+# 
+# Inside of a new /Hearts of Iron IV/common/opinion_modifiers/*.txt file:
+# 
+# opinion_modifiers = {
+#     test_trade_modifier = {
+#         trade = yes
+#         value = -100    # Provides -100 trade opinion for 2 months
+#         months = 2
+#     }
+#     test_diplomatic_modifier = {
+#         value = 20      # Provides +20 diplomatic opinion that decays by 0.5 per month
+#         decay = 0.5
+#     }
+# }
+# 
+# Inside of a new /Hearts of Iron IV/localisation/english/*_l_english.yml file:
+# 
+# l_english:
+#  test_trade_modifier: "Testing trade modifier"
+#  test_diplomatic_modifier: "Testing diplomatic modifier"

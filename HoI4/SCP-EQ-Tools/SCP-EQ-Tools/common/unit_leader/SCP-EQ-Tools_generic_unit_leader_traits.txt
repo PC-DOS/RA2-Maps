@@ -1,5 +1,5 @@
 leader_traits = {
-    SCP-EQ-Tools_genereic_character_Picsell_Dois_generic_unit_leader_trait = {
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_unit_leader_trait = {
         type = { land navy }
         trait_type = personality_trait
         cost = 0
