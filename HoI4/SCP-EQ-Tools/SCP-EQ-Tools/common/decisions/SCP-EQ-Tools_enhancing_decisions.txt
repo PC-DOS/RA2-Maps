@@ -3361,6 +3361,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 # Just for fun, you know
                 PRC_dissolve_india = yes
                 # Handle with those who stand with japs
+                # PRC_chinas_victory_in_the_gaw effect may hurt Nepal by accident (as NEP will be our friend for sure), so I used the _allies variant
                 PRC_chinas_victory_in_the_gaw_allies = yes
             }
         }
