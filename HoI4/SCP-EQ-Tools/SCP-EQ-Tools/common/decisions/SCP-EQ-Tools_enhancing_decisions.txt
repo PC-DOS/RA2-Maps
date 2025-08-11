@@ -3326,6 +3326,45 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TFR_PRC_send_japs_and_its_allies_to_hell = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            PRC = {
+                # Very comfortable news
+                country_event = china.1011
+                # Ensure those three dorgs are our puppet
+                puppet = {
+                    target = AST
+                }
+                puppet = {
+                    target = NZL
+                }
+                puppet = {
+                    target = PNG
+                }
+                # Send japs to hell with thier Showa bullshit
+                PRC_dissolve_japan = yes
+                # Just for fun, you know
+                PRC_dissolve_india = yes
+                # Handle with those who stand with japs
+                PRC_chinas_victory_in_the_gaw_allies = yes
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country = {
         allowed = {
             # Always allowed
