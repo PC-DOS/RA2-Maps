@@ -3346,7 +3346,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             PRC = {
                 # Very comfortable news
                 country_event = china.1011
-                # Ensure those three dorgs are our puppet
+                # Ensure those three dogs are our puppet
                 puppet = {
                     target = AST
                 }
@@ -3356,7 +3356,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 puppet = {
                     target = PNG
                 }
-                # Send japs to hell with thier Showa bullshit
+                # Send japs to hell with their Showa bullshit
                 PRC_dissolve_japan = yes
                 # Just for fun, you know
                 PRC_dissolve_india = yes
