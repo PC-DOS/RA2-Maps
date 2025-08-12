@@ -1,9 +1,9 @@
 opinion_modifiers = {
     SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost = {
-        value = 24500
+        value = 5245
     }
     SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost = {
         trade = yes
-        value = 24500
+        value = 5245
     }
 }
