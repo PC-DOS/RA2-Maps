@@ -10,6 +10,6 @@ NDefines.NDiplomacy.MIN_TRUST_VALUE = -5245
 -- Faster volunteer sending
 NDefines.NDiplomacy.VOLUNTEERS_TRANSFER_SPEED = 1
 -- Focus boosting
-NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245245
+NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
 NDefines.NFocus.FOCUS_PROGRESS_PEACE = 5
 NDefines.NFocus.FOCUS_PROGRESS_WAR = 5
