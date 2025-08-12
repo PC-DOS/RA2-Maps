@@ -1,0 +1,10 @@
+-- Ref. https://hoi4.paradoxwikis.com/Defines
+-- 
+-- As defines are Lua code rather than a PDXscript-interpreted file, any Lua code can go in there, however modules allowing to go out of this directory are not available. As a consequence of this, there is no need to copy the entire file to edit it. Defines, including graphical defines, are merely a Lua-contained array, and it is possible to modify a single member of the array in Lua using, for example, NDefines.NGame.START_DATE = "1936.1.2.12". Each of these lines is contained on a separate line and there are no commas separating them, such as the following:
+-- 
+-- NDefines.NGame.START_DATE = "1936.1.2.12" -- An unnecessary comma will result in a game crash upon launching.
+-- NDefines.NGraphics.COUNTRY_FLAG_TEX_MAX_SIZE = 2048 -- They are present in the base game defines file due to the fact that NDefines is one single large array, and when defining an array with members, the members are separated with commas. However, commands are not separated with commas.
+-- 
+-- This goes into a separate file set to be evaluated after the base game defines, which is sorted by filenames using the ASCII character IDs. Since 0 is among the earliest characters by ID – placed before letters, other numbers, and underscores – almost any filename can work.
+-- In the base game files, the graphical defines are set to be merged into NDefines in the last line of the base game file. However, since Lua does not create copies of tables by default, the base game's NDefines contains pointers to the actual elements, which are contained within NDefines_Graphics regardless. For this reason, modifying either NDefines or NDefines_Graphics works for changing graphical defines.
+-- A mod should never contain the 00_defines.lua and 00_graphics.lua files within of itself: these files are commonly changed even in minor game updates, and having a define missing from a file results in the mod being unstable, potentially having a crash on startup. 
