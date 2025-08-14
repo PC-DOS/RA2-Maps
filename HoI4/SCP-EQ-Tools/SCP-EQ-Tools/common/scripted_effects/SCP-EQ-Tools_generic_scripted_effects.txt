@@ -97,7 +97,7 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
         var:temp_param_nuke_sender_tag = {
             launch_nuke = {
                 state = temp_nuke_target_state
-                controller = var:temp_param_nuke_sender_tag
+                controller = var:temp_param_nuke_target_tag
                 use_nuke = no
             }
         }
