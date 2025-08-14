@@ -205,9 +205,11 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = {
                 limit = {
                     check_variable = { temp_current_province_controller = temp_param_nuke_target_tag }
                 }
-                launch_nuke = {
-                    province = temp_current_province_id
-                    use_nuke = no
+                var:temp_param_nuke_sender_tag = {
+                    launch_nuke = {
+                        province = var:temp_current_province_id
+                        use_nuke = no
+                    }
                 }
             }
         }
