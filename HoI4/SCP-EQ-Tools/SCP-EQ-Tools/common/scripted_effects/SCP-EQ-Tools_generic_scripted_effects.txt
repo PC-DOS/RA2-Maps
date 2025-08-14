@@ -197,7 +197,7 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = {
             check_variable = { temp_param_is_every_province_nuked > 0 }
         }
         for_each_loop = {
-            array = province_controllers
+            array = global.province_controllers
             value = temp_current_province_controller
             index = temp_current_province_id
             
