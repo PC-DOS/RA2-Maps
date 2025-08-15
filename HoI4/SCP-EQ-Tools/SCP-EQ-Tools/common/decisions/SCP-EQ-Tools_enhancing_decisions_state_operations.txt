@@ -640,6 +640,62 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_white_peace_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    white_peace = ROOT
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_white_peace_with_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_enemy_country = {
+                        white_peace = PREV
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_nuke_marked_states = {
         allowed = {
             # Always allowed

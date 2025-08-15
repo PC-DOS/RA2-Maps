@@ -107,6 +107,8 @@
  SCP-EQ-Tools_enhancing_decisions_delete_non_allied_armies_in_our_territory_desc:0 "他们的兵乱跑了啊"
  SCP-EQ-Tools_enhancing_decisions_control_all_enemy_states:0 "占领所有敌国控制区"
  SCP-EQ-Tools_enhancing_decisions_control_all_enemy_states_desc:0 "我们直接延伸到他家里去啊"
+ SCP-EQ-Tools_enhancing_decisions_white_peace_with_all_enemies:0 "与我国所有敌国停战"
+ SCP-EQ-Tools_enhancing_decisions_white_peace_with_all_enemies_desc:0 "我们先跟他和平啊"
  SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_capitals:0 "将位于首都的部队传送到敌国首都"
  SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_capitals_desc:0 "警报，超时空传送仪已启动"
  SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_separated_states:0 "将位于首都的部队传送到敌国各孤立地区"
