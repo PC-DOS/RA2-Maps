@@ -258,6 +258,8 @@
  SCP-EQ-Tools_enhancing_decisions_TNO_credit_max_rating_up_desc:0 "没有钱是万万不能的"
  SCP-EQ-Tools_enhancing_decisions_TNO_credit_min_rating_up:0 "信用等级下限升一级"
  SCP-EQ-Tools_enhancing_decisions_TNO_credit_min_rating_up_desc:0 "没有钱是万万不能的"
+ SCP-EQ-Tools_enhancing_decisions_TNO_add_PUs:0 "获得245个闲置生产单位"
+ SCP-EQ-Tools_enhancing_decisions_TNO_add_PUs_desc:0 "这个地图呢一上来就送了我们一个重工啊"
  SCP-EQ-Tools_enhancing_decisions_TNO_add_thermoelectric_plant_onekey:0 "所有地区建立一座热电厂"
  SCP-EQ-Tools_enhancing_decisions_TNO_add_thermoelectric_plant_onekey_desc:0 "他电厂出得慢，发展就慢了啊，我们还能延伸到他家里去"
  SCP-EQ-Tools_enhancing_decisions_TNO_add_schools_onekey:0 "所有地区建立一座学校"

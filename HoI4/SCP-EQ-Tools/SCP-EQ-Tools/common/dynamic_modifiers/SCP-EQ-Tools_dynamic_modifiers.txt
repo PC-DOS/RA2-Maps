@@ -362,4 +362,5 @@ SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1 = {
     poverty_monthly_rate = 25.0
     monthly_credit_rating_progress = 25.0
     consumer_goods_production_factor = 25.0
+    free_production_units_modifier = 245
 }
