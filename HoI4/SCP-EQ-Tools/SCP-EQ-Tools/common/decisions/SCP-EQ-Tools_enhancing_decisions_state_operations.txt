@@ -696,6 +696,78 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_start_peace_conference_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        # Current scope is the winner, target and its subjects are the losers
+                        start_peace_conference  = {
+                            tag = PREV
+                            score_factor = 245.0
+                            winner_scope = LIMITED_FACTION
+                            loser_scope = LIMITED_FACTION
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_start_peace_conference_with_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    random_enemy_country = {
+                        PREV = {
+                            # Current scope is the winner, target and its subjects are the losers
+                            start_peace_conference  = {
+                                tag = PREV
+                                score_factor = 245.0
+                                winner_scope = LIMITED_FACTION
+                                loser_scope = ALL
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_nuke_marked_states = {
         allowed = {
             # Always allowed
