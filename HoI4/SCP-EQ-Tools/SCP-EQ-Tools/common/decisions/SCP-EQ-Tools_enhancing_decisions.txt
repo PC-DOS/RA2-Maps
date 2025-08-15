@@ -4254,6 +4254,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     # Max legitimacy
                     set_variable = { YUN_legitimacy_cap = 100 }
                     set_variable = { YUN_legitimacy = 100 }
+                    set_variable = { YUN_warbuff_cap = 100 }
+                    set_variable = { YUN_WI_warbuff = 100 }
                     add_to_variable = { YUN_NPA_Crusade_dirty = 1 }
                     set_variable = { global.YUN_WI_war_momentum_check = 100 }
                     set_variable = { YUN_legitimate_regime = 1 }
