@@ -90,12 +90,8 @@ on_actions = {
                         army_experience = var:temp_army_experience_damage
                         navy_experience = var:temp_navy_experience_damage
                         air_experience = var:temp_air_experience_damage
-                        #add_stability = var:temp_stability_damage
-                        set_temp_variable = { temp_param_stability_delta = temp_stability_damage }
-                        SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_stability = yes
-                        #add_war_support = temp_war_support_damage
-                        set_temp_variable = { temp_param_war_support_delta = temp_war_support_damage }
-                        SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_war_support = yes
+                        add_stability = var:temp_stability_damage
+                        add_war_support = var:temp_war_support_damage
                     }
                 }
             }
