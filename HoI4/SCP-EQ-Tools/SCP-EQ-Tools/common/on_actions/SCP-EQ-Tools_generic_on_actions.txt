@@ -67,31 +67,31 @@ on_actions = {
                             flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                         }
                     }
-                    set_temp_variable = { temp_political_political_power_damage = -5 }
-                    set_temp_variable = { temp_political_command_power_damage = -5 }
-                    set_temp_variable = { temp_political_manpower_damage = -25 }
-                    set_temp_variable = { temp_political_army_experience_damage = -5 }
-                    set_temp_variable = { temp_political_navy_experience_damage = -5 }
-                    set_temp_variable = { temp_political_air_experience_damage = -5 }
-                    set_temp_variable = { temp_political_war_support_damage = -0.05 }
-                    set_temp_variable = { temp_political_stability_damage = -0.05 }
-                    multiply_temp_variable = { temp_political_political_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_command_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_manpower_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_army_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_navy_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_air_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_war_support_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_political_stability_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    set_temp_variable = { temp_political_power_damage = -5 }
+                    set_temp_variable = { temp_command_power_damage = -5 }
+                    set_temp_variable = { temp_manpower_damage = -25 }
+                    set_temp_variable = { temp_army_experience_damage = -5 }
+                    set_temp_variable = { temp_navy_experience_damage = -5 }
+                    set_temp_variable = { temp_air_experience_damage = -5 }
+                    set_temp_variable = { temp_war_support_damage = -0.05 }
+                    set_temp_variable = { temp_stability_damage = -0.05 }
+                    multiply_temp_variable = { temp_political_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_command_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_manpower_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_army_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_navy_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_air_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_war_support_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                    multiply_temp_variable = { temp_stability_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
                     controller = {
-                        add_political_power = var:temp_political_political_power_damage
-                        add_command_power = var:temp_political_command_power_damage
-                        add_manpower = var:temp_political_manpower_damage
-                        army_experience = var:temp_political_army_experience_damage
-                        navy_experience = var:temp_political_navy_experience_damage
-                        air_experience = var:temp_political_air_experience_damage
-                        add_war_support = var:temp_political_war_support_damage
-                        add_stability = var:temp_political_stability_damage
+                        add_political_power = var:temp_political_power_damage
+                        add_command_power = var:temp_command_power_damage
+                        add_manpower = var:temp_manpower_damage
+                        army_experience = var:temp_army_experience_damage
+                        navy_experience = var:temp_navy_experience_damage
+                        air_experience = var:temp_air_experience_damage
+                        add_war_support = var:temp_war_support_damage
+                        add_stability = var:temp_stability_damage
                     }
                 }
             }
