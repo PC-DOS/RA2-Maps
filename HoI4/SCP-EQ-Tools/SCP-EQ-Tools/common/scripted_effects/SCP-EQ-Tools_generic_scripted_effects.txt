@@ -43,6 +43,28 @@ SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = {
     }
 }
 
+# Parameter 1: temp_param_stability_delta
+SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_stability = {
+    # Base stability
+    add_stability = temp_param_stability_delta
+    
+    # Display value of stability
+    set_temp_variable = { temp_current_stability = stability }
+    add_to_temp_variable = { temp_current_stability = temp_param_stability_delta }
+    set_stability = var:temp_current_stability
+}
+
+# Parameter 1: temp_param_war_support_delta
+SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_war_support = {
+    # Base war support
+    add_war_support = temp_param_war_support_delta
+    
+    # Display value of war support
+    set_temp_variable = { temp_current_war_support = has_war_support }
+    add_to_temp_variable = { temp_current_war_support = temp_param_war_support_delta }
+    set_war_support = var:temp_current_war_support
+}
+
 # Parameter 1: temp_param_state_population_change_percentage
 SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
     set_temp_variable = { temp_current_state_population_change = state_population_k }

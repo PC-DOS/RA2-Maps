@@ -367,8 +367,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             army_experience = 2450
             navy_experience = 2450
             air_experience = 2450
-            add_war_support = 5.0
-            add_stability = 5.0
+            #add_stability = 5.0
+            set_temp_variable = { temp_param_stability_delta = 5.0 }
+            SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_stability = yes
+            #add_war_support = 5.0
+            set_temp_variable = { temp_param_war_support_delta = 5.0 }
+            SCP-EQ-Tools_generic_scripted_effects_change_base_and_current_war_support = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_add_fuel = {
