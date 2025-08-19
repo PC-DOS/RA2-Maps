@@ -4180,6 +4180,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             add_to_variable = { nuclear_stockpile = 245 }
             set_variable = { nuclear_stockpile_k = nuclear_stockpile }
             divide_variable = { nuclear_stockpile_k = 1000 }
+            set_variable = { BonusContribution = 5.0 }
             calculate_strike_capability = yes
             set_temp_variable = { global_coverage_change_temp = 1.0 }
             nuclear_global_coverage_change = yes
