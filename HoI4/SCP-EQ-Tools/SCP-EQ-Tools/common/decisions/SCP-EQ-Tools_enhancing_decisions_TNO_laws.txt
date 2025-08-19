@@ -1437,7 +1437,7 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
         }
         complete_effect = {
             set_temp_variable = { econ_centralization_temp = 0.05 }
-            econ_subtype_change = yes
+            econ_centralization_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_minus_econ_centralization = {
@@ -1458,7 +1458,7 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
         }
         complete_effect = {
             set_temp_variable = { econ_centralization_temp = -0.05 }
-            econ_subtype_change = yes
+            econ_centralization_change = yes
         }
     }
     
@@ -1480,10 +1480,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = 0 }
-            econ_subtype_change = yes
             set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = 0 }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_american_capitalism = {
@@ -1503,10 +1503,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_corporate_oligopoly = {
@@ -1526,10 +1526,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Corporate_Oligopoly }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Corporate_Oligopoly }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_permit_raj = {
@@ -1549,10 +1549,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Permit_Raj }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Permit_Raj }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_social_market = {
@@ -1572,10 +1572,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Social_Market }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Social_Market }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_yagoda = {
@@ -1595,10 +1595,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Yagoda }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Yagoda }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_colonial_economy_free_market = {
@@ -1618,10 +1618,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Free_Market }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Free_Market }
+            econ_subtype_change = yes
         }
     }
     
@@ -1643,10 +1643,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = 0 }
-            econ_subtype_change = yes
             set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = 0 }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_worker_directed = {
@@ -1666,10 +1666,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Worker_Directed }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Worker_Directed }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_anarchic = {
@@ -1689,10 +1689,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarchic }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarchic }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_military_directed = {
@@ -1712,10 +1712,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Military_Directed }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Military_Directed }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_burgsys = {
@@ -1735,10 +1735,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Burgsys }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Burgsys }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_banditry = {
@@ -1758,10 +1758,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Banditry }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Banditry }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_anarcho_communism = {
@@ -1781,10 +1781,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarcho_Communism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarcho_Communism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_deytsch_economics = {
@@ -1804,10 +1804,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Deytsch_Economics }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Deytsch_Economics }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_war_communism = {
@@ -1827,10 +1827,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_War_Communism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_War_Communism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_christian_anarchism = {
@@ -1850,10 +1850,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Christian_Anarchism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Christian_Anarchism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_colonial_economy_planned = {
@@ -1873,10 +1873,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Planned }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Planned }
+            econ_subtype_change = yes
         }
     }
     
@@ -1898,10 +1898,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = 0 }
-            econ_subtype_change = yes
             set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = 0 }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_crown_corporatism = {
@@ -1921,10 +1921,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Crown_Corporatism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Crown_Corporatism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_crown_credit_corporatism = {
@@ -1944,10 +1944,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Crown_Credit_Corporatism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Crown_Credit_Corporatism }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_gelenkte_wirtschaft = {
@@ -1967,10 +1967,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Gelenkte_Wirtschaft }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Gelenkte_Wirtschaft }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_dirigisme = {
@@ -1990,10 +1990,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_socialized_economy = {
@@ -2013,10 +2013,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Socialized_Economy }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Socialized_Economy }
+            econ_subtype_change = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_set_economy_type_colonial_economy_corporatism = {
@@ -2036,10 +2036,10 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Corporatism }
-            econ_subtype_change = yes
             #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
             #econ_type_change = yes
+            set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Corporatism }
+            econ_subtype_change = yes
         }
     }
     
