@@ -1436,7 +1436,7 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { econ_centralization_temp = 0.05 }
+            set_temp_variable = { econ_centralization_temp = 5 }
             econ_centralization_change = yes
         }
     }
@@ -1457,7 +1457,7 @@ SCP-EQ-Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { econ_centralization_temp = -0.05 }
+            set_temp_variable = { econ_centralization_temp = -5 }
             econ_centralization_change = yes
         }
     }
