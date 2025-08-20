@@ -1724,6 +1724,10 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             every_character = {
+                limit = {
+                    is_advisor = yes
+                    advisor_can_be_fired = no
+                }
                 set_can_be_fired_in_advisor_role = {
                     character = THIS
                     value = yes
