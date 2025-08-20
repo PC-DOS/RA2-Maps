@@ -1171,6 +1171,108 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_create_default_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            create_faction = SCP-EQ-Tools_generic_factions_default
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_become_leader_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_faction_leader = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_become_spymaster_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_faction_spymaster = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_leave_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            leave_faction = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_dismantle_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            faction_leader = {
+                dismantle_faction = yes
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_add_compliance = {
         allowed = {
             # Always allowed
@@ -2699,6 +2801,108 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     faction_leader = {
                         add_to_faction = temp_target_country
                     }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_become_leader_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                set_faction_leader = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_become_spymaster_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                set_faction_spymaster = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_leave_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                leave_faction = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_dismantle_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                faction_leader = {
+                    dismantle_faction = yes
                 }
             }
         }

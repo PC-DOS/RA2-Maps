@@ -1,0 +1,8 @@
+﻿l_simp_chinese:
+ # Generic factions
+ SCP-EQ-Tools_generic_factions_default:0 "自由小马同盟"
+ SCP-EQ-Tools_generic_factions_default_desc:0 "自由小马同盟"
+ SCP-EQ-Tools_generic_factions_SCP_Foundation:0 "SCP基金会"
+ SCP-EQ-Tools_generic_factions_SCP_Foundation_desc:0 "SCP基金会"
+ SCP-EQ-Tools_generic_factions_SCP_Foundation_Equestria_Branch:0 "SCP基金会小马国分部"
+ SCP-EQ-Tools_generic_factions_SCP_Foundation_Equestria_Branch_desc:0 "SCP基金会小马国分部"
