@@ -1723,6 +1723,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            # This works fine for characters with only 1 advisor slot
             every_character = {
                 limit = {
                     is_advisor = yes
@@ -1730,6 +1731,170 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 set_can_be_fired_in_advisor_role = {
                     character = THIS
+                    value = yes
+                }
+            }
+            # For characters with multiple advisor slots, the target slot must be specified explicitly
+            # See https://hoi4.paradoxwikis.com/Effect#set_can_be_fired_in_advisor_role
+            # Generic advisor slots
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = political_advisor
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = political_advisor
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = political_advisor
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = theorist
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = theorist
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = theorist
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = army_chief
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = army_chief
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = army_chief
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = navy_chief
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = navy_chief
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = navy_chief
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = air_chief
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = air_chief
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = air_chief
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = high_command
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = high_command
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = high_command
+                    value = yes
+                }
+            }
+            # TNO advisor slots
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = head_of_government
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = head_of_government
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = head_of_government
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = economy_minister
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = economy_minister
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = economy_minister
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = foreign_minister
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = foreign_minister
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = foreign_minister
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = security_minister
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = security_minister
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = security_minister
                     value = yes
                 }
             }
