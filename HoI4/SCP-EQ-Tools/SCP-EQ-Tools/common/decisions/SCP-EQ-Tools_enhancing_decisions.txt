@@ -4450,29 +4450,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             econ_pus_change = yes
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_TNO_allow_building_factory_on_map = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            set_technology = {
-                hidden_factory_on_map = 1
-                popup = no
-            }
-        }
-    }
     SCP-EQ-Tools_enhancing_decisions_TNO_add_thermoelectric_plant_onekey = {
         allowed = {
             # Always allowed
