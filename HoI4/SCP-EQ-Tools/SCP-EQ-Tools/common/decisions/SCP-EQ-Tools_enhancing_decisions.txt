@@ -4150,6 +4150,48 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             econ_money_reserves_change_raw_money = yes
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TNO_base_inflation_minus_50Pct = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { inflation_temp = -50 }
+            econ_inflation_change = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TNO_base_inflation_plus_10Pct = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { inflation_temp = 10 }
+            econ_inflation_change = yes
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_TNO_unlock_economy_panel_sliders = {
         allowed = {
             # Always allowed
