@@ -66,6 +66,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_economy_minister_trait
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_foreign_minister_trait
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_security_minister_trait
+                        has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_RF_head_of_intel_trait
                     }
                 }
                 set_portraits = {

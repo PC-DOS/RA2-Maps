@@ -341,4 +341,21 @@ leader_traits = {
             base = 0
         }
     }
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_RF_head_of_intel_trait = {
+        random = no
+        political_power_gain = 2450
+        stability_factor = 245.0
+        stability_weekly = 245.0
+        civilian_intel_factor = 5.0
+        army_intel_factor = 5.0
+        navy_intel_factor = 5.0
+        airforce_intel_factor = 5.0
+        civilian_intel_to_others = -245.0
+        army_intel_to_others = -245.0
+        navy_intel_to_others = -245.0
+        airforce_intel_to_others = -245.0
+        ai_will_do = {
+            base = 0
+        }
+    }
 }
