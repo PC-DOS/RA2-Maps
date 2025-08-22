@@ -1,8 +1,8 @@
 name="SCP-EQ-Tools"
 version="0.0.1-beta"
 tags={
-	"Fixes"
-	"Utilities"
+    "Fixes"
+    "Utilities"
 }
 picture="thumbnail.png"
 supported_version="1.14.*"
