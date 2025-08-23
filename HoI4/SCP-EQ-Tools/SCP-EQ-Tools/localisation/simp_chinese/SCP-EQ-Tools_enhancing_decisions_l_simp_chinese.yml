@@ -85,6 +85,8 @@
  SCP-EQ-Tools_enhancing_decisions_finish_agency_upgrade_onekey_desc:0 "我们的间谍伪装成他的狗走到他家里去啊\n请注意：在部分Mod（如TNO）中，该功能可能不可用"
  SCP-EQ-Tools_enhancing_decisions_complete_current_focus:0 "一键完成当前国策"
  SCP-EQ-Tools_enhancing_decisions_complete_current_focus_desc:0 "我们发展比他们都快啊\n本功能需要在开始游戏前生成游戏本体和所有Mod中的国策清单，请参考本Mod目录中的“_SCP-EQ-Tools_out_game_tools”内的“GenerateNationalFocusTokens”文件夹，您需要Python 3环境来运行该脚本。"
+ SCP-EQ-Tools_enhancing_decisions_update_focus_token_database:0 "更新国策信息库"
+ SCP-EQ-Tools_enhancing_decisions_update_focus_token_database_desc:0 "如果您重新生成了国策信息库，请使用该决议更新游戏内数据。通常情况下无需使用该决议。"
  SCP-EQ-Tools_enhancing_decisions_add_threat:0 "提升245点随机国家造成的全球紧张度"
  SCP-EQ-Tools_enhancing_decisions_add_threat_desc:0 "此天之亡我，非战之罪也"
  SCP-EQ-Tools_enhancing_decisions_lower_threat:0 "降低245点我国造成的全球紧张度"
