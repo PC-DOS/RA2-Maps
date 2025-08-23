@@ -1033,12 +1033,42 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            for_loop_effect = {
-                start = 0
-                end = 245
-                value = i
-                
-                gain_random_agency_upgrade = yes
+            # This scripted effect might be removed in mods
+            #for_loop_effect = {
+            #    start = 0
+            #    end = 245
+            #    value = i
+            #    
+            #    gain_random_agency_upgrade = yes
+            #}
+            
+            # New method
+            # Mixing all mods' agency upgrades together will crash the game, so I have to use another method
+            # Upgrade function is called based on visibility of mod-specific decisions
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+                }
+                # EaW
+                SCP-EQ-Tools_intelligence_agency_upgrades_complete_all_upgrades_EAW = yes
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+                }
+                # TFR
+                SCP-EQ-Tools_intelligence_agency_upgrades_complete_all_upgrades_TFR = yes
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+                }
+                # TNO
+                SCP-EQ-Tools_intelligence_agency_upgrades_complete_all_upgrades_TNO = yes
+            }
+            else = {
+                # Base game's upgrades by default
+                SCP-EQ-Tools_intelligence_agency_upgrades_complete_all_upgrades = yes
             }
         }
     }

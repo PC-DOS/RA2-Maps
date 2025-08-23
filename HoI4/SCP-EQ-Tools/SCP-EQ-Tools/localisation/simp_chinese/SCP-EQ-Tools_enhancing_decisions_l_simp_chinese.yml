@@ -82,7 +82,7 @@
  SCP-EQ-Tools_enhancing_decisions_finish_research_onekey:0 "一键完成全部科研"
  SCP-EQ-Tools_enhancing_decisions_finish_research_onekey_desc:0 "我们造个高科技，就可以出幻影啊光棱啊这样的高科技兵种啊（可能引发游戏假死，请耐心等待）"
  SCP-EQ-Tools_enhancing_decisions_finish_agency_upgrade_onekey:0 "一键完成情报机构升级"
- SCP-EQ-Tools_enhancing_decisions_finish_agency_upgrade_onekey_desc:0 "我们的间谍伪装成他的狗走到他家里去啊\n请注意：在部分Mod（如TNO）中，该功能可能不可用"
+ SCP-EQ-Tools_enhancing_decisions_finish_agency_upgrade_onekey_desc:0 "我们的间谍伪装成他的狗走到他家里去啊\n本功能需要在开始游戏前生成游戏本体和所有Mod中的情报机构升级项目清单，请参考本Mod目录中的“_SCP-EQ-Tools_out_game_tools”内的“GenerateIntelligenceUpgradeTokens”文件夹，您需要Python 3环境来运行该脚本。"
  SCP-EQ-Tools_enhancing_decisions_complete_current_focus:0 "一键完成当前国策"
  SCP-EQ-Tools_enhancing_decisions_complete_current_focus_desc:0 "我们发展比他们都快啊\n本功能需要在开始游戏前生成游戏本体和所有Mod中的国策清单，请参考本Mod目录中的“_SCP-EQ-Tools_out_game_tools”内的“GenerateNationalFocusTokens”文件夹，您需要Python 3环境来运行该脚本。"
  SCP-EQ-Tools_enhancing_decisions_update_focus_token_database:0 "更新国策信息库"

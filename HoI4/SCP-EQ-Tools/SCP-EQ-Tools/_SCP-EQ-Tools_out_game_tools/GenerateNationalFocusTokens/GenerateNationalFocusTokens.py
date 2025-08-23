@@ -1,4 +1,4 @@
-# Generate tokens of base HoI4 game and all installed mods
+# Generate tokens of national focuses from base HoI4 game and all installed mods
 # Required for "Complete current focus" cheating
 
 # Public libraries
