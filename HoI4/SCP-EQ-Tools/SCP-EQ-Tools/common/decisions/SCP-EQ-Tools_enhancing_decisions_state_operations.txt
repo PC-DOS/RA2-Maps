@@ -1247,7 +1247,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             # Always allowed
         }
         visible = {
-            # Always visible
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
         }
         available = {
             # Always available
@@ -1285,7 +1285,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             # Always allowed
         }
         visible = {
-            # Always visible
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
         }
         available = {
             # Always available
