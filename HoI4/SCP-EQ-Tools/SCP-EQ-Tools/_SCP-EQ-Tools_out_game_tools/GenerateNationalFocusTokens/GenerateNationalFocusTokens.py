@@ -11,6 +11,11 @@ import itertools
 import glob
 import copy
 
+# Constants
+# Changes these based on your PC's environment
+sHoI4BaseDir = "E:/Hearts of Iron IV/"
+sHoI4ModBaseDir = "C:/Users/Administrator/Documents/Paradox Interactive/Hearts of Iron IV/mod/"
+
 # Enumerate files and directories under specified directory
 def EnumerateFilesAndDirectories(sEnumerateTerm : str, sRootPath : str = None, DoRecursiveEnumerate : bool = False, IncludeHiddenItems : bool = False) -> list :
     return glob.glob(sEnumerateTerm, root_dir=sRootPath, recursive=DoRecursiveEnumerate, include_hidden=IncludeHiddenItems)
@@ -138,9 +143,6 @@ def EnumerateNationalFocuses(sBaseDir : str) -> list :
 
 # Main entry point
 if __name__ == "__main__" :
-    sHoI4BaseDir = "E:/Hearts of Iron IV/"
-    sHoI4ModBaseDir = "C:/Users/Administrator/Documents/Paradox Interactive/Hearts of Iron IV/mod/"
-
     sIdeasOutputDir = "../../common/ideas/"
     sIdeasOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
     CreateDirectory(sIdeasOutputDir)
