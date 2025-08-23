@@ -124,7 +124,7 @@ def EnumerateNationalFocuses(sBaseDir : str) -> list :
                     #End If
 
                     # Check if is a focus id
-                    if sCurrentSection == "focus" :
+                    if (sCurrentSection == "focus") or (sCurrentSection == "shared_focus") :
                         if CurrentLine.strip().startswith("id = ") :
                             arrNationalFocuses.append(CurrentLine.strip().replace("\t"," ").removeprefix("id = ").split(" ")[0])
                         elif CurrentLine.strip().startswith("id =") :
