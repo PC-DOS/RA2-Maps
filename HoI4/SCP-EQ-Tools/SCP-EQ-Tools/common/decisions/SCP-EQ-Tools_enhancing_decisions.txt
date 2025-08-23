@@ -2456,6 +2456,39 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_recall_volunteers_from_all_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                ROOT = {
+                    recall_volunteers_from = PREV
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_allies_and_countries_with_our_volunteers_enable_SCP_items = {
         allowed = {
             # Always allowed
@@ -2825,6 +2858,31 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_delete_all_countries_embargoed_by_us_armies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_nuke_all_countries_embargoed_by_us = {
         allowed = {
             # Always allowed
@@ -3163,6 +3221,75 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 faction_leader = {
                     dismantle_faction = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_recall_volunteers_from_all_countries_embargoed_by_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                ROOT = {
+                    recall_volunteers_from = PREV
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_recall_volunteers_from_all_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                every_other_country = {
+                    limit = {
+                        has_volunteers_amount_from = {
+                            tag = PREV
+                            count > 0
+                        }
+                    }
+                    PREV = {
+                        recall_volunteers_from = PREV
+                    }
                 }
             }
         }
