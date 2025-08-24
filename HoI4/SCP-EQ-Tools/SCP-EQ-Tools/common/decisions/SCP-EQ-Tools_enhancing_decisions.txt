@@ -4135,6 +4135,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             remove_ideas = ai_disabled_production
+            country_lock_all_division_template = no
         }
     }
     
