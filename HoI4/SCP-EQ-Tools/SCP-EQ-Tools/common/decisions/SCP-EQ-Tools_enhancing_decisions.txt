@@ -2550,6 +2550,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         }
                     }
                     SCP-EQ-Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
+                    # Allow AI's production
+                    remove_ideas = ai_disabled_production
+                    country_lock_all_division_template = no
                 }
                 # TNO
                 if = {
@@ -3603,6 +3606,9 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             SCP-EQ-Tools_generic_scripted_effects_TFR_toggle_SCP_item_1 = yes
+            # Allow AI's production
+            remove_ideas = ai_disabled_production
+            country_lock_all_division_template = no
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TFR_give_245245B_money = {
