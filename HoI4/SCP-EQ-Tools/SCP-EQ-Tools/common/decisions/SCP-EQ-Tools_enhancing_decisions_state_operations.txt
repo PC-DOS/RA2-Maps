@@ -224,6 +224,32 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_remove_current_controller_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_claim_by = controller
+                remove_core_of = controller
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_transfer_marked_states_to_random_country_with_claim = {
         allowed = {
             # Always allowed
