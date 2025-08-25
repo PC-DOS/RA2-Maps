@@ -1118,11 +1118,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 0 }
                 }
-                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
             }
             else_if = {
                 limit = {
-                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
                 }
                 set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 2 }
             }
@@ -1130,11 +1130,11 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 2 }
                 }
-                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
             }
             else_if = {
                 limit = {
-                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
                 }
                 set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 0 }
             }
