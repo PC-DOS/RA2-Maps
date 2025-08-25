@@ -1092,6 +1092,57 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             SCP-EQ-Tools_national_focuses_dummy_ideas_complete_ongoing_focus = yes
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_toggle_national_focus_auto_complete_level = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level has 4 levels:
+            #     0: Function disabled
+            #     1: Completing current focus every month
+            #     2: Completing current focus every week
+            #     3: Completing current focus every day
+            if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 0 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 1 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 2 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 2 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 3 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 0 }
+            }
+            else = {
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_national_focus_auto_complete_level = 0 }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_update_focus_token_database = {
         allowed = {
             # Always allowed
