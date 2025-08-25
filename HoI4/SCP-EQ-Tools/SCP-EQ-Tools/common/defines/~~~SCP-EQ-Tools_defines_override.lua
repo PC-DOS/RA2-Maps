@@ -9,6 +9,8 @@ NDefines.NDiplomacy.MAX_TRUST_VALUE = 5245
 NDefines.NDiplomacy.MIN_TRUST_VALUE = -5245
 -- Faster volunteer sending
 NDefines.NDiplomacy.VOLUNTEERS_TRANSFER_SPEED = 1
+-- Faster lend-lease delivering
+NDefines.NProduction.LEND_LEASE_DELIVERY_TOTAL_DAYS = 1
 -- Focus boosting
 -- Since you can complete current focus in decisions without waiting, some of the following cheats will be disabled
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
