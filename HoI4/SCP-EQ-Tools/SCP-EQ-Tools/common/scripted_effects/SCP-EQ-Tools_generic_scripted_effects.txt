@@ -343,3 +343,54 @@ SCP-EQ-Tools_generic_scripted_effects_teleport_armies = {
         }
     }
 }
+
+# Parameter 1: temp_param_division_owner
+# Parameter 2: temp_param_division_count
+# Parameter 3: temp_param_division_spawn_state
+SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
+    # Create divison template for owner
+    var:temp_param_division_owner = {
+        if = {
+            limit = {
+                NOT = {
+                    has_template = "SCP-EQ MTF Division 1"
+                }
+            }
+            division_template = {
+                name = "SCP-EQ MTF Division 1"
+                is_locked = no
+                force_allow_recruiting = yes
+                regiments = {
+                    motorized = { x = 0 y = 0 }
+                    motorized = { x = 0 y = 1 }
+                    motorized = { x = 1 y = 0 }
+                    motorized = { x = 1 y = 1 }
+                    motorized = { x = 2 y = 0 }
+                    motorized = { x = 2 y = 1 }
+                    motorized = { x = 3 y = 0 }
+                    motorized = { x = 3 y = 1 }
+                    modern_sp_artillery_brigade = { x = 4 y = 0 }
+                    modern_sp_artillery_brigade = { x = 4 y = 1 }
+                }
+                support = {
+                    engineer = { x = 0 y = 0 }
+                    field_hospital = { x = 0 y = 1 }
+                    signal_company = { x = 0 y = 2 }
+                    maintenance_company = { x = 0 y = 3 }
+                    anti_air = { x = 0 y = 4 }
+                }
+            }
+        }
+    }
+    
+    # Spawning divison
+    var:temp_param_division_spawn_state = {
+        create_unit = {
+            division = "name = \"SCP-EQ MTF Division\" division_template = \"SCP-EQ MTF Division 1\" start_experience_factor = 1 start_equipment_factor = 1 start_manpower_factor = 1"
+            owner = var:temp_param_division_owner
+            allow_spawning_on_enemy_provs = yes
+            count = temp_param_division_count
+            divisional_commander_xp = 245
+        }
+    }
+}

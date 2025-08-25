@@ -137,6 +137,8 @@
  SCP-EQ-Tools_enhancing_decisions_teleport_capital_armies_to_enemy_separated_states_desc:0 "警报，超时空传送仪已启动"
  SCP-EQ-Tools_enhancing_decisions_teleport_exiled_units_to_capital:0 "将流亡部队传送到首都"
  SCP-EQ-Tools_enhancing_decisions_teleport_exiled_units_to_capital_desc:0 "广快回防"
+ SCP-EQ-Tools_enhancing_decisions_create_unit_in_capital:0 "在首都创建一支部队"
+ SCP-EQ-Tools_enhancing_decisions_create_unit_in_capital_desc:0 "我们直接投伞兵投在家里啊"
  SCP-EQ-Tools_enhancing_decisions_unlock_division_templates:0 "允许训练部队、解散部队和编辑部队模板"
  SCP-EQ-Tools_enhancing_decisions_unlock_division_templates_desc:0 "赵毅点兵"
  SCP-EQ-Tools_enhancing_decisions_allow_changing_advisors:0 "允许解雇政府内阁成员"
