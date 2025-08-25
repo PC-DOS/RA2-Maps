@@ -658,7 +658,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 set_temp_variable = { temp_param_division_owner = ROOT }
-                set_temp_variable = { temp_param_division_count = 1 }
+                set_temp_variable = { temp_param_division_count = 25 }
                 set_temp_variable = { temp_param_division_spawn_state = THIS }
                 SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = yes
             }
@@ -686,7 +686,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 set_temp_variable = { temp_param_division_owner = controller }
-                set_temp_variable = { temp_param_division_count = 1 }
+                set_temp_variable = { temp_param_division_count = 25 }
                 set_temp_variable = { temp_param_division_spawn_state = THIS }
                 SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = yes
             }
