@@ -113,7 +113,7 @@ def EnumerateNationalFocuses(sBaseDir : str) -> list :
                 sCurrentSection = ""
                 for CurrentLine in arrLines :
                     # Remove comments
-                    CurrentLine.split("#")[0]
+                    CurrentLine = CurrentLine.split("#")[0]
                 
                     # Remove line breaks
                     CurrentLine = CurrentLine.rstrip()
