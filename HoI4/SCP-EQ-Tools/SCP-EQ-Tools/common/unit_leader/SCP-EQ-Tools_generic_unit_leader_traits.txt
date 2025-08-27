@@ -22,10 +22,10 @@ leader_traits = {
             navy_org = 245
             navy_org_factor = 2.45
             navy_max_range = 245
-            navy_max_range_factor = 2.45
+            navy_max_range_factor = 1.245
             air_attack_factor = 25.0
             air_defence_factor = 25.0
-            air_range_factor = 2.45
+            air_range_factor = 1.245
         }
     }
 }
