@@ -3599,7 +3599,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     is_embargoed_by = ROOT
                 }
                 every_enemy_country = {
-                    white_peace = ROOT
+                    white_peace = PREV
                 }
             }
         }
