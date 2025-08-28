@@ -201,6 +201,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
+                # Check if we need to cancel resistance
+                if = {
+                    limit = {
+                        is_controlled_by = ROOT
+                    }
+                    cancel_resistance = yes
+                }
                 add_core_of = ROOT
             }
         }
@@ -226,6 +233,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
+                cancel_resistance = yes
                 add_core_of = controller
             }
         }
@@ -1904,6 +1912,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                # Check if we need to cancel resistance
+                if = {
+                    limit = {
+                        is_controlled_by = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                    cancel_resistance = yes
                 }
                 add_core_of = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
             }

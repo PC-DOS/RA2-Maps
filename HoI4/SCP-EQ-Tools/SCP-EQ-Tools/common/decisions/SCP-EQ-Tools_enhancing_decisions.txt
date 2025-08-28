@@ -1807,6 +1807,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             every_controlled_state = {
+                cancel_resistance = yes
                 add_core_of = ROOT
             }
         }
