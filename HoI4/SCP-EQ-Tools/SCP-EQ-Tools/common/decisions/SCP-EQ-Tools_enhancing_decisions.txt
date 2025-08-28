@@ -3257,6 +3257,104 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_end_puppet_all_countries_embargoed_by_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                if = {
+                    limit = {
+                        is_subject = yes
+                    }
+                    overlord = {
+                        end_puppet = PREV
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_autonomy_score = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                if = {
+                    limit = {
+                        is_subject = yes
+                    }
+                    add_autonomy_score = {
+                        value = 2450
+                        localization = SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_autonomy_score
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_autonomy_score = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                if = {
+                    limit = {
+                        is_subject = yes
+                    }
+                    add_autonomy_score = {
+                        value = -2450
+                        localization = SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_autonomy_score
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_gain_military_access_from_all_countries_embargoed_by_us = {
         allowed = {
             # Always allowed
