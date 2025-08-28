@@ -1,6 +1,25 @@
 SCP-EQ-Tools_enhancing_decisions_category = {
 
     # Generic decisions group
+    SCP-EQ-Tools_enhancing_decisions_separator_buffs = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_make_PD_as_leader = {
         allowed = {
             # Always allowed
@@ -384,6 +403,25 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_factories_for_all_controlled_states = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_separator_resources_and_development = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
         }
     }
     SCP-EQ-Tools_enhancing_decisions_add_PP = {
@@ -1201,6 +1239,25 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             SCP-EQ-Tools_national_focuses_dummy_ideas_init_tokens = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_separator_diplomacy_and_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
         }
     }
     SCP-EQ-Tools_enhancing_decisions_add_threat = {
@@ -3278,6 +3335,25 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_separator_embargoed_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_delete_all_countries_embargoed_by_us_armies = {
         allowed = {
             # Always allowed
@@ -3932,6 +4008,25 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     change_tag_from = var:temp_tag_source
                 }
             }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_separator_extra_functions = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
         }
     }
     SCP-EQ-Tools_enhancing_decisions_toggle_state_operations = {

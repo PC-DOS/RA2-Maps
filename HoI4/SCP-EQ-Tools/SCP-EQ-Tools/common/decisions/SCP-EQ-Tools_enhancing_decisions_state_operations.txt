@@ -55,6 +55,25 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
     }
     
     # Generic operations
+    SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marks_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_clear_all_marks = {
         allowed = {
             # Always allowed
@@ -320,6 +339,25 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
         }
         complete_effect = {
             set_variable = { ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = ROOT }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_states_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
         }
     }
     SCP-EQ-Tools_enhancing_decisions_state_operations_own_marked_states = {
@@ -2032,6 +2070,25 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     change_tag_from = var:temp_tag_source
                 }
             }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_countries_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
         }
     }
     SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_own_marked_states = {

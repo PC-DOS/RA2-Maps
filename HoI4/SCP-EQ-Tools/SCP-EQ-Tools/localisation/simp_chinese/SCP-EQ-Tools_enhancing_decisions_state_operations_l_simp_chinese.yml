@@ -1,7 +1,8 @@
 ﻿l_simp_chinese:
  # Decision category
  SCP-EQ-Tools_enhancing_decisions_state_operations_category:0 "地图精细调整"
- SCP-EQ-Tools_enhancing_decisions_state_operations_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，实现地图的精细调整。\n今天给大家带来一局精彩的每人一小块地啊。\n\n当前被标记的国家：[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetFlag][?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetName]（[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]）"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared:0 "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetFlag][?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetName]（[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]）"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，实现地图的精细调整。\n今天给大家带来一局精彩的每人一小块地啊。\n\n当前被标记的国家：$SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared$"
  # On-map decisions
  SCP-EQ-Tools_enhancing_decisions_state_operations_target_state_info_shared:0 "\n\n目标地区信息：\n名称：[FROM.GetName]（ID：[FROM.GetID]）\n拥有方：[FROM.owner.GetFlag][FROM.owner.GetName]（[FROM.owner.GetTag]）\n控制方：[FROM.controller.GetFlag][FROM.controller.GetName]（[FROM.controller.GetTag]）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state:0 "标记该地区（[FROM.GetName]）"
@@ -9,6 +10,8 @@
  SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state:0 "取消标记该地区（[FROM.GetName]）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_unmark_this_state_desc:0 "他也没看到，那我们就不管了啊$SCP-EQ-Tools_enhancing_decisions_state_operations_target_state_info_shared$"
  # Generic operations
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marks_management:0 "标记管理"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marks_management_desc:0 "管理地区和国家标记"
  SCP-EQ-Tools_enhancing_decisions_state_operations_clear_all_marks:0 "移除所有标记"
  SCP-EQ-Tools_enhancing_decisions_state_operations_clear_all_marks_desc:0 "他也没看到，那我们就不管了啊"
  SCP-EQ-Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_controlled_states:0 "标记所有被标记的地区的控制方的全部领土"
@@ -25,6 +28,8 @@
  SCP-EQ-Tools_enhancing_decisions_state_operations_mark_marked_state_controller_desc:0 "我们给他打个暗语啊"
  SCP-EQ-Tools_enhancing_decisions_state_operations_clear_marked_countries:0 "清除控制方标记（视为标记我国）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_clear_marked_countries_desc:0 "他也没看到，那我们就不管了啊"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_states_management:0 "被标记的地区管理"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_states_management_desc:0 "管理被您标记的地区或其控制方"
  SCP-EQ-Tools_enhancing_decisions_state_operations_own_marked_states:0 "占领所有被标记的地区"
  SCP-EQ-Tools_enhancing_decisions_state_operations_own_marked_states_desc:0 "我的油田，我的矿"
  SCP-EQ-Tools_enhancing_decisions_state_operations_control_marked_states:0 "控制所有被标记的地区"
@@ -131,6 +136,8 @@
  SCP-EQ-Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_desc:0 "心灵控制，还是梦境投影？\n\n§R警告：§!\n§Y切换国家时不会禁用AI，因此建议您在切换前暂停游戏，且直到回到原本游玩的国家前不要恢复游戏内时间流逝，否则您原本游玩的国家会被AI接管！§!"
  SCP-EQ-Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_revert:0 "结束对当前国家的临时接管"
  SCP-EQ-Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_revert_desc:0 "心灵控制/梦境投影结束"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_countries_management:0 "被标记的国家管理：$SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared$"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marked_countries_management_desc:0 "管理被您标记的国家\n\n当前被标记的国家：$SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared$"
  SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_own_marked_states:0 "被标记的国家占领所有被标记的地区"
  SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_own_marked_states_desc:0 "我的油田，我的矿"
  SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_control_marked_states:0 "被标记的国家控制所有被标记的地区"
