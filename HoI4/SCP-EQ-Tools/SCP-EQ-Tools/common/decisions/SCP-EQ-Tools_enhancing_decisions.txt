@@ -1455,6 +1455,141 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_autonomy_score = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    is_subject = yes
+                }
+                add_autonomy_score = {
+                    value = 2450
+                    localization = SCP-EQ-Tools_enhancing_decisions_add_autonomy_score
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_end_our_puppet_state = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    is_subject = yes
+                }
+                overlord = {
+                    end_puppet = ROOT
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_legitimacy = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            add_legitimacy = 2450
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_annex_all_subjects = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    is_subject_of = ROOT
+                }
+                ROOT = {
+                    annex_country = {
+                        target = PREV
+                        transfer_troops = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_annex_all_puppets = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    is_puppet_of = ROOT
+                }
+                ROOT = {
+                    annex_country = {
+                        target = PREV
+                        transfer_troops = yes
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_add_compliance = {
         allowed = {
             # Always allowed
