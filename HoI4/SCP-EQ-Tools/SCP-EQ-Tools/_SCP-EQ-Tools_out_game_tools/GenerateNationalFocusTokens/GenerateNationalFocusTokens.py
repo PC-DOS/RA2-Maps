@@ -1,5 +1,27 @@
 # Generate tokens of national focuses from base HoI4 game and all installed mods
 # Required for "Complete current focus" cheating
+# 
+# Please note: We make use of Clausewitz Engine's Token system by creating fake ideas (see https://hoi4.paradoxwikis.com/Data_structures#Token-valued_variables)
+# In Clausewitz Engine's internal implementation, Tokens are stored like an array of strings indexed by Token IDs ( arrTokens[iTokenID] = sTokenKey )
+# This array will be generated when launching the game everytime, and won't be stored in the save file
+# It means that if you changed the fake ideas (which results in the change of Token counts and IDs), the ID of tokens will change when you laucnhing the game next time
+# This will mess up some other mechanics which uses the Token system.
+# For example, if you changed the fake ideas for Tokens, and load a previous existing TNO save file, you may notice that every country's economy types are messed. Since TNO uses a token-valued variable (see: econ_subtype_change, TNO_economy_subtype, econ_type_change, TNO_economy_type) for every country to store this country's economy type and subtype. And the changing in Token database messed the Token indexes. Just like:
+# //Before saving
+# arrTokens[0] = "dummy_token_1";
+# arrTokens[1] = "econ_type_dummy_1";
+# arrTokens[2] = "econ_type_dummy_2";
+# arrTokens[3] = "econ_type_dummy_3";
+# arrTokens[4] = "dummy_token_2";
+# ctyMyCountry.iEconomyType = 2; //"econ_type_dummy_2"
+# //Reloading, and you added a dummy idea
+# arrTokens[0] = "dummy_token_1";
+# arrTokens[1] = "dummy_token_3";
+# arrTokens[2] = "econ_type_dummy_1";
+# arrTokens[3] = "econ_type_dummy_2";
+# arrTokens[4] = "econ_type_dummy_3";
+# arrTokens[5] = "dummy_token_2";
+# printf(arrTokens[ctyMyCountry.iEconomyType]); //Since ctyMyCountry.iEconomyType is still 2, you will get "econ_type_dummy_1"
 
 # Public libraries
 import os
