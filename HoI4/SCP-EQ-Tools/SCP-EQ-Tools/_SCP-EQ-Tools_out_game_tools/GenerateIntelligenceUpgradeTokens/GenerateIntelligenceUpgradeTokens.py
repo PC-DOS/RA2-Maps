@@ -9,19 +9,19 @@
 # This will mess up some other mechanics which uses the Token system.
 # For example, if you changed the fake ideas for Tokens, and load a previous existing TNO save file, you may notice that every country's economy types are messed. Since TNO uses a token-valued variable (see: econ_subtype_change, TNO_economy_subtype, econ_type_change, TNO_economy_type) for every country to store this country's economy type and subtype. And the changing in Token database messed the Token indexes. Just like:
 # //Before saving
-# arrTokens[0] = "dummy_token_1";
+# arrTokens[0] = "token_file_1_dummy_token_1";
 # arrTokens[1] = "econ_type_dummy_1";
 # arrTokens[2] = "econ_type_dummy_2";
 # arrTokens[3] = "econ_type_dummy_3";
-# arrTokens[4] = "dummy_token_2";
+# arrTokens[4] = "token_file_2_dummy_token_1";
 # ctyMyCountry.iEconomyType = 2; //"econ_type_dummy_2"
 # //Reloading, and you added a dummy idea
-# arrTokens[0] = "dummy_token_1";
-# arrTokens[1] = "dummy_token_3";
+# arrTokens[0] = "token_file_1_dummy_token_1";
+# arrTokens[1] = "token_file_1_dummy_token_2";
 # arrTokens[2] = "econ_type_dummy_1";
 # arrTokens[3] = "econ_type_dummy_2";
 # arrTokens[4] = "econ_type_dummy_3";
-# arrTokens[5] = "dummy_token_2";
+# arrTokens[5] = "token_file_2_dummy_token_1";
 # printf(arrTokens[ctyMyCountry.iEconomyType]); //Since ctyMyCountry.iEconomyType is still 2, you will get "econ_type_dummy_1"
 
 # Public libraries
