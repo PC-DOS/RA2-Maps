@@ -3590,6 +3590,37 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_gain_docking_rights_from_all_countries_embargoed_by_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                ROOT = {
+                    diplomatic_relation = {
+                        country = PREV
+                        relation = docking_rights
+                        active = yes
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_remove_guarantees_of_all_countries_embargoed_by_us = {
         allowed = {
             # Always allowed
