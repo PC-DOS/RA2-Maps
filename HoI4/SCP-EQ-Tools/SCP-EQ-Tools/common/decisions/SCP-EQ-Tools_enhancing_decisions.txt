@@ -4527,16 +4527,35 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_variable = { inflation_var = 0 }
-            set_variable = { inflation_production_factory_max_efficiency_factor_dynamic_var = 0 }
-            set_variable = { inflation_production_speed_buildings_factor_dynamic_var = 0 }
-            set_variable = { inflation_consumer_goods_factor_dynamic_var = 0 }
-            set_variable = { inflation_stability_factor_dynamic_var = 0 }
-            update_economy = yes
-            #This won't change inflation
-            #set_temp_variable = { inflation_var_temp = 0 }
-            #subtract_from_variable = { inflation_var_temp = inflation_var }
-            #add_inflation = yes
+            SCP-EQ-Tools_generic_scripted_effects_TFR_reset_inflation = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_toggle_debt_and_inflation_auto_handling = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_TFR_toggle_debt_and_inflation_auto_handling_enabled = 1 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_TFR_toggle_debt_and_inflation_auto_handling_enabled = 0 }
+            }
+            else = {
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_TFR_toggle_debt_and_inflation_auto_handling_enabled = 1 }
+            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TFR_add_office_park_onekey = {
