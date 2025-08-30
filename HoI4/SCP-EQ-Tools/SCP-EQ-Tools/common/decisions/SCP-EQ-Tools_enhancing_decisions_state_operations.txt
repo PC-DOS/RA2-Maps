@@ -1343,8 +1343,6 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         start_peace_conference  = {
                             tag = PREV
                             score_factor = 5.0
-                            winner_scope = LIMITED_FACTION
-                            loser_scope = LIMITED_FACTION
                         }
                     }
                 }
@@ -1373,14 +1371,12 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    random_enemy_country = {
+                    every_enemy_country = {
                         PREV = {
                             # Current scope is the winner, target and its subjects are the losers
                             start_peace_conference  = {
                                 tag = PREV
                                 score_factor = 5.0
-                                winner_scope = LIMITED_FACTION
-                                loser_scope = ALL
                             }
                         }
                     }
@@ -2486,8 +2482,6 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                         start_peace_conference  = {
                             tag = PREV
                             score_factor = 5.0
-                            winner_scope = LIMITED_FACTION
-                            loser_scope = LIMITED_FACTION
                         }
                     }
                 }

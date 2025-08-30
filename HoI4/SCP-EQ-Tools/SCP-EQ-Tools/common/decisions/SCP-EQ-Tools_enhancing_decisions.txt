@@ -2066,14 +2066,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            random_enemy_country = {
+            every_enemy_country = {
                 ROOT = {
                     # Current scope is the winner, target and its subjects are the losers
                     start_peace_conference  = {
                         tag = PREV
                         score_factor = 5.0
-                        winner_scope = LIMITED_FACTION
-                        loser_scope = ALL
                     }
                 }
             }
@@ -3758,14 +3756,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                random_enemy_country = {
+                every_enemy_country = {
                     PREV = {
                         # Current scope is the winner, target and its subjects are the losers
                         start_peace_conference  = {
                             tag = PREV
                             score_factor = 5.0
-                            winner_scope = LIMITED_FACTION
-                            loser_scope = ALL
                         }
                     }
                 }
