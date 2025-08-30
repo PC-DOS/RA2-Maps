@@ -147,6 +147,13 @@ on_actions = {
                     clr_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
                 }
             }
+            # TNO: Handles debt and money reserve
+            if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_enabled > 0 }
+                }
+                SCP-EQ-Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = yes
+            }
         }
     }
 }

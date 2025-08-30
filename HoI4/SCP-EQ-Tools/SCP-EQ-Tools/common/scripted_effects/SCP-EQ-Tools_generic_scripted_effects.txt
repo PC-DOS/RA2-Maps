@@ -394,3 +394,23 @@ SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
         }
     }
 }
+
+SCP-EQ-Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
+    # Clear debt
+    set_variable = { national_debt = 0 }
+    # Use money reserves to investigate
+    # TNO doesn't have a scripted effect for investigation, thus I used a simple algorithm
+    if = {
+        limit = {
+            check_variable = { money_reserves > 0 }
+        }
+        set_temp_variable = { gdp_growth_temp = money_reserves }
+        divide_temp_variable = { gdp_growth_temp = 2.5 }
+        econ_gdp_growth_change = yes
+    }
+    set_variable = { money_reserves = 0 }
+    # Update GUI
+    add_to_variable = { TNO_economy_GUI_dirty = 1 }
+    set_variable = { reserves_management_amount = 0 }
+    update_economy_tab = yes
+}

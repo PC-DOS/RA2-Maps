@@ -5333,6 +5333,54 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             update_econ_sliders = yes
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_TNO_clear_debt_and_money_reserves = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP-EQ-Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_enabled = 1 }
+                }
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_enabled = 0 }
+            }
+            else = {
+                set_variable = { SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_enabled = 1 }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_TNO_admin_efficiency_up = {
         allowed = {
             # Always allowed
