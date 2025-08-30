@@ -153,7 +153,7 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_army = {
     #special_forces_cap_flat = 25.0
     planning_speed = 245.0
     experience_gain_army_unit = 245
-    experience_gain_army_unit_factor = 5.0
+    experience_gain_army_unit_factor = 25.0
     experience_loss_factor = -1.0
 }
 SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_naval = {
@@ -209,7 +209,7 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_naval = {
     positioning = 5.0
     naval_accidents_chance = -5.0
     experience_gain_navy_unit = 245
-    experience_gain_navy_unit_factor = 5.0
+    experience_gain_navy_unit_factor = 25.0
     # Not sure but this may prevent your ships from being repaired
     # See https://tieba.baidu.com/p/9294925158
     # Also common/units/equipment/ship_hull_xxxxx.txt
