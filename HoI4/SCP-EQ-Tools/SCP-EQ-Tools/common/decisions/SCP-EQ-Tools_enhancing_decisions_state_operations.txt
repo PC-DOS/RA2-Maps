@@ -1336,13 +1336,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = ROOT
+                    }
                 }
                 controller = {
                     ROOT = {
                         # Current scope is the winner, target and its subjects are the losers
                         start_peace_conference  = {
                             tag = PREV
-                            score_factor = 5.0
+                            score_factor = 1.0
                         }
                     }
                 }
@@ -1372,11 +1375,35 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 }
                 controller = {
                     every_enemy_country = {
+                        limit = {
+                            # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
+                            # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
+                            # Thus, we need to exclude those faction members or subject countries.
+                            # Otherwise, it will crash the game.
+                            # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
+                            NOT = {
+                                # Excludes subjects whose overlord is in war with us
+                                AND = {
+                                    is_subject = yes
+                                    overlord = {
+                                        has_war_with = PREV
+                                    }
+                                }
+                                # Excludes faction memebers whose faction leader is in war with us
+                                AND = {
+                                    is_in_faction = yes
+                                    is_faction_leader = no
+                                    faction_leader = {
+                                        has_war_with = PREV
+                                    }
+                                }
+                            }
+                        }
                         PREV = {
                             # Current scope is the winner, target and its subjects are the losers
                             start_peace_conference  = {
                                 tag = PREV
-                                score_factor = 5.0
+                                score_factor = 1.0
                             }
                         }
                     }
@@ -2475,13 +2502,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    }
                 }
                 controller = {
                     var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
                         # Current scope is the winner, target and its subjects are the losers
                         start_peace_conference  = {
                             tag = PREV
-                            score_factor = 5.0
+                            score_factor = 1.0
                         }
                     }
                 }
