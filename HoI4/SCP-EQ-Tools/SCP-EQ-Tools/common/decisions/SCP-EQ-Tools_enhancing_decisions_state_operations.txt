@@ -1338,6 +1338,34 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                     controller = {
                         has_war_with = ROOT
+                        # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
+                        # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
+                        # Thus, we need to exclude those faction members or subject countries.
+                        # Otherwise, it will crash the game.
+                        # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
+                        NOT = {
+                            # Excludes subjects whose overlord has marked states and is in war us
+                            AND = {
+                                is_subject = yes
+                                overlord = {
+                                    any_controlled_state = {
+                                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                                    }
+                                    has_war_with = ROOT
+                                }
+                            }
+                            # Excludes faction memebers whose faction leader has marked states and is in war with us
+                            AND = {
+                                is_in_faction = yes
+                                is_faction_leader = no
+                                faction_leader = {
+                                    any_controlled_state = {
+                                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                                    }
+                                    has_war_with = ROOT
+                                }
+                            }
+                        }
                     }
                 }
                 controller = {
