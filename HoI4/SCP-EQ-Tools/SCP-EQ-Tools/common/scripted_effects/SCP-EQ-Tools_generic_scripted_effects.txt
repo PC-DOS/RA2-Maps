@@ -1,3 +1,48 @@
+# Parameter 1: temp_param_arr_railway_start_states
+# Parameter 2: temp_param_arr_railway_end_states
+# Parameter 3: temp_param_is_railway_build_only_on_allied
+SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
+    for_each_loop = {
+        array = temp_param_arr_railway_start_states
+        value = temp_railway_start
+        
+        #log = "RailStart:[?temp_railway_start]"
+        for_each_loop = {
+            array = temp_param_arr_railway_end_states
+            value = temp_railway_end
+            
+            #log = "RailEnd:[?temp_railway_end]"
+            if = {
+                limit = { 
+                    #NOT = {
+                    #    check_variable = {
+                    #        temp_railway_start = temp_railway_end
+                    #    }
+                    #}
+                    always = yes
+                }
+                if = {
+                    limit = {
+                        check_variable = { temp_param_is_railway_build_only_on_allied > 0 }
+                    }
+                    build_railway = {
+                        level = 5
+                        build_only_on_allied = yes
+                        start_state = temp_railway_start
+                        target_state = temp_railway_end
+                    }
+                else = {
+                    build_railway = {
+                        level = 5
+                        start_state = temp_railway_start
+                        target_state = temp_railway_end
+                    }
+                }
+            }
+        }
+    }
+}
+
 SCP-EQ-Tools_generic_scripted_effects_delete_all_units = {
     every_possible_country = {
         recall_volunteers_from = PREV

@@ -890,34 +890,14 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            for_each_loop = {
-                array = controlled_states
-                value = temp_railway_start
-                
-                #log = "RailStart:[?temp_railway_start]"
-                for_each_loop = {
-                    array = controlled_states
-                    value = temp_railway_end
-                    
-                    #log = "RailEnd:[?temp_railway_end]"
-                    if = {
-                        limit = { 
-                            #NOT = {
-                            #    check_variable = {
-                            #        temp_railway_start = temp_railway_end
-                            #    }
-                            #}
-                            always = yes
-                        }
-                        build_railway = {
-                            level = 5
-                            build_only_on_allied = yes
-                            start_state = temp_railway_start
-                            target_state = temp_railway_end
-                        }
-                    }
-                }
+            clear_temp_array = temp_param_arr_railway_start_states
+            clear_temp_array = temp_param_arr_railway_end_states
+            every_controlled_state = {
+                add_to_temp_array = { temp_param_arr_railway_start_states = THIS }
+                add_to_temp_array = { temp_param_arr_railway_end_states = THIS }
             }
+            set_temp_variable = { temp_param_is_railway_build_only_on_allied = 1 }
+            SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = yes
         }
     }
     SCP-EQ-Tools_enhancing_decisions_add_supply_node_onekey = {
