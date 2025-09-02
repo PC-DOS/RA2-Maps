@@ -31,6 +31,7 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
                         start_state = temp_railway_start
                         target_state = temp_railway_end
                     }
+                }
                 else = {
                     build_railway = {
                         level = 5
