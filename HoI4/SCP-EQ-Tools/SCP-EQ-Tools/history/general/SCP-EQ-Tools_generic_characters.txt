@@ -407,6 +407,37 @@ every_possible_country = {
         }
     }
     generate_character = {
+        token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_8YR_foreign_advisor
+        name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
+        portraits = {
+            civilian = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            army = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+            navy = {
+                large = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic
+                small = GFX_SCP-EQ-Tools_generic_portraits_Picsell_Dois_Generic_Small
+            }
+        }
+        gender = male
+        advisor = {
+            idea_token = default_idea_token
+            slot = foreign_advisor
+            cost = 0
+            removal_cost = 0
+            ledger = civilian
+            can_be_fired = yes
+            traits = { SCP-EQ-Tools_generic_characters_Picsell_Dois_8YR_foreign_advisor_trait }
+            visible = {
+                has_country_flag = SCP-EQ-Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+        }
+    }
+    generate_character = {
         token_base = SCP-EQ-Tools_generic_characters_Picsell_Dois_RF_head_of_intel
         name = SCP-EQ-Tools_generic_characters_Picsell_Dois_generic_name
         portraits = {

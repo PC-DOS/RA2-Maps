@@ -353,6 +353,24 @@ leader_traits = {
             base = 0
         }
     }
+    SCP-EQ-Tools_generic_characters_Picsell_Dois_8YR_foreign_advisor_trait = {
+        random = no
+        industrial_capacity_factory = 5.0
+        industrial_capacity_dockyard = 5.0
+        industry_free_repair_factor = 5.0
+        industry_repair_factor = 5.0
+        cic_construction_boost = 5.0
+        cic_construction_boost_factor = 5.0
+        daily_ammunition_gain = 25
+        ammunition_factor = 5.0
+        ammunition_capacity_k = 245
+        ammunition_capacity_factor = 5.0
+        ammunition_consumption_factor = -1.0
+        supply_national_upkeep_factor = -1.0
+        ai_will_do = {
+            base = 0
+        }
+    }
     SCP-EQ-Tools_generic_characters_Picsell_Dois_RF_head_of_intel_trait = {
         random = no
         political_power_gain = 2450

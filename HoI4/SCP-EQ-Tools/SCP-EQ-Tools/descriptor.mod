@@ -17,5 +17,6 @@ dependencies={
     "TNO"
     "The New Order: Last Days of Europe"
     "The New Order: Last Days of Europe(CN Ver.)"
+    "八年抗战优化补充整合版"
     "Red Flood"
 }

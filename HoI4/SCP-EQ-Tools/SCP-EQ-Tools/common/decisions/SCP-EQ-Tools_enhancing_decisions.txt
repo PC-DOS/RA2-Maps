@@ -85,6 +85,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_economy_minister_trait
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_foreign_minister_trait
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_TNO_security_minister_trait
+                        has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_8YR_foreign_advisor_trait
                         has_trait = SCP-EQ-Tools_generic_characters_Picsell_Dois_RF_head_of_intel_trait
                     }
                 }
@@ -2463,7 +2464,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     value = yes
                 }
             }
-            # TNO advisor slots
+            # Mod advisor slots
             every_character = {
                 limit = {
                     is_advisor = yes
@@ -2525,6 +2526,38 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 set_can_be_fired_in_advisor_role = {
                     character = THIS
                     slot = security_minister
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = foreign_advisor
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = foreign_advisor
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = foreign_advisor
+                    value = yes
+                }
+            }
+            every_character = {
+                limit = {
+                    is_advisor = yes
+                    has_advisor_role = head_of_intel
+                    NOT = {
+                        advisor_can_be_fired = {
+                            slot = head_of_intel
+                        }
+                    }
+                }
+                set_can_be_fired_in_advisor_role = {
+                    character = THIS
+                    slot = head_of_intel
                     value = yes
                 }
             }
