@@ -44,6 +44,33 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
     }
 }
 
+# Parameter 1: temp_param_target_ideology_token
+# Parameter 2: temp_param_target_ideology_popularity_delta
+SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = {
+    meta_effect = {
+        text = {
+            add_popularity = {
+                ideology = [TARGET_IDEOLOGY]
+                popularity = [TARGET_IDEOLOGY_POPULARITY_DELTA]
+            }
+        }
+        TARGET_IDEOLOGY = "[?temp_param_target_ideology_token.GetTokenKey]"
+        TARGET_IDEOLOGY_POPULARITY_DELTA = "[?temp_param_target_ideology_popularity_delta]"
+    }
+}
+
+# Parameter 1: temp_param_target_ideology_token
+SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = {
+    meta_effect = {
+        text = {
+            set_politics = {
+                ruling_party = [TARGET_IDEOLOGY]
+            }
+        }
+        TARGET_IDEOLOGY = "[?temp_param_target_ideology_token.GetTokenKey]"
+    }
+}
+
 SCP-EQ-Tools_generic_scripted_effects_delete_all_units = {
     every_possible_country = {
         recall_volunteers_from = PREV
