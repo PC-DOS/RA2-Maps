@@ -1,0 +1,31 @@
+# Ref. https://hoi4.paradoxwikis.com/index.php?title=Font_modding
+# 
+# New:
+# 
+# bitmapfonts = {
+#     bitmapfont = {
+#         name = "my_font"
+#         fontfiles = {
+#             "gfx/fonts/font_bitmap_1"
+#             "gfx/fonts/font_bitmap_2"
+#         }
+#         color = 0xffffffff
+# 
+#         textcolors = {
+#             G = { 86 172 91 }
+#         }
+#     }
+# }
+# 
+# Overriding:
+# 
+# bitmapfonts = {
+#     bitmapfont_override = {
+#         name = "my_font"
+#         fontfiles = {
+#             "gfx/fonts/font_bitmap_1"
+#             "gfx/fonts/font_bitmap_2"
+#         }
+#         languages = { "l_russian" "l_polish" }
+#     }
+# }

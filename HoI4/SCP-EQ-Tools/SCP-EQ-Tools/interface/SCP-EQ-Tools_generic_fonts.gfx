@@ -1,0 +1,18 @@
+bitmapfonts = {
+    # Map font override
+    # Using TNO's font
+    bitmapfont_override = {
+        name = "tahoma_60"
+        fontfiles = { 
+            "gfx/fonts/hoi_mapfont4"
+            "gfx/fonts/mapfont_0"
+            "gfx/fonts/mapfont_1"    
+            "gfx/fonts/mapfont_2"    
+            "gfx/fonts/mapfont_3"
+            "gfx/fonts/mapfont_4"
+            "gfx/fonts/mapfont_5"
+            "gfx/fonts/mapfont_6"
+        }    
+    languages = { "l_simp_chinese" } 
+    }
+}
