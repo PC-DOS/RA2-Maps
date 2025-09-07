@@ -1244,3 +1244,15 @@ LGF_UNIFIED = {
 	color = rgb { 205 69 69 }
 	color_ui = rgb { 205 69 69 }
 }
+
+# Extended cosmetic tags by Dr. Picsell Dois
+
+SCP-EQ-Tools_JAP_CHI_puppet_occupied_zone = {
+    color = rgb { 0 0 193 }
+    color_ui = rgb { 0 0 193 }
+}
+
+SCP-EQ-Tools_JAP_CHI_puppet_SAR = {
+    color = rgb { 0 150 245 }
+    color_ui = rgb { 0 150 245 }
+}

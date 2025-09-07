@@ -1881,3 +1881,11 @@
  LGF_UNIFIED_communsim: "社会主义联盟"
  LGF_UNIFIED_communsim_DEF: "社会主义联盟"
  LGF_UNIFIED_communism_ADJ: "社会主义联盟"
+ 
+ # Extended cosmetic tags by Dr. Picsell Dois
+ SCP-EQ-Tools_JAP_CHI_puppet_occupied_zone:0 "中华民国驻日戡乱政府"
+ SCP-EQ-Tools_JAP_CHI_puppet_occupied_zone_ADJ:0 "日本占领区"
+ SCP-EQ-Tools_JAP_CHI_puppet_occupied_zone_DEF:0 "日本占领区"
+ SCP-EQ-Tools_JAP_CHI_puppet_SAR:0 "中华民国日本特别行政区"
+ SCP-EQ-Tools_JAP_CHI_puppet_SAR_ADJ:0 "日本特区"
+ SCP-EQ-Tools_JAP_CHI_puppet_SAR_DEF:0 "日本特区"

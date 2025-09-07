@@ -1,0 +1,9 @@
+SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
+    visible = {
+        tag = CHI
+    }
+    icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+    visible_when_empty = no
+    
+    #priority = 245
+}
