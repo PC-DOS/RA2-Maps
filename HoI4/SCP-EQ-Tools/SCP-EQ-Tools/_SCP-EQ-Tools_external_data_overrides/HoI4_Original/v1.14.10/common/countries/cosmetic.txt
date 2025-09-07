@@ -1248,8 +1248,8 @@ LGF_UNIFIED = {
 # Extended cosmetic tags by Dr. Picsell Dois
 
 SCP-EQ-Tools_JAP_CHI_puppet_occupied_zone = {
-    color = rgb { 0 0 193 }
-    color_ui = rgb { 0 0 193 }
+    color = rgb { 0 0 125 }
+    color_ui = rgb { 0 0 125 }
 }
 
 SCP-EQ-Tools_JAP_CHI_puppet_SAR = {
