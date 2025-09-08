@@ -1,0 +1,43 @@
+﻿# https://hoi4.paradoxwikis.com/National_focus_modding
+# 
+# Pure minimum, with 2 focuses:
+# 
+# focus_tree = {
+#     id = BHR_focus_tree
+#     country = {
+#         base = 0
+#         modifier = {
+#             add = 10
+#             tag = BHR
+#         }
+#     }
+#     focus = {
+#         ...
+#     }
+#     focus = {
+#         ...
+#     }
+# }
+# 
+# 
+# Average tree, with 2 focuses:
+# 
+# focus_tree = {
+#     id = OMA_focus_tree
+#     country = {
+#         base = 0
+#         modifier = {
+#             tag = 25
+#             original_tag = OMA
+#         }
+#     }
+#     continuous_focus_position = { x = 450 y = 800 }
+#     initial_show_position = { focus = OMA_focus_name }
+#     focus = {
+#         id = OMA_focus_name
+#         ...
+#     }
+#     focus = {
+#         ...
+#     }
+# }

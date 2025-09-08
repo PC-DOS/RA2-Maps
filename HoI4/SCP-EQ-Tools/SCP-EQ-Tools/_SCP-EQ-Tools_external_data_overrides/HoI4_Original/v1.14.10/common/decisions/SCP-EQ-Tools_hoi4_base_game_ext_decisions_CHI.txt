@@ -50,7 +50,7 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     JAP_duplicate_research_efforts
                     JAP_militarism
                 }
-                load_focus_tree = ZZZ_empty_focus_tree
+                load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree
                 set_popularities = {
                     democratic = 25
                     neutrality = 75
@@ -104,7 +104,7 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     JAP_duplicate_research_efforts
                     JAP_militarism
                 }
-                load_focus_tree = ZZZ_empty_focus_tree
+                load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree
                 set_popularities = {
                     democratic = 45
                     neutrality = 55
