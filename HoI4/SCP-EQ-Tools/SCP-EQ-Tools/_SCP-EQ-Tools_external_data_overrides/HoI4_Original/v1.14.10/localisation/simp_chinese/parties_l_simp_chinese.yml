@@ -118,9 +118,9 @@
  CHI_communism_party: "中国共产党"
  CHI_communism_party_long: "中国共产党"
  CHI_democratic_party: "中国国民党（民主派）"
- CHI_fascism_party: "蓝衣社"
- CHI_fascism_party_long: "蓝衣社"
- CHI_neutrality_party: "中国国民党"
+ CHI_fascism_party: "中国国民党（改组派）"
+ CHI_fascism_party_long: "中国国民党（改组派）"
+ CHI_neutrality_party: "中国国民党（右派）"
  XSM_neutrality_party: "马家军"
  XSM_communism_party: "中国共产党"
  XSM_communism_party_long: "中国共产党"
@@ -1124,3 +1124,8 @@
  BRA_imperial_house_long: "帝国复辟运动"
  BRA_cangaco_party_long: "坎加索运动"
  BRA_cangaco_party: "坎加索"
+ 
+ # Extended party names by Dr. Picsell Dois
+ SCP-EQ-Tools_JAP_CHI_puppet_democratic_party:0 "国民政府驻日行宪监督委员会"
+ SCP-EQ-Tools_JAP_CHI_puppet_neutrality_party:0 "国民政府驻日戡乱委员会"
+ SCP-EQ-Tools_JAP_CHI_puppet_fascism_party:0 "大政翼赞会残党"

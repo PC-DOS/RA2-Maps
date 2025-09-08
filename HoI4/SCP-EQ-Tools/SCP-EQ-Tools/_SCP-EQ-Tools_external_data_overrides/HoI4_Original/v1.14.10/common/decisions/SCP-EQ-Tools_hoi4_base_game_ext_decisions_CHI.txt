@@ -57,6 +57,21 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     communism = 0
                     fascism = 0
                 }
+                set_party_name = {
+                    ideology = democratic
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_democratic_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_democratic_party
+                }
+                set_party_name = {
+                    ideology = neutrality
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_neutrality_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_neutrality_party
+                }
+                set_party_name = {
+                    ideology = fascism
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_fascism_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_fascism_party
+                }
             }
         }
     }
@@ -91,10 +106,25 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 load_focus_tree = ZZZ_empty_focus_tree
                 set_popularities = {
-                    democratic = 25
-                    neutrality = 75
+                    democratic = 45
+                    neutrality = 55
                     communism = 0
                     fascism = 0
+                }
+                set_party_name = {
+                    ideology = democratic
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_democratic_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_democratic_party
+                }
+                set_party_name = {
+                    ideology = neutrality
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_neutrality_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_neutrality_party
+                }
+                set_party_name = {
+                    ideology = fascism
+                    long_name = SCP-EQ-Tools_JAP_CHI_puppet_fascism_party
+                    name = SCP-EQ-Tools_JAP_CHI_puppet_fascism_party
                 }
             }
         }
