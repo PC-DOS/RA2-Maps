@@ -1888,6 +1888,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_army = yes
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_naval = yes
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
                 SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
                 # EaW
                 if = {
