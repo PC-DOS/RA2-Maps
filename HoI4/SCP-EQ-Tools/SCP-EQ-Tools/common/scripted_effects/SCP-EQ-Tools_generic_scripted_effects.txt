@@ -1,3 +1,50 @@
+# Parameter 1: temp_param_arr_1
+# Parameter 2: temp_param_arr_2
+# Return value: temp_comp_result:
+#     temp_comp_result = 0 : temp_param_arr_1 has the same length as temp_param_arr_2, but elements are different
+#     temp_comp_result = -1 : temp_param_arr_1 is longer than temp_param_arr_2
+#     temp_comp_result = -2 : temp_param_arr_1 is shorter than temp_param_arr_2
+#     temp_comp_result = 1 : temp_param_arr_1 has the same length and elements with temp_param_arr_2
+SCP-EQ-Tools_generic_scripted_effects_compare_array = {
+    if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num > temp_param_arr_2^num }
+        }
+        # len(temp_param_arr_1) > len(temp_param_arr_2)
+        set_temp_variable = { temp_comp_result = -1 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num < temp_param_arr_2^num }
+        }
+        # len(temp_param_arr_1) < len(temp_param_arr_2)
+        set_temp_variable = { temp_comp_result = -2 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num = temp_param_arr_2^num }
+        }
+        # Same length, compare elements
+        # Assume the 2 arrays are equal at first
+        set_temp_variable = { temp_break_loop = 1 }
+        for_each_loop = {
+            array = temp_param_arr_1
+            value = temp_current_value
+            break = temp_break_loop
+            if = {
+                limit = {
+                    NOT = {
+                        is_in_array = { temp_param_arr_2 = temp_current_value }
+                    }
+                }
+                # If an element only resents in 1 array, break the loop
+                set_temp_variable = { temp_comp_result = 0 }
+                set_temp_variable = { temp_break_loop = 1 }
+            }
+        }
+    }
+}
+
 # Parameter 1: temp_param_arr_railway_start_states
 # Parameter 2: temp_param_arr_railway_end_states
 # Parameter 3: temp_param_is_railway_build_only_on_allied

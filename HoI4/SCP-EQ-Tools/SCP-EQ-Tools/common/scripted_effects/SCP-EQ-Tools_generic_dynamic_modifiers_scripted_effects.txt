@@ -411,7 +411,7 @@ SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies = {
         set_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state
         # For state-level dynamic modifiers, we use an country-scoped array to log states with this dynamic modifier enabled
         # Thus we can cancel them even we have lost control of those states, and support isolation between countries
-        add_to_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
+        add_to_array = { PREV.arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
         force_update_dynamic_modifier = yes
     }
 }
@@ -424,7 +424,7 @@ SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies = {
         }
         clr_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_for_this_state
         # Unregister a state
-        remove_from_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
+        remove_from_array = { PREV.arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = THIS }
     }
 }
 
@@ -468,7 +468,32 @@ SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_
 SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_supplies_for_all_controlled_states = {
     if = {
         limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled }
-        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+        # Check if all registered states are still under control
+        # If so, disables the modifier
+        # Otherwise, enable the modifier for newly controlled states
+        if = {
+            limit = {
+                all_of = {
+                    array = controlled_states
+                    value = temp_current_state
+                    index = temp_current_state_index
+                    
+                    is_in_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states = temp_current_state }
+                }
+                all_of = {
+                    array = arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled_states
+                    value = temp_current_state
+                    index = temp_current_state_index
+                    
+                    is_in_array = { controlled_states = temp_current_state }
+                }
+            }
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+        }
+        else = {
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+            SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+        }
     }
     else = {
         SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
@@ -484,7 +509,7 @@ SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories = {
         set_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state
         # For state-level dynamic modifiers, we use an country-scoped array to log states with this dynamic modifier enabled
         # Thus we can cancel them even we have lost control of those states, and support isolation between countries
-        add_to_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
+        add_to_array = { PREV.arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
         force_update_dynamic_modifier = yes
     }
 }
@@ -497,7 +522,7 @@ SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories = {
         }
         clr_state_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_for_this_state
         # Unregister a state
-        remove_from_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
+        remove_from_array = { PREV.arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = THIS }
     }
 }
 
@@ -541,7 +566,32 @@ SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all
 SCP-EQ-Tools_generic_scripted_effects_toggle_SCP_item_1_state_factories_for_all_controlled_states = {
     if = {
         limit = { has_country_flag = SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled }
-        SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all_controlled_states = yes
+        # Check if all registered states are still under control
+        # If so, disables the modifier
+        # Otherwise, enable the modifier for newly controlled states
+        if = {
+            limit = {
+                all_of = {
+                    array = controlled_states
+                    value = temp_current_state
+                    index = temp_current_state_index
+                    
+                    is_in_array = { arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states = temp_current_state }
+                }
+                all_of = {
+                    array = arr_SCP-EQ-Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states
+                    value = temp_current_state
+                    index = temp_current_state_index
+                    
+                    is_in_array = { controlled_states = temp_current_state }
+                }
+            }
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all_controlled_states = yes
+        }
+        else = {
+            SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_factories_for_all_controlled_states = yes
+            SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories_for_all_controlled_states = yes
+        }
     }
     else = {
         SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_factories_for_all_controlled_states = yes
