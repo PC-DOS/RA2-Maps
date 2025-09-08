@@ -1256,3 +1256,33 @@ SCP-EQ-Tools_JAP_CHI_puppet_SAR = {
     color = rgb { 0 150 245 }
     color_ui = rgb { 0 150 245 }
 }
+
+CHI_JAP_fascism_autonomy_puppet = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
+
+CHI_JAP_fascism_autonomy_reichsprotectorate = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
+
+CHI_JAP_fascism_autonomy_integrated_puppet = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
+
+CHI_JAP_fascism_autonomy_reichskommissariat = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
+
+CHI_JAP_fascism_autonomy_wtt_imperial_protectorate = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
+
+CHI_JAP_fascism_autonomy_wtt_imperial_associate = {
+    color = hsv { 0.18 0.6 0.9 } #255 244 190
+    color_ui = hsv { 0.18 0.3 0.9 }
+}
