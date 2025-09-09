@@ -28,11 +28,6 @@ from pydub import AudioSegment
 # Also need to install ImageMagick DLLs, see https://docs.wand-py.org/en/latest/guide/install.html#install-imagemagick-on-windows
 from wand import image
 
-# Constants
-# Changes these based on your PC's environment
-sHoI4BaseDir = "E:/Hearts of Iron IV/"
-sHoI4ModBaseDir = "C:/Users/Administrator/Documents/Paradox Interactive/Hearts of Iron IV/mod/"
-
 # Enumerate files and directories under specified directory
 def EnumerateFilesAndDirectories(sEnumerateTerm : str, sRootPath : str = None, DoRecursiveEnumerate : bool = False, IncludeHiddenItems : bool = False) -> list :
     return glob.glob(sEnumerateTerm, root_dir=sRootPath, recursive=DoRecursiveEnumerate, include_hidden=IncludeHiddenItems)
