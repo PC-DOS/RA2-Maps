@@ -232,7 +232,7 @@ if __name__ == "__main__" :
             sCurrentFileNamePinyin = sMusicFilePrefix + sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
             if sCurrentFileNamePinyin in dctUsedNames.keys() :
                 dctUsedNames[sCurrentFileNamePinyin] += 1
-                sCurrentFileNamePinyin = sCurrentFileNamePinyin + f"_{dctUsedNames[sCurrentFileNamePinyin] + 1}"
+                sCurrentFileNamePinyin = sCurrentFileNamePinyin + f"_{dctUsedNames[sCurrentFileNamePinyin]}"
             else :
                 dctUsedNames[sCurrentFileNamePinyin] = 1
             #End If
