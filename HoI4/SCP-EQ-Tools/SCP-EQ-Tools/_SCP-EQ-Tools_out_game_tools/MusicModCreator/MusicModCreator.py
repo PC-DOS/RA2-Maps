@@ -231,8 +231,8 @@ if __name__ == "__main__" :
             sCurrentFileNamePinyin = RemoveNonLatinCharacters(ChineseCharacterToPinyin(sCurrentFileName))
             sCurrentFileNamePinyin = sMusicFilePrefix + sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
             if sCurrentFileNamePinyin in dctUsedNames.keys() :
-                sCurrentFileNamePinyin = sCurrentFileNamePinyin + f"_{dctUsedNames[sCurrentFileNamePinyin] + 1}"
                 dctUsedNames[sCurrentFileNamePinyin] += 1
+                sCurrentFileNamePinyin = sCurrentFileNamePinyin + f"_{dctUsedNames[sCurrentFileNamePinyin] + 1}"
             else :
                 dctUsedNames[sCurrentFileNamePinyin] = 1
             #End If
