@@ -380,6 +380,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
                 }
                 # set_state_owner (country scope) or set_state_owner_to (state scope) may cause problems
                 # Using transfer_state_to is recommended
@@ -410,6 +413,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
                 }
                 set_state_controller_to = ROOT
             }
@@ -3692,6 +3698,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    }
                 }
                 # set_state_owner (country scope) or set_state_owner_to (state scope) may cause problems
                 # Using transfer_state_to is recommended
@@ -3722,6 +3731,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             every_state = {
                 limit = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    }
                 }
                 set_state_controller_to = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
             }
