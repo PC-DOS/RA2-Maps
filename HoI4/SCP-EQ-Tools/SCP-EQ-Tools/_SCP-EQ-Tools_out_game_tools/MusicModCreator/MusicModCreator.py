@@ -25,6 +25,7 @@ from pydub import AudioSegment
 
 # PNG to DDS converter
 # See https://cloud.tencent.com/developer/ask/sof/105501223
+# Also need to install ImageMagick DLLs, see https://docs.wand-py.org/en/latest/guide/install.html#install-imagemagick-on-windows
 from wand import image
 
 # Constants
