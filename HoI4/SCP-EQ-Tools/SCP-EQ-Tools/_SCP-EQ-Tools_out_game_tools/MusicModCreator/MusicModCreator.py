@@ -240,7 +240,7 @@ if __name__ == "__main__" :
             # Write station
             filStationFile.write("music = {" + sLineBreak)
             filStationFile.write("    " + "song = \"" + sCurrentFileNamePinyin + "\"" + sLineBreak)
-            filStationFile.write("    " + "change = {" + sLineBreak)
+            filStationFile.write("    " + "chance = {" + sLineBreak)
             filStationFile.write("    " + "    base = 0" + sLineBreak)
             filStationFile.write("    " + "}" + sLineBreak)
             filStationFile.write("}" + sLineBreak)
