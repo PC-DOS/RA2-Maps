@@ -168,7 +168,15 @@ def ConvertMp3ToOgg(sMp3FilePath : str, sOutputFilePath : str, sFfmpegPath : str
         from os import environ, pathsep, path
         environ["PATH"] += pathsep + path.abspath(f"{sFfmpegPath}")
     #End If
-    AudioSegment.from_mp3(sMp3FilePath).export(sOutputFilePath, format="ogg")
+    # Import MP3 file
+    audData = AudioSegment.from_mp3(sMp3FilePath)
+    # Check if sampling frequency is 44100 Hz (44.1 kHz)
+    if audData.frame_rate != 44100 :
+        # Resample to 44100 Hz if necessary
+        audData.set_frame_rate(44100)
+    #End If
+    # Export OGG file
+    audData.export(sOutputFilePath, format="ogg")
 #End Sub
 
 # Main entry point
@@ -215,11 +223,18 @@ if __name__ == "__main__" :
 
     # Enumerate MP3 files in input dir
     arrMusicFiles = EnumerateFilesAndDirectories("*.mp3", sMusicInputDir)
+    dctUsedNames = dict()
     with concurrent.futures.ProcessPoolExecutor(max_workers=GetCPUCoreCountForParallelComputing()) as polFileConvertWorkers :
         for CurrentMusic in arrMusicFiles :
             sCurrentFileName = CurrentMusic.removesuffix(".mp3")
             sCurrentFileNamePinyin = RemoveNonLatinCharacters(ChineseCharacterToPinyin(sCurrentFileName))
             sCurrentFileNamePinyin = sMusicFilePrefix + sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
+            if sCurrentFileNamePinyin in dctUsedNames.keys() :
+                sCurrentFileNamePinyin = sCurrentFileNamePinyin + f"_{dctUsedNames[sCurrentFileNamePinyin] + 1}"
+                dctUsedNames[sCurrentFileNamePinyin] += 1
+            else :
+                dctUsedNames[sCurrentFileNamePinyin] = 1
+            #End If
             sCurrentOutputFileName = sCurrentFileNamePinyin + ".ogg"
             sCurrentInputFilePath = sMusicInputDir + CurrentMusic
             sCurrentOutputFilePath = sMusicFileOutputDir + sCurrentOutputFileName
