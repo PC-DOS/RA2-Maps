@@ -2215,7 +2215,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                             is_demilitarized_zone = no
                             OR = {
                                 is_capital = yes
-                                is_in_home_area = no
+                                NOT = { is_in_home_area = yes }
                             }
                         }
                     }
@@ -3001,7 +3001,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                                 is_demilitarized_zone = no
                                 OR = {
                                     is_capital = yes
-                                    is_in_home_area = no
+                                    NOT = { is_in_home_area = yes }
                                 }
                             }
                         }
