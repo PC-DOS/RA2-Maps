@@ -21,6 +21,7 @@ from pypinyin import pinyin, lazy_pinyin, Style
 
 # Music converter
 # See https://blog.csdn.net/HaoZiHuang/article/details/118930518
+# See also https://github.com/jiaaro/pydub/blob/master/API.markdown
 from pydub import AudioSegment
 
 # PNG to DDS converter
