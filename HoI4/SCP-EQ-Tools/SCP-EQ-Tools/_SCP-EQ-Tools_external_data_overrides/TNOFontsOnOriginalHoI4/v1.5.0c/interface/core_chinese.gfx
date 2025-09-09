@@ -1,3 +1,8 @@
+# TNO v1.5.0c font override
+# Tested on HoI4 1.14.10
+# DO NOT override this file in other mods directly
+# Change bitmapfont_override of "tahoma_60" instead
+
 bitmapfonts = {
 
 	bitmapfont_override = {
@@ -379,8 +384,8 @@ bitmapfonts = {
 		fontfiles = { 
 			"gfx/fonts/hoi_mapfont4"
 			"gfx/fonts/mapfont_0"
-			"gfx/fonts/mapfont_1"	
-			"gfx/fonts/mapfont_2"	
+			"gfx/fonts/mapfont_1"
+			"gfx/fonts/mapfont_2"
 			"gfx/fonts/mapfont_3"
 			"gfx/fonts/mapfont_4"
 			"gfx/fonts/mapfont_5"

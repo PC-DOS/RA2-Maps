@@ -2,4 +2,5 @@ FPS Map (no coloured icons)
 
 https://hearts-of-iron-4.smods.ru/archives/25478
 
+border_impassable copied from Equestria at War
 With reference of TNO's constants.fxh

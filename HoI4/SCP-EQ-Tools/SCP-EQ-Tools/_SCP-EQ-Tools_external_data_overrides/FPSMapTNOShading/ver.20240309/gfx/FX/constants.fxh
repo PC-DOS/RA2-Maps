@@ -11,6 +11,11 @@ Code
 // --------------------------------------------------------------
 // ------------------    Light          -------------------------
 // --------------------------------------------------------------
+
+// Modified by Dr. Picsell Dois with reference to TNO v1.5.0c's constants.fxh
+// DO NOT override this file in other mods directly
+// You can modify lines with "P.D." comment
+
 static const float NIGHT_AMBIENT_BOOST = 3.0f; // can just be baked into the below later ye?
 
 
@@ -192,10 +197,13 @@ static const float  SHADOW_WEIGHT_TREE   		= 0.7f;
 // ------------------    GRADIENT BORDERS   ---------------------
 // --------------------------------------------------------------
 
-//static const float GB_CAM_MIN = 100.0f;
-//static const float GB_CAM_MAX = 350.0f;
+//P.D. Modify camera height requested to enable gradient
+//Use lowest value to disable gradient
 static const float GB_CAM_MIN = 0.0f;
 static const float GB_CAM_MAX = 1.0f;
+//static const float GB_CAM_MIN = 100.0f;
+//static const float GB_CAM_MAX = 350.0f;
+//EndOf: P.D. Modify camera height requested to enable gradient
 static const float GB_CAM_MAX_FILLING_CLAMP = 1.0f; // 0 to 1 value for clamping the fill when camera is at max distance
 static const float GB_THRESHOLD = 0.05f; // interpolation time
 static const float GB_THRESHOLD2 = 0.25f; // interpolation time
