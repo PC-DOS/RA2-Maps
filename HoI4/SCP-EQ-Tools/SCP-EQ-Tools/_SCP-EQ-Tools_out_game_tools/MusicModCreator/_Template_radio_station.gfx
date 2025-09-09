@@ -1,0 +1,7 @@
+spriteTypes = {
+    spriteType = {
+        name = "<SPRITE>"
+        texturefile = "gfx/<SPRITE>.dds"
+        noOfFrames = 2
+    }
+}

@@ -215,3 +215,4 @@ if __name__ == "__main__" :
         filOutputFile.write("    set_global_flag = SCP-EQ-Tools_is_national_focuses_dummy_ideas_tokens_init_done" + sLineBreak)
         filOutputFile.write("}" + sLineBreak)
     #End With
+#End If
