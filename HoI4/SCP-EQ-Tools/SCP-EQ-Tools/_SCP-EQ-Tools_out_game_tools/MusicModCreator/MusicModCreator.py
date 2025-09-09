@@ -219,7 +219,7 @@ if __name__ == "__main__" :
         for CurrentMusic in arrMusicFiles :
             sCurrentFileName = CurrentMusic.removesuffix(".mp3")
             sCurrentFileNamePinyin = RemoveNonLatinCharacters(ChineseCharacterToPinyin(sCurrentFileName))
-            sCurrentFileNamePinyin = sCurrentFileNamePinyin[0:min(256,len(sCurrentFileNamePinyin))]
+            sCurrentFileNamePinyin = sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
             sCurrentOutputFileName = sCurrentFileNamePinyin + ".ogg"
             sCurrentInputFilePath = sMusicInputDir + CurrentMusic
             sCurrentOutputFilePath = sMusicFileOutputDir + f"{sMusicFilePrefix}" + sCurrentOutputFileName
