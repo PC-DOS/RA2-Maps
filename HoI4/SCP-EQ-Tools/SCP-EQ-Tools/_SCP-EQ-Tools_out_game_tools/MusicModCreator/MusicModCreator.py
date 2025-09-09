@@ -176,6 +176,7 @@ if __name__ == "__main__" :
     sMusicInputDir = "F:/Music/"
 
     sMusicModName = "Days-of-Resistance-over-China"
+    sMusicModNameChinese = "中国之声"
     sMusicFilePrefix = "roc_"
     sMusicModBaseDir = f"D:/{sMusicModName}/"
     sMusicModOutputDir = f"{sMusicModBaseDir}{sMusicModName}/"
@@ -184,6 +185,7 @@ if __name__ == "__main__" :
     CreateDirectory(sMusicFileOutputDir)
     CreateDirectory(sMusicModOutputDir + "gfx/")
     CreateDirectory(sMusicModOutputDir + "interface/")
+    CreateDirectory(sMusicModOutputDir + "localisation/simp_chinese/")
 
     # Specify FFMpeg path
     # https://github.com/jiaaro/pydub/issues/668
@@ -199,14 +201,17 @@ if __name__ == "__main__" :
     environ["PATH"] += pathsep + path.abspath(f"{sImageMagickPath}")
     environ["MAGICK_HOME"] = path.abspath(f"{sImageMagickPath}")
 
-    # Asset and station file
+    # Asset, station and localisation file
     # See https://hoi4.paradoxwikis.com/Music_modding
     sLineBreak = "\n"
     filAssetFile = open(sMusicFileOutputDir + f"{sMusicModName}_assets.asset", "w", encoding="utf-8")
     filStationFile = open(sMusicFileOutputDir + f"{sMusicModName}_soundtracks.txt", "w", encoding="utf-8")
+    filLocalisationFile = open(sMusicModOutputDir + "localisation/simp_chinese/" + f"{sMusicModName}_l_simp_chinese.yml", "w", encoding="utf-8-sig")
 
     filStationFile.write("music_station = \"" + sMusicModName + "\"" + sLineBreak)
     filStationFile.write(sLineBreak)
+    filLocalisationFile.write("l_simp_chinese:" + sLineBreak)
+    filLocalisationFile.write(" " +  sMusicModName + "_TITLE:0 " + "\"" + sMusicModNameChinese + "\"" + sLineBreak)
 
     # Enumerate MP3 files in input dir
     arrMusicFiles = EnumerateFilesAndDirectories("*.mp3", sMusicInputDir)
@@ -214,10 +219,10 @@ if __name__ == "__main__" :
         for CurrentMusic in arrMusicFiles :
             sCurrentFileName = CurrentMusic.removesuffix(".mp3")
             sCurrentFileNamePinyin = RemoveNonLatinCharacters(ChineseCharacterToPinyin(sCurrentFileName))
-            sCurrentFileNamePinyin = sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
+            sCurrentFileNamePinyin = sMusicFilePrefix + sCurrentFileNamePinyin[0:min(50,len(sCurrentFileNamePinyin))]
             sCurrentOutputFileName = sCurrentFileNamePinyin + ".ogg"
             sCurrentInputFilePath = sMusicInputDir + CurrentMusic
-            sCurrentOutputFilePath = sMusicFileOutputDir + f"{sMusicFilePrefix}" + sCurrentOutputFileName
+            sCurrentOutputFilePath = sMusicFileOutputDir + sCurrentOutputFileName
 
             print(f"Processing: ")
             print(f"    Input: {sCurrentInputFilePath}")
@@ -226,7 +231,7 @@ if __name__ == "__main__" :
 
             # Write asset
             filAssetFile.write("music = {" + sLineBreak)
-            filAssetFile.write("    " + "name = \"" + sCurrentFileName + "\"" + sLineBreak)
+            filAssetFile.write("    " + "name = \"" + sCurrentFileNamePinyin + "\"" + sLineBreak)
             filAssetFile.write("    " + "file = \"" + sCurrentOutputFileName + "\"" + sLineBreak)
             filAssetFile.write("    " + "volume = 1" + sLineBreak)
             filAssetFile.write("}" + sLineBreak)
@@ -234,12 +239,15 @@ if __name__ == "__main__" :
 
             # Write station
             filStationFile.write("music = {" + sLineBreak)
-            filStationFile.write("    " + "song = \"" + sCurrentFileName + "\"" + sLineBreak)
+            filStationFile.write("    " + "song = \"" + sCurrentFileNamePinyin + "\"" + sLineBreak)
             filStationFile.write("    " + "change = {" + sLineBreak)
             filStationFile.write("    " + "    base = 0" + sLineBreak)
             filStationFile.write("    " + "}" + sLineBreak)
             filStationFile.write("}" + sLineBreak)
             filStationFile.write(sLineBreak)
+
+            # Write localisation
+            filLocalisationFile.write(" " +  sCurrentFileNamePinyin + ":0 " + "\"" + sCurrentFileName + "\"" + sLineBreak)
             
             # Convert file
             polFileConvertWorkers.submit(ConvertMp3ToOgg,
