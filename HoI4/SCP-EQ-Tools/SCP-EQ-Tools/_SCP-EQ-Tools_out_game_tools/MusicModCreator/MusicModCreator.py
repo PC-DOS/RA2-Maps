@@ -174,7 +174,7 @@ def ConvertMp3ToOgg(sMp3FilePath : str, sOutputFilePath : str, sFfmpegPath : str
     # Check if sampling frequency is 44100 Hz (44.1 kHz)
     if audData.frame_rate != 44100 :
         # Resample to 44100 Hz if necessary
-        audData.set_frame_rate(44100)
+        audData = audData.set_frame_rate(44100)
     #End If
     # Export OGG file
     audData.export(sOutputFilePath, format="ogg")
