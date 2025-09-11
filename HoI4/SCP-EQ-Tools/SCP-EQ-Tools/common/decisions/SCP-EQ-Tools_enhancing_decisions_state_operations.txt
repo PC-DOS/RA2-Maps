@@ -55,6 +55,19 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
     }
     
     # Generic operations
+    # As a quick note: 
+    # DO NOT use this to enumerate countries with marked states:
+    #     any_controlled_state = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked } 
+    # This will easily crash the game
+    # Use this instead :
+    #     every_state = {
+    #         limit = {
+    #             has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+    #         }
+    #         controller = {
+    #             # Your effects
+    #         }
+    #     }
     SCP-EQ-Tools_enhancing_decisions_state_operations_separator_marks_management = {
         allowed = {
             # Always allowed
@@ -624,18 +637,18 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_state = {
-                    limit = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                controller = {
+                    every_state = {
+                        limit = {
+                            has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                        }
+                        remove_claim_by = PREV
+                        remove_core_of = PREV
                     }
-                    remove_claim_by = PREV
-                    remove_core_of = PREV
                 }
             }
         }
@@ -1881,50 +1894,50 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
-                # Generic
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1 = yes
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_production = yes
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_army = yes
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_naval = yes
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
-                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
-                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
-                # EaW
-                if = {
-                    limit = {
-                        ROOT = {
-                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+                controller = {
+                    set_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
+                    # Generic
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1 = yes
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_production = yes
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_army = yes
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_naval = yes
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
+                    SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                    SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                    # EaW
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+                            }
                         }
+                        SCP-EQ-Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = yes
                     }
-                    SCP-EQ-Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = yes
-                }
-                # TFR
-                if = {
-                    limit = {
-                        ROOT = {
-                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+                    # TFR
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+                            }
                         }
+                        SCP-EQ-Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
+                        # Allow AI's production
+                        remove_ideas = ai_disabled_production
+                        country_lock_all_division_template = no
                     }
-                    SCP-EQ-Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
-                    # Allow AI's production
-                    remove_ideas = ai_disabled_production
-                    country_lock_all_division_template = no
-                }
-                # TNO
-                if = {
-                    limit = {
-                        ROOT = {
-                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+                    # TNO
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+                            }
                         }
+                        SCP-EQ-Tools_generic_scripted_effects_TNO_enable_SCP_item_1 = yes
                     }
-                    SCP-EQ-Tools_generic_scripted_effects_TNO_enable_SCP_item_1 = yes
                 }
             }
         }
@@ -1984,14 +1997,14 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
-                SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
+                    SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
+                }
             }
         }
     }
@@ -2012,13 +2025,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                white_peace = ROOT
+                controller = {
+                    white_peace = ROOT
+                }
             }
         }
     }
@@ -2039,14 +2052,14 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_enemy_country = {
-                    white_peace = PREV
+                controller = {
+                    every_enemy_country = {
+                        white_peace = PREV
+                    }
                 }
             }
         }
@@ -2068,46 +2081,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    has_war_with = ROOT
-                    # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
-                    # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
-                    # Thus, we need to exclude those faction members or subject countries.
-                    # Otherwise, it will crash the game.
-                    # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
-                    NOT = {
-                        # Excludes subjects whose overlord has marked states and is in war us
-                        AND = {
-                            is_subject = yes
-                            overlord = {
-                                any_controlled_state = {
-                                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                                }
-                                has_war_with = ROOT
-                            }
-                        }
-                        # Excludes faction memebers whose faction leader has marked states and is in war with us
-                        AND = {
-                            is_in_faction = yes
-                            is_faction_leader = no
-                            faction_leader = {
-                                any_controlled_state = {
-                                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                                }
-                                has_war_with = ROOT
-                            }
-                        }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = ROOT
                     }
                 }
-                ROOT = {
-                    # Current scope is the winner, target and its subjects are the losers
-                    start_peace_conference  = {
-                        tag = PREV
-                        score_factor = 1.0
+                controller = {
+                    ROOT = {
+                        # Current scope is the winner, target and its subjects are the losers
+                        start_peace_conference  = {
+                            tag = PREV
+                            score_factor = 1.0
+                        }
                     }
                 }
             }
@@ -2130,42 +2117,42 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_enemy_country = {
-                    limit = {
-                        # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
-                        # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
-                        # Thus, we need to exclude those faction members or subject countries.
-                        # Otherwise, it will crash the game.
-                        # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
-                        NOT = {
-                            # Excludes subjects whose overlord is in war with us
-                            AND = {
-                                is_subject = yes
-                                overlord = {
-                                    has_war_with = PREV
+                controller = {
+                    every_enemy_country = {
+                        limit = {
+                            # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
+                            # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
+                            # Thus, we need to exclude those faction members or subject countries.
+                            # Otherwise, it will crash the game.
+                            # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
+                            NOT = {
+                                # Excludes subjects whose overlord is in war with us
+                                AND = {
+                                    is_subject = yes
+                                    overlord = {
+                                        has_war_with = PREV
+                                    }
                                 }
-                            }
-                            # Excludes faction memebers whose faction leader is in war with us
-                            AND = {
-                                is_in_faction = yes
-                                is_faction_leader = no
-                                faction_leader = {
-                                    has_war_with = PREV
+                                # Excludes faction memebers whose faction leader is in war with us
+                                AND = {
+                                    is_in_faction = yes
+                                    is_faction_leader = no
+                                    faction_leader = {
+                                        has_war_with = PREV
+                                    }
                                 }
                             }
                         }
-                    }
-                    PREV = {
-                        # Current scope is the winner, target and its subjects are the losers
-                        start_peace_conference  = {
-                            tag = PREV
-                            score_factor = 1.0
+                        PREV = {
+                            # Current scope is the winner, target and its subjects are the losers
+                            start_peace_conference  = {
+                                tag = PREV
+                                score_factor = 1.0
+                            }
                         }
                     }
                 }
@@ -2189,17 +2176,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_possible_country = {
-                    PREV = {
-                        remove_wargoal = {
-                            type = all
-                            target = PREV
+                controller = {
+                    every_possible_country = {
+                        PREV = {
+                            remove_wargoal = {
+                                type = all
+                                target = PREV
+                            }
                         }
                     }
                 }
@@ -2223,16 +2210,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_possible_country = {
-                    remove_wargoal = {
-                        type = all
-                        target = PREV
+                controller = {
+                    every_possible_country = {
+                        remove_wargoal = {
+                            type = all
+                            target = PREV
+                        }
                     }
                 }
             }
@@ -2255,18 +2242,18 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_possible_country = {
-                    PREV = {
-                        diplomatic_relation = {
-                            country = PREV
-                            relation = embargo
-                            active = no
+                controller = {
+                    every_possible_country = {
+                        PREV = {
+                            diplomatic_relation = {
+                                country = PREV
+                                relation = embargo
+                                active = no
+                            }
                         }
                     }
                 }
@@ -2290,17 +2277,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_possible_country = {
-                    diplomatic_relation = {
-                        country = PREV
-                        relation = embargo
-                        active = no
+                controller = {
+                    every_possible_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = embargo
+                            active = no
+                        }
                     }
                 }
             }
@@ -2352,17 +2339,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_nuke_target_tag = THIS }
-                set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
-                set_temp_variable = { temp_param_is_every_province_nuked = 1 }
-                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
-                SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
+                controller = {
+                    set_temp_variable = { temp_param_nuke_target_tag = THIS }
+                    set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
+                    set_temp_variable = { temp_param_is_every_province_nuked = 1 }
+                    set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                    SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
+                }
             }
         }
     }
@@ -2383,13 +2370,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
+                }
             }
         }
     }
@@ -2410,17 +2397,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    annex_country = {
-                        target = PREV
-                        transfer_troops = yes
+                controller = {
+                    ROOT = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
                     }
                 }
             }
@@ -2443,16 +2429,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    puppet = {
-                        target = PREV
+                controller = {
+                    ROOT = {
+                        puppet = {
+                            target = PREV
+                        }
                     }
                 }
             }
@@ -2475,18 +2460,18 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                if = {
-                    limit = {
-                        is_subject = yes
-                    }
-                    overlord = {
-                        end_puppet = PREV
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        overlord = {
+                            end_puppet = PREV
+                        }
                     }
                 }
             }
@@ -2509,19 +2494,19 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                if = {
-                    limit = {
-                        is_subject = yes
-                    }
-                    add_autonomy_score = {
-                        value = 2450
-                        localization = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_add_autonomy_score
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        add_autonomy_score = {
+                            value = 2450
+                            localization = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_add_autonomy_score
+                        }
                     }
                 }
             }
@@ -2544,19 +2529,19 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                if = {
-                    limit = {
-                        is_subject = yes
-                    }
-                    add_autonomy_score = {
-                        value = -2450
-                        localization = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_autonomy_score
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        add_autonomy_score = {
+                            value = -2450
+                            localization = SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_autonomy_score
+                        }
                     }
                 }
             }
@@ -2579,14 +2564,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                give_military_access = ROOT
+                controller = {
+                    give_military_access = ROOT
+                }
             }
         }
     }
@@ -2607,18 +2591,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    diplomatic_relation = {
-                        country = PREV
-                        relation = docking_rights
-                        active = yes
+                controller = {
+                    ROOT = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = docking_rights
+                            active = yes
+                        }
                     }
                 }
             }
@@ -2641,18 +2624,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_possible_country = {
-                    diplomatic_relation = {
-                        country = PREV
-                        relation = guarantee
-                        active = no
+                controller = {
+                    every_possible_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = guarantee
+                            active = no
+                        }
                     }
                 }
             }
@@ -2675,17 +2657,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    declare_war_on = {
-                        target = PREV
-                        type = annex_everything
+                controller = {
+                    ROOT = {
+                        declare_war_on = {
+                            target = PREV
+                            type = annex_everything
+                        }
                     }
                 }
             }
@@ -2708,13 +2689,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_threat = 245
+                controller = {
+                    add_threat = 245
+                }
             }
         }
     }
@@ -2735,13 +2716,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_threat = -245
+                controller = {
+                    add_threat = -245
+                }
             }
         }
     }
@@ -2762,15 +2743,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -2791,15 +2772,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -2824,13 +2805,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
             set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -2855,13 +2836,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
             set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -2885,13 +2866,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             ROOT = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                }
             }
         }
     }
@@ -2912,13 +2893,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                hold_election = THIS
+                controller = {
+                    hold_election = THIS
+                }
             }
         }
     }
@@ -2939,13 +2920,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                kill_country_leader = yes
+                controller = {
+                    kill_country_leader = yes
+                }
             }
         }
     }
@@ -2966,13 +2947,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree_allow_fallback
+                controller = {
+                    load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree_allow_fallback
+                }
             }
         }
     }
@@ -2993,13 +2974,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree
+                controller = {
+                    load_focus_tree = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree
+                }
             }
         }
     }
@@ -3020,16 +3001,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
-                ROOT = {
-                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+                    ROOT = {
+                        SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                    }
                 }
             }
         }
@@ -3051,16 +3032,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
-                ROOT = {
-                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    ROOT = {
+                        SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                    }
                 }
             }
         }
@@ -3082,15 +3063,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            random_other_country = {
+            random_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                ROOT = {
-                    SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    ROOT = {
+                        SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                    }
                 }
             }
         }
@@ -3112,15 +3093,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_opinion_modifier = {
-                    target = ROOT
-                    modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                    }
                 }
             }
         }
@@ -3142,16 +3123,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                        }
                     }
                 }
             }
@@ -3174,15 +3155,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_opinion_modifier = {
-                    target = ROOT
-                    modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                    }
                 }
             }
         }
@@ -3204,16 +3185,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                        }
                     }
                 }
             }
@@ -3236,16 +3217,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                        }
                     }
                 }
             }
@@ -3268,15 +3249,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_opinion_modifier = {
-                    target = ROOT
-                    modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                    }
                 }
             }
         }
@@ -3298,16 +3279,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                ROOT = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                        }
                     }
                 }
             }
@@ -3330,15 +3311,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                add_opinion_modifier = {
-                    target = ROOT
-                    modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                    }
                 }
             }
         }
@@ -3360,15 +3341,14 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                faction_leader = {
-                    add_to_faction = ROOT
+                controller = {
+                    faction_leader = {
+                        add_to_faction = ROOT
+                    }
                 }
             }
         }
@@ -3390,19 +3370,18 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = ROOT }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                leave_faction = yes
-                dismantle_faction = yes
-                set_temp_variable = { temp_target_country = THIS }
-                ROOT = {
-                    faction_leader = {
-                        add_to_faction = temp_target_country
+                controller = {
+                    leave_faction = yes
+                    dismantle_faction = yes
+                    set_temp_variable = { temp_target_country = THIS }
+                    ROOT = {
+                        faction_leader = {
+                            add_to_faction = temp_target_country
+                        }
                     }
                 }
             }
@@ -3425,13 +3404,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_faction_leader = yes
+                controller = {
+                    set_faction_leader = yes
+                }
             }
         }
     }
@@ -3452,13 +3431,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                set_faction_spymaster = yes
+                controller = {
+                    set_faction_spymaster = yes
+                }
             }
         }
     }
@@ -3479,13 +3458,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                leave_faction = yes
+                controller = {
+                    leave_faction = yes
+                }
             }
         }
     }
@@ -3506,14 +3485,14 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                faction_leader = {
-                    dismantle_faction = yes
+                controller = {
+                    faction_leader = {
+                        dismantle_faction = yes
+                    }
                 }
             }
         }
@@ -3535,21 +3514,23 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
-                    NOT = {
-                        tag = ROOT
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        NOT = {
+                            tag = ROOT
+                        }
                     }
                 }
-                ROOT = {
-                    recall_volunteers_from = PREV
+                controller = {
+                    ROOT = {
+                        recall_volunteers_from = PREV
+                    }
                 }
             }
         }
@@ -3571,21 +3552,21 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                every_other_country = {
-                    limit = {
-                        has_volunteers_amount_from = {
-                            tag = PREV
-                            count > 0
+                controller = {
+                    every_other_country = {
+                        limit = {
+                            has_volunteers_amount_from = {
+                                tag = PREV
+                                count > 0
+                            }
                         }
-                    }
-                    PREV = {
-                        recall_volunteers_from = PREV
+                        PREV = {
+                            recall_volunteers_from = PREV
+                        }
                     }
                 }
             }
@@ -3872,13 +3853,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                white_peace = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                controller = {
+                    white_peace = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                }
             }
         }
     }
@@ -3899,46 +3880,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    has_war_with = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
-                    # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
-                    # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
-                    # Thus, we need to exclude those faction members or subject countries.
-                    # Otherwise, it will crash the game.
-                    # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
-                    NOT = {
-                        # Excludes subjects whose overlord has marked states and is in war with marked country
-                        AND = {
-                            is_subject = yes
-                            overlord = {
-                                any_controlled_state = {
-                                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                                }
-                                has_war_with = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
-                            }
-                        }
-                        # Excludes faction memebers whose faction leader has marked states and is in war with marked country
-                        AND = {
-                            is_in_faction = yes
-                            is_faction_leader = no
-                            faction_leader = {
-                                any_controlled_state = {
-                                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                                }
-                                has_war_with = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
-                            }
-                        }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
                     }
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    # Current scope is the winner, target and its subjects are the losers
-                    start_peace_conference  = {
-                        tag = PREV
-                        score_factor = 1.0
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        # Current scope is the winner, target and its subjects are the losers
+                        start_peace_conference  = {
+                            tag = PREV
+                            score_factor = 1.0
+                        }
                     }
                 }
             }
@@ -3961,16 +3916,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    remove_wargoal = {
-                        type = all
-                        target = PREV
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        remove_wargoal = {
+                            type = all
+                            target = PREV
+                        }
                     }
                 }
             }
@@ -3993,15 +3948,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                remove_wargoal = {
-                    type = all
-                    target = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                controller = {
+                    remove_wargoal = {
+                        type = all
+                        target = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    }
                 }
             }
         }
@@ -4023,17 +3978,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    diplomatic_relation = {
-                        country = PREV
-                        relation = embargo
-                        active = no
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = embargo
+                            active = no
+                        }
                     }
                 }
             }
@@ -4056,21 +4011,21 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                meta_effect = {
-                    text = {
-                        diplomatic_relation = {
-                            country = [TARGET_TAG]
-                            relation = embargo
-                            active = no
+                controller = {
+                    meta_effect = {
+                        text = {
+                            diplomatic_relation = {
+                                country = [TARGET_TAG]
+                                relation = embargo
+                                active = no
+                            }
                         }
+                        TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                     }
-                    TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                 }
             }
         }
@@ -4092,17 +4047,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    annex_country = {
-                        target = PREV
-                        transfer_troops = yes
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
                     }
                 }
             }
@@ -4125,16 +4079,15 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    puppet = {
-                        target = PREV
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        puppet = {
+                            target = PREV
+                        }
                     }
                 }
             }
@@ -4157,14 +4110,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                give_military_access = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                controller = {
+                    give_military_access = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                }
             }
         }
     }
@@ -4185,18 +4137,17 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    diplomatic_relation = {
-                        country = PREV
-                        relation = docking_rights
-                        active = yes
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = docking_rights
+                            active = yes
+                        }
                     }
                 }
             }
@@ -4219,17 +4170,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    declare_war_on = {
-                        target = PREV
-                        type = annex_everything
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        declare_war_on = {
+                            target = PREV
+                            type = annex_everything
+                        }
                     }
                 }
             }
@@ -4256,13 +4206,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
             set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -4287,13 +4237,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
             set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
             }
         }
     }
@@ -4317,13 +4267,13 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                controller = {
+                    SCP-EQ-Tools_generic_scripted_effects_change_ruling_party = yes
+                }
             }
         }
     }
@@ -4344,20 +4294,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                meta_effect = {
-                    text = {
-                        add_opinion_modifier = {
-                            target = [TARGET_TAG]
-                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                            }
                         }
+                        TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                     }
-                    TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                 }
             }
         }
@@ -4379,16 +4329,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                        }
                     }
                 }
             }
@@ -4411,20 +4361,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                meta_effect = {
-                    text = {
-                        add_opinion_modifier = {
-                            target = TARGET_TAG
-                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = TARGET_TAG
+                                modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                            }
                         }
+                        TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                     }
-                    TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                 }
             }
         }
@@ -4446,16 +4396,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                        }
                     }
                 }
             }
@@ -4478,16 +4428,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                        }
                     }
                 }
             }
@@ -4510,20 +4460,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                meta_effect = {
-                    text = {
-                        add_opinion_modifier = {
-                            target = [TARGET_TAG]
-                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                            }
                         }
+                        TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                     }
-                    TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                 }
             }
         }
@@ -4545,16 +4495,16 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                        }
                     }
                 }
             }
@@ -4577,20 +4527,20 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_other_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                meta_effect = {
-                    text = {
-                        add_opinion_modifier = {
-                            target = [TARGET_TAG]
-                            modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP-EQ-Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                            }
                         }
+                        TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                     }
-                    TARGET_TAG = "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
                 }
             }
         }
@@ -4612,19 +4562,18 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    NOT = { tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country }
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                leave_faction = yes
-                dismantle_faction = yes
-                set_temp_variable = { temp_target_country = THIS }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    faction_leader = {
-                        add_to_faction = temp_target_country
+                controller = {
+                    leave_faction = yes
+                    dismantle_faction = yes
+                    set_temp_variable = { temp_target_country = THIS }
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        faction_leader = {
+                            add_to_faction = temp_target_country
+                        }
                     }
                 }
             }
@@ -4647,21 +4596,23 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            every_country = {
+            every_state = {
                 limit = {
-                    any_controlled_state = {
-                        has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
-                    }
-                    has_volunteers_amount_from = {
-                        tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
-                        count > 0
-                    }
-                    NOT = {
-                        tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_volunteers_amount_from = {
+                            tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                            count > 0
+                        }
+                        NOT = {
+                            tag = var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country
+                        }
                     }
                 }
-                var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
-                    recall_volunteers_from = PREV
+                controller = {
+                    var:ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country = {
+                        recall_volunteers_from = PREV
+                    }
                 }
             }
         }
