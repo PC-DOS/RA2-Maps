@@ -57,7 +57,12 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
     # Generic operations
     # As a quick note: 
     # DO NOT use this to enumerate countries with marked states:
-    #     any_controlled_state = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked } 
+    #     every_country = {
+    #         limit = {
+    #             any_controlled_state = { has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked }
+    #         }
+    #         # Your effects
+    #     }
     # This will easily crash the game
     # Use this instead :
     #     every_state = {
