@@ -54,10 +54,12 @@ SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = {
         value = temp_current_controller_tag
         index = temp_current_province_id
         
+        log = "global.province_controllers, idx=[?temp_current_province_id], val=[?temp_current_controller_tag]"
         if = {
             limit = {
                 check_variable = { temp_current_controller_tag = temp_param_controller_tag }
             }
+            log = "    Log idx=[?temp_current_province_id], val=[?temp_current_controller_tag]"
             add_to_temp_array = { temp_arr_controlled_province_id = temp_current_province_id }
         }
     }
@@ -82,6 +84,8 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
         # Special case: There is only 1 same start and end state, and the state controller only controls this state
         set_temp_variable = { temp_param_controller_tag = var:temp_param_arr_railway_start_states^0:controller }
         SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = yes
+        log = "Building railway by province for [?temp_param_controller_tag.GetName] ([?temp_param_controller_tag.GetTag])"
+        log = "    Province count: [?temp_arr_controlled_province_id^num]"
         for_each_loop = {
             array = temp_arr_controlled_province_id
             value = temp_railway_start
@@ -105,18 +109,30 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
                         limit = {
                             check_variable = { temp_param_is_railway_build_only_on_allied > 0 }
                         }
-                        build_railway = {
-                            level = 5
-                            build_only_on_allied = yes
-                            start_province = temp_railway_start
-                            target_province = temp_railway_end
+                        meta_effect = {
+                            text = {
+                                build_railway = {
+                                    level = 5
+                                    build_only_on_allied = yes
+                                    start_province = [RAIL_START]
+                                    target_province = [RAIL_END]
+                                }
+                            }
+                            RAIL_START = [?temp_railway_start]
+                            RAIL_END = [?temp_railway_end]
                         }
                     }
                     else = {
-                        build_railway = {
-                            level = 5
-                            start_province = temp_railway_start
-                            target_province = temp_railway_end
+                        meta_effect = {
+                            text = {
+                                build_railway = {
+                                    level = 5
+                                    start_province = [RAIL_START]
+                                    target_province = [RAIL_END]
+                                }
+                            }
+                            RAIL_START = [?temp_railway_start]
+                            RAIL_END = [?temp_railway_end]
                         }
                     }
                 }
