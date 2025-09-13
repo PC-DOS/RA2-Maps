@@ -49,19 +49,18 @@ SCP-EQ-Tools_generic_scripted_effects_compare_array = {
 # Return value: temp_arr_controlled_province_id
 SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = {
     clear_temp_array = temp_arr_controlled_province_id
-    var:temp_param_controller_tag = {
-        for_each_loop = {
-            array = global.province_controllers
-            value = temp_current_controller_tag
-            index = temp_current_province_id
-            
-            if = {
-                limit = {
-                    check_variable = { temp_current_controller_tag = THIS }
-                }
-                log = "    Log province idx=[?temp_current_province_id], val=[?temp_current_controller_tag]"
-                add_to_temp_array = { temp_arr_controlled_province_id = temp_current_province_id }
+    log = "[?temp_param_controller_tag]"
+    for_each_loop = {
+        array = global.province_controllers
+        value = temp_current_province_controller
+        index = temp_current_province_id
+        
+        if = {
+            limit = {
+                check_variable = { temp_current_province_controller = temp_param_controller_tag }
             }
+            log = "    Log province idx=[?temp_current_province_id], val=[?temp_current_controller_tag]"
+            add_to_temp_array = { temp_arr_controlled_province_id = temp_current_province_id }
         }
     }
 }
@@ -83,7 +82,11 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
             }
         }
         # Special case: There is only 1 same start and end state, and the state controller only controls this state
-        set_temp_variable = { temp_param_controller_tag = var:temp_param_arr_railway_start_states^0:controller }
+        var:temp_param_arr_railway_start_states^0 = {
+            controller = {
+                set_temp_variable = { temp_param_controller_tag = THIS }
+            }
+        }
         SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = yes
         log = "Building railway by province for [?temp_param_controller_tag.GetName] ([?temp_param_controller_tag.GetTag])"
         log = "    Province count: [?temp_arr_controlled_province_id^num]"
