@@ -122,8 +122,8 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
                                     target_province = [RAIL_END]
                                 }
                             }
-                            RAIL_START = [?temp_railway_start]
-                            RAIL_END = [?temp_railway_end]
+                            RAIL_START = "[?temp_railway_start]"
+                            RAIL_END = "[?temp_railway_end]"
                         }
                     }
                     else = {
@@ -135,8 +135,8 @@ SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = {
                                     target_province = [RAIL_END]
                                 }
                             }
-                            RAIL_START = [?temp_railway_start]
-                            RAIL_END = [?temp_railway_end]
+                            RAIL_START = "[?temp_railway_start]"
+                            RAIL_END = "[?temp_railway_end]"
                         }
                     }
                 }
