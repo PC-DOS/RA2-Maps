@@ -49,7 +49,7 @@ SCP-EQ-Tools_generic_scripted_effects_compare_array = {
 # Return value: temp_arr_controlled_province_id
 SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = {
     clear_temp_array = temp_arr_controlled_province_id
-    log = "[?temp_param_controller_tag]"
+    log = "Enumerating controlled provicnes for [?temp_param_controller_tag]"
     for_each_loop = {
         array = global.province_controllers
         value = temp_current_province_controller
