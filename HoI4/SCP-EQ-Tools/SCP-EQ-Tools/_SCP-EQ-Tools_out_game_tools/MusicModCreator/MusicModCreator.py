@@ -308,9 +308,9 @@ if __name__ == "__main__" :
     filInputFile.close()
 
     # Create album art
-    with image.Image(filename="_Template_album_art_replace_me.png") as img:
-        img.compression = "dxt5"
-        img.save(filename=sMusicModOutputDir + "gfx/" + "GFX_" + sMusicModName + ".dds")
+    with image.Image(filename="_Template_album_art_replace_me.png") as imgAlbumArt:
+        imgAlbumArt.compression = "dxt5"
+        imgAlbumArt.save(filename=sMusicModOutputDir + "gfx/" + "GFX_" + sMusicModName + ".dds")
     #End With
 
 #End If
