@@ -180,6 +180,13 @@ def ConvertMp3ToOgg(sMp3FilePath : str, sOutputFilePath : str, sFfmpegPath : str
     audData.export(sOutputFilePath, format="ogg")
 #End Sub
 
+def ConvertImageToDds(sImageFilePath : str, sOutputFilePath : str) :
+    with image.Image(filename=sImageFilePath) as imgSource:
+        imgSource.compression = "dxt5"
+        imgSource.save(filename=sOutputFilePath)
+    #End With
+#End Sub
+
 # Main entry point
 if __name__ == "__main__" :
     sMusicInputDir = "F:/Music/"
@@ -308,9 +315,6 @@ if __name__ == "__main__" :
     filInputFile.close()
 
     # Create album art
-    with image.Image(filename="_Template_album_art_replace_me.png") as imgAlbumArt:
-        imgAlbumArt.compression = "dxt5"
-        imgAlbumArt.save(filename=sMusicModOutputDir + "gfx/" + "GFX_" + sMusicModName + ".dds")
-    #End With
+    ConvertImageToDds("_Template_album_art_replace_me.png", sMusicModOutputDir + "gfx/" + "GFX_" + sMusicModName + ".dds")
 
 #End If
