@@ -509,30 +509,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             random_controlled_state = {
-                add_resource = {
-                    type = oil
-                    amount = 24525
-                }
-                add_resource = {
-                    type = aluminium
-                    amount = 24525
-                }
-                add_resource = {
-                    type = rubber
-                    amount = 24525
-                }
-                add_resource = {
-                    type = tungsten
-                    amount = 24525
-                }
-                add_resource = {
-                    type = steel
-                    amount = 24525
-                }
-                add_resource = {
-                    type = chromium
-                    amount = 24525
-                }
+                set_temp_variable = { temp_param_resource_change = 24525 }
+                SCP-EQ-Tools_generic_scripted_effects_add_all_resource_types_in_state = yes
             }
         }
     }
@@ -3556,31 +3534,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
         }
     }
-    SCP-EQ-Tools_enhancing_decisions_delete_all_countries_embargoed_by_us_armies = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            every_other_country = {
-                limit = {
-                    is_embargoed_by = ROOT
-                }
-                SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
-            }
-        }
-    }
     SCP-EQ-Tools_enhancing_decisions_nuke_all_countries_embargoed_by_us = {
         allowed = {
             # Always allowed
@@ -3607,6 +3560,31 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 set_temp_variable = { temp_param_is_every_province_nuked = 1 }
                 set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
                 SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_delete_all_countries_embargoed_by_us_armies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                SCP-EQ-Tools_generic_scripted_effects_delete_all_units = yes
             }
         }
     }
@@ -4473,6 +4451,193 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_PP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_political_power = 2450
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_PP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_political_power = -2450
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_MP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_command_power = -2450
+                add_manpower = -245245
+                army_experience = -2450
+                navy_experience = -2450
+                air_experience = -2450
+                add_stability = -5.0
+                add_war_support = -5.0
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_fuel = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_fuel = 24525
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_fuel = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_fuel = -24525
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_resource = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                random_controlled_state = {
+                    set_temp_variable = { temp_param_resource_change = 24525 }
+                    SCP-EQ-Tools_generic_scripted_effects_add_all_resource_types_in_state = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_resource = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                random_controlled_state = {
+                    set_temp_variable = { temp_param_resource_change = -24525 }
+                    SCP-EQ-Tools_generic_scripted_effects_add_all_resource_types_in_state = yes
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_diplomatic_opinion_turbo_boost_toward_us = {
         allowed = {
             # Always allowed
@@ -5092,31 +5257,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             SCP-EQ-Tools_generic_scripted_effects_EAW_toggle_SCP_item_1 = yes
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_EAW_add_resource = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_EQ_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            random_controlled_state = {
-                add_resource = {
-                    type = crystals
-                    amount = 24525
-                }
-            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_EAW_decrease_illiteracy = {
@@ -5871,43 +6011,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             SCP-EQ-Tools_generic_scripted_effects_TNO_toggle_SCP_item_1 = yes
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_TNO_add_resource = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TNO_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            random_controlled_state = {
-                add_resource = {
-                    type = uranium
-                    amount = 24525
-                }
-            }
-            random_controlled_state = {
-                add_resource = {
-                    type = consumer_goods
-                    amount = 24525
-                }
-            }
-            random_controlled_state = {
-                add_resource = {
-                    type = power
-                    amount = 24525
-                }
-            }
         }
     }
     SCP-EQ-Tools_enhancing_decisions_TNO_GDP_plus_25Pct = {

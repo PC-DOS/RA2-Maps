@@ -45,6 +45,67 @@ SCP-EQ-Tools_generic_scripted_effects_compare_array = {
     }
 }
 
+# Parameter 1: temp_param_resource_change
+SCP-EQ-Tools_generic_scripted_effects_add_all_resource_types_in_state = {
+    # Generic resources
+    add_resource = {
+        type = oil
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = aluminium
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = rubber
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = tungsten
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = steel
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = chromium
+        amount = var:temp_param_resource_change
+    }
+    # EaW resources
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+            }
+        }
+        add_resource = {
+            type = crystals
+            amount = var:temp_param_resource_change
+        }
+    }
+    # TNO resources
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+            }
+        }
+        add_resource = {
+            type = uranium
+            amount = var:temp_param_resource_change
+        }
+        add_resource = {
+            type = consumer_goods
+            amount = var:temp_param_resource_change
+        }
+        add_resource = {
+            type = power
+            amount = var:temp_param_resource_change
+        }
+    }
+}
+
 # Parameter 1: temp_param_controller_tag
 # Return value: temp_arr_controlled_province_id
 SCP-EQ-Tools_generic_scripted_effects_get_controlled_provinces = {
