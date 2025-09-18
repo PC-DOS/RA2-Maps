@@ -1,0 +1,91 @@
+add_namespace = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI
+
+# Nanking Massacre
+news_event = {
+    id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1
+    title = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1.t
+    desc = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1.desc
+    picture = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_nanking_massacre_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1.a
+        trigger = {
+            has_war_with = JAP
+        }
+    }
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1.b
+        trigger = {
+            NOT = { has_war_with = JAP }
+        }
+    }
+}
+
+# Execution of Hirohito
+news_event = {
+    id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.2
+    title = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.2.t
+    desc = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.2.desc
+    picture = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.2.a
+    }
+}
+news_event = {
+    id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.3
+    title = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.3.t
+    desc = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.3.desc
+    picture = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_2
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.3.a
+    }
+}
+
+# Tokyo is Nanking
+news_event = {
+    id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.4
+    title = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.4.t
+    desc = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.4.desc
+    picture = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_tokyo_is_nanking_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.4.a
+    }
+}
+news_event = {
+    id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.5
+    title = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.5.t
+    desc = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.5.desc
+    picture = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_tokyo_is_nanking_5
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.5.a
+    }
+}

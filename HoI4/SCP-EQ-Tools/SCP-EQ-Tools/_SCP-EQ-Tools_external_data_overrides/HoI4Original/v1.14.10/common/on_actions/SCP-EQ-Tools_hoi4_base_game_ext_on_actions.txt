@@ -1,0 +1,33 @@
+on_actions = {
+    on_state_control_changed = {
+        effect = {
+            # ROOT is new controller, FROM is old controller, FROM.FROM is state ID
+            # Nanking Massacre news
+            if = {
+                limit = {
+                    ROOT = {
+                        tag = JAP
+                    }
+                    FROM = {
+                        OR = {
+                            tag = CHI
+                            tag = PRC
+                            is_in_faction_with = CHI
+                            is_in_faction_with = PRC
+                        }
+                    }
+                    FROM.FROM = {
+                        # Nanking
+                        state = 613
+                    }
+                }
+                CHI = {
+                    country_event = {
+                        id = SCP-EQ-Tools_hoi4_base_game_ext_events_CHI.1
+                        #days = 5
+                    }
+                }
+            }
+        }
+    }
+}
