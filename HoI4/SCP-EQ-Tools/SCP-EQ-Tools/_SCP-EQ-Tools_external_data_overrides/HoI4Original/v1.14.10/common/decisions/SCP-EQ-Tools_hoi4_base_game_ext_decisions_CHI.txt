@@ -239,7 +239,7 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 add_stability = 5.0
                 every_controlled_state = {
-                    # Tokyo is Nanjing, too
+                    # Tokyo is Nanking, too
                     add_manpower = -1245000
                     JAP = {
                         add_manpower = -1245000
