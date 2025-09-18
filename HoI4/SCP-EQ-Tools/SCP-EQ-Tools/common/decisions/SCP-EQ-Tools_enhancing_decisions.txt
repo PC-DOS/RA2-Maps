@@ -4501,6 +4501,37 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_add_MP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                add_command_power = 2450
+                add_manpower = 245245
+                army_experience = 2450
+                navy_experience = 2450
+                air_experience = 2450
+                add_stability = 5.0
+                add_war_support = 5.0
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_loss_MP = {
         allowed = {
             # Always allowed
