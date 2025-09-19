@@ -14,3 +14,5 @@
  SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_JAP_fate_greate_purge_desc:0 "这个国家的军政已完全被腐化，每一个政客、军官、士兵，都是侵略中华、屠戮我国国民的罪人。没有仁慈的必要，他们在南京做的事，我们将千百倍奉还。\n特别军事法庭已经作出审判，所有日本军政人员——无论是所谓的“皇族”，还是政要、军官，抑或是普通的政府职员——一概格杀，不留活口。无论它们的党派为何，战争期间立场为何。"
  SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_JAP_fate_pause_military_supervision:0 "暂停对日本驻军的军事监督"
  SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_JAP_fate_pause_military_supervision_desc:0 "东京亦是南京。"
+ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_JAP_fate_overall_nuke_experiment:0 "在[JAP.GetFlag][JAP.GetName]全境进行热核试验"
+ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_JAP_fate_overall_nuke_experiment_desc:0 "比起死在731部队的实验之中，让这群老鼠死在核辐射下还是太仁慈了。"

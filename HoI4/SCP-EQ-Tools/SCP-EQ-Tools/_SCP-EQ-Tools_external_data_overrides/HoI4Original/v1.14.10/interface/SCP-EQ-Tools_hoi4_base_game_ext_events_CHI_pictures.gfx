@@ -1,7 +1,7 @@
 spriteTypes = {
     spriteType = {
         name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_nanking_massacre_1
-        texturefile = gfx/SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures/nanking_massacre_1.png.png
+        texturefile = gfx/SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures/nanking_massacre_1.png
     }
     spriteType = {
         name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_1
@@ -10,6 +10,14 @@ spriteTypes = {
     spriteType = {
         name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_2
         texturefile = gfx/SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures/execution_of_hirohito_2.png
+    }
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_3
+        texturefile = gfx/SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures/execution_of_hirohito_3.png
+    }
+    spriteType = {
+        name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_4
+        texturefile = gfx/SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures/execution_of_hirohito_4.png
     }
     spriteType = {
         name = GFX_SCP-EQ-Tools_hoi4_base_game_ext_events_CHI_pictures_tokyo_is_nanking_1
