@@ -2,7 +2,7 @@
  # Decision category
  SCP-EQ-Tools_enhancing_decisions_state_operations_category:0 "地图精细调整"
  SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared:0 "[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetFlag][?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetName]（[?ROOT.SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country.GetTag]）"
- SCP-EQ-Tools_enhancing_decisions_state_operations_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，实现地图的精细调整。\n今天给大家带来一局精彩的每人一小块地啊。\n\n当前被标记的国家：$SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared$"
+ SCP-EQ-Tools_enhancing_decisions_state_operations_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，实现地图的精细调整。\n今天给大家带来一局精彩的每人一小块地啊。\n\n当前被标记的国家：$SCP-EQ-Tools_enhancing_decisions_state_operations_marked_country_info_shared$\n\n提示：建议在使用本决议组标记和调整地块时，不要暂停游戏内时间流逝（除非您需要切换国家），否则可能导致游戏崩溃！"
  # On-map decisions
  SCP-EQ-Tools_enhancing_decisions_state_operations_target_state_info_shared:0 "\n\n目标地区信息：\n名称：[FROM.GetName]（ID：[FROM.GetID]）\n拥有方：[FROM.owner.GetFlag][FROM.owner.GetName]（[FROM.owner.GetTag]）\n控制方：[FROM.controller.GetFlag][FROM.controller.GetName]（[FROM.controller.GetTag]）"
  SCP-EQ-Tools_enhancing_decisions_state_operations_mark_this_state:0 "标记该地区（[FROM.GetName]）"
