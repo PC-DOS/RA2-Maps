@@ -3311,6 +3311,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         instant_build = yes
                     }
                 }
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
             }
         }
     }
@@ -3351,6 +3353,8 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 set_temp_variable = { temp_param_is_railway_build_only_on_allied = 1 }
                 SCP-EQ-Tools_generic_scripted_effects_build_railway_from_state_to_state = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
             }
         }
     }
