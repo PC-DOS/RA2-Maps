@@ -653,12 +653,12 @@ SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
                     modern_tank_destroyer_brigade = { x = 2 y = 3 }
                     modern_tank_destroyer_brigade = { x = 3 y = 0 }
                     modern_tank_destroyer_brigade = { x = 3 y = 1 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 0 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 1 }
+                    modern_tank_destroyer_brigade = { x = 3 y = 2 }
+                    modern_tank_destroyer_brigade = { x = 3 y = 3 }
                     modern_tank_destroyer_brigade = { x = 4 y = 0 }
                     modern_sp_artillery_brigade = { x = 4 y = 1 }
-                    modern_sp_artillery_brigade = { x = 4 y = 0 }
-                    modern_tank_destroyer_brigade = { x = 4 y = 1 }
+                    modern_sp_artillery_brigade = { x = 4 y = 2 }
+                    modern_tank_destroyer_brigade = { x = 4 y = 3 }
                 }
                 support = {
                     engineer = { x = 0 y = 0 }
