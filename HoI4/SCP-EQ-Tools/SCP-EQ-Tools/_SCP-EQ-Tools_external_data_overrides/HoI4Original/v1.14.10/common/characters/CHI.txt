@@ -48,8 +48,8 @@ characters={
 		portraits={
 			civilian={
 				#large="GFX_portrait_chi_weng_wenhao"
-                #large="gfx/leaders/CHI/CHI_Sun_Fo.dds"
-                large="gfx/leaders/CHI/CHI_Sun_Fo_Young.dds"
+                #large="gfx/leaders/CHI/CHI_Sun_Fo_Older.dds"
+                large="gfx/leaders/CHI/CHI_Sun_Fo.dds"
 			}
 		}
 		country_leader={
