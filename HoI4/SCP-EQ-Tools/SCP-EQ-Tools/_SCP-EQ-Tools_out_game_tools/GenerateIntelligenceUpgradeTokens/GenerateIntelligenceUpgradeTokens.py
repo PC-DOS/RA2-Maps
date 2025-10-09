@@ -180,7 +180,7 @@ def TranslateModName(sModNameRaw : str) -> str :
 # Main entry point
 if __name__ == "__main__" :
     #sIdeasOutputDir = "../../common/ideas/"
-    #sIdeasOutputFileName = "SCP-EQ-Tools_intelligence_agency_upgrades_dummy_ideas.txt"
+    #sIdeasOutputFileName = "000_SCP-EQ-Tools_intelligence_agency_upgrades_dummy_ideas.txt"
     #CreateDirectory(sIdeasOutputDir)
     sIdeasInitOutputDir = "../../common/scripted_effects/"
     sIdeasInitOutputFileName = "SCP-EQ-Tools_intelligence_agency_upgrades_scripted_effects.txt"

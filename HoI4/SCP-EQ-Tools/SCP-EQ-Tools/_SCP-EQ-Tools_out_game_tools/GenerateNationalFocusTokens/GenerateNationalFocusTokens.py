@@ -169,7 +169,7 @@ def EnumerateNationalFocuses(sBaseDir : str) -> list :
 # Main entry point
 if __name__ == "__main__" :
     sIdeasOutputDir = "../../common/ideas/"
-    sIdeasOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
+    sIdeasOutputFileName = "000_SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
     CreateDirectory(sIdeasOutputDir)
     sIdeasInitOutputDir = "../../common/scripted_effects/"
     sIdeasInitOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas_init_scripted_effects.txt"
