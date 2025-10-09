@@ -2931,6 +2931,34 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_force_allow_volunteer_sending = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                ROOT = {
+                    add_relation_rule_override = {
+                        target = PREV
+                        trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                        can_send_volunteers = yes
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_countries_with_our_volunteers_win_wars = {
         allowed = {
             # Always allowed
@@ -5066,6 +5094,37 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 }
                 faction_leader = {
                     dismantle_faction = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_force_allow_volunteer_sending_to_all_countries_embargoed_by_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                ROOT = {
+                    add_relation_rule_override = {
+                        target = PREV
+                        trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                        can_send_volunteers = yes
+                    }
                 }
             }
         }
