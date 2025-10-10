@@ -736,9 +736,11 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
                     is_controlled_by = ROOT
                 }
-                set_capital = {
-                    state = THIS
-                    remember_old_capital = yes
+                ROOT = {
+                    set_capital = {
+                        state = PREV
+                        remember_old_capital = yes
+                    }
                 }
             }
         }
