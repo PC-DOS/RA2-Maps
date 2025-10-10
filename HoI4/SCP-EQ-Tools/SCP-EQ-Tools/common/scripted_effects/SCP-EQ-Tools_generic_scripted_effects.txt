@@ -634,38 +634,76 @@ SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
                     has_template = "SCP-EQ MTF Division 1"
                 }
             }
-            division_template = {
-                name = "SCP-EQ MTF Division 1"
-                is_locked = no
-                force_allow_recruiting = yes
-                regiments = {
-                    mechanized = { x = 0 y = 0 }
-                    mechanized = { x = 0 y = 1 }
-                    mechanized = { x = 0 y = 2 }
-                    mechanized = { x = 0 y = 3 }
-                    mechanized = { x = 1 y = 0 }
-                    mechanized = { x = 1 y = 1 }
-                    mechanized = { x = 1 y = 2 }
-                    mechanized = { x = 1 y = 3 }
-                    modern_tank_destroyer_brigade = { x = 2 y = 0 }
-                    modern_sp_anti_air_brigade = { x = 2 y = 1 }
-                    modern_sp_anti_air_brigade = { x = 2 y = 2 }
-                    modern_tank_destroyer_brigade = { x = 2 y = 3 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 0 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 1 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 2 }
-                    modern_tank_destroyer_brigade = { x = 3 y = 3 }
-                    modern_tank_destroyer_brigade = { x = 4 y = 0 }
-                    modern_sp_artillery_brigade = { x = 4 y = 1 }
-                    modern_sp_artillery_brigade = { x = 4 y = 2 }
-                    modern_tank_destroyer_brigade = { x = 4 y = 3 }
+            if = {
+                limit = {
+                    ROOT = {
+                        has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+                    }
                 }
-                support = {
-                    engineer = { x = 0 y = 0 }
-                    field_hospital = { x = 0 y = 1 }
-                    signal_company = { x = 0 y = 2 }
-                    maintenance_company = { x = 0 y = 3 }
-                    logistics_company = { x = 0 y = 4 }
+                # TFR changed width parameter, thus we need a little adjustment
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        mechanized = { x = 0 y = 0 }
+                        mechanized = { x = 0 y = 1 }
+                        mechanized = { x = 0 y = 2 }
+                        mechanized = { x = 1 y = 0 }
+                        mechanized = { x = 1 y = 1 }
+                        mechanized = { x = 1 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 0 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 1 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 2 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 0 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 1 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 2 }
+                        modern_sp_artillery_brigade = { x = 4 y = 0 }
+                        modern_sp_artillery_brigade = { x = 4 y = 1 }
+                        modern_sp_artillery_brigade = { x = 4 y = 2 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+            }
+            else = {
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        mechanized = { x = 0 y = 0 }
+                        mechanized = { x = 0 y = 1 }
+                        mechanized = { x = 0 y = 2 }
+                        mechanized = { x = 0 y = 3 }
+                        mechanized = { x = 1 y = 0 }
+                        mechanized = { x = 1 y = 1 }
+                        mechanized = { x = 1 y = 2 }
+                        mechanized = { x = 1 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 0 }
+                        modern_sp_anti_air_brigade = { x = 2 y = 1 }
+                        modern_sp_anti_air_brigade = { x = 2 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 0 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 1 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 4 y = 0 }
+                        modern_sp_artillery_brigade = { x = 4 y = 1 }
+                        modern_sp_artillery_brigade = { x = 4 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 4 y = 3 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
                 }
             }
         }
