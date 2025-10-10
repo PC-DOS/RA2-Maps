@@ -669,6 +669,7 @@ SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
                         maintenance_company = { x = 0 y = 3 }
                         logistics_company = { x = 0 y = 4 }
                     }
+                }
             }
             else = {
                 division_template = {
@@ -736,7 +737,7 @@ SCP-EQ-Tools_generic_scripted_effects_TFR_reset_inflation = {
     update_economy = yes
     #This won't change inflation
     #set_temp_variable = { inflation_var_temp = 0 }
-    #subtract_from_variable = { inflation_var_temp = inflation_var }
+    #subtract_from_temp_variable = { inflation_var_temp = inflation_var }
     #add_inflation = yes
 }
 
