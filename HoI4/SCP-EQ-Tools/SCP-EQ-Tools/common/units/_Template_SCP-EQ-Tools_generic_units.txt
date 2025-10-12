@@ -1,0 +1,61 @@
+# Ref. https://hoi4.paradoxwikis.com/Unit_modding
+# 
+# Units are found in /Hearts of Iron IV/common/units/*.txt.
+# 
+# Units follow the following format:
+# 
+# sub_units = {
+#     <unit name> = {
+#         sprite = <entity> # Refers to <name>_entity in a gfx/entities/.*.asset file - Controls the unit used on the map
+#         
+#         # Controls the map icon category used for the unit
+#         map_icon_category = <type>
+# 
+#         priority = <int>    # Controls which icon is used if multiple subunits of the same type exist
+#         ai_priority = <int>
+# 
+#         active = yes / no       # Whether the unit is usable without explicit unlocking in technology
+#         cavalry = yes           # Used to define subunit as cavalry 
+#         special_forces = yes    # Used to define subunit as special forces
+#         marines = yes           # Used to define subunit as marine
+#         can_exfiltrate_from_coast = yes # Used to define subunit opportunity of leaving the coast without a naval base
+#         mountaineers = yes      # Used to define subunit as mountaineers
+#         can_be_parachuted = yes # Used to define subunit as paratroopers.
+#         affects_speed = yes     # Used to check if the unit will affect the template's speed, support companies have it set to no.
+# 
+#         transport = <equipment> # Sets the speed of subunit via equipment. Used for motorized/mechanized
+#         
+#         # How the unit is grouped division-wise, i.e. appearing in the Support tab. Not used for air or naval units
+#         group = <group>
+#         
+#         # Internal types
+#         type = {
+#             <type>
+#         }
+#         
+#         # Categories the unit belongs to.
+#         categories = {
+#             <categories>
+#         }
+#         
+#         # Equipment that is required for this unit. Used when active = no
+#         essential = {
+#             <equipment>
+#         }
+#         
+#         # Equipment needed to produce this unit. Unit won't be available until the nation has this equipment
+#         need = {
+#             <equipment>
+#         }
+#         
+#         # Modifiers control the stats of the unit. More detail under the Stats section.
+#         <modifiers>
+#         
+#         # Modifiers that occur only in specific terrain
+#         <terrain> = {
+#             <modifiers>
+#         }
+#     }
+# }
+# 
+# You cannot add new internal or map icon types, but you can add new groups. 
