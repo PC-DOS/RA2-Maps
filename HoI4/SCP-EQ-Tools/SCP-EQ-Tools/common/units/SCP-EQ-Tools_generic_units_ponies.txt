@@ -69,7 +69,8 @@ sub_units = {
         }
 
         need = {
-            SCP-EQ-Tools_generic_equipments_pony_equipments_pony_equipment = 150
+            infantry_equipment = 150
+            anti_air_equipment = 150
             anti_tank_equipment = 30
             support_equipment = 5
         }
