@@ -634,7 +634,52 @@ SCP-EQ-Tools_generic_scripted_effects_create_generic_division_1 = {
                     has_template = "SCP-EQ MTF Division 1"
                 }
             }
+            
+            # Flag of special pegasus unit
+            set_variable = { global.SCP-EQ-Tools_generic_units_is_pegasus_added = 1 }
+            
             if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_generic_units_is_pegasus_added > 0 }
+                }
+                # Special Pegasus unit
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 0 y = 0 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 0 y = 1 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 0 y = 2 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 0 y = 3 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 1 y = 0 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 1 y = 1 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 1 y = 2 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 1 y = 3 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 2 y = 0 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 2 y = 1 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 2 y = 2 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 2 y = 3 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 2 y = 4 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 3 y = 0 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 3 y = 1 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 3 y = 2 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 3 y = 3 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 4 y = 0 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 4 y = 1 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 4 y = 2 }
+                        SCP-EQ-Tools_generic_units_ponies_pegasus = { x = 4 y = 3 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+                }
+            }
+            else_if = {
                 limit = {
                     ROOT = {
                         has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
