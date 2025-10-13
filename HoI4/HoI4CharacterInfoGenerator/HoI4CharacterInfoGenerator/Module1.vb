@@ -318,6 +318,7 @@ Module Module1
         End Try
 
         If IsDebugging Or IsUserInputAwated Then
+            Console.WriteLine("Operation finished, press any key to exit...")
             Console.ReadKey()
         End If
 
