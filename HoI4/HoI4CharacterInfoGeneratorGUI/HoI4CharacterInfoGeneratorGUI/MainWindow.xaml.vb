@@ -160,14 +160,14 @@ Class MainWindow
             AddMessage("")
             'Enumerate every line
             'Structure:
-            '    TAG,NAME_LATIN,NAME_CHS,IS_COUNTRY_LEADER,ADVISOR_SLOTS,ARMY_SLOTS,TRAITS,DESC
+            '    TAG,NAME_LATIN,NAME_CHS,IS_COUNTRY_LEADER,ADVISOR_SLOTS,ADVISOR_TRAITS,ARMY_SLOTS,ARMY_TRAITS,DESC
             '        If IS_COUNTRY_LEADER is 1, this character can be country leader
             '        ARMY_SLOTS could be "corps_commander", "field_marshal" or "navy_leader", separated by white space
             '        TRAITS will be applied to all slots in current implementation
             'Current line in input file
             Dim CurrentLineIndex As Integer = 0
             Dim CurrentLine() As String
-            Const LineDataFieldCount As Integer = 8
+            Const LineDataFieldCount As Integer = 9
             'Used tokens list (avoid 1 character with multiple instances)
             Dim UsedCharacterTokensCounter As New Dictionary(Of String, Integer)
             While Not CharacterInputFileStream.EndOfStream
@@ -183,7 +183,7 @@ Class MainWindow
                 CurrentLineIndex += 1
                 If CurrentLine.Length <> LineDataFieldCount Then
                     AddMessage("行 " & CurrentLineIndex & "处的信息无效: 需要 " & LineDataFieldCount & " 个信息栏位，但只有 " & CurrentLine.Length)
-                    AddMessage("需要的行格式: TAG, NAME_LATIN, NAME_CHS, IS_COUNTRY_LEADER, ADVISOR_SLOTS, ARMY_SLOTS, TRAITS,DESC")
+                    AddMessage("需要的行格式: TAG,NAME_LATIN,NAME_CHS,IS_COUNTRY_LEADER,ADVISOR_SLOTS,ADVISOR_TRAITS,ARMY_SLOTS,ARMY_TRAITS,DESC")
                     Continue While
                 End If
                 Dim CurrentCharacterTag As String = CurrentLine(0).Trim().ToUpper()
@@ -191,9 +191,10 @@ Class MainWindow
                 Dim CurrentCharacterNameCHS As String = CurrentLine(2).Trim()
                 Dim CurrentCharacterIsCountryLeader As String = CurrentLine(3).Trim()
                 Dim CurrentCharacterAdvisorSlots() As String = CurrentLine(4).Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
-                Dim CurrentCharacterArmySlots() As String = CurrentLine(5).Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
-                Dim CurrentCharacterTraits As String = CurrentLine(6).Trim()
-                Dim CurrentCharacterDesc As String = CurrentLine(7).Trim()
+                Dim CurrentCharacterAdvisorTraits As String = CurrentLine(5).Trim()
+                Dim CurrentCharacterArmySlots() As String = CurrentLine(6).Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+                Dim CurrentCharacterArmyTraits As String = CurrentLine(7).Trim()
+                Dim CurrentCharacterDesc As String = CurrentLine(8).Trim()
 
                 'Generate internal name
                 Dim CurrentCharacterInternalName As String = CurrentCharacterTag & "_" & RemoveInvalidCharInHoI4CharaterInternalName(CurrentCharacterNameLatin)
@@ -240,7 +241,7 @@ Class MainWindow
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(2, 4) & "country_leader = {")
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "desc = " & CurrentCharacterDescKey)
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "ideology = REPLACE_ME")
-                    CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterTraits & " }")
+                    CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterAdvisorTraits & " }")
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "expire = ""1.1.1.1""")
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "id = -1")
                     CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(2, 4) & "}")
@@ -254,7 +255,7 @@ Class MainWindow
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "removal_cost = 0")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "ledger = civilian")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "can_be_fired = yes")
-                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterTraits & " }")
+                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterAdvisorTraits & " }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "visible = { always = yes }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "available = { always = yes }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(2, 4) & "}")
@@ -270,7 +271,7 @@ Class MainWindow
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "logistics_skill = 1")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "maneuvering_skill = 1")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "coordination_skill = 1")
-                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterTraits & " }")
+                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "traits = { " & CurrentCharacterArmyTraits & " }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "visible = { always = yes }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "available = { always = yes }")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(2, 4) & "}")
@@ -335,8 +336,15 @@ Class MainWindow
                         "所属Tag,英文名,中文名,是否为国家领导人,可用的顾问槽位,可用的军官槽位,特质,人物介绍" & vbCrLf & _
                         "各栏位之间使用半角逗号分隔，即使对应栏位没有信息，也请输入一个半角逗号将其留空。请不要在数据区段中加入额外的半角逗号（如果一个角色拥有多个顾问/军官槽位或特质，请使用空格分隔它们）。" & vbCrLf & _
                         "下面以引入一个名为云宝黛西的角色为例：" & vbCrLf & _
-                        vbTab & "EQU,Rainbow Dash,云宝黛西,0,theorist air_chief,corps_commander,rainbow_dash_trait,闪电天马队代理队长" & vbCrLf & _
-                        vbTab & "这表示该角色将被归并到名为EQU的Tag中，不能作为国家领导人，可以作为理论家、空军部长或指挥官，特质为rainbow_dash_trait，并拥有一些描述", _
+                        vbTab & "EQU,Rainbow Dash,云宝黛西,0,theorist air_chief,rd_ad_trait,corps_commander,rd_cc_trait,闪电天马队代理队长" & vbCrLf & _
+                        vbTab & "这表示该角色：" & vbCrLf & _
+                        vbTab & vbTab & "将被归并到名为EQU的Tag中" & vbCrLf & _
+                        vbTab & vbTab & "不能作为国家领导人" & vbCrLf & _
+                        vbTab & vbTab & "可以作为理论家、空军部长或指挥官" & vbCrLf & _
+                        vbTab & vbTab & "作为理论家或空军部长时的特质为rd_ad_trait" & vbCrLf & _
+                        vbTab & vbTab & "作为指挥官时的特质为rd_cc_trait" & vbCrLf & _
+                        vbTab & vbTab & "将被归并到名为EQU的Tag中" & vbCrLf & _
+                        vbTab & vbTab & "描述为""闪电天马队代理队长""", _
                         "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

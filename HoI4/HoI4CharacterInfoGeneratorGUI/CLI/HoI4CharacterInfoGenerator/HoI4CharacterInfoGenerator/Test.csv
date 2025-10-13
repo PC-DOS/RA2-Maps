@@ -1,6 +1,7 @@
-T01, Picsell Dois, 我不知道中文叫啥, 0, political_advisor scp_eq, field_marshall corps_commander, scp_eq_pd_1, 没有描述
-T01, Picsell Dois, 我不知道中文叫啥, 1, , , scp_eq_pd_2, 没有描述
-T01, Lancet Dois, 我不知道中文叫啥, 0, , , scp_eq_ld_1, 没有描述
-T02, Picsell Dois, 我不知道中文叫啥, 1, , , scp_eq_pd_3, 没有描述
-T02, Picsell Dois, 我不知道中文叫啥, 0, political_advisor scp_eq, field_marshall corps_commander, scp_eq_pd_1, 没有描述
-T02, Lancet Dois, 我不知道中文叫啥, 0, , , scp_eq_ld_1, 没有描述
+EQU,Rainbow Dash,云宝黛西,0,theorist air_chief,rd_ad_trait,corps_commander,rd_cc_trait,闪电天马队代理队长
+T01, Picsell Dois, 我不知道中文叫啥, 0, political_advisor scp_eq, scp_eq_pd_1, field_marshall corps_commander, scp_eq_pd_1, 没有描述
+T01, Picsell Dois, 我不知道中文叫啥, 1, , , , scp_eq_pd_2, 没有描述
+T01, Lancet Dois, 我不知道中文叫啥, 0, , , , scp_eq_ld_1, 没有描述
+T02, Picsell Dois, 我不知道中文叫啥, 1, , , , scp_eq_pd_3, 没有描述
+T02, Picsell Dois, 我不知道中文叫啥, 0, political_advisor scp_eq, scp_eq_pd_1, field_marshall corps_commander, scp_eq_pd_1, 没有描述
+T02, Lancet Dois, 我不知道中文叫啥, 0, , , , scp_eq_ld_1, 没有描述
