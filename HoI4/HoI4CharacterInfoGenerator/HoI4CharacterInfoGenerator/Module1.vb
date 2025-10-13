@@ -235,7 +235,7 @@ Module Module1
                 If CurrentCharacterAdvisorSlots.Length > 0 Then
                     For Each CurrentSlot As String In CurrentCharacterAdvisorSlots
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(2, 4) & "advisor = {")
-                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "idea_token = default_idea_token")
+                        CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "idea_token = " & CurrentSlot & "_token")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "slot = " & CurrentSlot)
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "cost = 0")
                         CurrentCharacterInfoFileWriter.WriteLine(GenerateWhiteSpaces(3, 4) & "removal_cost = 0")
