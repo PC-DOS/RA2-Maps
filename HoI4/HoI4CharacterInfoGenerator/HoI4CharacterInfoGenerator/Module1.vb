@@ -93,6 +93,7 @@ Module Module1
         Dim ModBaseDir As String
 
         'Check arguments
+        Dim IsUserInputAwated As Boolean = False
         If CmdArg.Count = 0 Then
             Console.WriteLine("Please input character input file path.")
             CharacterInputFilePath = Console.ReadLine()
@@ -100,6 +101,7 @@ Module Module1
             Console.WriteLine("Please input the base path of your Mod.")
             ModBaseDir = Console.ReadLine()
             Console.WriteLine("")
+            IsUserInputAwated = True
         ElseIf CmdArg.Count = 1 Then
             CharacterInputFilePath = CmdArg(0)
             'Check if user is seeking help
@@ -110,9 +112,11 @@ Module Module1
             Console.WriteLine("Please input the base path of your Mod.")
             ModBaseDir = Console.ReadLine()
             Console.WriteLine("")
+            IsUserInputAwated = True
         Else
             CharacterInputFilePath = CmdArg(0)
             ModBaseDir = CmdArg(1)
+            IsUserInputAwated = False
         End If
 
         'Debug only
@@ -313,7 +317,7 @@ Module Module1
             Console.WriteLine("Error " & ex.HResult & ": " & ex.Message & vbCrLf & vbCrLf & ex.StackTrace)
         End Try
 
-        If IsDebugging Then
+        If IsDebugging Or IsUserInputAwated Then
             Console.ReadKey()
         End If
 
