@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' 檢閱組件屬性的值
 
-<Assembly: AssemblyTitle("HoI4CharacterInfoGenerator")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("HoI4CharacterInfoGenerator")> 
-<Assembly: AssemblyCopyright("Copyright ©  2025")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("钢铁雄心 4 人物信息生成工具")> 
+<Assembly: AssemblyDescription("钢铁雄心 4 人物信息生成工具")> 
+<Assembly: AssemblyCompany("PC-DOS Workshop")> 
+<Assembly: AssemblyProduct("钢铁雄心 4 人物信息生成工具")> 
+<Assembly: AssemblyCopyright("Copyright © 2013-2025 PC-DOS Workshop")> 
+<Assembly: AssemblyTrademark("PC-DOS Workshop")> 
 
 <Assembly: ComVisible(False)>
 
