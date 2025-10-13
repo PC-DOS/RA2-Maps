@@ -176,7 +176,7 @@ Module Module1
                 End If
 
                 'Extract components
-                CurrentLine = Split(CurrentLineRaw, ",")
+                CurrentLine = Split(CurrentLineRaw, ",", LineDataFieldCount)
                 CurrentLineIndex += 1
                 If CurrentLine.Length <> LineDataFieldCount Then
                     Console.WriteLine("Invalid line at line " & CurrentLineIndex & ": Invalid component count, expected " & LineDataFieldCount & ", got " & CurrentLine.Length)

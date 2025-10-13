@@ -179,7 +179,7 @@ Class MainWindow
                 End If
 
                 'Extract components
-                CurrentLine = Split(CurrentLineRaw, ",")
+                CurrentLine = Split(CurrentLineRaw, ",", LineDataFieldCount)
                 CurrentLineIndex += 1
                 If CurrentLine.Length <> LineDataFieldCount Then
                     AddMessage("行 " & CurrentLineIndex & "处的信息无效: 需要 " & LineDataFieldCount & " 个信息栏位，但只有 " & CurrentLine.Length)
