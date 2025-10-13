@@ -1,0 +1,75 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="钢铁雄心 4 人物信息生成工具" Height="525" Width="735">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" >
+                <Run Text="本工具根据 CSV 格式的人物描述信息，自动生成适用于钢铁雄心 4 的人物信息，包括定义文件、自动招募到指定国家和翻译存根等。"/>
+                <!--<LineBreak/>
+                <LineBreak/>
+                <Run Text="输入文件一行表示一个人物，其格式为："/>
+                <LineBreak/>
+                <Run Text="所属Tag,英文名,中文名,是否为国家领导人,可用的顾问槽位,可用的军官槽位,特质,人物介绍"/>
+                <LineBreak/>
+                <Run Text="各栏位之间使用半角逗号分隔，即使对应栏位没有信息，也请输入一个半角逗号将其留空。请不要在数据区段中加入额外的半角逗号（如果一个角色拥有多个顾问/军官槽位或特质，请使用空格分隔它们）。"/>
+                <LineBreak/>
+                <Run Text="下面以引入一个名为云宝黛西的角色为例："/>
+                <LineBreak/>
+                <Run Text="        EQU,Rainbow Dash,云宝黛西,0,theorist air_chief,corps_commander,rd_trait,闪电天马队代理队长"/>
+                <LineBreak/>
+                <Run Text="        这表示该角色将被归并到名为EQU的Tag中，不能作为国家领导人，可以作为理论家、空军部长或指挥官，特质为 rd_trait，并拥有一些描述"/>
+                <LineBreak/>-->
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="人物描述 CSV 文件路径:" />
+            <Grid Grid.Row="1" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtInputCsv" Grid.Column="0" IsReadOnly="True" IsReadOnlyCaretVisible="True" Margin="0,0,5,0"/>
+                <Button x:Name="btnBrowseInput" Grid.Column="1" Content="浏览(_B)..." Width="55"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Mod 根目录路径:" />
+            <Grid Grid.Row="1" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtModBaseDir" Grid.Column="0" IsReadOnly="True" IsReadOnlyCaretVisible="True" Margin="0,0,5,0"/>
+                <Button x:Name="btnBrowseModBase" Grid.Column="1" Content="浏览(_B)..." Width="55"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnStart" Grid.Column="0" Content="开始(_S)" Height="25" Width="50"/>
+            <Button x:Name="btnHelp" Grid.Column="1" Content="帮助(_H)" Height="25" Width="50" Margin="5,0,0,0"/>
+        </Grid>
+        <ListBox x:Name="lstMessage" Grid.Row="4" Margin="0,10,0,0"/>
+    </Grid>
+</Window>
