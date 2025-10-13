@@ -121,6 +121,7 @@ Module Module1
             'Begin importing
             Dim CharacterInputFileStream As New StreamReader(CharacterInputFilePath)
             Console.WriteLine("Opened character input file """ & CharacterInputFilePath & """")
+            Console.WriteLine("")
             'Enumerate every line
             'Structure:
             '    TAG,NAME_LATIN,NAME_CHS,IS_COUNTRY_LEADER,ADVISOR_SLOTS,ARMY_SLOTS,TRAITS,DESC
@@ -275,6 +276,7 @@ Module Module1
                 Dim CurrentCharacterInfoCHSLocalisationWriter As New StreamWriter(CurrentCharacterInfoCHSLocalisationPath, False, UTF8WithBOM)
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(CurrentCharacterInfoCHSLocalisationContent)
                 'Write localisation key
+                CurrentCharacterInfoFileWriter.WriteLine(" # " & CurrentCharacterNameLatin & " (" & CurrentCharacterNameCHS & ")")
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(" " & CurrentCharacterInternalName & ":0 """ & CurrentCharacterNameCHS & """")
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(" " & CurrentCharacterDescKey & ":0 """ & CurrentCharacterDesc & """")
                 'Close file
