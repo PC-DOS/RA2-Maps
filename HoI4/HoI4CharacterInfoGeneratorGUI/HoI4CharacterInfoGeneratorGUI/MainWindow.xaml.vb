@@ -615,6 +615,7 @@ Class MainWindow
         CharacterInfoList.Add(NewCharacter)
         CurrentCharacterIndex = CharacterInfoList.Count - 1
         RefreshCharacterList()
+        UpdateCharacterInfoPanel(CharacterInfoList(CurrentCharacterIndex))
     End Sub
 
     Private Sub btnSaveCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnSaveCharacter.Click
@@ -624,8 +625,10 @@ Class MainWindow
             Dim NewCharacter As New HoI4CharacterInfo
             CreateCharacterFromCurrentInfoPanel(NewCharacter)
             CharacterInfoList.Add(NewCharacter)
+            CurrentCharacterIndex = CharacterInfoList.Count - 1
         End If
         RefreshCharacterList()
+        UpdateCharacterInfoPanel(CharacterInfoList(CurrentCharacterIndex))
     End Sub
 
     Private Sub btnEditCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnEditCharacter.Click

@@ -81,8 +81,8 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="人物信息编辑" />
             <ScrollViewer Grid.Row="1" Margin="0,5,0,0">
-                <StackPanel Orientation="Vertical">
-                    <Grid Margin="0,0,5,0">
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -90,7 +90,7 @@
                         <TextBlock Grid.Column="0" Text="人物所属国家 Tag:" TextWrapping="Wrap" />
                         <TextBox x:Name="txtCharacterTag" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -98,7 +98,7 @@
                         <TextBlock Grid.Column="0" Text="人物英文名:" TextWrapping="Wrap" />
                         <TextBox x:Name="txtCharacterNameLatin" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -106,7 +106,7 @@
                         <TextBlock Grid.Column="0" Text="人物中文名:" TextWrapping="Wrap" />
                         <TextBox x:Name="txtCharacterNameCHS" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -114,7 +114,7 @@
                         <TextBlock Grid.Column="0" Text="是国家领导人:" TextWrapping="Wrap" />
                         <CheckBox x:Name="chkCharacterIsCountryLeader" Content="" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -137,7 +137,7 @@
                             </Grid>
                         </WrapPanel>
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -145,7 +145,7 @@
                         <TextBlock Grid.Column="0" Text="顾问特质 (使用空格分隔):" TextWrapping="Wrap" />
                         <TextBox x:Name="txtCharacterAdvisorTraits" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -165,7 +165,7 @@
                             </Grid>
                         </WrapPanel>
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
@@ -173,7 +173,7 @@
                         <TextBlock Grid.Column="0" Text="军官特质 (使用空格分隔):" TextWrapping="Wrap" />
                         <TextBox x:Name="txtCharacterArmyTraits" Grid.Column="1" />
                     </Grid>
-                    <Grid Margin="0,5,5,0">
+                    <Grid Margin="0,5,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="5*" />
