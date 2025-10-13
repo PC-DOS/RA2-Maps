@@ -2,7 +2,7 @@
 
 Module Module1
     'Debug const
-    Const IsDebugging As Boolean = True
+    Const IsDebugging As Boolean = False
     'Path constants
     Const ModCharacterInfoDirRelativePath As String = "common\characters\"
     Const ModCountryHistoryDirRelativePath As String = "history\countries\"
@@ -16,6 +16,12 @@ Module Module1
         End If
     End Sub
 
+    ''' <summary>
+    ''' Replace invalid characters to "_"
+    ''' </summary>
+    ''' <param name="LatinName"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function RemoveInvalidCharInHoI4CharaterInternalName(LatinName As String) As String
         Dim ValidCharacters As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
         Dim Result As String = ""
@@ -29,6 +35,13 @@ Module Module1
         Return Result
     End Function
 
+    ''' <summary>
+    ''' Generate specified count of white spaces
+    ''' </summary>
+    ''' <param name="WhiteSpaceCount"></param>
+    ''' <param name="Multiplier"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function GenerateWhiteSpaces(WhiteSpaceCount As Integer, Optional Multiplier As Integer = 1) As String
         Dim Result As String = ""
         For i = 1 To (WhiteSpaceCount * Multiplier)
@@ -37,6 +50,14 @@ Module Module1
         Return Result
     End Function
 
+    ''' <summary>
+    ''' File file with specified leading pattern in its file name.
+    ''' </summary>
+    ''' <param name="FilePath">Path to operate on</param>
+    ''' <param name="LeadingName">Leading pattern in file name</param>
+    ''' <param name="FileSuffix">Suffix (extension name) of the file</param>
+    ''' <returns>Full path of the file, only 1 result. Returns empty if no matching was found</returns>
+    ''' <remarks></remarks>
     Private Function FindFileWithLeadingName(FilePath As String, LeadingName As String, Optional FileSuffix As String = "") As String
         Dim FileNameList As List(Of String) = Directory.EnumerateFiles(FilePath, LeadingName & "*" & FileSuffix).ToList()
         'Full path is contained in the list
@@ -46,6 +67,7 @@ Module Module1
             Return ""
         End If
     End Function
+
     Sub Main()
         Dim CmdArg As List(Of String) = My.Application.CommandLineArgs.ToList()
 
@@ -124,6 +146,7 @@ Module Module1
                 CurrentLineIndex += 1
                 If CurrentLine.Length <> LineDataFieldCount Then
                     Console.WriteLine("Invalid line at line " & CurrentLineIndex & ": Invalid component count, expected " & LineDataFieldCount & ", got " & CurrentLine.Length)
+                    Console.WriteLine("Expected line format: TAG, NAME_LATIN, NAME_CHS, IS_COUNTRY_LEADER, ADVISOR_SLOTS, ARMY_SLOTS, TRAITS,DESC")
                     Continue While
                 End If
                 Dim CurrentCharacterTag As String = CurrentLine(0).Trim().ToUpper()
