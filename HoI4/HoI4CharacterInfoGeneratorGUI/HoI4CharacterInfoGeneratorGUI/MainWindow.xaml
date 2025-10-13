@@ -1,18 +1,19 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="钢铁雄心 4 人物信息生成工具" Height="525" Width="735">
+    Title="钢铁雄心 4 人物信息生成工具" Height="545" Width="735" MinHeight="545" MinWidth="735">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <TextBlock TextWrapping="Wrap" TextAlignment="Justify" >
-                <Run Text="本工具根据 CSV 格式的人物描述信息，自动生成适用于钢铁雄心 4 的人物信息，包括定义文件、自动招募到指定国家和翻译存根等。"/>
+                <Run Text="本工具根据 CSV 格式的人物描述信息，自动生成适用于钢铁雄心 4 的人物信息，包括定义文件、自动招募到指定国家和翻译存根等。您也可以通过图形化的界面直接编辑这些信息。"/>
                 <!--<LineBreak/>
                 <LineBreak/>
                 <Run Text="输入文件一行表示一个人物，其格式为："/>
@@ -67,9 +68,135 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnStart" Grid.Column="0" Content="开始(_S)" Height="25" Width="50"/>
-            <Button x:Name="btnHelp" Grid.Column="1" Content="帮助(_H)" Height="25" Width="50" Margin="5,0,0,0"/>
+            <Button x:Name="btnStart" Grid.Column="0" Content="开始生成人物信息(_S)" Height="25" Width="125"/>
+            <Button x:Name="btnSaveInputCsv" Grid.Column="1" Content="保存当前数据(_V)" Height="25" Width="150" Margin="5,0,0,0"/>
+            <Button x:Name="btnSaveInputCsvCopy" Grid.Column="2" Content="保存当前数据为副本(_P)" Height="25" Width="150" Margin="5,0,0,0"/>
+            <Button x:Name="btnHelp" Grid.Column="3" Content="帮助(_H)" Height="25" Width="50" Margin="5,0,0,0"/>
         </Grid>
-        <ListBox x:Name="lstMessage" Grid.Row="4" Margin="0,10,0,0"/>
+        <Grid Grid.Row="4" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="人物信息编辑" />
+            <ScrollViewer Grid.Row="1" Margin="0,5,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Grid Margin="0,0,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="人物所属国家 Tag:" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterTag" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="人物英文名:" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterNameLatin" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="人物中文名:" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterNameCHS" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="是国家领导人:" TextWrapping="Wrap" />
+                        <CheckBox x:Name="chkCharacterIsCountryLeader" Content="" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="顾问槽位:" TextWrapping="Wrap" />
+                        <WrapPanel Grid.Column="1">
+                            <CheckBox x:Name="chkPoliticalAdvisor" Content="政治顾问 (political__advisor)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkTheorist" Content="理论家 (theorist)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkArmyChief" Content="陆军部长 (army__chief)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkNavyChief" Content="海军部长 (navy__chief)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkAirChief" Content="空军部长 (air__chief)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkHighCommand" Content="总司令 (high__command)" Margin="0,0,5,0" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="自定义 (使用空格分隔槽位): " />
+                                <TextBox x:Name="txtCharacterAdvisorSlots" Grid.Column="1" MinWidth="245" />
+                            </Grid>
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="顾问特质 (使用空格分隔):" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterAdvisorTraits" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="军官角色:" TextWrapping="Wrap" />
+                        <WrapPanel Grid.Column="1">
+                            <CheckBox x:Name="chkCorpsCommander" Content="陆军将领 (corps__commander)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkFieldMarshal" Content="陆军元帅 (field__marshal)" Margin="0,0,5,0" />
+                            <CheckBox x:Name="chkNavyLeader" Content="海军将领 (navy__leader)" Margin="0,0,5,0" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="自定义 (使用空格分隔角色): " />
+                                <TextBox x:Name="txtCharacterArmySlots" Grid.Column="1" MinWidth="245" />
+                            </Grid>
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="军官特质 (使用空格分隔):" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterArmyTraits" Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,5,5,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="人物介绍:" TextWrapping="Wrap" />
+                        <TextBox x:Name="txtCharacterDesc" Grid.Column="1" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" MinHeight="45" />
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Row="2" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="lstCharacters" Grid.Column="0"/>
+                <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5,0,0,0" >
+                    <Button x:Name="btnAddCharacter" Content="添加人物(_A)" />
+                    <Button x:Name="btnEditCharacter" Content="编辑人物(_E)" Margin="0,5,0,0" />
+                    <Button x:Name="btnSaveCharacter" Content="保存人物(_T)" Margin="0,5,0,0" />
+                    <Button x:Name="btnRemoveCharacter" Content="移除人物(_D)" Margin="0,5,0,0" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <ListBox x:Name="lstMessage" Grid.Row="5" Margin="0,10,0,0"/>
     </Grid>
 </Window>

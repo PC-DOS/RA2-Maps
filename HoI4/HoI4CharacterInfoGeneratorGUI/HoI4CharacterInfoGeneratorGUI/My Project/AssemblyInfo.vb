@@ -11,10 +11,10 @@ Imports System.Windows
 
 ' 檢閱組件屬性的值
 
-<Assembly: AssemblyTitle("钢铁雄心 4 人物信息生成工具")> 
-<Assembly: AssemblyDescription("钢铁雄心 4 人物信息生成工具")> 
+<Assembly: AssemblyTitle("钢铁雄心 4 人物信息编辑与生成工具")> 
+<Assembly: AssemblyDescription("钢铁雄心 4 人物信息编辑与生成工具")> 
 <Assembly: AssemblyCompany("PC-DOS Workshop")> 
-<Assembly: AssemblyProduct("钢铁雄心 4 人物信息生成工具")> 
+<Assembly: AssemblyProduct("钢铁雄心 4 人物信息编辑与生成工具")> 
 <Assembly: AssemblyCopyright("Copyright © 2013-2025 PC-DOS Workshop")> 
 <Assembly: AssemblyTrademark("PC-DOS Workshop")> 
 

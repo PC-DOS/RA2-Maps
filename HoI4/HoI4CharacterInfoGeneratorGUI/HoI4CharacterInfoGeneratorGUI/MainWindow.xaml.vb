@@ -11,11 +11,13 @@ Class MainWindow
     Const ModCharacterInfoCHSLocalisationFileName As String = "{TAG}_characters_l_simp_chinese.yml"
 
     'Public variable
-    Dim InputCsvPath As String
-    Dim OutputDiectory As String
+    Dim InputCsvPath As String = ""
+    Dim OutputDiectory As String = ""
     Dim EmptyList As New List(Of String)
     Dim MessageList As New List(Of String)
-    Dim IsLogginEnabled As Boolean = True
+    Dim CharacterTextList As New List(Of String)
+    Dim CharacterInfoList As New List(Of HoI4CharacterInfo)
+    Dim CurrentCharacterIndex As Integer = -1
 
     Private Sub CheckAndCreateDirectories(DirPath As String)
         If Not Directory.Exists(DirPath) Then
@@ -75,6 +77,28 @@ Class MainWindow
         End If
     End Function
 
+    Private Sub LoadCharacterInfo()
+        'Parse CSV file
+        CharacterInfoList.Clear()
+        RefreshCharacterList()
+        Try
+            Dim CsvReader As New StreamReader(InputCsvPath)
+            While Not CsvReader.EndOfStream
+                Dim CurrentLine As String = CsvReader.ReadLine()
+                Dim CurrentCharacter As New HoI4CharacterInfo
+                Try
+                    CurrentCharacter.FromCsvInfoLine(CurrentLine)
+                    CharacterInfoList.Add(CurrentCharacter)
+                    RefreshCharacterList()
+                Catch ex As Exception
+
+                End Try
+            End While
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub btnBrowseInput_Click(sender As Object, e As RoutedEventArgs) Handles btnBrowseInput.Click
         Dim FileBrowser As New OpenFileDialog
         With FileBrowser
@@ -85,6 +109,7 @@ Class MainWindow
             InputCsvPath = FileBrowser.FileName
             txtInputCsv.Text = InputCsvPath
         End If
+        LoadCharacterInfo()
     End Sub
 
     Private Sub btnBrowseModBase_Click(sender As Object, e As RoutedEventArgs) Handles btnBrowseModBase.Click
@@ -111,13 +136,46 @@ Class MainWindow
         lstMessage.SelectedIndex = lstMessage.Items.Count - 1
         lstMessage.ScrollIntoView(lstMessage.SelectedItem)
     End Sub
+    Sub RefreshCharacterList()
+        CharacterTextList.Clear()
+        For Each CurrentCharacter As HoI4CharacterInfo In CharacterInfoList
+            CharacterTextList.Add(CurrentCharacter.ToListLine())
+        Next
+        lstCharacters.ItemsSource = EmptyList
+        lstCharacters.ItemsSource = CharacterTextList
+        DoEvents()
+    End Sub
     Sub LockUI()
         btnBrowseInput.IsEnabled = False
         btnBrowseModBase.IsEnabled = False
         txtInputCsv.IsEnabled = False
         txtModBaseDir.IsEnabled = False
         btnStart.IsEnabled = False
+        btnSaveInputCsv.IsEnabled = False
+        btnSaveInputCsvCopy.IsEnabled = False
         btnHelp.IsEnabled = False
+        txtCharacterTag.IsEnabled = False
+        txtCharacterNameLatin.IsEnabled = False
+        txtCharacterNameCHS.IsEnabled = False
+        chkCharacterIsCountryLeader.IsEnabled = False
+        chkPoliticalAdvisor.IsEnabled = False
+        chkTheorist.IsEnabled = False
+        chkArmyChief.IsEnabled = False
+        chkNavyChief.IsEnabled = False
+        chkAirChief.IsEnabled = False
+        txtCharacterAdvisorSlots.IsEnabled = False
+        txtCharacterAdvisorTraits.IsEnabled = False
+        chkCorpsCommander.IsEnabled = False
+        chkFieldMarshal.IsEnabled = False
+        chkNavyLeader.IsEnabled = False
+        txtCharacterArmySlots.IsEnabled = False
+        txtCharacterArmyTraits.IsEnabled = False
+        txtCharacterDesc.IsEnabled = False
+        lstCharacters.IsEnabled = False
+        btnAddCharacter.IsEnabled = False
+        btnEditCharacter.IsEnabled = False
+        btnSaveCharacter.IsEnabled = False
+        btnRemoveCharacter.IsEnabled = False
     End Sub
     Sub UnlockUI()
         btnBrowseInput.IsEnabled = True
@@ -125,11 +183,46 @@ Class MainWindow
         txtInputCsv.IsEnabled = True
         txtModBaseDir.IsEnabled = True
         btnStart.IsEnabled = True
+        btnSaveInputCsv.IsEnabled = True
+        btnSaveInputCsvCopy.IsEnabled = True
         btnHelp.IsEnabled = True
+        txtCharacterTag.IsEnabled = True
+        txtCharacterNameLatin.IsEnabled = True
+        txtCharacterNameCHS.IsEnabled = True
+        chkCharacterIsCountryLeader.IsEnabled = True
+        chkPoliticalAdvisor.IsEnabled = True
+        chkTheorist.IsEnabled = True
+        chkArmyChief.IsEnabled = True
+        chkNavyChief.IsEnabled = True
+        chkAirChief.IsEnabled = True
+        txtCharacterAdvisorSlots.IsEnabled = True
+        txtCharacterAdvisorTraits.IsEnabled = True
+        chkCorpsCommander.IsEnabled = True
+        chkFieldMarshal.IsEnabled = True
+        chkNavyLeader.IsEnabled = True
+        txtCharacterArmySlots.IsEnabled = True
+        txtCharacterArmyTraits.IsEnabled = True
+        txtCharacterDesc.IsEnabled = True
+        lstCharacters.IsEnabled = True
+        btnAddCharacter.IsEnabled = True
+        btnEditCharacter.IsEnabled = True
+        btnSaveCharacter.IsEnabled = True
+        btnRemoveCharacter.IsEnabled = True
     End Sub
 
     Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
+        'Save current CSV
+        If Not SaveInputCsv() Then
+            Return
+        End If
+
         LockUI()
+
+        If InputCsvPath.Trim() = "" Or OutputDiectory.Trim() = "" Then
+            MessageBox.Show("输入文件或输出路径无效。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            UnlockUI()
+            Return
+        End If
 
         Dim CharacterInputFilePath As String = InputCsvPath
         Dim ModBaseDir As String = OutputDiectory
@@ -346,5 +439,223 @@ Class MainWindow
                         vbTab & vbTab & "将被归并到名为EQU的Tag中" & vbCrLf & _
                         vbTab & vbTab & "描述为""闪电天马队代理队长""", _
                         "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Function SaveInputCsv(Optional SaveAsCopy As Boolean = False) As Boolean
+        If InputCsvPath.Trim() = "" Or SaveAsCopy Then
+            Dim FileBrowser As New SaveFileDialog
+            With FileBrowser
+                .Title = "请指定人物描述文件的保存位置"
+            End With
+            If FileBrowser.ShowDialog() = Forms.DialogResult.OK Then
+                InputCsvPath = FileBrowser.FileName
+                txtInputCsv.Text = InputCsvPath
+            Else
+                Return False
+            End If
+        End If
+        'Export CSV file
+        Try
+            Dim UTF8WithoutBOM As System.Text.UTF8Encoding = New System.Text.UTF8Encoding(False)
+            Dim CsvOutputFile As New StreamWriter(InputCsvPath, False, UTF8WithoutBOM)
+            For Each CurrentCharacter In CharacterInfoList
+                CsvOutputFile.WriteLine(CurrentCharacter.ToCsvInfoLine())
+            Next
+            CsvOutputFile.Close()
+        Catch ex As Exception
+
+        End Try
+        'Reload
+        LoadCharacterInfo()
+
+        Return True
+    End Function
+
+    Private Sub btnSaveInputCsv_Click(sender As Object, e As RoutedEventArgs) Handles btnSaveInputCsv.Click
+        SaveInputCsv()
+    End Sub
+
+    Private Sub btnSaveInputCsvCopy_Click(sender As Object, e As RoutedEventArgs) Handles btnSaveInputCsvCopy.Click
+        SaveInputCsv(True)
+    End Sub
+
+    Private Sub UpdateCharacterInfoPanel(CharacterInfo As HoI4CharacterInfo)
+        txtCharacterTag.Text = CharacterInfo.CountryTag
+        txtCharacterNameLatin.Text = CharacterInfo.NameLatin
+        txtCharacterNameCHS.Text = CharacterInfo.NameCHS
+        chkCharacterIsCountryLeader.IsChecked = CharacterInfo.IsCountryLeader
+        'Advisor
+        chkPoliticalAdvisor.IsChecked = False
+        chkTheorist.IsChecked = False
+        chkArmyChief.IsChecked = False
+        chkNavyChief.IsChecked = False
+        chkAirChief.IsChecked = False
+        chkHighCommand.IsChecked = False
+        txtCharacterAdvisorSlots.Text = ""
+        For Each CurrentSlot In CharacterInfo.AdvisorSlots
+            If CurrentSlot = "political_advisor" Then
+                chkPoliticalAdvisor.IsChecked = True
+            elseif CurrentSlot = "theorist" Then
+            chkTheorist.IsChecked = True
+            ElseIf CurrentSlot = "army_chief" Then
+                chkArmyChief.IsChecked = True
+            ElseIf CurrentSlot = "navy_chief" Then
+                chkNavyChief.IsChecked = True
+            ElseIf CurrentSlot = "air_chief" Then
+                chkAirChief.IsChecked = True
+            ElseIf CurrentSlot = "high_command" Then
+                chkHighCommand.IsChecked = True
+            Else
+                txtCharacterAdvisorSlots.Text = txtCharacterAdvisorSlots.Text & CurrentSlot
+            End If
+        Next
+        txtCharacterAdvisorSlots.Text = txtCharacterAdvisorSlots.Text.Trim()
+        txtCharacterAdvisorTraits.Text = ""
+        For Each CurrentTrait In CharacterInfo.AdvisorTraits
+            txtCharacterAdvisorTraits.Text = txtCharacterAdvisorTraits.Text & CurrentTrait
+        Next
+        txtCharacterAdvisorTraits.Text = txtCharacterAdvisorTraits.Text.Trim()
+        'Army
+        chkCorpsCommander.IsChecked = False
+        chkFieldMarshal.IsChecked = False
+        chkNavyLeader.IsChecked = False
+        txtCharacterArmySlots.Text = ""
+        For Each CurrentSlot In CharacterInfo.ArmySlots
+            If CurrentSlot = "corps_commander" Then
+                chkCorpsCommander.IsChecked = True
+            ElseIf CurrentSlot = "field_marshal" Then
+                chkFieldMarshal.IsChecked = True
+            ElseIf CurrentSlot = "navy_leader" Then
+                chkNavyLeader.IsChecked = True
+            Else
+                txtCharacterArmySlots.Text = txtCharacterArmySlots.Text & CurrentSlot
+            End If
+        Next
+        txtCharacterArmySlots.Text = txtCharacterArmySlots.Text.Trim()
+        txtCharacterArmyTraits.Text = ""
+        For Each CurrentTrait In CharacterInfo.ArmyTraits
+            txtCharacterArmyTraits.Text = txtCharacterArmyTraits.Text & CurrentTrait
+        Next
+        txtCharacterArmyTraits.Text = txtCharacterArmyTraits.Text.Trim()
+        'Description
+        txtCharacterDesc.Text = CharacterInfo.Description
+    End Sub
+
+    Private Function CreateCharacterFromCurrentInfoPanel(CharacterInfo As HoI4CharacterInfo) As HoI4CharacterInfo
+        CharacterInfo.CountryTag = txtCharacterTag.Text.Trim().ToUpper()
+        CharacterInfo.NameLatin = txtCharacterNameLatin.Text.Trim()
+        CharacterInfo.NameCHS = txtCharacterNameCHS.Text.Trim
+        CharacterInfo.IsCountryLeader = chkCharacterIsCountryLeader.IsChecked
+        'Advisor
+        CharacterInfo.AdvisorSlots.Clear()
+        If chkPoliticalAdvisor.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("political_advisor")
+        End If
+        If chkTheorist.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("theorist")
+        End If
+        If chkArmyChief.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("army_chief")
+        End If
+        If chkNavyChief.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("navy_chief")
+        End If
+        If chkAirChief.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("air_chief")
+        End If
+        If chkHighCommand.IsChecked Then
+            CharacterInfo.AdvisorSlots.Add("high_command")
+        End If
+        Dim TempList() As String = txtCharacterAdvisorSlots.Text.Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        For Each CurrentStr As String In TempList
+            If Not CharacterInfo.AdvisorSlots.Contains(CurrentStr) Then
+                CharacterInfo.AdvisorSlots.Add(CurrentStr)
+            End If
+        Next
+        TempList = txtCharacterAdvisorTraits.Text.Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        CharacterInfo.AdvisorTraits.Clear()
+        For Each CurrentStr As String In TempList
+            If Not CharacterInfo.AdvisorTraits.Contains(CurrentStr) Then
+                CharacterInfo.AdvisorTraits.Add(CurrentStr)
+            End If
+        Next
+        'Army
+        CharacterInfo.ArmySlots.Clear()
+        If chkCorpsCommander.IsChecked Then
+            CharacterInfo.ArmySlots.Add("corps_commander")
+        End If
+        If chkTheorist.IsChecked Then
+            CharacterInfo.ArmySlots.Add("field_marshal")
+        End If
+        If chkNavyLeader.IsChecked Then
+            CharacterInfo.ArmySlots.Add("navy_leader")
+        End If
+        TempList = txtCharacterArmySlots.Text.Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        For Each CurrentStr As String In TempList
+            If Not CharacterInfo.ArmySlots.Contains(CurrentStr) Then
+                CharacterInfo.ArmySlots.Add(CurrentStr)
+            End If
+        Next
+        TempList = txtCharacterArmyTraits.Text.Trim().Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        CharacterInfo.ArmyTraits.Clear()
+        For Each CurrentStr As String In TempList
+            If Not CharacterInfo.ArmyTraits.Contains(CurrentStr) Then
+                CharacterInfo.ArmyTraits.Add(CurrentStr)
+            End If
+        Next
+        'Description
+        CharacterInfo.Description = txtCharacterDesc.Text.Trim()
+
+        Return CharacterInfo
+    End Function
+
+    Private Sub btnAddCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnAddCharacter.Click
+        Dim NewCharacter As New HoI4CharacterInfo
+        CreateCharacterFromCurrentInfoPanel(NewCharacter)
+        CharacterInfoList.Add(NewCharacter)
+        CurrentCharacterIndex = CharacterInfoList.Count - 1
+        RefreshCharacterList()
+    End Sub
+
+    Private Sub btnSaveCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnSaveCharacter.Click
+        If CurrentCharacterIndex >= 0 And CurrentCharacterIndex < CharacterInfoList.Count Then
+            CreateCharacterFromCurrentInfoPanel(CharacterInfoList(CurrentCharacterIndex))
+        Else
+            Dim NewCharacter As New HoI4CharacterInfo
+            CreateCharacterFromCurrentInfoPanel(NewCharacter)
+            CharacterInfoList.Add(NewCharacter)
+        End If
+        RefreshCharacterList()
+    End Sub
+
+    Private Sub btnEditCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnEditCharacter.Click
+        If lstCharacters.SelectedIndex >= 0 Then
+            CurrentCharacterIndex = lstCharacters.SelectedIndex
+            UpdateCharacterInfoPanel(CharacterInfoList(CurrentCharacterIndex))
+        End If
+        RefreshCharacterList()
+    End Sub
+
+    Private Sub btnRemoveCharacter_Click(sender As Object, e As RoutedEventArgs) Handles btnRemoveCharacter.Click
+        If lstCharacters.SelectedIndex >= 0 Then
+            Dim RemovedIndex As Integer = lstCharacters.SelectedIndex
+            If MessageBox.Show("确定删除该人物吗？" & vbCrLf & vbCrLf & CharacterTextList(RemovedIndex), "删除人物", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Forms.DialogResult.Yes Then
+                CharacterInfoList.RemoveAt(RemovedIndex)
+                If CurrentCharacterIndex > RemovedIndex Then
+                    CurrentCharacterIndex -= 1
+                ElseIf CurrentCharacterIndex = RemovedIndex Then
+                    CurrentCharacterIndex = -1
+                End If
+            End If
+        End If
+        RefreshCharacterList()
+    End Sub
+
+    Private Sub lstCharacters_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles lstCharacters.MouseDoubleClick
+        If lstCharacters.SelectedIndex >= 0 Then
+            CurrentCharacterIndex = lstCharacters.SelectedIndex
+            UpdateCharacterInfoPanel(CharacterInfoList(CurrentCharacterIndex))
+        End If
+        RefreshCharacterList()
     End Sub
 End Class
