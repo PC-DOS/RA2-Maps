@@ -68,6 +68,24 @@ Module Module1
         End If
     End Function
 
+    Private Sub PrintHelp()
+        Console.WriteLine("钢铁雄心 4 人物信息生成工具")
+        Console.WriteLine("PC-DOS Workshop")
+        Console.WriteLine("")
+        Console.WriteLine("根据输入的CSV文件生成适用于钢铁雄心 4 的人物信息，包括定义文件、自动招募到指定国家和翻译存根等。")
+        Console.WriteLine("调用格式：")
+        Console.WriteLine("HoI4CharacterInfoGenerator [InputFilePath] [ModBasePath]")
+        Console.WriteLine("    InputFilePath：输入文件的路径，一行表示一个人物，其格式为：")
+        Console.WriteLine("        所属Tag,英文名,中文名,是否为国家领导人,可用的顾问槽位,可用的军官槽位,特质,人物介绍")
+        Console.WriteLine("        各栏位之间使用半角逗号分隔，即使对应栏位没有信息，也请输入一个半角逗号将其留空。")
+        Console.WriteLine("        请不要在数据区段中加入额外的半角逗号（如果一个角色拥有多个顾问/军官槽位或特质，请使用空格分隔它们）。")
+        Console.WriteLine("        下面以引入一个名为云宝黛西的角色为例：")
+        Console.WriteLine("            EQU,Rainbow Dash,云宝黛西,0,theorist air_chief,corps_commander,rainbow_dash_trait,闪电天马队代理队长")
+        Console.WriteLine("            这表示该角色将被归并到名为EQU的Tag中，不能作为国家领导人，可以作为理论家、空军部长或指挥官，特质为rainbow_dash_trait，并拥有一些描述")
+        Console.WriteLine("    ModBasePath：您的Mod文件的根路径，通常是""descriptor.mod""文件所在的路径")
+        Console.WriteLine("")
+    End Sub
+
     Sub Main()
         Dim CmdArg As List(Of String) = My.Application.CommandLineArgs.ToList()
 
@@ -84,6 +102,11 @@ Module Module1
             Console.WriteLine("")
         ElseIf CmdArg.Count = 1 Then
             CharacterInputFilePath = CmdArg(0)
+            'Check if user is seeking help
+            If CharacterInputFilePath = "/?" Or CharacterInputFilePath.ToUpper = "/HELP" Or CharacterInputFilePath.ToUpper = "/H" Then
+                PrintHelp()
+                Return
+            End If
             Console.WriteLine("Please input the base path of your Mod.")
             ModBaseDir = Console.ReadLine()
             Console.WriteLine("")
@@ -276,7 +299,7 @@ Module Module1
                 Dim CurrentCharacterInfoCHSLocalisationWriter As New StreamWriter(CurrentCharacterInfoCHSLocalisationPath, False, UTF8WithBOM)
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(CurrentCharacterInfoCHSLocalisationContent)
                 'Write localisation key
-                CurrentCharacterInfoFileWriter.WriteLine(" # " & CurrentCharacterNameLatin & " (" & CurrentCharacterNameCHS & ")")
+                CurrentCharacterInfoCHSLocalisationWriter.WriteLine(" # " & CurrentCharacterNameLatin & " (" & CurrentCharacterNameCHS & ")")
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(" " & CurrentCharacterInternalName & ":0 """ & CurrentCharacterNameCHS & """")
                 CurrentCharacterInfoCHSLocalisationWriter.WriteLine(" " & CurrentCharacterDescKey & ":0 """ & CurrentCharacterDesc & """")
                 'Close file
