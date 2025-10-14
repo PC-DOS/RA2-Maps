@@ -38,13 +38,13 @@ sub_units = {
         hard_attack = 0.5
         air_attack = 4.5
         ap_attack = 0.5
-        breakthrough = 2.45
+        breakthrough = 0.45
         
         # Defensive
-        defense = 5
+        defense = 4.5
 
         #Misc Abilities
-        maximum_speed = 12.45
+        maximum_speed = 24.5
         training_time = 130
         suppression = 2.2
         weight = 0.5
