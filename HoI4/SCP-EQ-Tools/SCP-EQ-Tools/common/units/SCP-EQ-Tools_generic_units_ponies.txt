@@ -29,7 +29,7 @@ sub_units = {
         #Size Definitions
         max_strength = 20
         max_organisation = 70
-        default_morale = 5
+        default_morale = 45
         manpower = 5
         
         # Offensive
