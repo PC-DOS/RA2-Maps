@@ -29,22 +29,22 @@ sub_units = {
         #Size Definitions
         max_strength = 20
         max_organisation = 70
-        default_morale = 0
+        default_morale = 5
         manpower = 5
         
         # Offensive
         attack = 0.25
         soft_attack = 1.25
         hard_attack = 0.5
-        air_attack = 10
+        air_attack = 4.5
         ap_attack = 0.5
-        breakthrough = 0.4
+        breakthrough = 2.45
         
         # Defensive
         defense = 5
 
         #Misc Abilities
-        maximum_speed = 25
+        maximum_speed = 12.45
         training_time = 130
         suppression = 2.2
         weight = 0.5
