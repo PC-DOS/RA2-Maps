@@ -36,12 +36,12 @@ sub_units = {
         attack = 0.25
         soft_attack = 1.25
         hard_attack = 0.5
-        air_attack = 4.5
+        air_attack = 2.45
         ap_attack = 0.5
         breakthrough = 2.45
         
         # Defensive
-        defense = 5
+        defense = 2.45
 
         #Misc Abilities
         maximum_speed = 12.45
