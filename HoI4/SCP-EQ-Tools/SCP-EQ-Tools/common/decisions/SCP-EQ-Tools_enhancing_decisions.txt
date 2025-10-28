@@ -3303,6 +3303,46 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_allies_add_industrial_complex_random = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    OR = {
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                random_controlled_state = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_allies_add_infrastructure_onekey = {
         allowed = {
             # Always allowed
@@ -6057,6 +6097,40 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             remove_ideas = ai_disabled_production
             country_lock_all_division_template = no
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_allies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_TFR_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    OR = {
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                remove_ideas = ai_disabled_production
+                country_lock_all_division_template = no
+            }
         }
     }
     

@@ -217,6 +217,8 @@
  SCP-EQ-Tools_enhancing_decisions_allies_and_countries_with_our_volunteers_enable_SCP_items_desc:0 "这个三锅焗面呢，我们就要组成孙刘联盟啊"
  SCP-EQ-Tools_enhancing_decisions_allies_and_countries_with_our_volunteers_disable_SCP_items:0 "移除先前为盟友及拥有我方志愿军的国家提供的加强"
  SCP-EQ-Tools_enhancing_decisions_allies_and_countries_with_our_volunteers_disable_SCP_items_desc:0 "这个三锅焗面呢，我们就要打四家的啊"
+ SCP-EQ-Tools_enhancing_decisions_allies_add_industrial_complex_random:0 "（所有盟友）随机建立一座民用工厂"
+ SCP-EQ-Tools_enhancing_decisions_allies_add_industrial_complex_random_desc:0 "发展是硬道理"
  SCP-EQ-Tools_enhancing_decisions_allies_add_infrastructure_onekey:0 "（所有盟友）一键修满基础设施"
  SCP-EQ-Tools_enhancing_decisions_allies_add_infrastructure_onekey_desc:0 "机动建设车"
  SCP-EQ-Tools_enhancing_decisions_allies_add_railway_onekey:0 "（所有盟友）一键修满铁路"
@@ -391,6 +393,8 @@
  SCP-EQ-Tools_enhancing_decisions_TFR_PRC_send_japs_and_its_allies_to_hell_desc:0 "打狗就得斩尽杀绝\n建议不要在大亚洲战争胜利前使用此决议"
  SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country:0 "允许我国在被AI控制时进行自主生产"
  SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country_desc:0 "这个电脑呢它很笨的啊"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_allies:0 "允许我国的盟友在被AI控制时进行自主生产"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_allies_desc:0 "这个电脑呢它很笨的啊"
  # TNO decisions group
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle:0 "切换TNO专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle_desc:0 "切换TNO专用决议可见性"
