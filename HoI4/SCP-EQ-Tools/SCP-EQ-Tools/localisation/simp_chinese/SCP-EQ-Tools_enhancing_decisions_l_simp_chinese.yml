@@ -395,6 +395,8 @@
  SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_this_country_desc:0 "这个电脑呢它很笨的啊"
  SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_allies:0 "允许我国的盟友在被AI控制时进行自主生产"
  SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_allies_desc:0 "这个电脑呢它很笨的啊"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_all_countries:0 "允许所有国家在被AI控制时进行自主生产"
+ SCP-EQ-Tools_enhancing_decisions_TFR_enable_ai_production_for_all_countries_desc:0 "这个电脑呢它很笨的啊"
  # TNO decisions group
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle:0 "切换TNO专用决议可见性"
  SCP-EQ-Tools_enhancing_decisions_TNO_decisions_toggle_desc:0 "切换TNO专用决议可见性"
