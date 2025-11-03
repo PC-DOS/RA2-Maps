@@ -150,6 +150,7 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1_army = {
     org_loss_when_moving = -0.5
     land_night_attack = 2.45
     #initiative_factor = 0.5
+    land_reinforce_rate = 5.0
     special_forces_cap = 25.0
     special_forces_min = 245245
     #special_forces_cap_flat = 25.0
