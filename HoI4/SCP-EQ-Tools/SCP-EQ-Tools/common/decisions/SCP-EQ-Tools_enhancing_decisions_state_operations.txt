@@ -2371,6 +2371,57 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_teleport_exiled_units_to_capital = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_var_unit_owner = THIS }
+                    clear_temp_array = temp_param_arr_teleporting_start_states
+                    clear_temp_array = temp_param_arr_teleporting_target_states
+                    set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 2 }
+                    every_state = {
+                        limit = {
+                            controller = {
+                                NOT = { tag = var:temp_var_unit_owner }
+                                NOT = { has_war_with = var:temp_var_unit_owner }
+                                NOT = { is_ally_with = var:temp_var_unit_owner }
+                                NOT = { is_in_faction_with = var:temp_var_unit_owner }
+                                NOT = { is_puppet_of = var:temp_var_unit_owner }
+                                NOT = { is_subject_of = var:temp_var_unit_owner }
+                                NOT = { 
+                                    has_volunteers_amount_from = {
+                                        tag = var:temp_var_unit_owner
+                                        count > 0
+                                    }
+                                }
+                            }
+                        }
+                        add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+                    }
+                    add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS.capital }
+                    SCP-EQ-Tools_generic_scripted_effects_teleport_armies = yes
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_controllers_remove_wargoal = {
         allowed = {
             # Always allowed
