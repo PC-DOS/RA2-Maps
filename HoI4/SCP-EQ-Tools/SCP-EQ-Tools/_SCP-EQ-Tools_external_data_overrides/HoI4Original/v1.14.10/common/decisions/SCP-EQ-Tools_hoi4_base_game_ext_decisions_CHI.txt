@@ -52,6 +52,9 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     JAP_militarism
                 }
                 load_focus_tree = SCP-EQ-Tools_hoi4_base_game_ext_national_focuses_empty_focus_tree
+                set_politics = {
+                    ruling_party = neutrality
+                }
                 set_popularities = {
                     democratic = 25
                     neutrality = 75
@@ -107,6 +110,9 @@ SCP-EQ-Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     JAP_militarism
                 }
                 load_focus_tree = SCP-EQ-Tools_hoi4_base_game_ext_national_focuses_empty_focus_tree
+                set_politics = {
+                    ruling_party = neutrality
+                }
                 set_popularities = {
                     democratic = 45
                     neutrality = 55
