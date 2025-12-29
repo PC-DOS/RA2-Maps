@@ -7142,6 +7142,12 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                     set_variable = { global.YUN_WI_war_momentum_check = 100 }
                     set_variable = { YUN_legitimate_regime = 1 }
                 }
+                
+                # States administrative efficiency
+                every_controlled_state = {
+                    set_variable = { WI_current_state_officer = WI_state_officer_needed }
+                    YUN_update_state_officers_effects = yes
+                }
             }
         }
     }
