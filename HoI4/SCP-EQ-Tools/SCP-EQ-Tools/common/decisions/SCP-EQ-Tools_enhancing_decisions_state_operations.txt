@@ -967,6 +967,67 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_add_manpower = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_manpower = 24525
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_state_operations_marked_states_loss_manpower = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP-EQ-Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_manpower = -24525
+                controller = {
+                    add_manpower = -24525
+                }
+                # If you killed all pupulation of the target state, the state's population will revert to manpower defined in history/states after save-load sequence
+                if = {
+                    limit = {
+                        state_population_k < 0.001
+                        state_population < 1
+                    }
+                    add_manpower = 1
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_state_operations_add_infrastructure_onekey = {
         allowed = {
             # Always allowed
