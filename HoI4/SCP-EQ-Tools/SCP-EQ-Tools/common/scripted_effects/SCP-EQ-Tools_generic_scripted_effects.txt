@@ -839,7 +839,7 @@ SCP-EQ-Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
             check_variable = { money_reserves > 0 }
         }
         set_temp_variable = { gdp_growth_temp = money_reserves }
-        divide_temp_variable = { gdp_growth_temp = 2.5 }
+        divide_temp_variable = { gdp_growth_temp = 24.5 }
         econ_gdp_growth_change = yes
     }
     set_variable = { money_reserves = 0 }
