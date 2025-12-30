@@ -184,6 +184,9 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                             is_claimed_by = PREV.controller
                             is_core_of = PREV.controller
                         }
+                        NOT = {
+                            is_controlled_by = PREV.controller
+                        }
                     }
                     add_to_temp_array = { temp_arr_target_states = THIS }
                 }
