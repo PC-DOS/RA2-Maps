@@ -851,8 +851,26 @@ SCP-EQ-Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
             }
             divide_temp_variable = { gdp_growth_temp = 24.5 }
         }
-        else = {
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 2450 }
+            }
             divide_temp_variable = { gdp_growth_temp = 245 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 24525 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 2450 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 245245 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 24525 }
+        }
+        else = {
+            divide_temp_variable = { gdp_growth_temp = 245245 }
         }
         econ_gdp_growth_change = yes
     }
