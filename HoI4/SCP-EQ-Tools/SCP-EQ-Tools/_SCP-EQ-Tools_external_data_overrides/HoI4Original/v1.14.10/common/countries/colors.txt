@@ -144,7 +144,7 @@ CAN = {
 CHI = {
 	#color = hsv { 0.18 0.6 0.9 } #255 244 190
 	#color_ui = hsv { 0.18 0.3 0.9 }
-    color = rgb ( 5 85 166 )
+    color = rgb { 5 85 166 }
     color_ui = { 5 85 166 }
 }
 CHL = {
