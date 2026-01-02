@@ -168,9 +168,12 @@ def EnumerateNationalFocuses(sBaseDir : str) -> list :
 
 # Main entry point
 if __name__ == "__main__" :
-    sIdeasOutputDir = "../../common/ideas/"
-    sIdeasOutputFileName = "000_SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
-    CreateDirectory(sIdeasOutputDir)
+    sIdeasTokenDefinitionOutputDir = "../../common/ideas/"
+    sIdeasTokenDefinitionOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
+    CreateDirectory(sIdeasTokenDefinitionOutputDir)
+    sIdeasTokenNationalFocusMappingOutputDir = "../../localisation/simp_chinese/"
+    sIdeasTokenNationalFocusMappingOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.yml"
+    CreateDirectory(sIdeasTokenDefinitionOutputDir)
     sIdeasInitOutputDir = "../../common/scripted_effects/"
     sIdeasInitOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas_init_scripted_effects.txt"
     CreateDirectory(sIdeasInitOutputDir)
@@ -196,20 +199,26 @@ if __name__ == "__main__" :
 
     # Output
     sLineBreak = "\n"
-    with open(sIdeasOutputDir + sIdeasOutputFileName, "w", encoding="utf-8") as filOutputFile :
+    with open(sIdeasTokenDefinitionOutputDir + sIdeasTokenDefinitionOutputFileName, "w", encoding="utf-8") as filOutputFile :
         filOutputFile.write("ideas = {" + sLineBreak)
         filOutputFile.write("    hidden_ideas = {" + sLineBreak)
         for CurrentFocus in arrFocuses :
-            filOutputFile.write("        " + CurrentFocus + " = {}" + sLineBreak)
+            filOutputFile.write("        " + "SCP-EQ-Tools_national_focuses_dummy_ideas_" + CurrentFocus + " = {}" + sLineBreak)
         #Next
         filOutputFile.write("    }" + sLineBreak)
         filOutputFile.write("}" + sLineBreak)
+    #End With
+    with open(sIdeasTokenNationalFocusMappingOutputDir + sIdeasTokenNationalFocusMappingOutputFileName, "w", encoding="utf-8-sig") as filOutputFile :
+        filOutputFile.write("l_simp_chinese:" + sLineBreak)
+        for CurrentFocus in arrFocuses :
+            filOutputFile.write(" " + "SCP-EQ-Tools_national_focuses_dummy_ideas_" + CurrentFocus + ":0 \" " + CurrentFocus + "\"" + sLineBreak)
+        #Next
     #End With
     with open(sIdeasInitOutputDir + sIdeasInitOutputFileName, "w", encoding="utf-8") as filOutputFile :
         filOutputFile.write("SCP-EQ-Tools_national_focuses_dummy_ideas_init_tokens = {" + sLineBreak)
         filOutputFile.write("    clear_array = global.SCP-EQ-Tools_national_focuses_tokens" + sLineBreak)
         for CurrentFocus in arrFocuses :
-            filOutputFile.write("    add_to_array = { global.SCP-EQ-Tools_national_focuses_tokens = token:" + CurrentFocus + " }" + sLineBreak)
+            filOutputFile.write("    add_to_array = { global.SCP-EQ-Tools_national_focuses_tokens = token:SCP-EQ-Tools_national_focuses_dummy_ideas_" + CurrentFocus + " }" + sLineBreak)
         #Next
         filOutputFile.write(sLineBreak)
         filOutputFile.write("    set_global_flag = SCP-EQ-Tools_is_national_focuses_dummy_ideas_tokens_init_done" + sLineBreak)
