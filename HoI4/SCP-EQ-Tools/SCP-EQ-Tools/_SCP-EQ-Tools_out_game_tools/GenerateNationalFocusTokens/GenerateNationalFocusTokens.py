@@ -172,7 +172,7 @@ if __name__ == "__main__" :
     sIdeasTokenDefinitionOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.txt"
     CreateDirectory(sIdeasTokenDefinitionOutputDir)
     sIdeasTokenNationalFocusMappingOutputDir = "../../localisation/simp_chinese/"
-    sIdeasTokenNationalFocusMappingOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas.yml"
+    sIdeasTokenNationalFocusMappingOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas_l_simp_chinese.yml"
     CreateDirectory(sIdeasTokenDefinitionOutputDir)
     sIdeasInitOutputDir = "../../common/scripted_effects/"
     sIdeasInitOutputFileName = "SCP-EQ-Tools_national_focuses_dummy_ideas_init_scripted_effects.txt"
