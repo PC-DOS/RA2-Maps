@@ -54,7 +54,7 @@ SCP-EQ-Tools_national_focuses_dummy_ideas_complete_ongoing_focus = {
         limit = {
             check_variable = { SCP-EQ-Tools_is_current_ongoing_focus_token_valid > 0 }
         }
-        log = "Completing focus [?SCP-EQ-Tools_current_ongoing_focus_token.GetTokenLocalizedKey] ([?SCP-EQ-Tools_current_ongoing_focus_token.GetTokenLocalizedKey])"
+        log = "Completing focus [?SCP-EQ-Tools_current_ongoing_focus_token.GetTokenLocalizedKey]"
         meta_effect = {
             text = {
                 complete_national_focus = [FOCUS_TOKEN]
