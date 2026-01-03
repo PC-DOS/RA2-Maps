@@ -1,0 +1,72 @@
+
+music_station = "one_minute"
+
+music = {
+	song = "one_minute_of_silence"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+
+music = {
+	song = "beethoven5"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+
+music = {
+	song = "TFR_revenge_of_the_red_spectre"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+
+music = {
+	song = "TFR_rise_of_the_dimon"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+
+music = {
+	song = "TFR_the_time_is_now"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+
+music = {
+	song = "TFR_desespoir"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+music = {
+	song = "TFR_schwarzflammen"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
+music = {
+	song = "TFR_hell_march"
+	chance = {
+		modifier = {
+			factor = 0
+		}		
+	}
+}
