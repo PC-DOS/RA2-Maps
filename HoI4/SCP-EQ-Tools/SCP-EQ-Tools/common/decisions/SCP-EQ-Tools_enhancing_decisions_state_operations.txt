@@ -2644,7 +2644,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                 set_temp_variable = { temp_param_nuke_target_tag = controller }
                 set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
                 set_temp_variable = { temp_param_nuke_target_state = THIS }
-                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled }
                 SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = yes
             }
         }
@@ -2674,7 +2674,7 @@ SCP-EQ-Tools_enhancing_decisions_state_operations_category = {
                     set_temp_variable = { temp_param_nuke_target_tag = THIS }
                     set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
                     set_temp_variable = { temp_param_is_every_province_nuked = 1 }
-                    set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                    set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled }
                     SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
                 }
             }

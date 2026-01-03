@@ -3,6 +3,9 @@ on_actions = {
         effect = {
             # Set some global flags
             random_country = {
+                # Advanced nuking
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled = 1 }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
                 # Prevent AI from leaving factions from diplomacy UI by default
                 set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
             }
@@ -47,6 +50,16 @@ on_actions = {
                     limit = {
                         controller = {
                             has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                            OR = {
+                                check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_manpower_part = 0 }
+                                AND = {
+                                    NOT = { tag = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { is_ally_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { is_in_faction_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { is_puppet_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { is_subject_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                }
+                            }
                         }
                     }
                     set_temp_variable = { temp_param_is_side_effect_handled = 1 }
@@ -68,17 +81,34 @@ on_actions = {
                             flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                         }
                     }
-                    set_temp_variable = { temp_damage_to_units = 0.05 }
-                    multiply_temp_variable = { temp_damage_to_units = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    damage_units = {
-                        state = THIS
-                        limit = { has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked }
-                        damage = var:temp_damage_to_units
-                        org_damage = var:temp_damage_to_units
-                        str_damage = var:temp_damage_to_units
-                        ratio = yes
-                        army = yes
-                        navy = yes
+                    # Check if controller is not ally with last nuke sender, or ally immunity is disabled
+                    if = {
+                        limit = {
+                            controller = {
+                                OR = {
+                                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
+                                    AND = {
+                                        NOT = { tag = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_ally_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_in_faction_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_puppet_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_subject_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    }
+                                }
+                            }
+                        }
+                        set_temp_variable = { temp_damage_to_units = 0.05 }
+                        multiply_temp_variable = { temp_damage_to_units = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        damage_units = {
+                            state = THIS
+                            limit = { has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked }
+                            damage = var:temp_damage_to_units
+                            org_damage = var:temp_damage_to_units
+                            str_damage = var:temp_damage_to_units
+                            ratio = yes
+                            army = yes
+                            navy = yes
+                        }
                     }
                 }
             }
@@ -94,31 +124,48 @@ on_actions = {
                             flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                         }
                     }
-                    set_temp_variable = { temp_political_power_damage = -5 }
-                    set_temp_variable = { temp_command_power_damage = -5 }
-                    set_temp_variable = { temp_manpower_damage = -25 }
-                    set_temp_variable = { temp_army_experience_damage = -5 }
-                    set_temp_variable = { temp_navy_experience_damage = -5 }
-                    set_temp_variable = { temp_air_experience_damage = -5 }
-                    set_temp_variable = { temp_stability_damage = -0.05 }
-                    set_temp_variable = { temp_war_support_damage = -0.05 }
-                    multiply_temp_variable = { temp_political_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_command_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_manpower_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_army_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_navy_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_air_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_stability_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    multiply_temp_variable = { temp_war_support_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
-                    controller = {
-                        add_political_power = var:temp_political_power_damage
-                        add_command_power = var:temp_command_power_damage
-                        add_manpower = var:temp_manpower_damage
-                        army_experience = var:temp_army_experience_damage
-                        navy_experience = var:temp_navy_experience_damage
-                        air_experience = var:temp_air_experience_damage
-                        add_stability = var:temp_stability_damage
-                        add_war_support = var:temp_war_support_damage
+                    # Check if controller is not ally with last nuke sender, or ally immunity is disabled
+                    if = {
+                        limit = {
+                            controller = {
+                                OR = {
+                                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
+                                    AND = {
+                                        NOT = { tag = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_ally_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_in_faction_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_puppet_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_subject_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    }
+                                }
+                            }
+                        }
+                        set_temp_variable = { temp_political_power_damage = -5 }
+                        set_temp_variable = { temp_command_power_damage = -5 }
+                        set_temp_variable = { temp_manpower_damage = -25 }
+                        set_temp_variable = { temp_army_experience_damage = -5 }
+                        set_temp_variable = { temp_navy_experience_damage = -5 }
+                        set_temp_variable = { temp_air_experience_damage = -5 }
+                        set_temp_variable = { temp_stability_damage = -0.05 }
+                        set_temp_variable = { temp_war_support_damage = -0.05 }
+                        multiply_temp_variable = { temp_political_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_command_power_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_manpower_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_army_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_navy_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_air_experience_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_stability_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        multiply_temp_variable = { temp_war_support_damage = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        controller = {
+                            add_political_power = var:temp_political_power_damage
+                            add_command_power = var:temp_command_power_damage
+                            add_manpower = var:temp_manpower_damage
+                            army_experience = var:temp_army_experience_damage
+                            navy_experience = var:temp_navy_experience_damage
+                            air_experience = var:temp_air_experience_damage
+                            add_stability = var:temp_stability_damage
+                            add_war_support = var:temp_war_support_damage
+                        }
                     }
                 }
             }
@@ -151,53 +198,11 @@ on_actions = {
             # E.g. another mod's on_monthly effect sets a variable, and we want to clear the variable every month. If we use simple on_monthly effect, we may execute before the variable is set, casuing problems
             set_country_flag = SCP-EQ-Tools_generic_on_actions_new_month_starts
             # Handles "nuclear radiation" effect dealt by SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state
-            # Radiation fades out after 730 days since last nuking
             every_controlled_state = {
-                limit = {
-                    has_state_flag = {
-                        flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                        days > 730
-                    }
-                }
-                #log = "Radiation fades out at [?THIS.GetName], radiation level [?SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-                remove_province_modifier = {
-                    static_modifiers = { SCP-EQ-Tools_province_modifiers_nuked_modifier }
-                    province = {
-                        all_provinces = yes
-                    }
-                }
-                clr_state_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                subtract_from_variable = { SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
-                # If there are accumulated radiation, register for another radiation fading cycle
-                if = {
-                    limit = {
-                        check_variable = { SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
-                    }
-                    #log = "[?THIS.GetName] still have radiation level [?SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-                    set_state_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                }
+                SCP-EQ-Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = yes
             }
             # Check if we need to remove this country's "nuked" flag
-            if = {
-                limit = {
-                    has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
-                }
-                set_temp_variable = { temp_count_nuked_states = 0 }
-                every_controlled_state = {
-                    limit = {
-                        has_state_flag = {
-                            flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                        }
-                    }
-                    add_to_temp_variable = { temp_count_nuked_states = 1 }
-                }
-                if = {
-                    limit = { 
-                        check_variable = { temp_count_nuked_states = 0 }
-                    }
-                    clr_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
-                }
-            }
+            SCP-EQ-Tools_generic_scripted_effects_check_and_set_country_nuked_flag = yes
         }
     }
 }

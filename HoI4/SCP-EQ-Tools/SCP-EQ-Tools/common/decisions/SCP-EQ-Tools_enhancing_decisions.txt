@@ -1978,7 +1978,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 set_temp_variable = { temp_param_nuke_target_tag = THIS }
                 set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
                 set_temp_variable = { temp_param_is_every_province_nuked = 1 }
-                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled }
                 SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
             }
         }
@@ -2614,320 +2614,6 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         active = yes
                     }
                 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
-                limit = {
-                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
-                }
-                if = {
-                    limit = {
-                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
-                    }
-                    # Enable AI volunteer sending and clear global flag
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
-                }
-                else = {
-                    # Disable AI volunteer sending and set global flag
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        every_possible_country = {
-                            limit = {
-                                is_ai = yes
-                            }
-                            recall_volunteers_from = PREV
-                        }
-                    }
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
-                }
-            }
-            else = {
-                # WARNING: You will be faced with a VERY LARGE save file!!!
-                if = {
-                    limit = {
-                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
-                    }
-                    # Enable AI volunteer sending and clear global flag
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        every_possible_country = {
-                            limit = {
-                                OR = {
-                                    is_ai = yes
-                                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                                }
-                            }
-                            remove_relation_rule_override = {
-                                target = PREV
-                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                                can_send_volunteers = no
-                            }
-                            clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                        }
-                    }
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
-                }
-                else = {
-                    # Disable AI volunteer sending and set global flag
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        every_possible_country = {
-                            limit = {
-                                is_ai = yes
-                            }
-                            recall_volunteers_from = PREV
-                            add_relation_rule_override = {
-                                target = PREV
-                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
-                                can_send_volunteers = no
-                            }
-                            set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
-                            #log = "Disabling volunteers from [?THIS] to [?PREV]"
-                        }
-                    }
-                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
-                }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_faction_operation_level = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            # global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level has 3 levels:
-            #    0: AI can operate on factions freely
-            #    1: AI cannot leave or take over factions leading by player, player won't be kicked out from AI-leading factions
-            #    2: AI cannot leave or take over any factions, nor kicking any faction member
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
-                }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
-            }
-            else_if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
-                }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 0 }
-            }
-            else = {
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_guaranteeing = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
-                }
-                # Enable AI guaranteeing and clear global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 0 }
-            }
-            else = {
-                # Disable AI guaranteeing and set global flag
-                every_possible_country = {
-                    limit = {
-                        is_ai = yes
-                    }
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        diplomatic_relation = {
-                            country = PREV
-                            relation = guarantee
-                            active = no
-                        }
-                    }
-                }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_goal_justifying = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 1 }
-                }
-                # Enable AI war actions and clear global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 0 }
-            }
-            else = {
-                # Disable AI war actions and set global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 1 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_declaring = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 1 }
-                }
-                # Enable AI war actions and clear global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 0 }
-            }
-            else = {
-                # Disable AI war actions and set global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 1 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
-                }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 0 }
-            }
-            else = {
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
-            }
-        }
-    }
-    SCP-EQ-Tools_enhancing_decisions_toggle_ai_non_aggression_pacts = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            # Always visible
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            if = {
-                limit = {
-                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 1 }
-                }
-                # Enable AI guaranteeing and clear global flag
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 0 }
-            }
-            else = {
-                # Disable AI guaranteeing and set global flag
-                every_possible_country = {
-                    limit = {
-                        is_ai = yes
-                    }
-                    every_possible_country = {
-                        limit = {
-                            is_ai = yes
-                        }
-                        diplomatic_relation = {
-                            country = PREV
-                            relation = non_aggression_pact
-                            active = no
-                        }
-                    }
-                }
-                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 1 }
             }
         }
     }
@@ -3630,7 +3316,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 set_temp_variable = { temp_param_nuke_target_tag = THIS }
                 set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
                 set_temp_variable = { temp_param_is_every_province_nuked = 1 }
-                set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled }
                 SCP-EQ-Tools_generic_scripted_effects_nuke_all_controlled_states = yes
             }
         }
@@ -5320,6 +5006,543 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                 var:temp_tag_target = {
                     change_tag_from = var:temp_tag_source
                 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_separator_mod_function_and_ai_adjusting = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled = 0 }
+                }
+                # Enable advanced nuking and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled = 1 }
+            }
+            else = {
+                # Disable advanced nuking and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_enabled = 0 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_radiation_time = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 365 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 365 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 180 }
+            }
+            else = {
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_ignores_allies_manpower_part = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_manpower_part = 0 }
+                }
+                # Enable advanced nuking ignores allies (manpower part) and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_manpower_part = 1 }
+            }
+            else = {
+                # Disable advanced nuking ignores allies (manpower part) and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_manpower_part = 0 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_ignores_allies_misc_part = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
+                }
+                # Enable advanced nuking ignores allies (misc part) and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 1 }
+            }
+            else = {
+                # Disable advanced nuking ignores allies (misc part) and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_clear_radiation_self = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                SCP-EQ-Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = yes
+            }
+            SCP-EQ-Tools_generic_scripted_effects_check_and_set_country_nuked_flag = yes
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_clear_radiation_allies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    tag = ROOT
+                    is_ally_with = ROOT
+                    is_in_faction_with = ROOT
+                    is_puppet_of = ROOT
+                    is_subject_of = ROOT
+                }
+                every_controlled_state = {
+                    SCP-EQ-Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = yes
+                }
+                SCP-EQ-Tools_generic_scripted_effects_check_and_set_country_nuked_flag = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_advanced_nuking_clear_radiation_all = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                every_controlled_state = {
+                    SCP-EQ-Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = yes
+                }
+                SCP-EQ-Tools_generic_scripted_effects_check_and_set_country_nuked_flag = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_volunteer_sending = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                # If diplomacy overriding is loaded, skip rule overriding to reduce save file size
+                limit = {
+                    SCP-EQ-Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = yes
+                }
+                if = {
+                    limit = {
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                    }
+                    # Enable AI volunteer sending and clear global flag
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
+                }
+                else = {
+                    # Disable AI volunteer sending and set global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                is_ai = yes
+                            }
+                            recall_volunteers_from = PREV
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                }
+            }
+            else = {
+                # WARNING: You will be faced with a VERY LARGE save file!!!
+                if = {
+                    limit = {
+                        check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                    }
+                    # Enable AI volunteer sending and clear global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                OR = {
+                                    is_ai = yes
+                                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                                }
+                            }
+                            remove_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                can_send_volunteers = no
+                            }
+                            clr_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 0 }
+                }
+                else = {
+                    # Disable AI volunteer sending and set global flag
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        every_possible_country = {
+                            limit = {
+                                is_ai = yes
+                            }
+                            recall_volunteers_from = PREV
+                            add_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP-EQ-Tools_generic_scripted_triggers_always_true
+                                can_send_volunteers = no
+                            }
+                            set_country_flag = SCP-EQ-Tools_enhancing_decisions_is_this_country_volunteer_sending_disabled
+                            #log = "Disabling volunteers from [?THIS] to [?PREV]"
+                        }
+                    }
+                    set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_faction_operation_level = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level has 3 levels:
+            #    0: AI can operate on factions freely
+            #    1: AI cannot leave or take over factions leading by player, player won't be kicked out from AI-leading factions
+            #    2: AI cannot leave or take over any factions, nor kicking any faction member
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+            }
+            else_if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 0 }
+            }
+            else = {
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_guaranteeing = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
+                }
+                # Enable AI guaranteeing and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 0 }
+            }
+            else = {
+                # Disable AI guaranteeing and set global flag
+                every_possible_country = {
+                    limit = {
+                        is_ai = yes
+                    }
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = guarantee
+                            active = no
+                        }
+                    }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_goal_justifying = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 1 }
+                }
+                # Enable AI war actions and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 0 }
+            }
+            else = {
+                # Disable AI war actions and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 1 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_war_declaring = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 1 }
+                }
+                # Enable AI war actions and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 0 }
+            }
+            else = {
+                # Disable AI war actions and set global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_war_declaring_disabled = 1 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 0 }
+            }
+            else = {
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_toggle_ai_non_aggression_pacts = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 1 }
+                }
+                # Enable AI guaranteeing and clear global flag
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 0 }
+            }
+            else = {
+                # Disable AI guaranteeing and set global flag
+                every_possible_country = {
+                    limit = {
+                        is_ai = yes
+                    }
+                    every_possible_country = {
+                        limit = {
+                            is_ai = yes
+                        }
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = non_aggression_pact
+                            active = no
+                        }
+                    }
+                }
+                set_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 1 }
             }
         }
     }
