@@ -5194,11 +5194,13 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
             every_country = {
                 limit = {
-                    tag = ROOT
-                    is_ally_with = ROOT
-                    is_in_faction_with = ROOT
-                    is_puppet_of = ROOT
-                    is_subject_of = ROOT
+                    OR = {
+                        tag = ROOT
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
                 }
                 every_controlled_state = {
                     SCP-EQ-Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = yes
