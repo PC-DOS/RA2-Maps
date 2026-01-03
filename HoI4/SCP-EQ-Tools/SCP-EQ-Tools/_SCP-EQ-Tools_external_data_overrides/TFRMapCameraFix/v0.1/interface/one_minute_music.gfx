@@ -1,0 +1,10 @@
+# P.D.: TFR v0.1 music player fix
+
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_one_minute_album_art"
+		texturefile = "gfx/one_minute_album_art.dds"
+		noOfFrames = 2
+	}
+}
