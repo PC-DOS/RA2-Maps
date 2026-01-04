@@ -260,13 +260,3 @@ defined_text = {
         localization_key = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLoc] ([SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetIdeologyGroupLoc])"
     }
 }
-
-# Subideology tooltips
-
-defined_text = {
-    name = SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyTooltipLoc
-    text = {
-        trigger = { always = yes }
-        localization_key = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLoc] ([SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetIdeologyGroupLoc]) \n\n[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLoc]"
-    }
-}
