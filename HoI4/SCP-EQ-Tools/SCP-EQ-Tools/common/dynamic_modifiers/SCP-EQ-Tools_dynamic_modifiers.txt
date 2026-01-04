@@ -23,9 +23,9 @@ SCP-EQ-Tools_dynamic_modifiers_SCP_force_1 = {
     air_fuel_consumption_factor = -1.0
     navy_fuel_consumption_factor = -1.0
     supply_factor = 245.0
-    # Don't set this to a very small value (e.g. -245.0, -25.0, or even -5.0), or your supply consumption will be extremely large
+    # Don't set this to a very small value (e.g. -245.0, -25.0), or your supply consumption will be extremely large
     # When the unit's original SUPPLY_CONSUMPTION is a negative value
-    supply_consumption_factor = -1.0
+    supply_consumption_factor = -5.0
     no_supply_grace = 245245
     out_of_supply_factor = -1.0
     supply_node_range = 25.0
