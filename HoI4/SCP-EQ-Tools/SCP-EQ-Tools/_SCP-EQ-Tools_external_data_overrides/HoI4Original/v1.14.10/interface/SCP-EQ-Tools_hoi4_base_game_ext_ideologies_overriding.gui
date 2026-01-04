@@ -1,0 +1,38 @@
+# Allow more flexible ideology displaying
+# Referenced EaW's interface/eaw_ideology_info.gui
+
+guiTypes = {
+
+    containerWindowType = {
+        name = "countrypoliticsview_SCP-EQ-Tools_ideology_info"
+        position = { x = 88 y = 305 }
+        instantTextboxType = {
+            name = "ideology_gui"
+            position = { x = 9 y = 8 }
+            font = "hoi_18mbs"
+            text = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc]"
+            pdx_tooltip = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyTooltipLoc]"
+            maxWidth = 155
+            maxHeight = 18
+            fixedsize = yes
+            alwaystransparent = no
+        }
+    }
+    containerWindowType = {
+        name = "countrydiplomacyview_SCP-EQ-Tools_ideology_info"
+        position = { x = 256 y = 135 }
+        size = { width = 255 height = 60 }
+        clipping = no
+
+        instantTextboxType = {
+            name = "ideology_gui"
+            position = { x = 5 y = 10 }
+            font = "hoi_16mbs"
+            text = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc]"
+            pdx_tooltip = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyTooltipLoc]"
+            maxWidth = 245
+            maxHeight = 20
+            alwaystransparent = no
+        }
+    }
+}
