@@ -3292,6 +3292,145 @@ SCP-EQ-Tools_enhancing_decisions_category = {
         complete_effect = {
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_enable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                set_country_flag = SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_SCP_item_1_enabled
+                # Generic
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1 = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_production = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_army = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_naval = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                SCP-EQ-Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                # EaW
+                if = {
+                    limit = {
+                        ROOT = {
+                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_EAW_decisions_enabled
+                        }
+                    }
+                    SCP-EQ-Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = yes
+                }
+                # TFR
+                if = {
+                    limit = {
+                        ROOT = {
+                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TFR_decisions_enabled
+                        }
+                    }
+                    SCP-EQ-Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
+                    # Allow AI's production
+                    remove_ideas = ai_disabled_production
+                    country_lock_all_division_template = no
+                }
+                # TNO
+                if = {
+                    limit = {
+                        ROOT = {
+                            has_country_flag = SCP-EQ-Tools_enhancing_decisions_TNO_decisions_enabled
+                        }
+                    }
+                    SCP-EQ-Tools_generic_scripted_effects_TNO_enable_SCP_item_1 = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_disable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                clr_country_flag = SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_SCP_item_1_enabled
+                # Generic
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1 = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_production = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_army = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_naval = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_air = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                # EaW
+                SCP-EQ-Tools_generic_scripted_effects_EAW_disable_SCP_item_1 = yes
+                # TFR
+                SCP-EQ-Tools_generic_scripted_effects_TFR_disable_SCP_item_1 = yes
+                # TNO
+                SCP-EQ-Tools_generic_scripted_effects_TNO_disable_SCP_item_1 = yes
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_disable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_SCP_item_1_enabled
+                }
+                clr_country_flag = SCP-EQ-Tools_enhancing_decisions_countries_embargoed_by_us_SCP_item_1_enabled
+                # Generic
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1 = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_production = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_army = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_naval = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_air = yes
+                SCP-EQ-Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                # EaW
+                SCP-EQ-Tools_generic_scripted_effects_EAW_disable_SCP_item_1 = yes
+                # TFR
+                SCP-EQ-Tools_generic_scripted_effects_TFR_disable_SCP_item_1 = yes
+                # TNO
+                SCP-EQ-Tools_generic_scripted_effects_TNO_disable_SCP_item_1 = yes
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_nuke_all_countries_embargoed_by_us = {
         allowed = {
             # Always allowed
@@ -3617,6 +3756,32 @@ SCP-EQ-Tools_enhancing_decisions_category = {
                         type = annex_everything
                     }
                 }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_all_countries_embargoed_by_us_win_wars = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                SCP-EQ-Tools_generic_scripted_effects_delete_all_enemy_units = yes
+                SCP-EQ-Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
             }
         }
     }
