@@ -11,12 +11,10 @@ guiTypes = {
             position = { x = 9 y = 8 }
             font = "hoi_18mbs"
             text = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc]"
-            pdx_tooltip = "SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc"
-            pdx_tooltip_delayed = "SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLoc"
             maxWidth = 155
             maxHeight = 18
             fixedsize = yes
-            alwaystransparent = no
+            alwaystransparent = yes
         }
     }
     containerWindowType = {
@@ -30,11 +28,9 @@ guiTypes = {
             position = { x = 5 y = 10 }
             font = "hoi_16mbs"
             text = "[SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc]"
-            pdx_tooltip = "SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc"
-            pdx_tooltip_delayed = "SCP-EQ-Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLoc"
             maxWidth = 245
             maxHeight = 20
-            alwaystransparent = no
+            alwaystransparent = yes
         }
     }
 }

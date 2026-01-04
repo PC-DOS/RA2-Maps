@@ -1,0 +1,11 @@
+# Register an invisible font
+# Referenced EaW's interface/eaw_fonts.gfx
+
+bitmapfonts = {
+    bitmapfont = {
+        name = "SCP-EQ-Tools_hoi4_base_game_ext_invisiblefont"
+        path = "gfx/fonts/SCP-EQ-Tools_hoi4_base_game_ext_invisiblefont"
+        color = 0xffffffff
+        textcolors = { }
+    }
+}

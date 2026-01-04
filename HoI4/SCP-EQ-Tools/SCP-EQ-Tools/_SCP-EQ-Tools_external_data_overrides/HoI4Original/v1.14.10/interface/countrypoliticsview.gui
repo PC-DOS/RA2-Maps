@@ -114,9 +114,10 @@ guiTypes = {
 				name = "ideology"
 				# P.D.: Allow more flexible ideology displaying
 				#position = { x = 9 y = 8 }
-				position = { x = -9000 y = 8 }
+				position = { x = 9 y = 9 }
+				#font = "hoi_18mbs"
+				font = "SCP-EQ-Tools_hoi4_base_game_ext_invisiblefont"
 				# EndOf: P.D.: Allow more flexible ideology displaying
-				font = "hoi_18mbs"
 				text = "ideology"
 				maxWidth = 155
 				maxHeight = 20
