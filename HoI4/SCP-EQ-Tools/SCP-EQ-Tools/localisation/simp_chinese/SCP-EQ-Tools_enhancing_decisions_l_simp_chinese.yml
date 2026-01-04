@@ -49,6 +49,8 @@
  SCP-EQ-Tools_enhancing_decisions_add_fuel_desc:0 "油田一爆，这一坨全爆"
  SCP-EQ-Tools_enhancing_decisions_add_resource:0 "增加24525单位各类资源"
  SCP-EQ-Tools_enhancing_decisions_add_resource_desc:0 "造矿厂出牛车"
+ SCP-EQ-Tools_enhancing_decisions_add_population_on_every_controlled_state:0 "在所有我方控制的地区增加人口"
+ SCP-EQ-Tools_enhancing_decisions_add_population_on_every_controlled_state_desc:0 "我们造一个父子中心啊"
  SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex:0 "添加一座地图外民用工厂"
  SCP-EQ-Tools_enhancing_decisions_add_offsite_industrial_complex_desc:0 "超时空起重机，若无反应请尝试修改一次经济法案或存档后重新加载"
  SCP-EQ-Tools_enhancing_decisions_add_offsite_arms_factory:0 "添加一座地图外军用工厂"
