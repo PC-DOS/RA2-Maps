@@ -16,3 +16,5 @@ NDefines.NProduction.LEND_LEASE_DELIVERY_TOTAL_DAYS = 1
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
 --NDefines.NFocus.FOCUS_PROGRESS_PEACE = 5
 --NDefines.NFocus.FOCUS_PROGRESS_WAR = 5
+-- Reduce some diplomacy operations' tension
+NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0
