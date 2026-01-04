@@ -449,7 +449,7 @@
  SCP-EQ-Tools_enhancing_decisions_TNO_unlock_economy_panel_sliders:0 "解除经济面板滑条上下限限制"
  SCP-EQ-Tools_enhancing_decisions_TNO_unlock_economy_panel_sliders_desc:0 "没有钱是万万不能的"
  SCP-EQ-Tools_enhancing_decisions_TNO_clear_debt_and_money_reserves:0 "清空债务和准备金"
- SCP-EQ-Tools_enhancing_decisions_TNO_clear_debt_and_money_reserves_desc:0 "没有钱是万万不能的"
+ SCP-EQ-Tools_enhancing_decisions_TNO_clear_debt_and_money_reserves_desc:0 "没有钱是万万不能的\n提示：如果您发现在TNO中军事开支突然变得非常高，这可能是因为您的国家人口太少，导致人均GDP过高（TNO使用人均GDP计算开支）。请考虑使用“在所有我方控制的地区增加人口”决议，增加您的人口总数。"
  SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling:0 "每月自动清空债务和准备金"
  SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_desc:0 "没有钱是万万不能的\n\n当前是否每月自动清空债务和准备金：[?SCP-EQ-Tools_enhancing_decisions_TNO_toggle_debt_and_money_reserves_auto_handling_enabled]\n0：否\n1：是"
  SCP-EQ-Tools_enhancing_decisions_TNO_debt_and_money_reserves_auto_handling_fix_very_high_GDP_growth:0 "修复清空高额准备金导致的异常GDP增长率"
