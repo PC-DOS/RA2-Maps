@@ -110,6 +110,52 @@ on_actions = {
                     }
                 }
             }
+            # Radiation damages buildings
+            if = {
+                limit = {
+                    has_country_flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                }
+                every_controlled_state = {
+                    limit = {
+                        has_state_flag = {
+                            flag = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                        }
+                    }
+                    # Check if controller is not ally with last nuke sender, or ally immunity is disabled
+                    if = {
+                        limit = {
+                            controller = {
+                                OR = {
+                                    check_variable = { global.SCP-EQ-Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
+                                    AND = {
+                                        NOT = { tag = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_ally_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_in_faction_with = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_puppet_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                        NOT = { is_subject_of = PREV.SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    }
+                                }
+                            }
+                        }
+                        set_temp_variable = { temp_damage_to_buildings = 0.5 }
+                        multiply_temp_variable = { temp_damage_to_buildings = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                        set_temp_variable = { temp_param_damage_level = temp_damage_to_buildings }
+                        set_temp_variable = { temp_param_repair_speed_modifier = 0.0 }
+                        SCP-EQ-Tools_generic_scripted_effects_damage_all_types_of_buildings = yes
+                        # Severe radiation destroies buildings
+                        if = {
+                            limit = {
+                                check_variable = { SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 4 }
+                            }
+                            set_temp_variable = { temp_remove_buildings = 1 }
+                            multiply_temp_variable = { temp_remove_buildings = SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level }
+                            subtract_from_temp_variable = { temp_remove_buildings = 4 }
+                            set_temp_variable = { temp_param_remove_level = temp_damage_to_buildings }
+                            SCP-EQ-Tools_generic_scripted_effects_remove_all_types_of_buildings = yes
+                        }
+                    }
+                }
+            }
             # Every nuked state will do harm to its controller at that time, unless the controller have lost the states' control
             # Harm is judged by the state's radiation level
             if = {

@@ -377,6 +377,224 @@ SCP-EQ-Tools_generic_scripted_effects_change_state_population_by_percentage = {
     }
 }
 
+# Parameter 1: temp_param_damage_level
+# Parameter 2: temp_param_repair_speed_modifier
+SCP-EQ-Tools_generic_scripted_effects_damage_all_types_of_buildings = {
+    meta_effect = {
+        text = {
+            damage_building = {
+                type = infrastructure
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = arms_factory
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = industrial_complex
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = air_base
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = dockyard
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = anti_air_building
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = synthetic_refinery
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = fuel_silo
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = radar_station
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = rocket_site
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = nuclear_reactor
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = office_park
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = power_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = energy_farm
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = thermoelectric_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = enrichment_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = missile_silo
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = schools
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = offices
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = hospitals
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = barracks
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = prisons
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+        }
+        DAMAGE_LEVEL = "[?temp_param_damage_level]"
+        REPAIR_SPEED_MODIFIER = "[?temp_param_repair_speed_modifier]"
+    }
+}
+
+# Parameter 1: temp_param_remove_level
+SCP-EQ-Tools_generic_scripted_effects_remove_all_types_of_buildings = {
+    meta_effect = {
+        text = {
+            remove_building = {
+                type = infrastructure
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = arms_factory
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = industrial_complex
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = air_base
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = dockyard
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = anti_air_building
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = synthetic_refinery
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = fuel_silo
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = radar_station
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = rocket_site
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = nuclear_reactor
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = office_park
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = power_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = energy_farm
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = thermoelectric_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = enrichment_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = missile_silo
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = schools
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = offices
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = hospitals
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = barracks
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = prisons
+                level = [REMOVE_LEVEL]
+            }
+        }
+        REMOVE_LEVEL = "[?temp_param_remove_level]"
+    }
+}
+
 # Parameter 1: temp_param_nuke_target_tag
 # Parameter 2: temp_param_nuke_sender_tag
 # Parameter 3: temp_param_nuke_target_state
@@ -424,6 +642,14 @@ SCP-EQ-Tools_generic_scripted_effects_nuke_specified_state = {
                     kill_country_leader = yes
                 }
             }
+            # Damage building
+            add_extra_state_shared_building_slots = -5
+            set_temp_variable = { temp_param_damage_level = 25 }
+            set_temp_variable = { temp_param_repair_speed_modifier = -5.0 }
+            SCP-EQ-Tools_generic_scripted_effects_damage_all_types_of_buildings = yes
+            # Remove buildings
+            set_temp_variable = { temp_param_remove_level = 25 }
+            SCP-EQ-Tools_generic_scripted_effects_remove_all_types_of_buildings = yes
             # Marks the state and current controller as "nuked" for further "radiation" effect
             # Radiation will fade out after specified days, please refer to on_actions for details
             # Ref. https://hoi4.paradoxwikis.com/Effect#add_province_modifier

@@ -719,6 +719,64 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP-EQ-Tools_enhancing_decisions_add_radar_station_on_built_states_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                limit = {
+                    check_variable = { building_level@radar_station > 0 }
+                }
+                add_building_construction = {
+                    type = radar_station
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP-EQ-Tools_enhancing_decisions_add_air_base_on_built_states_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP-EQ-Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_controlled_state = {
+                limit = {
+                    check_variable = { building_level@air_base > 0 }
+                }
+                add_building_construction = {
+                    type = air_base
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
     SCP-EQ-Tools_enhancing_decisions_add_radar_station_onekey = {
         allowed = {
             # Always allowed
