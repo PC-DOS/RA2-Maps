@@ -6958,7 +6958,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { temp_econ_GDP_boost_percentage = 0.05 }
+            set_temp_variable = { temp_econ_GDP_boost_percentage = -0.05 }
             econ_GDP_boost_once_percentage = yes
         }
     }
@@ -6979,7 +6979,7 @@ SCP-EQ-Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            set_temp_variable = { temp_econ_GDP_boost_flat = 10 }
+            set_temp_variable = { temp_econ_GDP_boost_flat = -10 }
             econ_GDP_boost_once_flat = yes
         }
     }
