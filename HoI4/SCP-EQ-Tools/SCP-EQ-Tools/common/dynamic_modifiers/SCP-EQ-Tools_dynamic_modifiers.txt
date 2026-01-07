@@ -374,9 +374,9 @@ SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1 = {
     poverty_development_monthly = 0.5
     farming_development_monthly = 0.5
     military_development_monthly = 0.5
-    income_growth_factor = 0.25
-    inflation_monthly = -0.0125
-    misc_income = 25.0
+    income_growth_factor = SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_income_growth_factor
+    inflation_monthly = SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_inflation_monthly
+    misc_income = SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_misc_income
 }
 
 # TNO dynamic modifiers group
@@ -390,8 +390,8 @@ SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1 = {
     gdp_growth_modifier = 50.0
     inflation_rate_modifier = -24525.0
     interest_rate_modifier = -24525.0
-    misc_income_modifier = 245.0
-    misc_income_percent_of_GDP_modifier = 2.45
+    misc_income_modifier = SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1_misc_income_modifier
+    misc_income_percent_of_GDP_modifier = SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1_misc_income_percent_of_GDP_modifier
     civilian_expenditures_factor = -0.735
     military_expenditures_factor = -0.735
     research_facilities_monthly_rate = 25.0

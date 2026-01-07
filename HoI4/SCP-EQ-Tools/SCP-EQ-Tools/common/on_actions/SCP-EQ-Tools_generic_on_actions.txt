@@ -9,6 +9,20 @@ on_actions = {
                 # Prevent AI from leaving factions from diplomacy UI by default
                 set_variable = { global.SCP-EQ-Tools_enhancing_decisions_ai_faction_operation_level = 2 }
             }
+            # Initialize dynamic modifier variables
+            every_possible_country = {
+                # Generic dynamic modifiers group
+                
+                # EAW dynamic modifiers group
+                
+                # TFR dynamic modifiers group
+                set_variable = { SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_income_growth_factor = 0.25 }
+                set_variable = { SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_inflation_monthly = -0.0125 }
+                set_variable = { SCP-EQ-Tools_dynamic_modifiers_TFR_SCP_force_1_misc_income = 25.0 }
+                # TNO dynamic modifiers group
+                set_variable = { SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1_misc_income_modifier = 25.0 }
+                set_variable = { SCP-EQ-Tools_dynamic_modifiers_TNO_SCP_force_1_misc_income_percent_of_GDP_modifier = 2.45 }
+            }
         }
     }
     on_daily = {
