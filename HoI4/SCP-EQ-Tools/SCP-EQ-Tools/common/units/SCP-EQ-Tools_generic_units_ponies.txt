@@ -36,7 +36,7 @@ sub_units = {
         attack = 0.25
         soft_attack = 1.25
         hard_attack = 0.5
-        air_attack = 1.25
+        air_attack = 4.5
         ap_attack = 0.5
         breakthrough = 0.45
         
@@ -45,7 +45,7 @@ sub_units = {
 
         #Misc Abilities
         maximum_speed = 24.5
-        training_time = 130
+        training_time = 145
         suppression = 2.2
         weight = 0.5
 
@@ -77,8 +77,8 @@ sub_units = {
         }
 
         need = {
-            infantry_equipment = 45
-            anti_air_equipment = 10
+            infantry_equipment = 150
+            anti_air_equipment = 25
             anti_tank_equipment = 25
             support_equipment = 5
         }
