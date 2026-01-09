@@ -4,7 +4,8 @@
 objectTypes = {
 	pdxmesh = {
 		name = "SCP-EQ-Tools_generic_units_ponies_infantry_rifle_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/EQS_infantry.mesh"
+		#file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/EQS_infantry.mesh"
+		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/SCP_unit_pgs.mesh"
 
 		animation = { id = "idle"				type = "CRY_infantry_idle" }
 		animation = { id = "idle01"				type = "CRY_infantry_idle_01" }
