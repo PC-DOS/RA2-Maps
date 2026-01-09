@@ -4,6 +4,7 @@
 objectTypes = {
 	pdxmesh = {
 		name = "SCP-EQ-Tools_generic_units_ponies_infantry_rifle_mesh"
+        # In EaW this will cause duplicate DDS error, thus I copied a mesh file and changed .dds pointing in this file with WinHex
 		#file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/EQS_infantry.mesh"
 		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/SCP_unit_pgs.mesh"
 
