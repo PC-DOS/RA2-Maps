@@ -66,7 +66,7 @@ entity = {
 	
 	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_entity" }
 	attach = { name = "kit1"	Spine2 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_kit_entity" }
-	#attach = { name = "rifle1"	jeb = "enfield_entity" }
+	#attach = { name = "rifle1"	jeb = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 
 	scale = 0.8
 }
@@ -92,7 +92,7 @@ entity = {
 	
 	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_entity" }
 	attach = { name = "kit1"	Spine2 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_kit_entity" }
-	#attach = { name = "rifle1"	jeb = "enfield_entity" }
+	#attach = { name = "rifle1"	jeb = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 
 	scale = 0.8
 }
