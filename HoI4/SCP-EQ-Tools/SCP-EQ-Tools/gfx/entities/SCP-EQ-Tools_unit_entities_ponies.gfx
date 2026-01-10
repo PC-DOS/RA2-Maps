@@ -82,6 +82,16 @@ objectTypes = {
 # Ponies attachments
 objectTypes = {
     pdxmesh = {
+        name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_helmet_mesh"
+        file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies_eaw_new/attachments/SCP_g_helm.mesh"
+    }
+    
+    pdxmesh = {
+        name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_kit_mesh"
+        file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies_eaw_new/attachments/SCP_Kit.mesh"
+    }
+    
+    pdxmesh = {
         name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_mesh"
         file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies_eaw_new/attachments/SCP-EQ_g_pny_Helmet_1.mesh"
     }
