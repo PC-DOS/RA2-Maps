@@ -2,3 +2,6 @@
  # Pegasus
  SCP-EQ-Tools_generic_units_ponies_pegasus:0 "天马"
  SCP-EQ-Tools_generic_units_ponies_pegasus_desc:0 "天马（Pegasus ponies），又称Pegasi，是居住在小马国中的一类小马。他们的特点是拥有翅膀，同时也具有飞行、在云上行走以及控制天气的能力。"
+ # Pony
+ SCP-EQ-Tools_generic_units_ponies_pony:0 "小马"
+ SCP-EQ-Tools_generic_units_ponies_pony_desc:0 "小马（Ponies）包括三个主要类型：陆马、天马和独角兽，具有说话、飞行或使用魔法等不同能力。"

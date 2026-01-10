@@ -34,7 +34,7 @@ entity = {
 	name = "SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_generic_pony_base_entity"
 
-	attach = { name = "gun"	Root_003 = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_entity" }
+	#attach = { name = "gun"	Root_003 = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_entity" }
 }
 
 # Ponies attachments
@@ -100,17 +100,17 @@ entity = {
 }
 
 entity = {
-	name = "eastern_european_gfx_SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
+	name = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_pony_base_entity"
 
-	attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
+	#attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 }
 
 entity = {
-	name = "asian_gfx_SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
+	name = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_universal_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_universal_pony_base_entity"
 
-	attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
+	#attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 }
 
 # Ponies attachments
