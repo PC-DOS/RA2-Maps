@@ -23,60 +23,48 @@ objectTypes = {
 		scale = 1.0
 	}
 }
-## Soviet Pony
-objectTypes = {
-	pdxmesh = {
-		name = "SCP-EQ-Tools_generic_units_ponies_OMO_pony_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/OMO_pony.mesh"
 
-		animation = { id = "idle"				type = "CRY_infantry_idle" }
-		animation = { id = "idle01"				type = "CRY_infantry_idle_01" }
-		animation = { id = "idle02"				type = "CRY_infantry_idle_02" }
-		animation = { id = "attack"				type = "CRY_infantry_attack" }
-		animation = { id = "attack_shoot_mg"	type = "CRY_infantry_attack_shoot_mg" }
-		animation = { id = "attack_shoot_semi"	type = "CRY_infantry_attack_shoot_semi" }
-		animation = { id = "defend"				type = "CRY_infantry_attack" }
-		animation = { id = "retreat"			type = "CRY_infantry_retreat" }
-		animation = { id = "move"				type = "CRY_infantry_move" }
-		animation = { id = "training"			type = "CRY_infantry_training" }
-		animation = { id = "limp"				type = "CRY_infantry_limp" }
-
-		scale = 1.0
-	}
-}
-### Weapons
+### EaW New Models
 objectTypes = {
-	pdxmesh = {
-		name = "SCP-EQ-Tools_generic_units_ponies_AR53P_weapon_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/AR53P_weapon.mesh"
-	}
-	pdxmesh = {
-		name = "SCP-EQ-Tools_generic_units_ponies_ARMP_weapon_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/ARMP_weapon.mesh"
-	}
+    pdxmesh = {
+        name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_infantry_rifle_mesh"
+        file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies_eaw_new/SCP_unit_pgn.mesh"
+        
+        animation = { id = "idle"			type = "pony_idle_00_anim" }
+        animation = { id = "idle01"			type = "pony_idle_01_anim" }
+        animation = { id = "idle02"			type = "pony_idle_02_anim" }
+        animation = { id = "idle03"			type = "pony_idle_03_anim" }
+        animation = { id = "idle04"			type = "pony_idle_04_anim" }
+        animation = { id = "idle05"			type = "pony_idle_05_anim" }
+        animation = { id = "attack"			type = "pony_attack_cycle_anim" }
+        animation = { id = "defend"			type = "pony_attack_cycle_anim" }
+        animation = { id = "retreat"		type = "pony_limp_cycle_anim" }
+        animation = { id = "move"			type = "pony_move_cycle_anim" }
+        animation = { id = "training"		type = "pony_training_anim" }
+        animation = { id = "limp"			type = "pony_limp_cycle_anim" }
+        
+        scale = 1.0
+    }
 }
 
-### Vehicles
 objectTypes = {
-	pdxmesh = {
-		name = "SCP-EQ-Tools_generic_units_ponies_LT55A_tank_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/LT55A.mesh"
-
-		animation = { id = "attack"			type = "LT55A_attack_animation" }
-		animation = { id = "idle"			type = "LT55A_idle_animation" }
-		animation = { id = "move"			type = "LT55A_moving_animation" }
-
-		scale = 0.7
-	}
-}
-
-### Static Objects
-objectTypes = {
-	pdxmesh = {
-		name = "SCP-EQ-Tools_generic_units_ponies_Pony_Portal_mesh"
-		file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies/Portal.mesh"
-
-		animation = { id = "idle"			type = "PonyPortal_idle_animation" }
-		animation = { id = "magic"			type = "PonyPortal_magic_animation" }
-	}
+    pdxmesh = {
+        name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_generic_infantry_rifle_mesh"
+        file = "gfx/models/units/SCP-EQ-Tools_generic_units_ponies_eaw_new/SCP-EQ_unit_pny_generic.mesh"
+        
+        animation = { id = "idle"			type = "pony_idle_00_anim" }
+        animation = { id = "idle01"			type = "pony_idle_01_anim" }
+        animation = { id = "idle02"			type = "pony_idle_02_anim" }
+        animation = { id = "idle03"			type = "pony_idle_03_anim" }
+        animation = { id = "idle04"			type = "pony_idle_04_anim" }
+        animation = { id = "idle05"			type = "pony_idle_05_anim" }
+        animation = { id = "attack"			type = "pony_attack_cycle_anim" }
+        animation = { id = "defend"			type = "pony_attack_cycle_anim" }
+        animation = { id = "retreat"		type = "pony_limp_cycle_anim" }
+        animation = { id = "move"			type = "pony_move_cycle_anim" }
+        animation = { id = "training"		type = "pony_training_anim" }
+        animation = { id = "limp"			type = "pony_limp_cycle_anim" }
+        
+        scale = 1.0
+    }
 }

@@ -21,4 +21,15 @@ spriteTypes = {
 		legacy_lazy_load = no
 		noOfFrames = 2
 	}
+	spriteType = {
+		name = "GFX_nato_unit_EQ-Tools_generic_units_ponies_pegasus_icon_small"
+		texturefile = "gfx/generic_unit_icons/nato_unit_pegasi_infantry_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_unit_EQ-Tools_generic_units_ponies_pegasus_icon_small"
+		texturefile = "gfx/generic_unit_icons/unit_pegasi_infantry_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
 }
