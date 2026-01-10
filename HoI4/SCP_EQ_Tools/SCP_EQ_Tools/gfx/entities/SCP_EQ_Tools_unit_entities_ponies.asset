@@ -64,7 +64,7 @@ entity = {
 	state = { name = "idle"				animation = "idle05"		animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
 	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no 	next_state = "training" }
 	
-	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_entity" }
+	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_equestria_helmet_entity" }
 	attach = { name = "kit1"	Spine2 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_kit_entity" }
 	#attach = { name = "rifle1"	jeb = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 
@@ -90,7 +90,7 @@ entity = {
 	state = { name = "idle"				animation = "idle05"		animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
 	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no 	next_state = "training" }
 	
-	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_entity" }
+	attach = {name = "helm1"	Head_001 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_crystal_helmet_entity" }
 	attach = { name = "kit1"	Spine2 = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_kit_entity" }
 	#attach = { name = "rifle1"	jeb = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 
@@ -146,8 +146,13 @@ entity = {
 
 # Ponies attachments
 entity = {
-	name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_entity"
-	pdxmesh = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_mesh"
+	name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_equestria_helmet_entity"
+	pdxmesh = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_equestria_helmet_mesh"
+}
+
+entity = {
+	name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_crystal_helmet_entity"
+	pdxmesh = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_crystal_helmet_mesh"
 }
 
 entity = {
