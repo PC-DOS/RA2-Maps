@@ -2371,12 +2371,14 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_possible_country = {
                 limit = {
-                    tag = ROOT
-                    is_ally_with = ROOT
-                    is_in_faction_with = ROOT
-                    is_puppet_of = ROOT
-                    is_subject_of = ROOT
-                    is_guaranteed_by = ROOT
+                    OR = {
+                        tag = ROOT
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                        is_guaranteed_by = ROOT
+                    }
                 }
                 every_possible_country = {
                     remove_wargoal = {
