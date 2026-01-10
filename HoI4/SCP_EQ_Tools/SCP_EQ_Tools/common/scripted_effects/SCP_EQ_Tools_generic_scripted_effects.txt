@@ -1,0 +1,1183 @@
+# Parameter 1: temp_param_arr_1
+# Parameter 2: temp_param_arr_2
+# Return value: temp_comp_result:
+#     temp_comp_result = 0 : temp_param_arr_1 has the same length as temp_param_arr_2, but elements are different
+#     temp_comp_result = -1 : temp_param_arr_1 is longer than temp_param_arr_2
+#     temp_comp_result = -2 : temp_param_arr_1 is shorter than temp_param_arr_2
+#     temp_comp_result = 1 : temp_param_arr_1 has the same length and elements with temp_param_arr_2
+SCP_EQ_Tools_generic_scripted_effects_compare_array = {
+    if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num > temp_param_arr_2^num }
+        }
+        # len(temp_param_arr_1) > len(temp_param_arr_2)
+        set_temp_variable = { temp_comp_result = -1 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num < temp_param_arr_2^num }
+        }
+        # len(temp_param_arr_1) < len(temp_param_arr_2)
+        set_temp_variable = { temp_comp_result = -2 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_arr_1^num = temp_param_arr_2^num }
+        }
+        # Same length, compare elements
+        # Assume the 2 arrays are equal at first
+        set_temp_variable = { temp_break_loop = 1 }
+        for_each_loop = {
+            array = temp_param_arr_1
+            value = temp_current_value
+            break = temp_break_loop
+            if = {
+                limit = {
+                    NOT = {
+                        is_in_array = { temp_param_arr_2 = temp_current_value }
+                    }
+                }
+                # If an element only resents in 1 array, break the loop
+                set_temp_variable = { temp_comp_result = 0 }
+                set_temp_variable = { temp_break_loop = 1 }
+            }
+        }
+    }
+}
+
+# Parameter 1: temp_param_resource_change
+SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = {
+    # Generic resources
+    add_resource = {
+        type = oil
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = aluminium
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = rubber
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = tungsten
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = steel
+        amount = var:temp_param_resource_change
+    }
+    add_resource = {
+        type = chromium
+        amount = var:temp_param_resource_change
+    }
+    # EaW resources
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_EAW_decisions_enabled
+            }
+        }
+        add_resource = {
+            type = crystals
+            amount = var:temp_param_resource_change
+        }
+    }
+    # TNO resources
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+            }
+        }
+        add_resource = {
+            type = uranium
+            amount = var:temp_param_resource_change
+        }
+        add_resource = {
+            type = consumer_goods
+            amount = var:temp_param_resource_change
+        }
+        add_resource = {
+            type = power
+            amount = var:temp_param_resource_change
+        }
+    }
+}
+
+# Parameter 1: temp_param_controller_tag
+# Return value: temp_arr_controlled_province_id
+SCP_EQ_Tools_generic_scripted_effects_get_controlled_provinces = {
+    clear_temp_array = temp_arr_controlled_province_id
+    log = "Enumerating controlled provicnes for [?temp_param_controller_tag]"
+    for_each_loop = {
+        array = global.province_controllers
+        value = temp_current_province_controller
+        index = temp_current_province_id
+        
+        if = {
+            limit = {
+                check_variable = { temp_current_province_controller = temp_param_controller_tag }
+            }
+            log = "    Log province idx=[?temp_current_province_id], val=[?temp_current_controller_tag]"
+            add_to_temp_array = { temp_arr_controlled_province_id = temp_current_province_id }
+        }
+    }
+}
+
+# Parameter 1: temp_param_arr_railway_start_states
+# Parameter 2: temp_param_arr_railway_end_states
+# Parameter 3: temp_param_is_railway_build_only_on_allied
+SCP_EQ_Tools_generic_scripted_effects_build_railway_from_state_to_state = {
+    if = {
+        limit = {
+            check_variable = { temp_param_arr_railway_start_states^num = 1 }
+            check_variable = { temp_param_arr_railway_end_states^num = 1 }
+            check_variable = { temp_param_arr_railway_start_states^0 = temp_param_arr_railway_end_states^0 }
+            var:temp_param_arr_railway_start_states^0 = {
+                controller = {
+                    check_variable = { num_controlled_states = 1 }
+                    check_variable = { controlled_states^0 = temp_param_arr_railway_start_states^0 }
+                }
+            }
+        }
+        # Special case: There is only 1 same start and end state, and the state controller only controls this state
+        var:temp_param_arr_railway_start_states^0 = {
+            controller = {
+                set_temp_variable = { temp_param_controller_tag = THIS }
+            }
+        }
+        SCP_EQ_Tools_generic_scripted_effects_get_controlled_provinces = yes
+        log = "Building railway by province for [?temp_param_controller_tag.GetName] ([?temp_param_controller_tag.GetTag])"
+        log = "    Province count: [?temp_arr_controlled_province_id^num]"
+        for_each_loop = {
+            array = temp_arr_controlled_province_id
+            value = temp_railway_start
+            
+            #log = "RailStart:[?temp_railway_start]"
+            for_each_loop = {
+                array = temp_arr_controlled_province_id
+                value = temp_railway_end
+                
+                #log = "RailEnd:[?temp_railway_end]"
+                if = {
+                    limit = { 
+                        #NOT = {
+                        #    check_variable = {
+                        #        temp_railway_start = temp_railway_end
+                        #    }
+                        #}
+                        always = yes
+                    }
+                    if = {
+                        limit = {
+                            check_variable = { temp_param_is_railway_build_only_on_allied > 0 }
+                        }
+                        meta_effect = {
+                            text = {
+                                build_railway = {
+                                    level = 5
+                                    build_only_on_allied = yes
+                                    start_province = [RAIL_START]
+                                    target_province = [RAIL_END]
+                                }
+                            }
+                            RAIL_START = "[?temp_railway_start]"
+                            RAIL_END = "[?temp_railway_end]"
+                        }
+                    }
+                    else = {
+                        meta_effect = {
+                            text = {
+                                build_railway = {
+                                    level = 5
+                                    start_province = [RAIL_START]
+                                    target_province = [RAIL_END]
+                                }
+                            }
+                            RAIL_START = "[?temp_railway_start]"
+                            RAIL_END = "[?temp_railway_end]"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else = {
+        # Generic case: Build railway from state to state
+        for_each_loop = {
+            array = temp_param_arr_railway_start_states
+            value = temp_railway_start
+            
+            #log = "RailStart:[?temp_railway_start]"
+            for_each_loop = {
+                array = temp_param_arr_railway_end_states
+                value = temp_railway_end
+                
+                #log = "RailEnd:[?temp_railway_end]"
+                if = {
+                    limit = { 
+                        #NOT = {
+                        #    check_variable = {
+                        #        temp_railway_start = temp_railway_end
+                        #    }
+                        #}
+                        always = yes
+                    }
+                    if = {
+                        limit = {
+                            check_variable = { temp_param_is_railway_build_only_on_allied > 0 }
+                        }
+                        build_railway = {
+                            level = 5
+                            build_only_on_allied = yes
+                            start_state = temp_railway_start
+                            target_state = temp_railway_end
+                        }
+                    }
+                    else = {
+                        build_railway = {
+                            level = 5
+                            start_state = temp_railway_start
+                            target_state = temp_railway_end
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Parameter 1: temp_param_target_ideology_token
+# Parameter 2: temp_param_target_ideology_popularity_delta
+SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = {
+    meta_effect = {
+        text = {
+            add_popularity = {
+                ideology = [TARGET_IDEOLOGY]
+                popularity = [TARGET_IDEOLOGY_POPULARITY_DELTA]
+            }
+        }
+        TARGET_IDEOLOGY = "[?temp_param_target_ideology_token.GetTokenKey]"
+        TARGET_IDEOLOGY_POPULARITY_DELTA = "[?temp_param_target_ideology_popularity_delta]"
+    }
+}
+
+# Parameter 1: temp_param_target_ideology_token
+SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = {
+    meta_effect = {
+        text = {
+            set_politics = {
+                ruling_party = [TARGET_IDEOLOGY]
+            }
+        }
+        TARGET_IDEOLOGY = "[?temp_param_target_ideology_token.GetTokenKey]"
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
+    every_possible_country = {
+        recall_volunteers_from = PREV
+    }
+    delete_unit = {
+        disband = no
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_delete_all_enemy_units = {
+    every_enemy_country = {
+        SCP_EQ_Tools_generic_scripted_effects_delete_all_units = yes
+    }
+}
+
+# Parameter 1: temp_param_new_state_controller_tag
+SCP_EQ_Tools_generic_scripted_effects_change_all_state_controller = {
+    every_controlled_state = {
+        set_state_controller_to = var:temp_param_new_state_controller_tag
+    }
+    # Check if there is still some provinces under current scope's control
+    # See https://hoi4.paradoxwikis.com/Data_structures#province_controllers
+    for_each_loop = {
+        array = global.province_controllers
+        value = temp_current_province_controller
+        index = temp_current_province_id
+        
+        if = {
+            limit = {
+                check_variable = { temp_current_province_controller = THIS }
+            }
+            var:temp_param_new_state_controller_tag = {
+                set_province_controller = var:temp_current_province_id
+            }
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_control_all_enemy_controlled_states = {
+    every_enemy_country = {
+        set_temp_variable = { temp_param_new_state_controller_tag = PREV }
+        SCP_EQ_Tools_generic_scripted_effects_change_all_state_controller = yes
+    }
+}
+
+# Parameter 1: temp_param_state_population_change_percentage
+# Parameter 2: temp_param_is_side_effect_handled
+SCP_EQ_Tools_generic_scripted_effects_change_state_population_by_percentage = {
+    set_temp_variable = { temp_current_state_population_change = state_population_k }
+    multiply_temp_variable = { temp_current_state_population_change = temp_param_state_population_change_percentage }
+    # Avoid overflow at ~2M
+    if = {
+        limit = {
+            check_variable = { temp_param_state_population_change_percentage < 0 }
+            OR = {
+                # Will overflow after multiplied by 1000 (2000 * 1000 = 2000000)
+                check_variable = { temp_current_state_population_change < -2000 }
+                # Already overflown
+                check_variable = { temp_current_state_population_change > 0 }
+            }
+        }
+        set_temp_variable = { temp_current_state_population_change = -2000 }
+    }
+    else_if = {
+        limit = {
+            check_variable = { temp_param_state_population_change_percentage > 0 }
+            OR = {
+                # Will overflow after multiplied by 1000 (2000 * 1000 = 2000000)
+                check_variable = { temp_current_state_population_change > 2000 }
+                # Already overflown
+                check_variable = { temp_current_state_population_change < 0 }
+            }
+        }
+        set_temp_variable = { temp_current_state_population_change = 2000 }
+    }
+    multiply_temp_variable = { temp_current_state_population_change = 1000 }
+    add_manpower = temp_current_state_population_change
+    
+    # Avoid killing all
+    # Leave at least 1 person for the target state
+    # If you killed all pupulation of the target state, the state's population will revert to manpower defined in history/states after save-load sequence
+    if = {
+        limit = {
+            state_population_k < 0.001
+            state_population < 1
+        }
+        add_manpower = 1
+    }
+    
+    # Avoid adding manpower side effect, see https://hoi4.paradoxwikis.com/Effect#General_3
+    if = {
+        limit = {
+            check_variable = { temp_current_state_population_change < 0 }
+            check_variable = { temp_param_is_side_effect_handled > 0 }
+        }
+        controller = {
+            add_manpower = temp_current_state_population_change
+        }
+    }
+}
+
+# Parameter 1: temp_param_damage_level
+# Parameter 2: temp_param_repair_speed_modifier
+SCP_EQ_Tools_generic_scripted_effects_damage_all_types_of_buildings = {
+    meta_effect = {
+        text = {
+            damage_building = {
+                type = infrastructure
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = arms_factory
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = industrial_complex
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = air_base
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = dockyard
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = anti_air_building
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = synthetic_refinery
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = fuel_silo
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = radar_station
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = rocket_site
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = nuclear_reactor
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = office_park
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = power_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = energy_farm
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = thermoelectric_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = enrichment_plant
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = missile_silo
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = schools
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = offices
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = hospitals
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = barracks
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+            damage_building = {
+                type = prisons
+                damage = [DAMAGE_LEVEL]
+                repair_speed_modifier = [REPAIR_SPEED_MODIFIER]
+            }
+        }
+        DAMAGE_LEVEL = "[?temp_param_damage_level]"
+        REPAIR_SPEED_MODIFIER = "[?temp_param_repair_speed_modifier]"
+    }
+}
+
+# Parameter 1: temp_param_remove_level
+SCP_EQ_Tools_generic_scripted_effects_remove_all_types_of_buildings = {
+    meta_effect = {
+        text = {
+            remove_building = {
+                type = infrastructure
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = arms_factory
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = industrial_complex
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = air_base
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = dockyard
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = anti_air_building
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = synthetic_refinery
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = fuel_silo
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = radar_station
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = rocket_site
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = nuclear_reactor
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = office_park
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = power_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = energy_farm
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = thermoelectric_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = enrichment_plant
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = missile_silo
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = schools
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = offices
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = hospitals
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = barracks
+                level = [REMOVE_LEVEL]
+            }
+            remove_building = {
+                type = prisons
+                level = [REMOVE_LEVEL]
+            }
+        }
+        REMOVE_LEVEL = "[?temp_param_remove_level]"
+    }
+}
+
+# Parameter 1: temp_param_nuke_target_tag
+# Parameter 2: temp_param_nuke_sender_tag
+# Parameter 3: temp_param_nuke_target_state
+# Parameter 4: temp_param_is_advanced_nuking_enabled
+SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state = {
+    var:temp_param_nuke_target_state = {
+        set_temp_variable = { temp_nuke_target_state = THIS }
+        log = "Nuking state: [?temp_nuke_target_state.GetID] ([?temp_nuke_target_state.GetName])"
+        var:temp_param_nuke_sender_tag = {
+            launch_nuke = {
+                state = temp_nuke_target_state
+                controller = var:temp_param_nuke_target_tag
+                use_nuke = no
+            }
+        }
+        if = {
+            limit = {
+                check_variable = { temp_param_is_advanced_nuking_enabled > 0 }
+            }
+            # Go hell with your Showa bullshit, JAPs!
+            # Delete all units immediately
+            var:temp_param_nuke_target_tag = {
+                delete_unit = {
+                    state = PREV
+                    disband = no
+                }
+            }
+            # Kills local people by percentage
+            set_temp_variable = { temp_param_state_population_change_percentage = -0.5 }
+            set_temp_variable = { SCP_EQ_Tools_generic_scripted_effects_change_state_population_by_percentage = 1 }
+            SCP_EQ_Tools_generic_scripted_effects_change_state_population_by_percentage = yes
+            # Ensure minimal killing
+            add_manpower = -24500
+            var:temp_param_nuke_target_tag = {
+                add_manpower = -24500
+            }
+            # If nuking target is capital and population is really low, kills country leader
+            if = {
+                limit = {
+                    is_capital = yes
+                    state_population_k < 0.245
+                }
+                # Go hell you Showa shit-ass
+                var:temp_param_nuke_target_tag = {
+                    kill_country_leader = yes
+                }
+            }
+            # Damage building
+            add_extra_state_shared_building_slots = -5
+            set_temp_variable = { temp_param_damage_level = 25 }
+            set_temp_variable = { temp_param_repair_speed_modifier = -5.0 }
+            SCP_EQ_Tools_generic_scripted_effects_damage_all_types_of_buildings = yes
+            # Remove buildings
+            set_temp_variable = { temp_param_remove_level = 25 }
+            SCP_EQ_Tools_generic_scripted_effects_remove_all_types_of_buildings = yes
+            # Marks the state and current controller as "nuked" for further "radiation" effect
+            # Radiation will fade out after specified days, please refer to on_actions for details
+            # Ref. https://hoi4.paradoxwikis.com/Effect#add_province_modifier
+            # Radiation accumulation
+            if = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                }
+                add_to_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
+            }
+            else = {
+                set_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
+            }
+            # ParadoxWiki says add_province_modifier can have "days" attribution in province = {} scope, but it is not recognized in HoI4 1.14.10
+            # Thus I have to use monthly on_actions
+            clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            set_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender = var:temp_param_nuke_sender_tag }
+            controller = {
+                clr_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+                set_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+            }
+            # Long-term damage due to radiation
+            add_province_modifier = {
+                static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
+                province = {
+                    all_provinces = yes
+                    #days = var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time
+                }
+            }
+        }
+    }
+}
+
+# Parameter 1: temp_param_nuke_target_tag
+# Parameter 2: temp_param_nuke_sender_tag
+# Parameter 3: temp_param_is_every_province_nuked
+# Parameter 4: temp_param_is_advanced_nuking_enabled
+SCP_EQ_Tools_generic_scripted_effects_nuke_all_controlled_states = {
+    log = "Nuking country: [?temp_param_nuke_target_tag.GetTag] ([?temp_param_nuke_target_tag.GetName])"
+    
+    # Nuke every state
+    var:temp_param_nuke_target_tag = {
+        every_controlled_state = {
+            set_temp_variable = { temp_param_nuke_target_state = THIS }
+            log = "Nuking state: [?temp_param_nuke_target_state.GetID] ([?temp_param_nuke_target_state.GetName])"
+            SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state = yes
+        }
+    }
+    
+    # Check if we need to nuke every province
+    if = {
+        limit = {
+            check_variable = { temp_param_is_every_province_nuked > 0 }
+        }
+        for_each_loop = {
+            array = global.province_controllers
+            value = temp_current_province_controller
+            index = temp_current_province_id
+            
+            if = {
+                limit = {
+                    check_variable = { temp_current_province_controller = temp_param_nuke_target_tag }
+                }
+                var:temp_param_nuke_sender_tag = {
+                    launch_nuke = {
+                        province = var:temp_current_province_id
+                        use_nuke = no
+                    }
+                }
+            }
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_check_and_set_country_nuked_flag = {
+    if = {
+        limit = {
+            has_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+        }
+        set_temp_variable = { temp_count_nuked_states = 0 }
+        every_controlled_state = {
+            limit = {
+                has_state_flag = {
+                    flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                }
+            }
+            add_to_temp_variable = { temp_count_nuked_states = 1 }
+        }
+        if = {
+            limit = { 
+                check_variable = { temp_count_nuked_states = 0 }
+            }
+            clr_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
+    # Radiation fades out after var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time days since last nuking
+    if = {
+        limit = {
+            has_state_flag = {
+                flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                days > var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time
+            }
+        }
+        #log = "Radiation fades out at [?THIS.GetName], radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+        remove_province_modifier = {
+            static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
+            province = {
+                all_provinces = yes
+            }
+        }
+        clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+        subtract_from_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
+        # If there are accumulated radiation, register for another radiation fading cycle
+        if = {
+            limit = {
+                check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
+            }
+            #log = "[?THIS.GetName] still have radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+            set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = {
+    if = {
+        limit = {
+            has_state_flag = {
+                flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            }
+        }
+        remove_province_modifier = {
+            static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
+            province = {
+                all_provinces = yes
+            }
+        }
+        clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+        set_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 0 }
+    }
+}
+
+# Parameter 1: temp_param_arr_teleporting_start_states
+# Parameter 2: temp_param_arr_teleporting_target_states
+# Parameter 3: temp_param_army_owner_types_to_be_teleported
+#     0 - Any owner
+#     1 - Armies owned by the scope who calls this scripted effect
+#     2 - Armies owned by the scope who calls this scripted effect and all of its allies
+#     3 - Armies owned ROOT scope
+#     4 - Armies owned ROOT scope and all of its allies
+SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
+    set_temp_variable = { temp_current_caller_country = THIS }
+    
+    # Caller takes control of teleporting targets
+    # You can only teleport armies to states controlled by yourself or faction members (please note that military access or volunteer sending is is not considered), thus we will set state controller before teleporting
+    for_each_scope_loop = {
+        array = temp_param_arr_teleporting_target_states
+        
+        # Check caller country's relationship with the controller of current scope (state)
+        if = {
+            # Case 1: Caller having war with this state's controller
+            limit = {
+                controller = {
+                    has_war_with = var:temp_current_caller_country
+                }
+            }
+            controller = {
+                delete_unit = {
+                    state = PREV
+                    disband = no
+                }
+            }
+            set_state_controller_to = var:temp_current_caller_country
+        }
+        else_if = {
+            # Case 2: Caller is in peace with this state's controller, and the controller is not caller's ally, nor caller have military access to the controller
+            limit = {
+                controller = {
+                    NOT = { tag = var:temp_current_caller_country }
+                    NOT = { is_ally_with = var:temp_current_caller_country }
+                    NOT = { is_in_faction_with = var:temp_current_caller_country }
+                    NOT = { is_puppet_of = var:temp_current_caller_country }
+                    NOT = { is_subject_of = var:temp_current_caller_country }
+                }
+            }
+            controller = {
+                delete_unit = {
+                    state = PREV
+                    disband = no
+                }
+            }
+            transfer_state_to = var:temp_current_caller_country
+        }
+    }
+        
+    # Teleporting armies
+    for_each_scope_loop = {
+        array = temp_param_arr_teleporting_start_states
+        
+        # Print debug information
+        #for_each_loop = {
+        #    array = temp_param_arr_teleporting_target_states
+        #    value = temp_teleporting_target
+        #    
+        #    log = "Teleporting armies from [?THIS.GetName] to [?temp_teleporting_target.GetName]"
+        #}
+        
+        # Choose teleporting method
+        if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 0 } }
+            teleport_armies = {
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 1 } }
+            teleport_armies = {
+                limit = {
+                    tag = var:temp_current_caller_country
+                }
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 2 } }
+            teleport_armies = {
+                limit = {
+                    OR = {
+                        tag = var:temp_current_caller_country
+                        is_ally_with = var:temp_current_caller_country
+                        is_in_faction_with = var:temp_current_caller_country
+                        is_puppet_of = var:temp_current_caller_country
+                        is_subject_of = var:temp_current_caller_country
+                    }
+                }
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 3 } }
+            teleport_armies = {
+                limit = {
+                    tag = ROOT
+                }
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else_if = {
+            limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 4 } }
+            teleport_armies = {
+                limit = {
+                    OR = {
+                        tag = ROOT
+                        is_ally_with = ROOT
+                        is_in_faction_with = ROOT
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                }
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+        else = {
+            teleport_armies = {
+                to_state_array = temp_param_arr_teleporting_target_states
+            }
+        }
+    }
+}
+
+# Parameter 1: temp_param_division_owner
+# Parameter 2: temp_param_division_count
+# Parameter 3: temp_param_division_spawn_state
+SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = {
+    # Create divison template for owner
+    var:temp_param_division_owner = {
+        if = {
+            limit = {
+                NOT = {
+                    has_template = "SCP-EQ MTF Division 1"
+                }
+            }
+            
+            # Flag of special pegasus unit
+            set_variable = { global.SCP_EQ_Tools_generic_units_is_pegasus_added = 1 }
+            
+            if = {
+                limit = {
+                    check_variable = { global.SCP_EQ_Tools_generic_units_is_pegasus_added > 0 }
+                }
+                # Special Pegasus unit
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 0 y = 0 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 0 y = 1 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 0 y = 2 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 0 y = 3 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 1 y = 0 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 1 y = 1 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 1 y = 2 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 1 y = 3 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 2 y = 0 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 2 y = 1 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 2 y = 2 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 2 y = 3 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 2 y = 4 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 3 y = 0 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 3 y = 1 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 3 y = 2 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 3 y = 3 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 4 y = 0 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 4 y = 1 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 4 y = 2 }
+                        SCP_EQ_Tools_generic_units_ponies_pegasus = { x = 4 y = 3 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        has_country_flag = SCP_EQ_Tools_enhancing_decisions_TFR_decisions_enabled
+                    }
+                }
+                # TFR changed width parameter, thus we need a little adjustment
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        mechanized = { x = 0 y = 0 }
+                        mechanized = { x = 0 y = 1 }
+                        mechanized = { x = 0 y = 2 }
+                        mechanized = { x = 1 y = 0 }
+                        mechanized = { x = 1 y = 1 }
+                        mechanized = { x = 1 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 0 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 1 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 2 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 0 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 1 }
+                        modern_sp_anti_air_brigade = { x = 3 y = 2 }
+                        modern_sp_artillery_brigade = { x = 4 y = 0 }
+                        modern_sp_artillery_brigade = { x = 4 y = 1 }
+                        modern_sp_artillery_brigade = { x = 4 y = 2 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+                    }
+                }
+                # EaW - TNO April Fools 2022 Units
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        pegasi = { x = 0 y = 0 }
+                        pegasi = { x = 0 y = 1 }
+                        pegasi = { x = 0 y = 2 }
+                        pegasi = { x = 0 y = 3 }
+                        pegasi = { x = 1 y = 0 }
+                        pegasi = { x = 1 y = 1 }
+                        pegasi = { x = 1 y = 2 }
+                        pegasi = { x = 1 y = 3 }
+                        pegasi = { x = 2 y = 0 }
+                        pegasi = { x = 2 y = 1 }
+                        pegasi = { x = 2 y = 2 }
+                        pegasi = { x = 2 y = 3 }
+                        pegasi = { x = 2 y = 4 }
+                        pegasi = { x = 3 y = 0 }
+                        pegasi = { x = 3 y = 1 }
+                        pegasi = { x = 3 y = 2 }
+                        pegasi = { x = 3 y = 3 }
+                        pegasi = { x = 4 y = 0 }
+                        pegasi = { x = 4 y = 1 }
+                        pegasi = { x = 4 y = 2 }
+                        pegasi = { x = 4 y = 3 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+                }
+            }
+            else = {
+                division_template = {
+                    name = "SCP-EQ MTF Division 1"
+                    is_locked = no
+                    force_allow_recruiting = yes
+                    regiments = {
+                        mechanized = { x = 0 y = 0 }
+                        mechanized = { x = 0 y = 1 }
+                        mechanized = { x = 0 y = 2 }
+                        mechanized = { x = 0 y = 3 }
+                        mechanized = { x = 1 y = 0 }
+                        mechanized = { x = 1 y = 1 }
+                        mechanized = { x = 1 y = 2 }
+                        mechanized = { x = 1 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 0 }
+                        modern_sp_anti_air_brigade = { x = 2 y = 1 }
+                        modern_sp_anti_air_brigade = { x = 2 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 2 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 0 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 1 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 3 y = 3 }
+                        modern_tank_destroyer_brigade = { x = 4 y = 0 }
+                        modern_sp_artillery_brigade = { x = 4 y = 1 }
+                        modern_sp_artillery_brigade = { x = 4 y = 2 }
+                        modern_tank_destroyer_brigade = { x = 4 y = 3 }
+                    }
+                    support = {
+                        engineer = { x = 0 y = 0 }
+                        field_hospital = { x = 0 y = 1 }
+                        signal_company = { x = 0 y = 2 }
+                        maintenance_company = { x = 0 y = 3 }
+                        logistics_company = { x = 0 y = 4 }
+                    }
+                }
+            }
+        }
+    }
+    
+    # Spawning divison
+    var:temp_param_division_spawn_state = {
+        create_unit = {
+            division = "name = \"SCP-EQ MTF Division\" division_template = \"SCP-EQ MTF Division 1\" start_experience_factor = 1 start_equipment_factor = 1 start_manpower_factor = 1"
+            owner = var:temp_param_division_owner
+            allow_spawning_on_enemy_provs = yes
+            count = temp_param_division_count
+            divisional_commander_xp = 245
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_TFR_clear_debt = {
+    set_variable = { debt_var = 0 }
+    set_temp_variable = { debt_var_temp = 0 }
+    add_debt = yes
+}
+
+SCP_EQ_Tools_generic_scripted_effects_TFR_reset_inflation = {
+    set_variable = { inflation_var = 0 }
+    set_variable = { inflation_production_factory_max_efficiency_factor_dynamic_var = 0 }
+    set_variable = { inflation_production_speed_buildings_factor_dynamic_var = 0 }
+    set_variable = { inflation_consumer_goods_factor_dynamic_var = 0 }
+    set_variable = { inflation_stability_factor_dynamic_var = 0 }
+    update_economy = yes
+    #This won't change inflation
+    #set_temp_variable = { inflation_var_temp = 0 }
+    #subtract_from_temp_variable = { inflation_var_temp = inflation_var }
+    #add_inflation = yes
+}
+
+SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
+    # Clear debt
+    set_variable = { national_debt = 0 }
+    # Use money reserves to investigate
+    # TNO doesn't have a scripted effect for investigation, thus I used a simple algorithm
+    if = {
+        limit = {
+            check_variable = { money_reserves > 0 }
+        }
+        set_temp_variable = { gdp_growth_temp = money_reserves }
+        if = {
+            limit = {
+                check_variable = { money_reserves < 25 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 2.5 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 245 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 24.5 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 2450 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 245 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 24525 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 2450 }
+        }
+        else_if = {
+            limit = {
+                check_variable = { money_reserves < 245245 }
+            }
+            divide_temp_variable = { gdp_growth_temp = 24525 }
+        }
+        else = {
+            divide_temp_variable = { gdp_growth_temp = 245245 }
+        }
+        econ_gdp_growth_change = yes
+    }
+    set_variable = { money_reserves = 0 }
+    # Update GUI
+    add_to_variable = { TNO_economy_GUI_dirty = 1 }
+    set_variable = { reserves_management_amount = 0 }
+    update_economy_tab = yes
+}

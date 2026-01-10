@@ -1,0 +1,29 @@
+# Peace conferences will be controlled by player
+# Ref. https://hearts-of-iron-4.smods.ru/archives/2296
+
+peace_ai_desires = {
+    SCP_EQ_Tools_generic_ai_peace_actions_player_controls_peace_conferences = {
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_toggle_ai_peace_actions_player_controls_peace_conferences_enabled = 1 }
+            OR = {
+                any_country = {
+                    is_ai = no
+                    is_in_peace_conference = yes
+                    OR = {
+                        is_in_faction_with = ROOT
+                        has_war_together_with = ROOT	
+                    }
+                }
+                any_enemy_country = {
+                    is_in_peace_conference = yes
+                    any_enemy_country = {
+                        is_ai = no
+                        is_in_peace_conference = yes
+                    }
+                }
+            }
+        }
+        ai_desire = -24500
+    }
+}

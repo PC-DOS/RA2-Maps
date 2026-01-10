@@ -1,0 +1,95 @@
+# TFR's generic characters of the government should be defined here
+
+ideas = {
+    # Dr. Picsell Dois
+    head_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_head_of_government = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_head_of_government_trait
+            }
+        }
+    }
+    foreign_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_foreign_minister = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_foreign_minister_trait
+            }
+        }
+    }
+    economic_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_economic_minister = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_economic_minister_trait
+            }
+        }
+    }
+    interior_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_interior_minister = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_interior_minister_trait
+            }
+        }
+    }
+    intelligence_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_intelligence_minister = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_intelligence_minister_trait
+            }
+        }
+    }
+    theorist_minister = {
+        SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_theorist_minister = {
+            name = SCP_EQ_Tools_generic_characters_Picsell_Dois_generic_name
+            picture = SCP_EQ_Tools_generic_portraits_Picsell_Dois_Generic_Small
+            allowed = {
+                always = yes
+            }
+            visible = {
+                has_country_flag = SCP_EQ_Tools_generic_characters_Picsell_Dois_is_recruited
+            }
+            traits = {
+                SCP_EQ_Tools_generic_characters_Picsell_Dois_TFR_theorist_minister_trait
+            }
+        }
+    }
+}

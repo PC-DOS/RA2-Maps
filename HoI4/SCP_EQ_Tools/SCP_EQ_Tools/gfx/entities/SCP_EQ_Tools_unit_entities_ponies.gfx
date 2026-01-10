@@ -1,0 +1,108 @@
+### Infantry
+## Basic Pony
+# Special thanks to the Equestria at War team for this model!
+# Ponies
+objectTypes = {
+	pdxmesh = {
+		name = "SCP_EQ_Tools_generic_units_ponies_infantry_rifle_mesh"
+        # In EaW this will cause duplicate DDS error, thus I copied a mesh file and changed .dds pointing in this file with WinHex
+		#file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies/EQS_infantry.mesh"
+		file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies/SCP_unit_pgs.mesh"
+
+		animation = { id = "idle"				type = "CRY_infantry_idle" }
+		animation = { id = "idle01"				type = "CRY_infantry_idle_01" }
+		animation = { id = "idle02"				type = "CRY_infantry_idle_02" }
+		animation = { id = "attack"				type = "CRY_infantry_attack" }
+		animation = { id = "attack_shoot_mg"	type = "CRY_infantry_attack_shoot_mg" }
+		animation = { id = "attack_shoot_semi"	type = "CRY_infantry_attack_shoot_semi" }
+		animation = { id = "defend"				type = "CRY_infantry_attack" }
+		animation = { id = "retreat"			type = "CRY_infantry_retreat" }
+		animation = { id = "move"				type = "CRY_infantry_move" }
+		animation = { id = "training"			type = "CRY_infantry_training" }
+		animation = { id = "limp"				type = "CRY_infantry_limp" }
+
+		scale = 1.0
+	}
+}
+
+# Ponies attachments
+objectTypes = {
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_attachments_generic_gun_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies/attachments/SCPEQ_weapon.mesh"
+    }
+}
+
+### EaW New Models
+# Ponies
+objectTypes = {
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_infantry_rifle_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/SCP_unit_pgn.mesh"
+        
+        animation = { id = "idle"			type = "pony_idle_00_anim" }
+        animation = { id = "idle01"			type = "pony_idle_01_anim" }
+        animation = { id = "idle02"			type = "pony_idle_02_anim" }
+        animation = { id = "idle03"			type = "pony_idle_03_anim" }
+        animation = { id = "idle04"			type = "pony_idle_04_anim" }
+        animation = { id = "idle05"			type = "pony_idle_05_anim" }
+        animation = { id = "attack"			type = "pony_attack_cycle_anim" }
+        animation = { id = "defend"			type = "pony_attack_cycle_anim" }
+        animation = { id = "retreat"		type = "pony_limp_cycle_anim" }
+        animation = { id = "move"			type = "pony_move_cycle_anim" }
+        animation = { id = "training"		type = "pony_training_anim" }
+        animation = { id = "limp"			type = "pony_limp_cycle_anim" }
+        
+        scale = 1.0
+    }
+}
+
+objectTypes = {
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_generic_infantry_rifle_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/SCP-EQ_unit_pny_generic.mesh"
+        
+        animation = { id = "idle"			type = "pony_idle_00_anim" }
+        animation = { id = "idle01"			type = "pony_idle_01_anim" }
+        animation = { id = "idle02"			type = "pony_idle_02_anim" }
+        animation = { id = "idle03"			type = "pony_idle_03_anim" }
+        animation = { id = "idle04"			type = "pony_idle_04_anim" }
+        animation = { id = "idle05"			type = "pony_idle_05_anim" }
+        animation = { id = "attack"			type = "pony_attack_cycle_anim" }
+        animation = { id = "defend"			type = "pony_attack_cycle_anim" }
+        animation = { id = "retreat"		type = "pony_limp_cycle_anim" }
+        animation = { id = "move"			type = "pony_move_cycle_anim" }
+        animation = { id = "training"		type = "pony_training_anim" }
+        animation = { id = "limp"			type = "pony_limp_cycle_anim" }
+        
+        scale = 1.0
+    }
+}
+
+# Ponies attachments
+objectTypes = {
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_helmet_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP_g_helm.mesh"
+    }
+    
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_kit_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP_Kit.mesh"
+    }
+    
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP-EQ_g_pny_Helmet_1.mesh"
+    }
+    
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_kit_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP-EQ_g_pny_Kit.mesh"
+    }
+    
+    pdxmesh = {
+        name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_gun_mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP_gun.mesh"
+    }
+}

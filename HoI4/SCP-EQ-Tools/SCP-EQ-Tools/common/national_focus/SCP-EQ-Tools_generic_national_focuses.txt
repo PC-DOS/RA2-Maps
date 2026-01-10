@@ -1,7 +1,0 @@
-# Empty focus tree
-focus_tree = {
-    id = SCP-EQ-Tools_generic_national_focuses_empty_focus_tree
-    country = {
-        base = 0
-    }
-}

@@ -1,0 +1,146 @@
+add_namespace = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI
+add_namespace = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre
+add_namespace = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito
+add_namespace = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking
+
+# Nanking Massacre
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_nanking_massacre_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1.a
+        trigger = {
+            has_war_with = JAP
+        }
+    }
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1.b
+        trigger = {
+            NOT = { has_war_with = JAP }
+            NOT = { has_war_together_with = JAP }
+        }
+    }
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_nanking_massacre.1.c
+        trigger = {
+            has_war_together_with = JAP
+        }
+    }
+}
+
+# Execution of Hirohito
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.1
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.1.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.1.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.1.a
+    }
+}
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.2
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.2.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.2.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.2.a
+    }
+}
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.3
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.3.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.3.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_2
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.3.a
+    }
+}
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.4
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.4.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.4.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_4
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.4.a
+    }
+}
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.5
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.5.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.5.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_execution_of_hirohito_3
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.5.a
+    }
+}
+
+# Tokyo is Nanking
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_tokyo_is_nanking_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1.a
+    }
+}
+news_event = {
+    id = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.2
+    title = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.2.t
+    desc = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.2.desc
+    picture = GFX_SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_pictures_tokyo_is_nanking_2
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.2.a
+    }
+}

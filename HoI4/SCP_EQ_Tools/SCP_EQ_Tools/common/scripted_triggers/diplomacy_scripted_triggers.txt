@@ -1,0 +1,308 @@
+#	Triggers to control if diplomatic actions are enabled:
+#		Format:
+#
+#		<diplomatic action tag>_enabled_trigger = {
+#			<trigger contents>
+#		}
+#
+#		ROOT is the country initiating the diplomatic action.
+#		FROM is the recipient or target of the diplomatic action.
+#
+#		Note:  For cleaner tooltips, it is recommended that you use
+#			if triggers within the enable triggers, and a single
+#			custom_trigger_tooltip trigger within each if trigger.
+#
+#		Example: (Germany is prevented from declaring war on the Soviet Union.)
+#
+#		DIPLOMACY_WAR_ENABLE_TRIGGER = {
+#			if = {
+#				limit = {
+#					tag = GER
+#				}
+#				custom_trigger_tooltip = {
+#					tooltip = PREVENT_GER_WAR_ON_SOV
+#					FROM = {
+#						NOT = {
+#							tag = SOV
+#						}
+#					}
+#				}
+#			}
+#		}
+#
+# Ref. https://hoi4.paradoxwikis.com/Triggers#Diplomacy
+
+DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_WAR_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_war_declaring_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_CREATE_FACTION_ENABLE_TRIGGER	= {
+    always = yes
+}
+
+DIPLOMACY_PEACE_PROPOSAL_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_IMPROVERELATION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_NONAGGRESSIONPACT_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            FROM = {
+                is_ai = yes
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_non_aggression_pacts_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_REVOKE_NONAGGRESSIONPACT_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_REQUEST_FOREIGN_MANPOWER_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_CANCEL_FOREIGN_MANPOWER_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_CANCEL_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_REQUEST_ACCESS_TO_LICENCE_PRODUCTION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_SEND_ATTACHE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_EMBARGO_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_SEND_EXP_FORCE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_REQUEST_EXP_FORCE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_RETURN_EXP_FORCE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_ASKSTATECONTROL_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_GIVESTATECONTROL_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            FROM = {
+                is_ai = yes
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_REVOKE_GUARANTEE_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            FROM = {
+                is_ai = yes
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_guaranteeing_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_MILACC_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_war_goal_justifying_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_BOOST_PARTY_POPULARITY_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_STAGE_COUP_ENABLE_TRIGGER = {
+    always = yes
+}
+
+DIPLOMACY_LEAVE_FACTION_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+        }
+        always = no
+    }
+    else_if = {
+        limit = {
+            is_ai = yes
+            faction_leader = {
+                is_ai = no
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_ASSUME_FACTION_LEADERSHIP_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+        }
+        always = no
+    }
+    else_if = {
+        limit = {
+            is_ai = yes
+            faction_leader = {
+                is_ai = no
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_KICK_FROM_FACTION_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+        }
+        always = no
+    }
+    else_if = {
+        limit = {
+            is_ai = yes
+            FROM = {
+                is_ai = no
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}
+
+DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
+    if = {
+        limit = {
+            is_ai = yes
+            FROM = {
+                is_ai = yes
+            }
+            check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_ai_volunteer_sending_disabled = 1 }
+        }
+        always = no
+    }
+    else = {
+        always = yes
+    }
+}

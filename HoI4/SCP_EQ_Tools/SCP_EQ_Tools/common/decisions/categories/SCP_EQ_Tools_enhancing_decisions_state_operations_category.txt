@@ -1,0 +1,10 @@
+SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
+    visible = {
+        is_ai = no
+        has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+    }
+    icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+    visible_when_empty = yes
+    
+    priority = 244
+}

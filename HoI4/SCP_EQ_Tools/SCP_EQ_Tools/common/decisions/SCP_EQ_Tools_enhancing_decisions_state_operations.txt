@@ -1,0 +1,5299 @@
+SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
+
+    # On-map decisions
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_this_state = {
+        state_target = yes
+        target_array = global.states
+        visible = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            }
+            FROM = {
+                NOT = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+            }
+        }
+        on_map_mode = map_only
+        icon = GFX_SCP_EQ_Tools_generic_icons_add
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        cost = 0
+        complete_effect = {
+            FROM = {
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_unmark_this_state = {
+        state_target = yes
+        target_array = global.states
+        visible = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            }
+            FROM = {
+                has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+        on_map_mode = map_only
+        icon = GFX_SCP_EQ_Tools_generic_icons_minus
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        cost = 0
+        complete_effect = {
+            FROM = {
+                clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    
+    # Generic operations
+    # As a quick note: 
+    # DO NOT use this to enumerate countries with marked states:
+    #     every_country = {
+    #         limit = {
+    #             any_controlled_state = { has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked }
+    #         }
+    #         # Your effects
+    #     }
+    # This will easily crash the game
+    # Use this instead :
+    #     every_state = {
+    #         limit = {
+    #             has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+    #         }
+    #         controller = {
+    #             # Your effects
+    #         }
+    #     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_separator_marks_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_clear_all_marks = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_controlled_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_controlled_state = {
+                        add_to_temp_array = { temp_arr_target_states = THIS }
+                    }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_claimed_but_not_controlled_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_claimed_by = PREV.controller
+                            is_core_of = PREV.controller
+                        }
+                        NOT = {
+                            is_controlled_by = PREV.controller
+                        }
+                    }
+                    add_to_temp_array = { temp_arr_target_states = THIS }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_core_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                every_state = {
+                    limit = {
+                        is_controlled_by = PREV.controller
+                        is_core_of = PREV.controller
+                    }
+                    add_to_temp_array = { temp_arr_target_states = THIS }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_non_core_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                every_state = {
+                    limit = {
+                        is_controlled_by = PREV.controller
+                        NOT = {
+                            is_core_of = PREV.controller
+                        }
+                    }
+                    add_to_temp_array = { temp_arr_target_states = THIS }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_states_with_resistance = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                every_state = {
+                    limit = {
+                        is_controlled_by = PREV.controller
+                        has_resistance = yes
+                    }
+                    add_to_temp_array = { temp_arr_target_states = THIS }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_marked_state_controller = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = controller }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_clear_marked_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = ROOT }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_separator_marked_states_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_own_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                # set_state_owner (country scope) or set_state_owner_to (state scope) may cause problems
+                # Using transfer_state_to is recommended
+                # See:
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner_to
+                transfer_state_to = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_control_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                set_state_controller_to = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_core_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                # Check if we need to cancel resistance
+                if = {
+                    limit = {
+                        is_controlled_by = ROOT
+                    }
+                    cancel_resistance = yes
+                }
+                add_core_of = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_claim_by = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_controller_add_core_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                cancel_resistance = yes
+                add_core_of = controller
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_controller_add_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_claim_by = controller
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_others_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            for_each_loop = {
+                array = global.countries
+                value = temp_current_country
+                
+                if = {
+                    limit = {
+                        NOT = {
+                            check_variable = { temp_current_country = ROOT }
+                        }
+                    }
+                    every_state = {
+                        limit = {
+                            has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                        }
+                        remove_claim_by = temp_current_country
+                        remove_core_of = temp_current_country
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_non_controllers_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            for_each_loop = {
+                array = global.countries
+                value = temp_current_country
+                
+                every_state = {
+                    limit = {
+                        has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    }
+                    if = {
+                        limit = {
+                            NOT = {
+                                check_variable = { temp_current_country = controller }
+                            }
+                        }
+                        remove_claim_by = temp_current_country
+                        remove_core_of = temp_current_country
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_our_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_claim_by = ROOT
+                remove_core_of = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_current_controller_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_claim_by = controller
+                remove_core_of = controller
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_current_controller_core_and_claim_on_all_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_state = {
+                        limit = {
+                            has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                        }
+                        remove_claim_by = PREV
+                        remove_core_of = PREV
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_transfer_marked_states_to_random_country_with_claim = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                
+                set_temp_variable = { temp_current_state = THIS }
+                # Determine countries who claims but is not controlling this state
+                clear_temp_array = temp_arr_possible_new_owners
+                every_possible_country = {
+                    set_temp_variable = { temp_current_country = THIS }
+                    if = {
+                        limit = {
+                            var:temp_current_state = {
+                                NOT = { is_controlled_by = var:temp_current_country }
+                                OR = {
+                                    is_core_of = var:temp_current_country
+                                    is_claimed_by = var:temp_current_country
+                                }
+                            }
+                        }
+                        add_to_temp_array = { temp_arr_possible_new_owners = temp_current_country }
+                    }
+                }
+                # Select new owner
+                if = {
+                    limit = {
+                        check_variable = { temp_arr_possible_new_owners^num > 0 }
+                    }
+                    set_temp_variable_to_random = {
+                        var = temp_new_owner_index
+                        min = 0
+                        max = temp_arr_possible_new_owners^num
+                        integer = yes
+                    }
+                    transfer_state_to = var:temp_arr_possible_new_owners^temp_new_owner_index
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_set_capital_to_marked_state = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    is_controlled_by = ROOT
+                }
+                ROOT = {
+                    set_capital = {
+                        state = PREV
+                        remember_old_capital = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_set_controller_capital_to_marked_state = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_capital = {
+                        state = PREV
+                        remember_old_capital = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_delete_non_allied_armies_in_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                every_possible_country = {
+                    limit = {
+                        NOT = { tag = ROOT }
+                        NOT = { is_ally_with = ROOT }
+                        NOT = { is_in_faction_with = ROOT }
+                        NOT = { is_puppet_of = ROOT }
+                        NOT = { is_subject_of = ROOT }
+                    }
+                    delete_unit = {
+                        state = PREV
+                        disband = no
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_set_demilitarized_zone_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_demilitarized_zone = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_unset_demilitarized_zone_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_demilitarized_zone = no
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_add_resource = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_temp_variable = { temp_param_resource_change = 24525 }
+                SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_loss_resource = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_temp_variable = { temp_param_resource_change = -24525 }
+                SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_add_manpower = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_manpower = 24525
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_loss_manpower = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_manpower = -24525
+                controller = {
+                    add_manpower = -24525
+                }
+                # If you killed all pupulation of the target state, the state's population will revert to manpower defined in history/states after save-load sequence
+                if = {
+                    limit = {
+                        state_population_k < 0.001
+                        state_population < 1
+                    }
+                    add_manpower = 1
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_infrastructure_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = infrastructure
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_anti_air_building_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_radar_station_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = radar_station
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_air_base_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = air_base
+                    level = 25
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_unlock_building_slots_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_industrial_complex_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_arms_factory_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_dockyard_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_railway_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            clear_temp_array = temp_param_arr_railway_start_states
+            clear_temp_array = temp_param_arr_railway_end_states
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_to_temp_array = { temp_param_arr_railway_start_states = THIS }
+                add_to_temp_array = { temp_param_arr_railway_end_states = THIS }
+            }
+            set_temp_variable = { temp_param_is_railway_build_only_on_allied = 0 }
+            SCP_EQ_Tools_generic_scripted_effects_build_railway_from_state_to_state = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_supply_node_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = supply_node
+                    level = 1
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_naval_base_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = naval_base
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_coastal = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_coastal_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_building_construction = {
+                    type = coastal_bunker
+                    level = 10
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_coastal = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_infrastructure_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = infrastructure
+                    level = 25
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_anti_air_building_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = anti_air_building
+                    level = 25
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_radar_station_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = radar_station
+                    level = 25
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_air_base_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = air_base
+                    level = 25
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_lock_building_slots_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = -245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_industrial_complex_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                remove_building = {
+                    type = industrial_complex
+                    level = 1
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_arms_factory_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                remove_building = {
+                    type = arms_factory
+                    level = 1
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_dockyard_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_extra_state_shared_building_slots = 1
+                remove_building = {
+                    type = dockyard
+                    level = 1
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_supply_node_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = supply_node
+                    level = 1
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_naval_base_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = naval_base
+                    level = 10
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = bunker
+                    level = 10
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_coastal_bunker_onekey = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_building = {
+                    type = coastal_bunker
+                    level = 10
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_cancel_resistance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                cancel_resistance = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_compliance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_compliance = 245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_clear_resistance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_resistance = -245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_start_resistance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                force_enable_resistance = controller
+                start_resistance = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_clear_compliance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_compliance = -245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_resistance_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_resistance = 245
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_teleport_capital_armies_to_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            clear_temp_array = temp_param_arr_teleporting_start_states
+            clear_temp_array = temp_param_arr_teleporting_target_states
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
+            add_to_temp_array = { temp_param_arr_teleporting_start_states = ROOT.capital }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                log = "Adding teleporting target [?THIS.GetName]"
+                add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+            }
+            SCP_EQ_Tools_generic_scripted_effects_teleport_armies = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_teleport_our_armies_in_marked_states_to_capital = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            clear_temp_array = temp_param_arr_teleporting_start_states
+            clear_temp_array = temp_param_arr_teleporting_target_states
+            set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 2 }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+            }
+            add_to_temp_array = { temp_param_arr_teleporting_target_states = ROOT.capital }
+            SCP_EQ_Tools_generic_scripted_effects_teleport_armies = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_teleport_armies_in_marked_states_to_enemy_capitals = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                clear_temp_array = temp_param_arr_teleporting_start_states
+                clear_temp_array = temp_param_arr_teleporting_target_states
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
+                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+                controller = {
+                    every_enemy_country = {
+                        every_controlled_state = {
+                            limit = {
+                                is_capital = yes
+                            }
+                            log = "Adding teleporting target [?THIS.GetName]"
+                            add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        }
+                    }
+                    SCP_EQ_Tools_generic_scripted_effects_teleport_armies = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_teleport_armies_in_marked_states_to_enemy_separated_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                clear_temp_array = temp_param_arr_teleporting_start_states
+                clear_temp_array = temp_param_arr_teleporting_target_states
+                set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 0 }
+                add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+                controller = {
+                    every_enemy_country = {
+                        every_controlled_state = {
+                            limit = {
+                                AND = {
+                                    is_demilitarized_zone = no
+                                    OR = {
+                                        is_capital = yes
+                                        NOT = { is_in_home_area = yes }
+                                    }
+                                }
+                            }
+                            log = "Adding teleporting target [?THIS.GetName]"
+                            add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS }
+                        }
+                    }
+                    SCP_EQ_Tools_generic_scripted_effects_teleport_armies = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_create_our_unit_in_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                ROOT = {
+                    set_temp_variable = { temp_param_division_owner = THIS }
+                    set_temp_variable = { temp_param_division_count = 25 }
+                    set_temp_variable = { temp_param_division_spawn_state = PREV }
+                    SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_create_owner_unit_in_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_division_owner = THIS }
+                    set_temp_variable = { temp_param_division_count = 25 }
+                    set_temp_variable = { temp_param_division_spawn_state = PREV }
+                    SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_enable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
+                    # Generic
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1 = yes
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_production = yes
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_army = yes
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_naval = yes
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_air = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                    SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                    # EaW
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP_EQ_Tools_enhancing_decisions_EAW_decisions_enabled
+                            }
+                        }
+                        SCP_EQ_Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = yes
+                    }
+                    # TFR
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TFR_decisions_enabled
+                            }
+                        }
+                        SCP_EQ_Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
+                        # Allow AI's production
+                        remove_ideas = ai_disabled_production
+                        country_lock_all_division_template = no
+                    }
+                    # TNO
+                    if = {
+                        limit = {
+                            ROOT = {
+                                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+                            }
+                        }
+                        SCP_EQ_Tools_generic_scripted_effects_TNO_enable_SCP_item_1 = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_disable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
+                    # Generic
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1 = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_production = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_army = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_naval = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_air = yes
+                    SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                    # EaW
+                    SCP_EQ_Tools_generic_scripted_effects_EAW_disable_SCP_item_1 = yes
+                    # TFR
+                    SCP_EQ_Tools_generic_scripted_effects_TFR_disable_SCP_item_1 = yes
+                    # TNO
+                    SCP_EQ_Tools_generic_scripted_effects_TNO_disable_SCP_item_1 = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_all_marked_states_controllers_disable_SCP_items = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
+                }
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_SCP_item_1_enabled
+                # Generic
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1 = yes
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_production = yes
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_army = yes
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_naval = yes
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_air = yes
+                SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+                # EaW
+                SCP_EQ_Tools_generic_scripted_effects_EAW_disable_SCP_item_1 = yes
+                # TFR
+                SCP_EQ_Tools_generic_scripted_effects_TFR_disable_SCP_item_1 = yes
+                # TNO
+                SCP_EQ_Tools_generic_scripted_effects_TNO_disable_SCP_item_1 = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_win_wars = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_delete_all_enemy_units = yes
+                    SCP_EQ_Tools_generic_scripted_effects_control_all_enemy_controlled_states = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_white_peace_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    white_peace = ROOT
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_white_peace_with_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_enemy_country = {
+                        white_peace = PREV
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_start_peace_conference_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = ROOT
+                    }
+                }
+                controller = {
+                    ROOT = {
+                        # Current scope is the winner, target and its subjects are the losers
+                        start_peace_conference  = {
+                            tag = PREV
+                            score_factor = 1.0
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_start_peace_conference_with_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_enemy_country = {
+                        limit = {
+                            # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
+                            # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
+                            # Thus, we need to exclude those faction members or subject countries.
+                            # Otherwise, it will crash the game.
+                            # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
+                            NOT = {
+                                # Excludes subjects whose overlord is in war with us
+                                AND = {
+                                    is_subject = yes
+                                    overlord = {
+                                        has_war_with = PREV
+                                    }
+                                }
+                                # Excludes faction memebers whose faction leader is in war with us
+                                AND = {
+                                    is_in_faction = yes
+                                    is_faction_leader = no
+                                    faction_leader = {
+                                        has_war_with = PREV
+                                    }
+                                }
+                            }
+                        }
+                        PREV = {
+                            # Current scope is the winner, target and its subjects are the losers
+                            start_peace_conference  = {
+                                tag = PREV
+                                score_factor = 1.0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_teleport_exiled_units_to_capital = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_var_unit_owner = THIS }
+                    clear_temp_array = temp_param_arr_teleporting_start_states
+                    clear_temp_array = temp_param_arr_teleporting_target_states
+                    set_temp_variable = { temp_param_army_owner_types_to_be_teleported = 2 }
+                    every_state = {
+                        limit = {
+                            controller = {
+                                NOT = { tag = var:temp_var_unit_owner }
+                                NOT = { has_war_with = var:temp_var_unit_owner }
+                                NOT = { is_ally_with = var:temp_var_unit_owner }
+                                NOT = { is_in_faction_with = var:temp_var_unit_owner }
+                                NOT = { is_puppet_of = var:temp_var_unit_owner }
+                                NOT = { is_subject_of = var:temp_var_unit_owner }
+                                NOT = { 
+                                    has_volunteers_amount_from = {
+                                        tag = var:temp_var_unit_owner
+                                        count > 0
+                                    }
+                                }
+                            }
+                        }
+                        add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
+                    }
+                    add_to_temp_array = { temp_param_arr_teleporting_target_states = THIS.capital }
+                    SCP_EQ_Tools_generic_scripted_effects_teleport_armies = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_remove_wargoal = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_possible_country = {
+                        PREV = {
+                            remove_wargoal = {
+                                type = all
+                                target = PREV
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_wargoal_toward_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_possible_country = {
+                        remove_wargoal = {
+                            type = all
+                            target = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_remove_embargo = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_possible_country = {
+                        PREV = {
+                            diplomatic_relation = {
+                                country = PREV
+                                relation = embargo
+                                active = no
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_embargo_toward_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_possible_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = embargo
+                            active = no
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_nuke_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                set_temp_variable = { temp_param_nuke_target_tag = controller }
+                set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
+                set_temp_variable = { temp_param_nuke_target_state = THIS }
+                set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_enabled }
+                SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_nuke_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_nuke_target_tag = THIS }
+                    set_temp_variable = { temp_param_nuke_sender_tag = ROOT }
+                    set_temp_variable = { temp_param_is_every_province_nuked = 1 }
+                    set_temp_variable = { temp_param_is_advanced_nuking_enabled = global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_enabled }
+                    SCP_EQ_Tools_generic_scripted_effects_nuke_all_controlled_states = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_delete_all_marked_states_controllers_armies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_delete_all_units = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_annex_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_puppet_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        puppet = {
+                            target = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_end_puppet_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        overlord = {
+                            end_puppet = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_autonomy_score = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        add_autonomy_score = {
+                            value = 2450
+                            localization = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_autonomy_score
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_autonomy_score = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    if = {
+                        limit = {
+                            is_subject = yes
+                        }
+                        add_autonomy_score = {
+                            value = -2450
+                            localization = SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_autonomy_score
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_gain_military_access_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    give_military_access = ROOT
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_gain_docking_rights_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = docking_rights
+                            active = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_guarantees_of_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_possible_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = guarantee
+                            active = no
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_declare_war_on_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        declare_war_on = {
+                            target = PREV
+                            type = annex_everything
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_threat = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_threat = 245
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_lower_threat = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_threat = -245
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_minus_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_our_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            ROOT = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_minus_our_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            ROOT = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_change_ruling_party_to_ours = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            ROOT = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_hold_election = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    hold_election = THIS
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_kill_country_leader = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    kill_country_leader = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_load_default_national_focus_tree = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    load_focus_tree = SCP_EQ_Tools_generic_national_focuses_empty_focus_tree_allow_fallback
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_load_empty_national_focus_tree = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    load_focus_tree = SCP_EQ_Tools_generic_national_focuses_empty_focus_tree
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_drop_cosmetic_tag = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    drop_cosmetic_tag = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_marked_states_controllers_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+                    ROOT = {
+                        SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_minus_marked_states_controllers_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    ROOT = {
+                        SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_change_ruling_party_to_random_marked_states_controller = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                    ROOT = {
+                        SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_PP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_political_power = 2450
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_PP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_political_power = -2450
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_MP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_command_power = 2450
+                    add_manpower = 245245
+                    army_experience = 2450
+                    navy_experience = 2450
+                    air_experience = 2450
+                    add_stability = 5.0
+                    add_war_support = 5.0
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_MP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_command_power = -2450
+                    add_manpower = -245245
+                    army_experience = -2450
+                    navy_experience = -2450
+                    air_experience = -2450
+                    add_stability = -5.0
+                    add_war_support = -5.0
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_fuel = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_fuel = 24525
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_loss_fuel = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_fuel = -24525
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_turbo_boost_toward_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_turbo_boost_from_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_super_damp_toward_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_super_damp_from_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_turbo_boost_toward_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_turbo_boost_from_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_super_damp_toward_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_super_damp_from_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_add_to_faction_of_marked_states_controller = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    faction_leader = {
+                        add_to_faction = ROOT
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_join_our_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    leave_faction = yes
+                    dismantle_faction = yes
+                    set_temp_variable = { temp_target_country = THIS }
+                    ROOT = {
+                        faction_leader = {
+                            add_to_faction = temp_target_country
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_become_leader_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_faction_leader = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_become_spymaster_of_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    set_faction_spymaster = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_leave_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    leave_faction = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_dismantle_current_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    faction_leader = {
+                        dismantle_faction = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_volunteer_sending_to_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    ROOT = {
+                        add_relation_rule_override = {
+                            target = PREV
+                            trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true
+                            can_send_volunteers = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_recall_volunteers_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_volunteers_amount_from = {
+                            tag = ROOT
+                            count > 0
+                        }
+                        NOT = {
+                            tag = ROOT
+                        }
+                    }
+                }
+                controller = {
+                    ROOT = {
+                        recall_volunteers_from = PREV
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_recall_volunteers_from_all_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_other_country = {
+                        limit = {
+                            has_volunteers_amount_from = {
+                                tag = PREV
+                                count > 0
+                            }
+                        }
+                        PREV = {
+                            recall_volunteers_from = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            NOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_is_tagged_from_another_country
+            }
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                controller = {
+                    set_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_source = ROOT }
+                    set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_is_tagged_from_another_country
+                    set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+                    change_tag_from = ROOT
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_revert = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_is_tagged_from_another_country
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_is_tagged_from_another_country
+                }
+                set_temp_variable = { temp_tag_target = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_source }
+                set_temp_variable = { temp_tag_source = THIS }
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_is_tagged_from_another_country
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_random_marked_state_controller_source
+                var:temp_tag_target = {
+                    change_tag_from = var:temp_tag_source
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_separator_marked_countries_management = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_own_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                }
+                # set_state_owner (country scope) or set_state_owner_to (state scope) may cause problems
+                # Using transfer_state_to is recommended
+                # See:
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner
+                # https://hoi4.paradoxwikis.com/Effect#set_state_owner_to
+                transfer_state_to = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_control_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    NOT = {
+                        is_controlled_by = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                }
+                set_state_controller_to = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_add_core_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                # Check if we need to cancel resistance
+                if = {
+                    limit = {
+                        is_controlled_by = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                    cancel_resistance = yes
+                }
+                add_core_of = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_add_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                add_claim_by = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_remove_marked_country_core_and_claim_on_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                remove_claim_by = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                remove_core_of = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_set_marked_country_capital_to_marked_state = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                    set_capital = {
+                        state = PREV
+                        remember_old_capital = yes
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_delete_marked_country_armies_in_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                    delete_unit = {
+                        state = PREV
+                        disband = no
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_create_marked_country_unit_in_marked_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                    set_temp_variable = { temp_param_division_owner = THIS }
+                    set_temp_variable = { temp_param_division_count = 25 }
+                    set_temp_variable = { temp_param_division_spawn_state = PREV }
+                    SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_white_peace_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    white_peace = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_start_peace_conference_with_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_war_with = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        # Current scope is the winner, target and its subjects are the losers
+                        start_peace_conference  = {
+                            tag = PREV
+                            score_factor = 1.0
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_remove_wargoal_toward_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        remove_wargoal = {
+                            type = all
+                            target = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_remove_wargoal_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    remove_wargoal = {
+                        type = all
+                        target = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_remove_embargo_toward_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = embargo
+                            active = no
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_remove_embargo_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            diplomatic_relation = {
+                                country = [TARGET_TAG]
+                                relation = embargo
+                                active = no
+                            }
+                        }
+                        TARGET_TAG = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_annex_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_puppet_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        puppet = {
+                            target = PREV
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_gain_military_access_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    give_military_access = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_gain_docking_rights_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        diplomatic_relation = {
+                            country = PREV
+                            relation = docking_rights
+                            active = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_declare_war_on_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        declare_war_on = {
+                            target = PREV
+                            type = annex_everything
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_marked_country_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_minus_marked_country_ruling_party_ideology_popularity = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_change_ruling_party_to_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            }
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_turbo_boost_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                            }
+                        }
+                        TARGET_TAG = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_turbo_boost_from_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_super_damp_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = TARGET_TAG
+                                modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                            }
+                        }
+                        TARGET_TAG = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_diplomatic_opinion_super_damp_from_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_turbo_boost_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_turbo_boost_from_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
+                            }
+                        }
+                        TARGET_TAG = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_super_damp_toward_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_add_trade_opinion_super_damp_from_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            add_opinion_modifier = {
+                                target = [TARGET_TAG]
+                                modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp
+                            }
+                        }
+                        TARGET_TAG = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]"
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_join_marked_country_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    leave_faction = yes
+                    dismantle_faction = yes
+                    set_temp_variable = { temp_target_country = THIS }
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        faction_leader = {
+                            add_to_faction = temp_target_country
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country_recall_volunteers_from_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                    controller = {
+                        has_volunteers_amount_from = {
+                            tag = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                            count > 0
+                        }
+                        NOT = {
+                            tag = var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country
+                        }
+                    }
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                        recall_volunteers_from = PREV
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            NOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_is_tagged_from_another_country
+            }
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = {
+                set_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_source = ROOT }
+                set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_is_tagged_from_another_country
+                set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+                change_tag_from = ROOT
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_revert = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_is_tagged_from_another_country
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            if = {
+                limit = {
+                    has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_is_tagged_from_another_country
+                }
+                set_temp_variable = { temp_tag_target = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_source }
+                set_temp_variable = { temp_tag_source = THIS }
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_is_tagged_from_another_country
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_tag_to_marked_country_source
+                var:temp_tag_target = {
+                    change_tag_from = var:temp_tag_source
+                }
+            }
+        }
+    }
+
+}

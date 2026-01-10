@@ -1,0 +1,12 @@
+SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
+    visible = {
+        AND = {
+            is_ai = no
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+    }
+    icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+    visible_when_empty = no
+    
+    priority = 243
+}

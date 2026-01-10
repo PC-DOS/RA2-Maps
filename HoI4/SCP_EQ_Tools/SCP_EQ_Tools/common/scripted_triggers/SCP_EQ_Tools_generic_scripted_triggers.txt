@@ -1,0 +1,12 @@
+SCP_EQ_Tools_generic_scripted_triggers_always_true = {
+    always = yes
+}
+
+SCP_EQ_Tools_generic_scripted_triggers_always_false = {
+    always = no
+}
+
+# Set this to always=no if you don't need diplomacy overriding
+SCP_EQ_Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = {
+    always = yes
+}

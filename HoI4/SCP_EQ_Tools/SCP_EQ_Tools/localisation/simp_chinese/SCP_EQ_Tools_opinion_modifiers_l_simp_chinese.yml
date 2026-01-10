@@ -1,0 +1,6 @@
+﻿l_simp_chinese:
+ # Opinion modifiers
+ SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost:0 "外交关系提升"
+ SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp:0 "外交关系下降"
+ SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost:0 "外贸关系提升"
+ SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp:0 "外贸关系下降"

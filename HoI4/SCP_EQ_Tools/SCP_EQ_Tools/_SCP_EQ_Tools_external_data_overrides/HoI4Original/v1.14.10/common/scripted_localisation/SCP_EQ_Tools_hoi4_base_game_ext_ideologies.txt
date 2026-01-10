@@ -1,0 +1,262 @@
+# Allow more flexible ideology displaying
+# Referenced EaW's common/scripted_localisation/EAW_subideology_display_scripted_localisation.txt
+
+# Ideologu groups
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetIdeologyGroupLoc
+    text = {
+        trigger = { has_government = democratic }
+        localization_key = democratic
+    }
+    text = {
+        trigger = { has_government = neutrality }
+        localization_key = neutrality
+    }
+    text = {
+        trigger = { has_government = communism }
+        localization_key = communism
+    }
+    text = {
+        trigger = { has_government = fascism }
+        localization_key = fascism
+    }
+}
+
+# Subideology names
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLoc
+    text = {
+        trigger = { has_government = democratic }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocDemocratic]"
+    }
+    text = {
+        trigger = { has_government = neutrality }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocNeutrality]"
+    }
+    text = {
+        trigger = { has_government = communism }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocCommunism]"
+    }
+    text = {
+        trigger = { has_government = fascism }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocFascism]"
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocDemocratic
+    text = {
+        trigger = { has_country_leader_ideology = conservatism }
+        localization_key = conservatism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = liberalism }
+        localization_key = liberalism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = socialism }
+        localization_key = socialism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = populism }
+        localization_key = populism
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocNeutrality
+    text = {
+        trigger = { has_country_leader_ideology = despotism }
+        localization_key = despotism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = oligarchism }
+        localization_key = oligarchism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anarchism }
+        localization_key = anarchism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = moderatism }
+        localization_key = moderatism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = centrism }
+        localization_key = centrism
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocCommunism
+    text = {
+        trigger = { has_country_leader_ideology = marxism }
+        localization_key = marxism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = leninism }
+        localization_key = leninism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = stalinism }
+        localization_key = stalinism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anti_revisionism }
+        localization_key = anti_revisionism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anarchist_communism }
+        localization_key = anarchist_communism
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLocFascism
+    text = {
+        trigger = { has_country_leader_ideology = nazism }
+        localization_key = nazism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = gen_nazism }
+        localization_key = gen_nazism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = fascism_ideology }
+        localization_key = fascism_ideology
+    }
+    text = {
+        trigger = { has_country_leader_ideology = falangism }
+        localization_key = falangism
+    }
+    text = {
+        trigger = { has_country_leader_ideology = rexism }
+        localization_key = rexism
+    }
+}
+
+# Subideology descriptions
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLoc
+    text = {
+        trigger = { has_government = democratic }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocDemocratic]"
+    }
+    text = {
+        trigger = { has_government = neutrality }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocNeutrality]"
+    }
+    text = {
+        trigger = { has_government = communism }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocCommunism]"
+    }
+    text = {
+        trigger = { has_government = fascism }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocFascism]"
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocDemocratic
+    text = {
+        trigger = { has_country_leader_ideology = conservatism }
+        localization_key = conservatism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = liberalism }
+        localization_key = liberalism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = socialism }
+        localization_key = socialism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = populism }
+        localization_key = populism_desc
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocNeutrality
+    text = {
+        trigger = { has_country_leader_ideology = despotism }
+        localization_key = despotism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = oligarchism }
+        localization_key = oligarchism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anarchism }
+        localization_key = anarchism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = moderatism }
+        localization_key = moderatism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = centrism }
+        localization_key = centrism_desc
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocCommunism
+    text = {
+        trigger = { has_country_leader_ideology = marxism }
+        localization_key = marxism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = leninism }
+        localization_key = leninism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = stalinism }
+        localization_key = stalinism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anti_revisionism }
+        localization_key = anti_revisionism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = anarchist_communism }
+        localization_key = anarchist_communism_desc
+    }
+}
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDescLocFascism
+    text = {
+        trigger = { has_country_leader_ideology = nazism }
+        localization_key = nazism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = gen_nazism }
+        localization_key = gen_nazism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = fascism_ideology }
+        localization_key = fascism_ideology_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = falangism }
+        localization_key = falangism_desc
+    }
+    text = {
+        trigger = { has_country_leader_ideology = rexism }
+        localization_key = rexism_desc
+    }
+}
+
+# Subideology display names
+
+defined_text = {
+    name = SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyDisplayNameLoc
+    text = {
+        trigger = { always = yes }
+        localization_key = "[SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetSubIdeologyLoc] ([SCP_EQ_Tools_hoi4_base_game_ext_ideologies_GetIdeologyGroupLoc])"
+    }
+}
