@@ -86,7 +86,7 @@ sub_units = {
     
     SCP_EQ_Tools_generic_units_ponies_pony = {
         abbreviation = "SCPEQ_PNY"
-        sprite = SCP_EQ_Tools_units_entites_ponies_eaw_new_generic_pony
+        sprite = SCP_EQ_Tools_units_entites_ponies_eaw_new_generic_crystal_pony
         map_icon_category = other
         priority = 601
         ai_priority = 0
