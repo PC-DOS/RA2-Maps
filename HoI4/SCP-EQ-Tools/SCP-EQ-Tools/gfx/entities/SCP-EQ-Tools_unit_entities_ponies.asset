@@ -1,6 +1,7 @@
 # With reference from EaW (equestria\gfx\entities\z_eaw_units_infantry.asset) & TNO (TNO\gfx\entities\TNO_AprilFools.asset)
 # Also https://hoi4.paradoxwikis.com/Unit_modding#Models
 
+# Ponies
 entity = {
 	name = "SCP-EQ-Tools_units_entites_ponies_generic_pony_base_entity"
 	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_infantry_rifle_mesh"
@@ -24,7 +25,7 @@ entity = {
 	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 looping = no next_state = "idle" }
 	state = { name = "training"			animation = "training"			animation_blend_time = 0.0 animation_speed = 1.0 }
 
-	#attach = { name = "gun"	Root_003 = "ENG_infantry_weapon_rifle_left_entity" }
+	#attach = { name = "gun"	Root_003 = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_entity" }
 
 	scale = 0.8
 }
@@ -33,10 +34,17 @@ entity = {
 	name = "SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_generic_pony_base_entity"
 
-	#attach = { name = "gun"	Root_003 = "LAGG1_weapon_left_entity" }
+	attach = { name = "gun"	Root_003 = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_entity" }
+}
+
+# Ponies attachments
+entity = {
+	name = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_entity"
+	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_attachments_generic_gun_mesh"
 }
 
 # EaW new models
+# Ponies
 entity = {
 	name = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_pony_base_entity"
 	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_eaw_new_infantry_rifle_mesh"	
@@ -56,9 +64,9 @@ entity = {
 	state = { name = "idle"				animation = "idle05"		animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
 	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no 	next_state = "training" }
 	
-	#attach = { 	name = "helm1"	Head_001 = "EQS_helmet_entity" }
-	#attach = { 	name = "kit1"	Spine2 = "EQS_kit_entity" }
-	#attach = { 	name = "rifle1"	jeb = "enfield_entity" }
+	attach = {name = "helm1"	Head_001 = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_entity" }
+	attach = { name = "kit1"	Spine2 = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_kit_entity" }
+	#attach = { name = "rifle1"	jeb = "enfield_entity" }
 
 	scale = 0.8
 	
@@ -83,9 +91,9 @@ entity = {
 	state = { name = "idle"				animation = "idle05"		animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
 	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no 	next_state = "training" }
 	
-	#attach = { 	name = "helm1"	Head_001 = "Pony_helmet1_entity" }
-	#attach = { 	name = "kit1"	Spine2 = "Pony_kit_entity" }
-	#attach = { 	name = "rifle1"	jeb = "enfield_entity" }
+	attach = { name = "helm1"	Head_001 = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_entity" }
+	attach = { name = "kit1"	Spine2 = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_kit_entity" }
+	#attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 
 	scale = 0.8
 	
@@ -95,12 +103,28 @@ entity = {
 	name = "eastern_european_gfx_SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_pony_base_entity"
 
-	#attach = { name = "gun"	Root_003 = "LAGG1_weapon_left_entity" }
+	attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
 }
 
 entity = {
 	name = "asian_gfx_SCP-EQ-Tools_units_entites_ponies_generic_pony_entity"
 	clone = "SCP-EQ-Tools_units_entites_ponies_eaw_new_generic_universal_pony_base_entity"
 
-	#attach = { name = "gun"	Root_003 = "LAGG1_weapon_left_entity" }
+	attach = { name = "rifle1"	jeb = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity" }
+}
+
+# Ponies attachments
+entity = {
+	name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_entity"
+	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_mesh"
+}
+
+entity = {
+	name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_kit_entity"
+	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_kit_mesh"
+}
+
+entity = {
+	name = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_entity"
+	pdxmesh = "SCP-EQ-Tools_generic_units_ponies_eaw_new_attachments_generic_gun_mesh"
 }
