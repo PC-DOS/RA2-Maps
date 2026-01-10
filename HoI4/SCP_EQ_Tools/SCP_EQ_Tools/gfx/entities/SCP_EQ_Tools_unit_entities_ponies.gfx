@@ -60,7 +60,7 @@ objectTypes = {
 objectTypes = {
     pdxmesh = {
         name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_generic_infantry_rifle_mesh"
-        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/SCP-EQ_unit_pny_generic.mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/SCP_EQ_unit_pny_generic.mesh"
         
         animation = { id = "idle"			type = "pony_idle_00_anim" }
         animation = { id = "idle01"			type = "pony_idle_01_anim" }
@@ -93,12 +93,12 @@ objectTypes = {
     
     pdxmesh = {
         name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_helmet_1_mesh"
-        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP-EQ_g_pny_Helmet_1.mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP_EQ_g_pny_Helmet_1.mesh"
     }
     
     pdxmesh = {
         name = "SCP_EQ_Tools_generic_units_ponies_eaw_new_attachments_generic_kit_mesh"
-        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP-EQ_g_pny_Kit.mesh"
+        file = "gfx/models/units/SCP_EQ_Tools_generic_units_ponies_eaw_new/attachments/SCP_EQ_g_pny_Kit.mesh"
     }
     
     pdxmesh = {
