@@ -2352,6 +2352,41 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_remove_wargoal_toward_us_and_allies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    tag = ROOT
+                    is_ally_with = ROOT
+                    is_in_faction_with = ROOT
+                    is_puppet_of = ROOT
+                    is_subject_of = ROOT
+                    is_guaranteed_by = ROOT
+                }
+                every_possible_country = {
+                    remove_wargoal = {
+                        type = all
+                        target = PREV
+                    }
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_create_unit_in_capital = {
         allowed = {
             # Always allowed
