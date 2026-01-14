@@ -755,9 +755,9 @@ SCP_EQ_Tools_generic_scripted_effects_check_and_set_country_nuked_flag = {
 
 SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
     # Radiation fades out after global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time days since last nuking
-    if = {
-        meta_effect = {
-            text = {
+    meta_effect = {
+        text = {
+            if = {
                 limit = {
                     has_state_flag = {
                         flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
@@ -773,17 +773,17 @@ SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
                 }
                 clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                 subtract_from_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
-                # If there are accumulated radiation, register for another radiation fading cycle
-                if = {
-                    limit = {
-                        check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
-                    }
-                    #log = "[?THIS.GetName] still have radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-                    set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                }
             }
-            RADIATION_TIME = "[?global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time]"
+            # If there are accumulated radiation, register for another radiation fading cycle
+            if = {
+                limit = {
+                    check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
+                }
+                #log = "[?THIS.GetName] still have radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+                set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            }
         }
+        RADIATION_TIME = "[?global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time]"
     }
 }
 
