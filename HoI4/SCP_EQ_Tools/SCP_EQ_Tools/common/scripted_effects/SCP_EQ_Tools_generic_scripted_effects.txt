@@ -673,12 +673,17 @@ SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state = {
                 set_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
             }
             # Long-term damage due to radiation
-            add_province_modifier = {
-                static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
-                province = {
-                    all_provinces = yes
-                    #days = var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time
+            meta_effect = {
+                text = {
+                    add_province_modifier = {
+                        static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
+                        province = {
+                            all_provinces = yes
+                            #days = [RADIATION_DAYS]
+                        }
+                    }
                 }
+                RADIATION_DAYS = "[?global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time]"
             }
         }
     }
@@ -749,30 +754,35 @@ SCP_EQ_Tools_generic_scripted_effects_check_and_set_country_nuked_flag = {
 }
 
 SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
-    # Radiation fades out after var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time days since last nuking
+    # Radiation fades out after global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time days since last nuking
     if = {
-        limit = {
-            has_state_flag = {
-                flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-                days > var:global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time
+        meta_effect = {
+            text = {
+                limit = {
+                    has_state_flag = {
+                        flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                        days > [RADIATION_DAYS]
+                    }
+                }
+                #log = "Radiation fades out at [?THIS.GetName], radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+                remove_province_modifier = {
+                    static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
+                    province = {
+                        all_provinces = yes
+                    }
+                }
+                clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                subtract_from_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
+                # If there are accumulated radiation, register for another radiation fading cycle
+                if = {
+                    limit = {
+                        check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
+                    }
+                    #log = "[?THIS.GetName] still have radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+                    set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+                }
             }
-        }
-        #log = "Radiation fades out at [?THIS.GetName], radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-        remove_province_modifier = {
-            static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
-            province = {
-                all_provinces = yes
-            }
-        }
-        clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
-        subtract_from_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level = 1 }
-        # If there are accumulated radiation, register for another radiation fading cycle
-        if = {
-            limit = {
-                check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
-            }
-            #log = "[?THIS.GetName] still have radiation level [?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-            set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
+            RADIATION_DAYS = [?global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time]
         }
     }
 }
