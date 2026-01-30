@@ -2017,6 +2017,37 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_own_all_claimed_but_not_controlled_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    OR = {
+                        is_claimed_by = ROOT
+                        is_core_of = ROOT
+                    }
+                    NOT = {
+                        is_controlled_by = ROOT
+                    }
+                }
+                transfer_state_to = ROOT
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_add_nuke = {
         allowed = {
             # Always allowed
