@@ -192,6 +192,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = KOR
+                add_core_of = KOR
             }
             CHI = {
                 puppet = KOR
@@ -205,6 +206,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = FSM
+                add_core_of = FSM
             }
             CHI = {
                 puppet = FSM
@@ -218,6 +220,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = GUM
+                add_core_of = GUM
             }
             CHI = {
                 puppet = GUM
@@ -231,6 +234,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = VIN
+                add_core_of = VIN
             }
             CHI = {
                 puppet = VIN
@@ -244,6 +248,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = LAO
+                add_core_of = LAO
             }
             CHI = {
                 puppet = LAO
@@ -257,6 +262,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = BRM
+                add_core_of = BRM
             }
             CHI = {
                 puppet = BRM
@@ -270,8 +276,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = BAN
+                add_core_of = BAN
                 remove_claim_by = PAK
                 remove_core_of = PAK
+                remove_claim_by = RAJ
+                remove_core_of = RAJ
             }
             CHI = {
                 puppet = BAN
@@ -285,6 +294,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = PAK
+                add_core_of = PAK
                 remove_claim_by = RAJ
                 remove_core_of = RAJ
             }
@@ -300,6 +310,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = SRL
+                add_core_of = SRL
             }
             CHI = {
                 puppet = SRL
@@ -313,6 +324,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = MLD
+                add_core_of = MLD
             }
             CHI = {
                 puppet = MLD
