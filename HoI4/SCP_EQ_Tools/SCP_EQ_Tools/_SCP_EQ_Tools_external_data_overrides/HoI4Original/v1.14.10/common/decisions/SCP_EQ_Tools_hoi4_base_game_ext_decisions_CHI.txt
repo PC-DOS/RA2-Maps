@@ -27,7 +27,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             # Always visible
         }
         available = {
-            always = no
+            # Always available
         }
         icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
         fire_only_once = no
@@ -58,7 +58,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             # Always visible
         }
         available = {
-            always = no
+            # Always available
         }
         icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
         fire_only_once = no
@@ -173,7 +173,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             # Always visible
         }
         available = {
-            always = no
+            # Always available
         }
         icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
         fire_only_once = no
