@@ -453,6 +453,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             factor = 0
         }
         complete_effect = {
+            CHI = {
+                end_puppet = JAP
+                pupped = JAP
+            }
             JAP = {
                 set_cosmetic_tag = SCP_EQ_Tools_JAP_CHI_puppet_occupied_zone
                 add_stability = 5.0
@@ -511,6 +515,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             factor = 0
         }
         complete_effect = {
+            CHI = {
+                end_puppet = JAP
+                pupped = JAP
+            }
             JAP = {
                 set_cosmetic_tag = SCP_EQ_Tools_JAP_CHI_puppet_SAR
                 add_stability = 5.0
