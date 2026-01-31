@@ -1,5 +1,310 @@
 SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
 
+    SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_internal_affairs_separator = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_internal_affairs_finish_democratization = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            CHI = {
+                set_politics = {
+                    ruling_party = democratic
+                    election_frequency = 48
+                }
+                set_popularities = {
+                    democratic = 75
+                    neutrality = 25
+                    communism = 0
+                    fascism = 0
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_internal_affairs_reunification = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            CHI = {
+                # Warlords and separations
+                annex_country = {
+                    target = GXC
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = SHX
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = SIK
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = XSM
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = YUN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = PRC
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = MAN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = MEN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = MON
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = TAN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = TIB
+                    transfer_troops = yes
+                }
+                
+                # Occupied stats
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_claimed_by = CHI
+                            is_core_of = CHI
+                        }
+                        NOT = {
+                            is_controlled_by = CHI
+                        }
+                    }
+                    transfer_state_to = CHI
+                }
+                
+                # Southern Tibet
+                transfer_state = 434
+                
+                # Outer Northeast China
+                transfer_state = 657
+                transfer_state = 560
+                transfer_state = 409
+                transfer_state = 408
+                transfer_state = 655
+                transfer_state = 537
+                
+                # Add core
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    add_core_of = CHI
+                }
+                for_each_loop = {
+                    array = global.countries
+                    value = temp_current_country
+                    
+                    if = {
+                        limit = {
+                            NOT = {
+                                check_variable = { temp_current_country = CHI }
+                            }
+                        }
+                        CHI = {
+                            every_controlled_state = {
+                                remove_claim_by = temp_current_country
+                                remove_core_of = temp_current_country
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_internal_affairs_liberate_neighboring_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    is_claimed_by = KOR
+                }
+                transfer_state_to = KOR
+            }
+            CHI = {
+                puppet = KOR
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = FSM
+                }
+                transfer_state_to = FSM
+            }
+            CHI = {
+                puppet = FSM
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = GUM
+                }
+                transfer_state_to = GUM
+            }
+            CHI = {
+                puppet = GUM
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = VIN
+                }
+                transfer_state_to = VIN
+            }
+            CHI = {
+                puppet = VIN
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = LAO
+                }
+                transfer_state_to = LAO
+            }
+            CHI = {
+                puppet = LAO
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = BRM
+                }
+                transfer_state_to = BRM
+            }
+            CHI = {
+                puppet = BRM
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = BRM
+                }
+                transfer_state_to = BRM
+            }
+            CHI = {
+                puppet = BRM
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = BRM
+                }
+                transfer_state_to = BRM
+            }
+            CHI = {
+                puppet = BRM
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = BAN
+                }
+                transfer_state_to = BAN
+                remove_claim_by = PAK
+                remove_core_of = PAK
+            }
+            CHI = {
+                puppet = BAN
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = PAK
+                }
+                transfer_state_to = PAK
+            }
+            CHI = {
+                puppet = PAK
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = SRL
+                }
+                transfer_state_to = SRL
+            }
+            CHI = {
+                puppet = SRL
+            }
+            
+            every_state = {
+                limit = {
+                    is_claimed_by = MLD
+                }
+                transfer_state_to = MLD
+            }
+            CHI = {
+                puppet = MLD
+            }
+        }
+    }
     SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_inflation_separator = {
         allowed = {
             # Always allowed
