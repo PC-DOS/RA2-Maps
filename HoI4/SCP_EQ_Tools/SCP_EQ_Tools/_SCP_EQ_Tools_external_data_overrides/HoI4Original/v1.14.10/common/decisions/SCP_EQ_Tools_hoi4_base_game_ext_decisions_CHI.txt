@@ -39,6 +39,8 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             CHI = {
                 set_politics = {
                     ruling_party = democratic
+                    elections_allowed = yes
+                    last_election = "1935.10.10"
                     election_frequency = 48
                 }
                 set_popularities = {
@@ -184,7 +186,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
         complete_effect = {
             every_state = {
                 limit = {
-                    is_claimed_by = KOR
+                    OR = {
+                        is_core_of = KOR
+                        is_claimed_by = KOR
+                    }
                 }
                 transfer_state_to = KOR
             }
@@ -194,7 +199,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = FSM
+                    OR = {
+                        is_core_of = FSM
+                        is_claimed_by = FSM
+                    }
                 }
                 transfer_state_to = FSM
             }
@@ -204,7 +212,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = GUM
+                    OR = {
+                        is_core_of = GUM
+                        is_claimed_by = GUM
+                    }
                 }
                 transfer_state_to = GUM
             }
@@ -214,7 +225,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = VIN
+                    OR = {
+                        is_core_of = VIN
+                        is_claimed_by = VIN
+                    }
                 }
                 transfer_state_to = VIN
             }
@@ -224,7 +238,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = LAO
+                    OR = {
+                        is_core_of = LAO
+                        is_claimed_by = LAO
+                    }
                 }
                 transfer_state_to = LAO
             }
@@ -234,7 +251,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = BRM
+                    OR = {
+                        is_core_of = BRM
+                        is_claimed_by = BRM
+                    }
                 }
                 transfer_state_to = BRM
             }
@@ -244,27 +264,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = BRM
-                }
-                transfer_state_to = BRM
-            }
-            CHI = {
-                puppet = BRM
-            }
-            
-            every_state = {
-                limit = {
-                    is_claimed_by = BRM
-                }
-                transfer_state_to = BRM
-            }
-            CHI = {
-                puppet = BRM
-            }
-            
-            every_state = {
-                limit = {
-                    is_claimed_by = BAN
+                    OR = {
+                        is_core_of = BAN
+                        is_claimed_by = BAN
+                    }
                 }
                 transfer_state_to = BAN
                 remove_claim_by = PAK
@@ -276,9 +279,14 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = PAK
+                    OR = {
+                        is_core_of = PAK
+                        is_claimed_by = PAK
+                    }
                 }
                 transfer_state_to = PAK
+                remove_claim_by = RAJ
+                remove_core_of = RAJ
             }
             CHI = {
                 puppet = PAK
@@ -286,7 +294,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = SRL
+                    OR = {
+                        is_core_of = SRL
+                        is_claimed_by = SRL
+                    }
                 }
                 transfer_state_to = SRL
             }
@@ -296,7 +307,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             
             every_state = {
                 limit = {
-                    is_claimed_by = MLD
+                    OR = {
+                        is_core_of = MLD
+                        is_claimed_by = MLD
+                    }
                 }
                 transfer_state_to = MLD
             }
