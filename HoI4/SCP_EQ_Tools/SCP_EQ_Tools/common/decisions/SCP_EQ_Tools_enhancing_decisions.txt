@@ -7337,6 +7337,200 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_TNO_fix_high_state_GDP_by_subtracting_GDP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Check every controlled state's GDP per capita (state_GDPPC)
+            # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
+            # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
+            set_temp_variable = { temp_state_GDPPC_limit = 1000 }
+            every_controlled_state = {
+                limit = {
+                    check_variable = { state_GDPPC > temp_state_GDPPC_limit }
+                }
+                # Initially, set temp_state_value_addition as the total state GDP in billion (B) with current population
+                # temp_state_value_addition = state_population_k * temp_state_GDPPC_limit / 1000 / 1000
+                set_temp_variable = { temp_state_value_addition = state_population_k }
+                divide_temp_variable = { temp_state_value_addition = 1000 }
+                divide_temp_variable = { temp_state_value_addition = 1000 }
+                multiply_temp_variable = { temp_state_value_addition = temp_state_GDPPC_limit }
+                # Calculate GDP delta
+                # state_value_B and state_value is the internal value of TNO's state GDP
+                subtract_from_temp_variable = { temp_state_value_addition = state_value_B }
+                # Avoid overflow
+                clamp_temp_variable = {
+                    var = temp_state_value_addition
+                    min = -2000
+                    max = 0
+                }
+                # Change state GDP
+                econ_state_value_change_addition = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_fix_high_state_GDP_by_adding_population = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Check every controlled state's GDP per capita (state_GDPPC)
+            # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
+            # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
+            set_temp_variable = { temp_state_GDPPC_limit = 1000 }
+            every_controlled_state = {
+                limit = {
+                    check_variable = { state_GDPPC > temp_state_GDPPC_limit }
+                }
+                # Check how many population need to be added
+                # Initially, set temp_population_delta as the population needed for temp_state_GDPPC_limit
+                # state_value_B and state_value is the internal value of TNO's state GDP
+                # temp_population_delta_k = state_value_B * 1000 * 1000 * 1000 / temp_state_GDPPC_limit / 1000 = state_value_B * 1000 * 1000 / temp_state_GDPPC_limit
+                #                         = state_value * 1000 / temp_state_GDPPC_limit
+                # Then subtract state_population from temp_population_delta
+                set_temp_variable = { temp_population_delta_k = state_value }
+                divide_temp_variable = { temp_population_delta_k = temp_state_GDPPC_limit }
+                multiply_temp_variable = { temp_population_delta_k = 1000 }
+                # Calculate population delta
+                subtract_from_temp_variable = { temp_population_delta_k = state_population_k }
+                # Avoid overflow
+                clamp_temp_variable = {
+                    var = temp_population_delta_k
+                    min = 0
+                    max = 2000
+                }
+                # add_manpower needs real delta value without "k" unit
+                multiply_temp_variable = { temp_population_delta_k = 1000 }
+                add_manpower = temp_population_delta
+                # Recalculate state GDP
+                controller = {
+                    recalculate_GDP_and_PUs_on_demand = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_fix_high_state_GDP_global_by_subtracting_GDP = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Check every state's GDP per capita (state_GDPPC)
+            # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
+            # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
+            set_temp_variable = { temp_state_GDPPC_limit = 1000 }
+            every_state = {
+                limit = {
+                    check_variable = { state_GDPPC > temp_state_GDPPC_limit }
+                }
+                # Initially, set temp_state_value_addition as the total state GDP in billion (B) with current population
+                # temp_state_value_addition = state_population_k * temp_state_GDPPC_limit / 1000 / 1000
+                set_temp_variable = { temp_state_value_addition = state_population_k }
+                divide_temp_variable = { temp_state_value_addition = 1000 }
+                divide_temp_variable = { temp_state_value_addition = 1000 }
+                multiply_temp_variable = { temp_state_value_addition = temp_state_GDPPC_limit }
+                # Calculate GDP delta
+                # state_value_B and state_value is the internal value of TNO's state GDP
+                subtract_from_temp_variable = { temp_state_value_addition = state_value_B }
+                # Avoid overflow
+                clamp_temp_variable = {
+                    var = temp_state_value_addition
+                    min = -2000
+                    max = 0
+                }
+                # Change state GDP
+                econ_state_value_change_addition = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_fix_high_state_GDP_global_by_adding_population = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Check every state's GDP per capita (state_GDPPC)
+            # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
+            # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
+            set_temp_variable = { temp_state_GDPPC_limit = 1000 }
+            every_state = {
+                limit = {
+                    check_variable = { state_GDPPC > temp_state_GDPPC_limit }
+                }
+                # Check how many population need to be added
+                # Initially, set temp_population_delta as the population needed for temp_state_GDPPC_limit
+                # state_value_B and state_value is the internal value of TNO's state GDP
+                # temp_population_delta_k = state_value_B * 1000 * 1000 * 1000 / temp_state_GDPPC_limit / 1000 = state_value_B * 1000 * 1000 / temp_state_GDPPC_limit
+                #                         = state_value * 1000 / temp_state_GDPPC_limit
+                # Then subtract state_population from temp_population_delta
+                set_temp_variable = { temp_population_delta_k = state_value }
+                divide_temp_variable = { temp_population_delta_k = temp_state_GDPPC_limit }
+                multiply_temp_variable = { temp_population_delta_k = 1000 }
+                # Calculate population delta
+                subtract_from_temp_variable = { temp_population_delta_k = state_population_k }
+                # Avoid overflow
+                clamp_temp_variable = {
+                    var = temp_population_delta_k
+                    min = 0
+                    max = 2000
+                }
+                # add_manpower needs real delta value without "k" unit
+                multiply_temp_variable = { temp_population_delta_k = 1000 }
+                add_manpower = temp_population_delta
+                # Recalculate state GDP
+                controller = {
+                    recalculate_GDP_and_PUs_on_demand = yes
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_admin_efficiency_up = {
         allowed = {
             # Always allowed
