@@ -257,6 +257,20 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             every_state = {
                 limit = {
                     OR = {
+                        is_core_of = CAM
+                        is_claimed_by = LAO
+                    }
+                }
+                transfer_state_to = CAM
+                add_core_of = CAM
+            }
+            CHI = {
+                puppet = CAM
+            }
+            
+            every_state = {
+                limit = {
+                    OR = {
                         is_core_of = BRM
                         is_claimed_by = BRM
                     }
