@@ -106,6 +106,45 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_apply_rules_overriding = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_rule = {
+                desc = SCP_EQ_Tools_enhancing_decisions_apply_rules_overriding
+                can_access_market = yes
+                can_be_spymaster = yes
+                can_boost_other_ideologies = yes
+                can_boost_own_ideology = yes
+                can_create_collaboration_government = yes
+                can_create_factions = yes
+                can_declare_war_on_same_ideology = yes
+                can_declare_war_without_wargoal_when_in_war = yes
+                can_decline_call_to_war = yes
+                can_force_government = yes
+                can_guarantee_other_ideologies = yes
+                can_join_factions = yes
+                can_join_opposite_factions = yes
+                can_lower_tension = yes
+                can_only_justify_war_on_threat_country = no
+                can_puppet = yes
+                can_send_volunteers = yes
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1 = {
         allowed = {
             # Always allowed
@@ -1453,6 +1492,29 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_allow_creating_factions = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_rule = {
+                desc = SCP_EQ_Tools_enhancing_decisions_allow_creating_factions
+                can_create_factions = yes
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_create_default_faction = {
         allowed = {
             # Always allowed
@@ -1510,6 +1572,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            set_rule = {
+                desc = SCP_EQ_Tools_enhancing_decisions_become_spymaster_of_current_faction
+                can_be_spymaster = yes
+            }
             set_faction_spymaster = yes
         }
     }
@@ -2782,6 +2848,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            set_rule = {
+                desc = SCP_EQ_Tools_enhancing_decisions_force_allow_volunteer_sending
+                can_send_volunteers = yes
+            }
             every_possible_country = {
                 ROOT = {
                     add_relation_rule_override = {
