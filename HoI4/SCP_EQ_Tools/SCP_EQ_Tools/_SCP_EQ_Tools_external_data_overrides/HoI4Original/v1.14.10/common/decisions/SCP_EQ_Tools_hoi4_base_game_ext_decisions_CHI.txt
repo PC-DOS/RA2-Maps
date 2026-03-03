@@ -192,6 +192,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = KOR
+                cancel_resistance = yes
                 add_core_of = KOR
             }
             CHI = {
@@ -206,6 +207,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = FSM
+                cancel_resistance = yes
                 add_core_of = FSM
             }
             CHI = {
@@ -220,6 +222,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = GUM
+                cancel_resistance = yes
                 add_core_of = GUM
             }
             CHI = {
@@ -234,6 +237,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = VIN
+                cancel_resistance = yes
                 add_core_of = VIN
             }
             CHI = {
@@ -248,6 +252,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = LAO
+                cancel_resistance = yes
                 add_core_of = LAO
             }
             CHI = {
@@ -262,6 +267,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = CAM
+                cancel_resistance = yes
                 add_core_of = CAM
             }
             CHI = {
@@ -276,6 +282,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = BRM
+                cancel_resistance = yes
                 add_core_of = BRM
             }
             CHI = {
@@ -290,6 +297,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = BAN
+                cancel_resistance = yes
                 add_core_of = BAN
                 remove_claim_by = PAK
                 remove_core_of = PAK
@@ -308,6 +316,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = PAK
+                cancel_resistance = yes
                 add_core_of = PAK
                 remove_claim_by = RAJ
                 remove_core_of = RAJ
@@ -324,6 +333,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = SRL
+                cancel_resistance = yes
                 add_core_of = SRL
             }
             CHI = {
@@ -338,6 +348,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     }
                 }
                 transfer_state_to = MLD
+                cancel_resistance = yes
                 add_core_of = MLD
             }
             CHI = {
