@@ -7496,7 +7496,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 }
                 # add_manpower needs real delta value without "k" unit
                 multiply_temp_variable = { temp_population_delta_k = 1000 }
-                add_manpower = temp_population_delta
+                add_manpower = temp_population_delta_k
                 # Recalculate state GDP
                 controller = {
                     recalculate_GDP_and_PUs_on_demand = yes
@@ -7593,7 +7593,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 }
                 # add_manpower needs real delta value without "k" unit
                 multiply_temp_variable = { temp_population_delta_k = 1000 }
-                add_manpower = temp_population_delta
+                add_manpower = temp_population_delta_k
                 # Recalculate state GDP
                 controller = {
                     recalculate_GDP_and_PUs_on_demand = yes
