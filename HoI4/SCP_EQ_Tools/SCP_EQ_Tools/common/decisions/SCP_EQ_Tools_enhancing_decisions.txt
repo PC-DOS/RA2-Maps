@@ -7427,7 +7427,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Check every controlled state's GDP per capita (state_GDPPC)
             # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
             # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
-            set_temp_variable = { temp_state_GDPPC_limit = 4500 }
+            set_temp_variable = { temp_state_GDPPC_limit = 5245 }
             every_controlled_state = {
                 limit = {
                     check_variable = { state_GDPPC > temp_state_GDPPC_limit }
@@ -7472,7 +7472,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Check every controlled state's GDP per capita (state_GDPPC)
             # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
             # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
-            set_temp_variable = { temp_state_GDPPC_limit = 4500 }
+            set_temp_variable = { temp_state_GDPPC_limit = 5245 }
             every_controlled_state = {
                 limit = {
                     check_variable = { state_GDPPC > temp_state_GDPPC_limit }
@@ -7524,7 +7524,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Check every state's GDP per capita (state_GDPPC)
             # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
             # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
-            set_temp_variable = { temp_state_GDPPC_limit = 4500 }
+            set_temp_variable = { temp_state_GDPPC_limit = 5245 }
             every_state = {
                 limit = {
                     check_variable = { state_GDPPC > temp_state_GDPPC_limit }
@@ -7569,7 +7569,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Check every state's GDP per capita (state_GDPPC)
             # GDP per capita limit line temp_state_GDPPC_limit is set by GDP per capita in OTL's 1972 ($999.9)
             # https://data.worldbank.org.cn/indicator/NY.GDP.PCAP.CD
-            set_temp_variable = { temp_state_GDPPC_limit = 4500 }
+            set_temp_variable = { temp_state_GDPPC_limit = 5245 }
             every_state = {
                 limit = {
                     check_variable = { state_GDPPC > temp_state_GDPPC_limit }
