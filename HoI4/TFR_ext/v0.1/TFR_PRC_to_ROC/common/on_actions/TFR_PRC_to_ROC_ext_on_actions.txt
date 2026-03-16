@@ -1,17 +1,4 @@
 on_actions = {
-    on_daily = {
-        effect = {
-            CHI = {
-                # Start as ROC
-                if = {
-                    limit = {
-                        is_ai = no
-                    }
-                    set_cosmetic_tag = TFR_PRC_to_ROC_ext_CHI
-                }
-            }
-        }
-    }
     on_startup = {
         effect = {
             CHI = {
