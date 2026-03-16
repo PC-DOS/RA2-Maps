@@ -48,8 +48,9 @@
  TFR_PRC_to_ROC_ext_JAP_CHI_puppet_national_socialist_party: "§R非法§!"
  
  # Cosmetic tags
- CHI_ADJ:1 "中华民国"
- CHI_DEF:1 "中华民国"
+ TFR_PRC_to_ROC_ext_CHI:0 "中华民国"
+ TFR_PRC_to_ROC_ext_CHI_ADJ:1 "中华民国"
+ TFR_PRC_to_ROC_ext_CHI_DEF:1 "中华民国"
  TFR_PRC_to_ROC_ext_JAP_CHI_puppet:0 "中华民国驻日戡乱政府"
  TFR_PRC_to_ROC_ext_JAP_CHI_puppet_conservative:0 "中华民国日本特别行政区"
  

@@ -1927,6 +1927,10 @@ ENG_Navalny = {
 }
 
 # Extended cosmetic tags by Dr. Picsell Dois
+TFR_PRC_to_ROC_ext_CHI = {
+	color = rgb { 5 85 166 }
+	color_ui = rgb { 5 85 166 }
+}
 TFR_PRC_to_ROC_ext_JAP_CHI_puppet = {
     color = rgb { 0 0 125 }
     color_ui = rgb { 0 0 125 }
