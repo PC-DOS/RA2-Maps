@@ -1,0 +1,22 @@
+	CHI_democracy_in_the_republic_category = {
+		icon = taiwan
+		priority = 3
+		visible_when_empty = yes
+
+		allowed = {
+			original_tag = CHI
+		}
+	}
+	
+	CHI_the_mainland_conflict_category = {
+		icon = border_conflicts
+		priority = 2
+		visible_when_empty = yes
+
+		allowed = {
+			original_tag = CHI
+		}
+		visible = {
+			NOT = { has_country_flag = TFR_PRC_to_ROC_ext_is_enabled }
+		}
+	}
