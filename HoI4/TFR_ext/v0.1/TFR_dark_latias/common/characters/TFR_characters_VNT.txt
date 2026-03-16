@@ -1,0 +1,93 @@
+characters={
+	VNT_dark_ypy_latias = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/VNT/DarkYPYLatias.png" 
+			}
+		}
+		country_leader={
+			ideology=gestalt_autocrat
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=autocrat
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=ecofascism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+	VNT_ypy_latios = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/VNT/YPYLatios.png" 
+			}
+		}
+		country_leader={
+			ideology=southern_islands_liberalism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=totalism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=market_socialism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=reformist_socialism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=progressivism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=centrist
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=oligarchist
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+}

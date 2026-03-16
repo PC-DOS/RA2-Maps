@@ -1,0 +1,203 @@
+TFR_dark_latias_ext_decisions_VNT_category = {
+
+    TFR_dark_latias_ext_decisions_VNT_be_one_with_latias_separator = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    TFR_dark_latias_ext_decisions_VNT_be_one_with_latias_enable = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            VNT = {
+                set_politics = {
+                    ruling_party = national_socialist
+                    elections_allowed = no
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    national_socialist = 99
+                    conservative = 1
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = VNT_totalitarian_socialist_party_long
+                    name = VNT_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = VNT_communist_party_long
+                    name = VNT_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = VNT_libertarian_socialist_party_long
+                    name = VNT_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = VNT_social_democrat_party_long
+                    name = VNT_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = VNT_social_liberal_party_long
+                    name = VNT_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = VNT_market_liberal_party_long
+                    name = VNT_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = VNT_conservative_party_long
+                    name = VNT_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = VNT_authoritarian_democrat_party_long
+                    name = VNT_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = VNT_nationalist_party_long
+                    name = VNT_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = VNT_fascist_party_long
+                    name = VNT_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = VNT_national_socialist_party_long
+                    name = VNT_national_socialist_party
+                }
+            }
+        }
+    }
+    TFR_dark_latias_ext_decisions_VNT_be_one_with_latias_disable = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            VNT = {
+                set_politics = {
+                    ruling_party = conservative
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 0
+                    communist = 1
+                    libertarian_socialist = 2
+                    social_democrat = 5
+                    social_liberal = 10
+                    market_liberal = 15
+                    conservative = 25
+                    authoritarian_democrat = 25
+                    nationalist = 0
+                    fascist = 0
+                    national_socialist = 17
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = VNT_liberated_totalitarian_socialist_party_long
+                    name = VNT_liberated_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = VNT_liberated_communist_party_long
+                    name = VNT_liberated_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = VNT_liberated_libertarian_socialist_party_long
+                    name = VNT_liberated_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = VNT_liberated_social_democrat_party_long
+                    name = VNT_liberated_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = VNT_liberated_social_liberal_party_long
+                    name = VNT_liberated_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = VNT_liberated_market_liberal_party_long
+                    name = VNT_liberated_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = VNT_liberated_conservative_party_long
+                    name = VNT_liberated_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = VNT_liberated_authoritarian_democrat_party_long
+                    name = VNT_liberated_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = VNT_liberated_nationalist_party_long
+                    name = VNT_liberated_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = VNT_liberated_fascist_party_long
+                    name = VNT_liberated_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = VNT_liberated_national_socialist_party_long
+                    name = VNT_liberated_national_socialist_party
+                }
+            }
+        }
+    }
+}

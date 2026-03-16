@@ -1,0 +1,16 @@
+characters={
+	SSA_alus = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/SSA/Alus.png" 
+			}
+		}
+		country_leader={
+			ideology=obliteration_of_the_self
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+}

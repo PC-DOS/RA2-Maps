@@ -1,0 +1,41 @@
+
+state={
+	id=160
+	name="STATE_160"
+	resources={
+		steel=12.000
+	}
+
+	history={
+		owner = VNT
+		add_core_of = ITA
+		add_core_of = VNT
+		victory_points = {
+			11584 20 
+		}
+		victory_points = {
+			11598 2 
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 4
+			arms_factory = 1
+			air_base = 3
+			dockyard = 1
+			11584 = {
+				naval_base = 6
+
+			}
+
+		}
+
+	}
+
+	provinces={
+		603 628 656 3604 3657 6631 6656 9582 9598 9613 11584 11598 
+	}
+	manpower=6163151
+	buildings_max_level_factor=1.000
+	state_category = city
+	local_supplies=0.000
+}

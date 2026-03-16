@@ -1,0 +1,9 @@
+TFR_dark_latias_ext_decisions_VNT_category = {
+    visible = {
+        tag = VNT
+    }
+    icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+    visible_when_empty = no
+    
+    #priority = 245
+}
