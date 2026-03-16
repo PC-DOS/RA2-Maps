@@ -7,6 +7,7 @@ characters={
 		}
 		country_leader={
 			ideology=obliteration_of_the_self
+            desc=SSA_alus_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -21,6 +22,7 @@ characters={
 		}
 		country_leader={
 			ideology=obliteration_of_the_self
+            desc=BRM_alus_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {

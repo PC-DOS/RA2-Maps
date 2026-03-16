@@ -7,6 +7,7 @@ characters={
 		}
 		country_leader={
 			ideology=gestalt_autocrat
+            desc=VNT_dark_ypy_latias_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -14,6 +15,7 @@ characters={
 		}
 		country_leader={
 			ideology=autocrat
+            desc=VNT_dark_ypy_latias_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -21,6 +23,7 @@ characters={
 		}
 		country_leader={
 			ideology=ecofascism
+            desc=VNT_dark_ypy_latias_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -35,6 +38,7 @@ characters={
 		}
 		country_leader={
 			ideology=southern_islands_liberalism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -42,6 +46,7 @@ characters={
 		}
 		country_leader={
 			ideology=totalism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -49,6 +54,7 @@ characters={
 		}
 		country_leader={
 			ideology=market_socialism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -56,6 +62,7 @@ characters={
 		}
 		country_leader={
 			ideology=reformist_socialism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -63,6 +70,7 @@ characters={
 		}
 		country_leader={
 			ideology=progressivism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -70,6 +78,7 @@ characters={
 		}
 		country_leader={
 			ideology=centrist
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -77,6 +86,7 @@ characters={
 		}
 		country_leader={
 			ideology=classical_liberalism
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
@@ -84,6 +94,7 @@ characters={
 		}
 		country_leader={
 			ideology=oligarchist
+            desc=VNT_ypy_latios_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {

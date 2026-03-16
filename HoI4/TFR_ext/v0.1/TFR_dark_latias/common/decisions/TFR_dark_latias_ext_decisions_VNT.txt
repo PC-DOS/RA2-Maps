@@ -102,6 +102,16 @@ TFR_dark_latias_ext_decisions_VNT_category = {
                     long_name = VNT_national_socialist_party_long
                     name = VNT_national_socialist_party
                 }
+                set_country_leader_name = {
+                    name = VNT_dark_ypy_latias
+                }
+                set_country_leader_description = {
+                    desc = VNT_dark_ypy_latias_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/VNT/DarkYPYLatias.png" 
+                }
+                set_country_leader_ideology = gestalt_autocrat
             }
         }
     }
@@ -197,6 +207,16 @@ TFR_dark_latias_ext_decisions_VNT_category = {
                     long_name = VNT_liberated_national_socialist_party_long
                     name = VNT_liberated_national_socialist_party
                 }
+                set_country_leader_name = {
+                    name = VNT_ypy_latios
+                }
+                set_country_leader_description = {
+                    desc = VNT_ypy_latios_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/VNT/YPYLatios.png" 
+                }
+                set_country_leader_ideology = southern_islands_liberalism
             }
         }
     }
