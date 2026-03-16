@@ -1,6 +1,7 @@
 ﻿l_simp_chinese:
  # SSA things
  SSA_alus:0 "艾露丝（Alus）"
+ SSA_alus_desc:0 "没有人（或者小马）知道她的过去是什么样的——有些传言说是至亲的惨死让她变成这样——但是这一切都和现在无关了。\n\n不要去打听，不要走进她的领土，不要尝试接近她。\n\n如果你执意向前，祝你好运。"
  SSA_national_socialist:0 "艾露丝猫粮批发中心"
  SSA_national_socialist_ADJ:0 "艾露丝猫粮批发"
  SSA_national_socialist_DEF:0 "艾露丝猫粮批发"
@@ -8,6 +9,7 @@
  SSA_national_socialist_party_long:0 "艾露丝猫粮批发中心（Huh）"
  # BRM things
  BRM_alus:0 "艾露丝（Alus）"
+ BRM_alus_desc:0 "$SSA_alus_desc$"
  BRM_national_socialist:0 "艾露丝猫粮批发中心"
  BRM_national_socialist_ADJ:0 "艾露丝猫粮批发"
  BRM_national_socialist_DEF:0 "艾露丝猫粮批发"

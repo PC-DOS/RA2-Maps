@@ -1,4 +1,5 @@
 spriteTypes = {
+    # Events
     spriteType = {
         name = GFX_TFR_alus_ext_events_1
         texturefile = gfx/TFR_alus_ext_pictures/GFX_TFR_alus_ext_events_1.png

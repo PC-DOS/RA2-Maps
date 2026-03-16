@@ -46,6 +46,15 @@ country_event = {
                 fascist = 2
                 national_socialist = 80
             }
+            set_country_leader_name = {
+                name = BRM_alus
+            }
+            set_country_leader_description = {
+                desc = BRM_alus_desc
+            }
+            set_country_leader_portrait = {
+                portrait = "gfx/Leaders/SSA/Alus.png" 
+            }
         }
 	}
 	option = {
