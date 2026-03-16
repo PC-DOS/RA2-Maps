@@ -55,6 +55,7 @@ country_event = {
             set_country_leader_portrait = {
                 portrait = "gfx/Leaders/SSA/Alus.png" 
             }
+            set_country_leader_ideology = obliteration_of_the_self
         }
 	}
 	option = {
