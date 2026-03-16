@@ -1,0 +1,58 @@
+﻿# ALUS events
+add_namespace = TFR_alus_ext_events
+
+# Huh?
+country_event = {
+	id = TFR_alus_ext_events.1
+	title = TFR_alus_ext_events.1.t
+	desc = TFR_alus_ext_events.1.d
+	picture = GFX_TFR_alus_ext_events_1
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+        AND = {
+            is_ai = no
+            NOT = {
+                country_exists = SSA
+            }
+        }
+	}
+	immediate = {
+	}
+	option = {
+		name = TFR_alus_ext_events.1.a
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        BRM = {
+            set_politics = {
+                ruling_party = national_socialist
+                elections_allowed = no
+                last_election = "2002.7.13"
+                election_frequency = 60
+            }
+            set_popularities = {
+                totalitarian_socialist = 2
+                communist = 2
+                libertarian_socialist = 2
+                social_democrat = 2
+                social_liberal = 2
+                market_liberal = 2
+                conservative = 2
+                authoritarian_democrat = 2
+                nationalist = 2
+                fascist = 2
+                national_socialist = 80
+            }
+        }
+	}
+	option = {
+		name = TFR_alus_ext_events.1.b
+        
+        ai_chance = {
+            base = 5
+        }
+	}
+}
