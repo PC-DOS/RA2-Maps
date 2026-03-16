@@ -1,0 +1,25 @@
+
+state={
+	id=39
+	name="STATE_39"
+
+	history={
+		owner = VNT
+		add_core_of = ITA
+		add_core_of = VNT
+		add_core_of = AUS
+
+		buildings = {
+			infrastructure = 3
+			air_base = 3
+		}
+	}
+
+	provinces={
+		6675 9630 11615 
+	}
+	manpower=1041650
+	buildings_max_level_factor=1.000
+	state_category = town
+	local_supplies=0.000
+}
