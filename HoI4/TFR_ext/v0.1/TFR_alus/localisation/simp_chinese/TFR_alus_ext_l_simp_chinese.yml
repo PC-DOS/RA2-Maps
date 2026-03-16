@@ -2,11 +2,15 @@
  # SSA things
  SSA_alus:0 "艾露丝（Alus）"
  SSA_national_socialist:0 "艾露丝猫粮批发中心"
+ SSA_national_socialist_ADJ:0 "艾露丝猫粮批发"
+ SSA_national_socialist_DEF:0 "艾露丝猫粮批发"
  SSA_national_socialist_party:0 "艾露丝猫粮批发中心"
  SSA_national_socialist_party_long:0 "艾露丝猫粮批发中心（Huh）"
  # BRM things
  BRM_alus:0 "艾露丝（Alus）"
  BRM_national_socialist:0 "艾露丝猫粮批发中心"
+ BRM_national_socialist_ADJ:0 "艾露丝猫粮批发"
+ BRM_national_socialist_DEF:0 "艾露丝猫粮批发"
  BRM_national_socialist_party:0 "艾露丝猫粮批发中心"
  BRM_national_socialist_party_long:0 "艾露丝猫粮批发中心（Huh）"
  # Events
