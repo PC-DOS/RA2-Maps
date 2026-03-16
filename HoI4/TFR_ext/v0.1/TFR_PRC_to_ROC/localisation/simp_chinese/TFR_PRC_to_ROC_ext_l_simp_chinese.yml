@@ -1,8 +1,8 @@
 ﻿l_simp_chinese:
  # Parties
  # ROC
- TFR_PRC_to_ROC_ext_CHI_totalitarian_socialist_party_long: "中国共产党(Communist Party of China)"
- TFR_PRC_to_ROC_ext_CHI_totalitarian_socialist_party: "中国共产党"
+ TFR_PRC_to_ROC_ext_CHI_totalitarian_socialist_party_long: "§R非法§!"
+ TFR_PRC_to_ROC_ext_CHI_totalitarian_socialist_party: "§R非法§!"
  TFR_PRC_to_ROC_ext_CHI_communist_party_long:0 "中国共产党(Communist Party of China)"
  TFR_PRC_to_ROC_ext_CHI_communist_party:0 "中国共产党"
  TFR_PRC_to_ROC_ext_CHI_libertarian_socialist_party_long:0 "中国国民党革命委员会(Revolutionary Committee of the Chinese Kuomintang)"
@@ -50,6 +50,12 @@
  # Cosmetic tags
  TFR_PRC_to_ROC_ext_JAP_CHI_puppet:0 "中华民国驻日戡乱政府"
  TFR_PRC_to_ROC_ext_JAP_CHI_puppet_conservative:0 "中华民国日本特别行政区"
+ 
+ # Characters
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov:0 "中华民国驻日戡乱政府"
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc:0 "抗日战争胜利后，中华民国与其他盟军国家对日本国进行军事占领。中华民国的占领区被命名为“中华民国日本特别行政区”，南京方面建立了戡乱政府对其进行管理。"
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov:0 "中华民国日本特别行政区"
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov_desc:0 "最初对日本实行占领时， 《关于日本国与日本皇室地位的约定》规定东京皇居、伊势神宫等仍归属日本天皇裕仁，由改组后的日本国政府管理，视为日本国的领土。又被称为对日本国的“死刑缓期执行”。1989年，早已失去权力的战犯裕仁“天皇”病死。根据1946年《关于日本国与日本皇室地位的约定》中“此任天皇（裕仁）驾崩或因任何原因不再位后，继任天皇必须在继任后7天内与盟军签订协定，主动退位并解散日本国政府、国会与内阁，由盟军接管包括皇居在内的所有仍由天皇或日本国政府控制的地区”的规定，新任“天皇”明仁在与盟军签订《东京皇居协定》后宣布退位，“日本国”正式宣布灭亡 。至此，盟军国家在日本的占领区成为相应国家的海外领土，戡乱政府结束其代管占领区的历史使命。同年，国民大会通过全国征集，决定了新的中华民国日本特别行政区区徽与区旗。使用「菊花」纹饰代表日本。"
  
  # Locations
  Haishenwai:0 "海参崴"

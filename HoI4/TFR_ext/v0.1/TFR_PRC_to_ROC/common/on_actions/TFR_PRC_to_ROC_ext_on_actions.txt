@@ -54,7 +54,7 @@ on_actions = {
                     
                     # Liu Qiu
                     transfer_state = 526
-                    560 = { set_state_name = "Liuqiu" }
+                    526 = { set_state_name = "Liuqiu" }
                     
                     # Diao Yu Dao
                     876 = { set_state_name = "Diaoyudao" }
@@ -94,6 +94,23 @@ on_actions = {
                     set_capital = {
                         state = 1222
                         remember_old_capital = yes
+                    }
+                    
+                    # Delete non allied armies in our territory
+                    every_controlled_state = {
+                        every_possible_country = {
+                            limit = {
+                                NOT = { tag = CHI }
+                                NOT = { is_ally_with = CHI }
+                                NOT = { is_in_faction_with = CHI }
+                                NOT = { is_puppet_of = CHI }
+                                NOT = { is_subject_of = CHI }
+                            }
+                            delete_unit = {
+                                state = PREV
+                                disband = no
+                            }
+                        }
                     }
                     
                     # Party names
@@ -236,6 +253,59 @@ on_actions = {
                             ideology = national_socialist
                             long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_national_socialist_party_long
                             name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_national_socialist_party
+                        }
+                        
+                        set_country_leader_ideology = hybrid_regime
+                        set_country_leader_name = {
+                            #ideology = authoritarian_democrat
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                        }
+                        set_country_leader_description = {
+                            #ideology = authoritarian_democrat
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                        }
+                        set_country_leader_portrait = {
+                            #ideology = authoritarian_democrat
+                            desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
+                        }
+                        set_country_leader_name = {
+                            ideology = conservative
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov
+                        }
+                        set_country_leader_description = {
+                            ideology = conservative
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov_desc
+                        }
+                        set_country_leader_portrait = {
+                            ideology = conservative
+                            desc = "gfx/Leaders/JAP/JAP_CHI_SAR_gov_seal.png"
+                        }
+                        set_country_leader_name = {
+                            ideology = nationalist
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                        }
+                        set_country_leader_description = {
+                            ideology = nationalist
+                            desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                        }
+                        set_country_leader_portrait = {
+                            ideology = nationalist
+                            desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
+                        }
+                        
+                        clr_country_flag = head_of_gov_ui_enabled
+                        remove_ideas = {
+                            JAP_japanese_pacifism_idea
+                            JAP_keiretsu_control_idea
+                            JAP_political_monopoly_idea
+                            JAP_economic_stagnation_idea
+                            
+                            JAP_abe
+                            JAP_toshimitsu
+                            JAP_taro
+                            JAP_sanae
+                            JAP_takizawa
+                            JAP_taro_kono_defence
                         }
                     }
                 }
