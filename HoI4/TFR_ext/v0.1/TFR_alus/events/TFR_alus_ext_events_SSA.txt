@@ -12,11 +12,21 @@ country_event = {
 	trigger = {
         AND = {
             is_ai = no
+            country_exists = BRM
             NOT = {
-                country_exists = SSA
-                country_exists = MND
-                BRM = {
-                    has_war = yes
+                AND = {
+                    country_exists = SSA
+                    country_exists = MND
+                    
+                    country_exists = KNU
+                    country_exists = CNF
+                    country_exists = WAT
+                    country_exists = MOA
+                    country_exists = KLA
+                    
+                    BRM = {
+                        has_war = yes
+                    }
                 }
             }
         }
@@ -72,7 +82,10 @@ country_event = {
                 portrait = "gfx/Leaders/SSA/Alus.png" 
             }
             set_country_leader_ideology = obliteration_of_the_self
+            
+            # Northern part
         }
+        country_event = TFR_alus_ext_events.3
 	}
 	option = {
         # Bai Corporation
@@ -164,6 +177,64 @@ country_event = {
                 portrait = "gfx/Leaders/MND/BaiChengyuan.png" 
             }
             set_country_leader_ideology = corporatocracy
+            
+            # Northern part
+            SSA = {
+                transfer_state = 1407
+                transfer_state = 1408
+                transfer_state = 1259
+                transfer_state = 1401
+                transfer_state = 1402
+                transfer_state = 1404
+                transfer_state = 1405
+                transfer_state = 1263
+                transfer_state = 1406
+                transfer_state = 1260
+                transfer_state = 1264
+                transfer_state = 1265
+                transfer_state = 1403
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    add_core_of = SSA
+                    remove_core_of = MND
+                }
+            }
+            puppet = SSA
+            SSA = {
+                promote_character = {
+                    character = SSA_alus
+                    ideology = obliteration_of_the_self
+                }
+                set_politics = {
+                    ruling_party = national_socialist
+                    elections_allowed = no
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 2
+                    communist = 2
+                    libertarian_socialist = 2
+                    social_democrat = 2
+                    social_liberal = 2
+                    market_liberal = 2
+                    conservative = 2
+                    authoritarian_democrat = 2
+                    nationalist = 2
+                    fascist = 2
+                    national_socialist = 80
+                }
+                set_country_leader_name = {
+                    name = SSA_alus
+                }
+                set_country_leader_description = {
+                    desc = SSA_alus_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/SSA/Alus.png" 
+                }
+                set_country_leader_ideology = obliteration_of_the_self
+            }
         }
 	}
 	option = {
@@ -209,10 +280,10 @@ country_event = {
                 social_liberal = 2
                 market_liberal = 2
                 conservative = 2
-                authoritarian_democrat = 52
+                authoritarian_democrat = 40
                 nationalist = 2
                 fascist = 2
-                national_socialist = 30
+                national_socialist = 42
             }
             set_country_leader_name = {
                 name = BRM_bai_qiang
@@ -224,6 +295,228 @@ country_event = {
                 portrait = "gfx/Leaders/MND/BaiQiang.png" 
             }
             set_country_leader_ideology = obliteration_of_the_self
+            
+            # Northern part
+            SSA = {
+                transfer_state = 1407
+                transfer_state = 1408
+                transfer_state = 1259
+                transfer_state = 1401
+                transfer_state = 1402
+                transfer_state = 1404
+                transfer_state = 1405
+                transfer_state = 1263
+                transfer_state = 1406
+                transfer_state = 1260
+                transfer_state = 1264
+                transfer_state = 1265
+                transfer_state = 1403
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    add_core_of = SSA
+                    remove_core_of = MND
+                }
+            }
+            puppet = SSA
+            SSA = {
+                promote_character = {
+                    character = SSA_alus
+                    ideology = obliteration_of_the_self
+                }
+                set_politics = {
+                    ruling_party = national_socialist
+                    elections_allowed = no
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 2
+                    communist = 2
+                    libertarian_socialist = 2
+                    social_democrat = 2
+                    social_liberal = 2
+                    market_liberal = 2
+                    conservative = 2
+                    authoritarian_democrat = 2
+                    nationalist = 2
+                    fascist = 2
+                    national_socialist = 80
+                }
+                set_country_leader_name = {
+                    name = SSA_alus
+                }
+                set_country_leader_description = {
+                    desc = SSA_alus_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/SSA/Alus.png" 
+                }
+                set_country_leader_ideology = obliteration_of_the_self
+            }
+        }
+	}
+}
+
+# Bai Corporation - SSA puppet
+country_event = {
+	id = TFR_alus_ext_events.3
+	title = TFR_alus_ext_events.3.t
+	desc = TFR_alus_ext_events.3.d
+	picture = GFX_TFR_alus_ext_events_2
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+	}
+	option = {
+        # Bai Chengyuan
+		name = TFR_alus_ext_events.3.a
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        BRM = {
+            MND = {
+                transfer_state = 1407
+                transfer_state = 1408
+                transfer_state = 1259
+                transfer_state = 1401
+                transfer_state = 1402
+                transfer_state = 1404
+                transfer_state = 1405
+                transfer_state = 1263
+                transfer_state = 1406
+                transfer_state = 1260
+                transfer_state = 1264
+                transfer_state = 1265
+                transfer_state = 1403
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    add_core_of = MND
+                    remove_core_of = SSA
+                }
+            }
+            puppet = MND
+            MND = {
+                promote_character = {
+                    character = MND_bai_cheng_yuan
+                    ideology = corporatocracy
+                }
+                promote_character = {
+                    character = MND_bai_qiang
+                    ideology = obliteration_of_the_self
+                }
+                set_politics = {
+                    ruling_party = authoritarian_democrat
+                    elections_allowed = no
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 2
+                    communist = 2
+                    libertarian_socialist = 2
+                    social_democrat = 2
+                    social_liberal = 2
+                    market_liberal = 2
+                    conservative = 2
+                    authoritarian_democrat = 52
+                    nationalist = 2
+                    fascist = 2
+                    national_socialist = 30
+                }
+                set_country_leader_name = {
+                    name = MND_bai_cheng_yuan
+                }
+                set_country_leader_description = {
+                    desc = MND_bai_cheng_yuan_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/MND/BaiChengyuan.png" 
+                }
+                set_country_leader_ideology = corporatocracy
+            }
+        }
+	}
+	option = {
+        # Bai Qiang
+		name = TFR_alus_ext_events.3.b
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        BRM = {
+            MND = {
+                transfer_state = 1407
+                transfer_state = 1408
+                transfer_state = 1259
+                transfer_state = 1401
+                transfer_state = 1402
+                transfer_state = 1404
+                transfer_state = 1405
+                transfer_state = 1263
+                transfer_state = 1406
+                transfer_state = 1260
+                transfer_state = 1264
+                transfer_state = 1265
+                transfer_state = 1403
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    add_core_of = MND
+                    remove_core_of = SSA
+                }
+            }
+            puppet = MND
+            MND = {
+                promote_character = {
+                    character = BRM_bai_cheng_yuan
+                    ideology = corporatocracy
+                }
+                promote_character = {
+                    character = BRM_bai_qiang
+                    ideology = obliteration_of_the_self
+                }
+                set_politics = {
+                    ruling_party = national_socialist
+                    elections_allowed = no
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 2
+                    communist = 2
+                    libertarian_socialist = 2
+                    social_democrat = 2
+                    social_liberal = 2
+                    market_liberal = 2
+                    conservative = 2
+                    authoritarian_democrat = 40
+                    nationalist = 2
+                    fascist = 2
+                    national_socialist = 42
+                }
+                set_country_leader_name = {
+                    name = BRM_bai_qiang
+                }
+                set_country_leader_description = {
+                    desc = BRM_bai_qiang_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/MND/BaiQiang.png" 
+                }
+                set_country_leader_ideology = obliteration_of_the_self
+            }
+        }
+	}
+	option = {
+        # Do nothing
+		name = TFR_alus_ext_events.3.z
+        
+        ai_chance = {
+            base = 100
         }
 	}
 }
