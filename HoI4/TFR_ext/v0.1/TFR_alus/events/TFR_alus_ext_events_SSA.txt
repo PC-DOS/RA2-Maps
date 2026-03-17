@@ -47,20 +47,10 @@ country_event = {
                 long_name = BRM_cosmetic_alus_national_socialist_party_long
                 name = BRM_cosmetic_alus_national_socialist_party
             }
-            
-            # Avoid missing character
-            every_possible_country = {
-                limit = { has_character = BRM_alus }
-                random_character = {
-                    limit = { is_character = BRM_alus }
-                    set_nationality = BRM
-                }
-            }
             promote_character = {
                 character = BRM_alus
                 ideology = obliteration_of_the_self
             }
-            
             set_politics = {
                 ruling_party = national_socialist
                 elections_allowed = no
@@ -148,31 +138,14 @@ country_event = {
                 long_name = BRM_cosmetic_bai_corporation_national_socialist_party_long
                 name = BRM_cosmetic_bai_corporation_national_socialist_party
             }
-            
-            # Avoid missing character
-            every_possible_country = {
-                limit = { has_character = BRM_bai_cheng_yuan }
-                random_character = {
-                    limit = { is_character = BRM_bai_cheng_yuan }
-                    set_nationality = BRM
-                }
-            }
             promote_character = {
                 character = BRM_bai_cheng_yuan
                 ideology = corporatocracy
-            }
-            every_possible_country = {
-                limit = { has_character = BRM_bai_qiang }
-                random_character = {
-                    limit = { is_character = BRM_bai_qiang }
-                    set_nationality = BRM
-                }
             }
             promote_character = {
                 character = BRM_bai_qiang
                 ideology = obliteration_of_the_self
             }
-            
             set_politics = {
                 ruling_party = authoritarian_democrat
                 elections_allowed = no
@@ -226,19 +199,10 @@ country_event = {
             }
             puppet = SSA
             SSA = {
-                # Avoid missing character
-                every_possible_country = {
-                    limit = { has_character = SSA_alus }
-                    random_character = {
-                        limit = { is_character = SSA_alus }
-                        set_nationality = SSA
-                    }
-                }
                 promote_character = {
                     character = SSA_alus
                     ideology = obliteration_of_the_self
                 }
-                
                 set_politics = {
                     ruling_party = national_socialist
                     elections_allowed = no
@@ -292,31 +256,14 @@ country_event = {
                 long_name = BRM_cosmetic_bai_corporation_national_socialist_party_long
                 name = BRM_cosmetic_bai_corporation_national_socialist_party
             }
-            
-            # Avoid missing character
-            every_possible_country = {
-                limit = { has_character = BRM_bai_cheng_yuan }
-                random_character = {
-                    limit = { is_character = BRM_bai_cheng_yuan }
-                    set_nationality = BRM
-                }
-            }
             promote_character = {
                 character = BRM_bai_cheng_yuan
                 ideology = corporatocracy
-            }
-            every_possible_country = {
-                limit = { has_character = BRM_bai_qiang }
-                random_character = {
-                    limit = { is_character = BRM_bai_qiang }
-                    set_nationality = BRM
-                }
             }
             promote_character = {
                 character = BRM_bai_qiang
                 ideology = obliteration_of_the_self
             }
-            
             set_politics = {
                 ruling_party = national_socialist
                 elections_allowed = no
@@ -370,19 +317,10 @@ country_event = {
             }
             puppet = SSA
             SSA = {
-                # Avoid missing character
-                every_possible_country = {
-                    limit = { has_character = SSA_alus }
-                    random_character = {
-                        limit = { is_character = SSA_alus }
-                        set_nationality = SSA
-                    }
-                }
                 promote_character = {
                     character = SSA_alus
                     ideology = obliteration_of_the_self
                 }
-                
                 set_politics = {
                     ruling_party = national_socialist
                     elections_allowed = no
@@ -460,30 +398,14 @@ country_event = {
             }
             puppet = MND
             MND = {
-                # Avoid missing character
-                every_possible_country = {
-                    limit = { has_character = MND_bai_cheng_yuan }
-                    random_character = {
-                        limit = { is_character = MND_bai_cheng_yuan }
-                        set_nationality = MND
-                    }
-                }
                 promote_character = {
                     character = MND_bai_cheng_yuan
                     ideology = corporatocracy
-                }
-                every_possible_country = {
-                    limit = { has_character = MND_bai_qiang }
-                    random_character = {
-                        limit = { is_character = MND_bai_qiang }
-                        set_nationality = MND
-                    }
                 }
                 promote_character = {
                     character = MND_bai_qiang
                     ideology = obliteration_of_the_self
                 }
-            
                 set_politics = {
                     ruling_party = authoritarian_democrat
                     elections_allowed = no
@@ -547,30 +469,14 @@ country_event = {
             }
             puppet = MND
             MND = {
-                # Avoid missing character
-                every_possible_country = {
-                    limit = { has_character = MND_bai_cheng_yuan }
-                    random_character = {
-                        limit = { is_character = MND_bai_cheng_yuan }
-                        set_nationality = MND
-                    }
-                }
                 promote_character = {
                     character = MND_bai_cheng_yuan
                     ideology = corporatocracy
-                }
-                every_possible_country = {
-                    limit = { has_character = MND_bai_qiang }
-                    random_character = {
-                        limit = { is_character = MND_bai_qiang }
-                        set_nationality = MND
-                    }
                 }
                 promote_character = {
                     character = MND_bai_qiang
                     ideology = obliteration_of_the_self
                 }
-                
                 set_politics = {
                     ruling_party = national_socialist
                     elections_allowed = no
