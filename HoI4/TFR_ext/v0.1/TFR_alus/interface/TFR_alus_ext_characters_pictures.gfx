@@ -3,9 +3,11 @@ spriteTypes = {
     spriteType = {
         name = GFX_TFR_alus_ext_events_1
         texturefile = gfx/TFR_alus_ext_pictures/GFX_TFR_alus_ext_events_1.png
+        legacy_lazy_load = no
     }
     spriteType = {
         name = GFX_TFR_alus_ext_events_2
         texturefile = gfx/TFR_alus_ext_pictures/GFX_TFR_alus_ext_events_2.png
+        legacy_lazy_load = no
     }
 }
