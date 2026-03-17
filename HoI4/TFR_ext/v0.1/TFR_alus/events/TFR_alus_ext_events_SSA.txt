@@ -14,12 +14,17 @@ country_event = {
             is_ai = no
             NOT = {
                 country_exists = SSA
+                country_exists = MND
+                BRM = {
+                    has_war = yes
+                }
             }
         }
 	}
 	immediate = {
 	}
 	option = {
+        # Alus
 		name = TFR_alus_ext_events.1.a
         
         ai_chance = {
@@ -27,6 +32,17 @@ country_event = {
         }
         
         BRM = {
+            #drop_cosmetic_tag = yes
+            set_cosmetic_tag = BRM_cosmetic_alus
+            set_party_name = {
+                ideology = national_socialist
+                long_name = BRM_cosmetic_alus_national_socialist_party_long
+                name = BRM_cosmetic_alus_national_socialist_party
+            }
+            promote_character = {
+                character = BRM_alus
+                ideology = obliteration_of_the_self
+            }
             set_politics = {
                 ruling_party = national_socialist
                 elections_allowed = no
@@ -59,10 +75,155 @@ country_event = {
         }
 	}
 	option = {
+        # Bai Corporation
 		name = TFR_alus_ext_events.1.b
         
         ai_chance = {
-            base = 5
+            base = 0
+        }
+        
+        country_event = TFR_alus_ext_events.2
+	}
+	option = {
+        # Do nothing
+		name = TFR_alus_ext_events.1.z
+        
+        ai_chance = {
+            base = 100
+        }
+	}
+}
+
+# Bai Corporation
+country_event = {
+	id = TFR_alus_ext_events.2
+	title = TFR_alus_ext_events.2.t
+	desc = TFR_alus_ext_events.2.d
+	picture = GFX_TFR_alus_ext_events_2
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+	}
+	option = {
+        # Bai Chengyuan
+		name = TFR_alus_ext_events.2.a
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        BRM = {
+            #drop_cosmetic_tag = yes
+            set_cosmetic_tag = BRM_cosmetic_bai_corporation
+            set_party_name = {
+                ideology = authoritarian_democrat
+                long_name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party_long
+                name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party
+            }
+            set_party_name = {
+                ideology = national_socialist
+                long_name = BRM_cosmetic_bai_corporation_national_socialist_party_long
+                name = BRM_cosmetic_bai_corporation_national_socialist_party
+            }
+            promote_character = {
+                character = BRM_bai_cheng_yuan
+                ideology = corporatocracy
+            }
+            promote_character = {
+                character = BRM_bai_qiang
+                ideology = obliteration_of_the_self
+            }
+            set_politics = {
+                ruling_party = authoritarian_democrat
+                elections_allowed = no
+                last_election = "2002.7.13"
+                election_frequency = 60
+            }
+            set_popularities = {
+                totalitarian_socialist = 2
+                communist = 2
+                libertarian_socialist = 2
+                social_democrat = 2
+                social_liberal = 2
+                market_liberal = 2
+                conservative = 2
+                authoritarian_democrat = 52
+                nationalist = 2
+                fascist = 2
+                national_socialist = 30
+            }
+            set_country_leader_name = {
+                name = BRM_bai_cheng_yuan
+            }
+            set_country_leader_description = {
+                desc = BRM_bai_cheng_yuan_desc
+            }
+            set_country_leader_portrait = {
+                portrait = "gfx/Leaders/MND/BaiChengyuan.png" 
+            }
+            set_country_leader_ideology = corporatocracy
+        }
+	}
+	option = {
+        # Bai Qiang
+		name = TFR_alus_ext_events.2.b
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        BRM = {
+            #drop_cosmetic_tag = yes
+            set_cosmetic_tag = BRM_cosmetic_bai_corporation
+            set_party_name = {
+                ideology = authoritarian_democrat
+                long_name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party_long
+                name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party
+            }
+            set_party_name = {
+                ideology = national_socialist
+                long_name = BRM_cosmetic_bai_corporation_national_socialist_party_long
+                name = BRM_cosmetic_bai_corporation_national_socialist_party
+            }
+            promote_character = {
+                character = BRM_bai_cheng_yuan
+                ideology = corporatocracy
+            }
+            promote_character = {
+                character = BRM_bai_qiang
+                ideology = obliteration_of_the_self
+            }
+            set_politics = {
+                ruling_party = national_socialist
+                elections_allowed = no
+                last_election = "2002.7.13"
+                election_frequency = 60
+            }
+            set_popularities = {
+                totalitarian_socialist = 2
+                communist = 2
+                libertarian_socialist = 2
+                social_democrat = 2
+                social_liberal = 2
+                market_liberal = 2
+                conservative = 2
+                authoritarian_democrat = 52
+                nationalist = 2
+                fascist = 2
+                national_socialist = 30
+            }
+            set_country_leader_name = {
+                name = BRM_bai_qiang
+            }
+            set_country_leader_description = {
+                desc = BRM_bai_qiang_desc
+            }
+            set_country_leader_portrait = {
+                portrait = "gfx/Leaders/MND/BaiQiang.png" 
+            }
+            set_country_leader_ideology = obliteration_of_the_self
         }
 	}
 }

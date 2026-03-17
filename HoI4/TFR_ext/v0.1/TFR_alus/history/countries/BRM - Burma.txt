@@ -21,6 +21,8 @@
 	recruit_character = BRM_min_aung_hlaing_char
 	recruit_character = BRM_ashin_wirathu_char
 	recruit_character = BRM_alus
+	recruit_character = BRM_bai_cheng_yuan
+	recruit_character = BRM_bai_qiang
 	diplomatic_relation = {
 			country = WAT
 			relation = military_access
@@ -194,6 +196,10 @@
 		ASEAN_member
 	}
 
+    promote_character = {
+        character = BRM_min_aung_hlaing_char
+        ideology = ultra_conservatism
+    }
 	set_politics = {	
 		ruling_party = social_liberal
 		last_election = "2015.11.8"

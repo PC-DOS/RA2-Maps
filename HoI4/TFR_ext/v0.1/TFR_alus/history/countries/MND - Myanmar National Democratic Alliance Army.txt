@@ -1,0 +1,159 @@
+	capital = 1263
+
+	oob = "MND_2020"
+	set_cosmetic_tag = BRM_separatist
+	recruit_character = MND_peng_daxun
+	recruit_character = MND_bai_cheng_yuan
+	recruit_character = MND_bai_qiang
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+			set_technology = {
+				aa_lmg = 1
+				aa_cannon_1 = 1
+				aa_hmg = 1
+				engines_1 = 1
+				engines_2 = 1
+				early_bombs = 1
+				guided_bombs = 1
+				aircraft_construction = 1
+				survivability_studies = 1
+				iw_small_airframe = 1
+				basic_small_airframe = 1
+				iw_medium_airframe = 1
+				basic_medium_airframe = 1
+				iw_large_airframe = 1
+			}
+		else = {
+			set_technology = {
+				CAS1 = 1
+				CAS2 = 1
+				fighter1 = 1
+				fighter2 = 1
+				scout_plane1 = 1
+				transport_plane2 = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_technology = {
+			main_battle_tank1 = 1
+			light_tank1 = 1
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_technology = {
+			gwtank_chassis = 1
+			basic_light_tank_chassis = 1
+			basic_medium_tank_chassis = 1
+			engine_tech_1 = 1
+		}
+	}
+
+	set_research_slots = 3
+	set_convoys = 10
+	set_stability = 0.4
+	set_war_support = 0.3
+
+	set_country_flag = shithole_country
+
+	set_technology = {
+		## Infantry ##
+		
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		motorised_infantry = 1
+		infantry_rifle_upgrade = 1
+		support_weapons = 1
+		night_vision = 1
+		body_armor = 1
+		camouflage = 1
+		asymetrical_warfare = 1
+		
+		## Support Companies ##
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		tech_military_police = 1
+		tech_field_hospital = 1
+		
+		## Armor ##
+		mechanised_infantry1 = 1
+		light_mechanized_infantry1 = 1
+		
+		## Artillery ##
+		gw_artillery = 1
+		interwar_antitank = 1
+		interwar_antiair = 1
+		self_propelled_aa1 = 1
+		
+		## Engineering ##
+		#eng_low
+		
+		## Industry ##
+		#ind_low
+		
+		## Doctrines ##
+		asymetrical_warfare = 1
+	}
+    
+    set_party_name = {
+        ideology = authoritarian_democrat
+        long_name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party_long
+        name = BRM_cosmetic_bai_corporation_authoritarian_democrat_party
+    }
+    promote_character = {
+        character = MND_bai_cheng_yuan
+        ideology = corporatocracy
+    }
+
+	set_politics = {	
+		ruling_party = authoritarian_democrat
+		last_election = "2020.11.3"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	set_popularities = {
+		totalitarian_socialist = 3
+		communist = 2
+		authoritarian_democrat = 70
+        national_socialist = 25
+	}
+
+	add_ideas = {
+		partial_mobilization
+		lower_trade
+		lower_welfare
+		
+		medium_conscription
+		high_female_service
+		lower_supervision
+		low_training
+		higher_racial_integration
+		
+		
+		
+		
+		low_immigration
+		lower_safety
+		lower_education
+		higher_race
+		high_female
+		high_prison
+		lower_police
+		low_academic
+		low_farming
+		low_poverty
+		medium_industry
+		
+		low_society
+
+	}
+
+	

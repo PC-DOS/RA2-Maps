@@ -1,4 +1,6 @@
 characters={
+
+    # SSA
 	SSA_alus = {
 		portraits = {
 			civilian = {
@@ -14,6 +16,40 @@ characters={
 			}
 		}
 	}
+    
+    # MND
+	MND_bai_cheng_yuan = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/MND/BaiChengyuan.png" 
+			}
+		}
+		country_leader={
+			ideology=corporatocracy
+            desc=MND_bai_cheng_yuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+	MND_bai_qiang = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/MND/BaiQiang.png" 
+			}
+		}
+		country_leader={
+			ideology=obliteration_of_the_self
+            desc=MND_bai_qiang_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+    
+    # BRM
 	BRM_alus = {
 		portraits = {
 			civilian = {
@@ -23,6 +59,36 @@ characters={
 		country_leader={
 			ideology=obliteration_of_the_self
             desc=BRM_alus_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+	BRM_bai_cheng_yuan = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/MND/BaiChengyuan.png" 
+			}
+		}
+		country_leader={
+			ideology=corporatocracy 
+            desc=BRM_bai_cheng_yuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+	BRM_bai_qiang = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/MND/BaiQiang.png" 
+			}
+		}
+		country_leader={
+			ideology=obliteration_of_the_self
+            desc=BRM_bai_qiang_desc
 			expire="1.1.1.1"
 			id=-1
 			traits = {
