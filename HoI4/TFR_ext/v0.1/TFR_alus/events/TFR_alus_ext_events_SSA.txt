@@ -80,9 +80,9 @@ country_event = {
                 portrait = "gfx/Leaders/SSA/Alus.png" 
             }
             set_country_leader_ideology = obliteration_of_the_self
-            
-            # Northern part
         }
+            
+        # Northern part
         country_event = TFR_alus_ext_events.3
 	}
 	option = {
@@ -398,14 +398,6 @@ country_event = {
             }
             puppet = MND
             MND = {
-                promote_character = {
-                    character = MND_bai_cheng_yuan
-                    ideology = corporatocracy
-                }
-                promote_character = {
-                    character = MND_bai_qiang
-                    ideology = obliteration_of_the_self
-                }
                 set_politics = {
                     ruling_party = authoritarian_democrat
                     elections_allowed = no
@@ -425,6 +417,16 @@ country_event = {
                     fascist = 2
                     national_socialist = 30
                 }
+                set_country_leader_name = {
+                    name = MND_bai_qiang
+                }
+                set_country_leader_description = {
+                    desc = MND_bai_qiang_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/MND/BaiQiang.png" 
+                }
+                set_country_leader_ideology = obliteration_of_the_self
                 set_country_leader_name = {
                     name = MND_bai_cheng_yuan
                 }
@@ -469,14 +471,6 @@ country_event = {
             }
             puppet = MND
             MND = {
-                promote_character = {
-                    character = MND_bai_cheng_yuan
-                    ideology = corporatocracy
-                }
-                promote_character = {
-                    character = MND_bai_qiang
-                    ideology = obliteration_of_the_self
-                }
                 set_politics = {
                     ruling_party = national_socialist
                     elections_allowed = no
@@ -496,6 +490,16 @@ country_event = {
                     fascist = 2
                     national_socialist = 42
                 }
+                set_country_leader_name = {
+                    name = MND_bai_cheng_yuan
+                }
+                set_country_leader_description = {
+                    desc = MND_bai_cheng_yuan_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/MND/BaiChengyuan.png" 
+                }
+                set_country_leader_ideology = corporatocracy
                 set_country_leader_name = {
                     name = MND_bai_qiang
                 }
