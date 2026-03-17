@@ -24,9 +24,7 @@ country_event = {
                     country_exists = MOA
                     country_exists = KLA
                     
-                    BRM = {
-                        has_war = yes
-                    }
+                    BRM = { has_war = yes }
                 }
             }
         }
@@ -113,7 +111,7 @@ country_event = {
 	title = TFR_alus_ext_events.2.t
 	desc = TFR_alus_ext_events.2.d
 	picture = GFX_TFR_alus_ext_events_2
-	fire_only_once = yes
+	fire_only_once = no
 	is_triggered_only = yes
 	trigger = {
 	}
@@ -363,7 +361,7 @@ country_event = {
 	title = TFR_alus_ext_events.3.t
 	desc = TFR_alus_ext_events.3.d
 	picture = GFX_TFR_alus_ext_events_2
-	fire_only_once = yes
+	fire_only_once = no
 	is_triggered_only = yes
 	trigger = {
 	}
@@ -472,11 +470,11 @@ country_event = {
             puppet = MND
             MND = {
                 promote_character = {
-                    character = BRM_bai_cheng_yuan
+                    character = MND_bai_cheng_yuan
                     ideology = corporatocracy
                 }
                 promote_character = {
-                    character = BRM_bai_qiang
+                    character = MND_bai_qiang
                     ideology = obliteration_of_the_self
                 }
                 set_politics = {
@@ -499,10 +497,10 @@ country_event = {
                     national_socialist = 42
                 }
                 set_country_leader_name = {
-                    name = BRM_bai_qiang
+                    name = MND_bai_qiang
                 }
                 set_country_leader_description = {
-                    desc = BRM_bai_qiang_desc
+                    desc = MND_bai_qiang_desc
                 }
                 set_country_leader_portrait = {
                     portrait = "gfx/Leaders/MND/BaiQiang.png" 
