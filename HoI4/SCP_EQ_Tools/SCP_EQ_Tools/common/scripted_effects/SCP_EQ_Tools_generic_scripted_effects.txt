@@ -276,6 +276,46 @@ SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = {
     }
 }
 
+# Parameter 1: temp_param_overlord_tag
+# Parameter 2: temp_param_target_tag
+# Parameter 3: temp_param_is_original_ruling_party_kept
+SCP_EQ_Tools_generic_scripted_effects_puppet_country = {
+    # Store previous ruling party of target country
+    var:temp_param_target_tag = {
+        set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+    }
+    set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
+    var:temp_param_overlord_tag = {
+        set_temp_variable = { temp_overlord_ideology_token = current_party_ideology_group }
+    }
+    
+    # Puppet target country
+    var:temp_param_overlord_tag = {
+        puppet = {
+            target = var:temp_param_target_tag
+        }
+    }
+    
+    # Check if we need to recover ruling party
+    var:temp_param_target_tag = {
+        if = {
+            limit = {
+                check_variable = { temp_param_is_original_ruling_party_kept > 0 }
+            }
+            SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+            
+            # Check if we need to add ruling party's popularity
+            # This will be triggered when puppet's ruling party ideology is different from overlord's
+            if = {
+                limit = {
+                    NOT = { check_variable = { temp_overlord_ideology_token = temp_param_target_ideology_token } }
+                }
+                SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
+            }
+        }
+    }
+}
+
 SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
     every_possible_country = {
         recall_volunteers_from = PREV
