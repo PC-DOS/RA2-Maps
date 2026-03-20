@@ -62,6 +62,17 @@ on_actions = {
                     876 = { set_state_name = "Diaoyudao" }
                     set_province_name = { id = 13215 name = "Diaoyudao" }
                     
+                    # Nan Sha
+                    transfer_state = 1382
+                    transfer_state = 1383
+                    transfer_state = 1384
+                    1382 = { set_state_name = "NanshaIslands" }
+                    1382 = { set_state_name = "NanshaIslands" }
+                    1382 = { set_state_name = "NanshaIslands" }
+                    
+                    # Zang Nan
+                    434 = { set_state_name = "ZangnanRegion" }
+                    
                     # Add core on all controlled states
                     every_controlled_state = {
                         cancel_resistance = yes
