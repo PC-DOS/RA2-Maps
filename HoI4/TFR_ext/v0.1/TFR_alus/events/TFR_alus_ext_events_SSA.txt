@@ -13,20 +13,14 @@ country_event = {
         AND = {
             is_ai = no
             country_exists = BRM
-            NOT = {
-                AND = {
-                    country_exists = SSA
-                    country_exists = MND
-                    
-                    country_exists = KNU
-                    country_exists = CNF
-                    country_exists = WAT
-                    country_exists = MOA
-                    country_exists = KLA
-                    
-                    BRM = { has_war = yes }
-                }
-            }
+            BRM = { has_war = no }
+            NOT = { country_exists = SSA }
+            NOT = { country_exists = MND }
+            NOT = { country_exists = KNU }
+            NOT = { country_exists = CNF }
+            NOT = { country_exists = WAT }
+            NOT = { country_exists = MOA }
+            NOT = { country_exists = KLA }
         }
 	}
 	immediate = {
