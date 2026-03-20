@@ -67,8 +67,8 @@ on_actions = {
                     transfer_state = 1383
                     transfer_state = 1384
                     1382 = { set_state_name = "NanshaIslands" }
-                    1382 = { set_state_name = "NanshaIslands" }
-                    1382 = { set_state_name = "NanshaIslands" }
+                    1383 = { set_state_name = "NanshaIslands" }
+                    1384 = { set_state_name = "NanshaIslands" }
                     
                     # Zang Nan
                     434 = { set_state_name = "ZangnanRegion" }
