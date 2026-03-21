@@ -413,6 +413,7 @@ on_actions = {
                             JAP_takizawa
                             JAP_taro_kono_defence
                         }
+                        set_country_flag = JAP_dealt_with_coronavirus
                     }
                 }
             }
