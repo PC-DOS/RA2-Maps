@@ -63,3 +63,26 @@ SCP_EQ_Tools_national_focuses_dummy_ideas_complete_ongoing_focus = {
         }
     }
 }
+
+SCP_EQ_Tools_national_focuses_dummy_ideas_bypass_ongoing_focus = {
+    if = {
+        limit = {
+            NOT = { has_global_flag = SCP_EQ_Tools_is_national_focuses_dummy_ideas_tokens_init_done }
+        }
+        SCP_EQ_Tools_national_focuses_dummy_ideas_init_tokens = yes
+    }
+    
+    SCP_EQ_Tools_national_focuses_dummy_ideas_get_ongoing_focus_token = yes
+    if = {
+        limit = {
+            check_variable = { SCP_EQ_Tools_is_current_ongoing_focus_token_valid > 0 }
+        }
+        log = "Bypassing focus [?SCP_EQ_Tools_current_ongoing_focus_token.GetTokenLocalizedKey]"
+        meta_effect = {
+            text = {
+                unlock_national_focus = [FOCUS_TOKEN]
+            }
+            FOCUS_TOKEN = "[?SCP_EQ_Tools_current_ongoing_focus_token.GetTokenLocalizedKey]"
+        }
+    }
+}
