@@ -2915,6 +2915,39 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_white_peace_with_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    has_volunteers_amount_from = {
+                        tag = ROOT
+                        count > 0
+                    }
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                every_enemy_country = {
+                    white_peace = PREV
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_teleport_capital_our_armies_to_enemy_capitals = {
         allowed = {
             # Always allowed
