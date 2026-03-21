@@ -99,6 +99,99 @@ on_actions = {
                         }
                     }
                     
+                    # Remove PRC A.R. or S.A.R. modifiers
+                    PRC_remove_special_regional_modifiers = yes
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = SOV_ass_republic
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = SOV_ass_republic
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_ningxia_hui_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_ningxia_hui_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_tibet_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_tibet_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_xinjiang_uygur_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_xinjiang_uygur_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_inner_mongolia_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_inner_mongolia_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_guangxi_zhuang_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_guangxi_zhuang_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_taiwan_autonomous_region
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_taiwan_autonomous_region
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_macau
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_macau
+                        }
+                    }
+                    every_owned_state = {
+                        limit = {
+                            has_dynamic_modifier = {
+                                modifier = PRC_hong_kong
+                            }
+                        }
+                        remove_dynamic_modifier = {
+                            modifier = PRC_hong_kong
+                        }
+                    }
+                    
                     # Capital
                     set_capital = {
                         state = 1189
