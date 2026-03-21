@@ -66,20 +66,25 @@ music = {
     song = "TFR_hell_march"
     chance = {
         modifier = {
-            factor = 1
+            factor = 25
             any_country = {
                 has_war = yes
             }
         }        
+        modifier = {
+            factor = 25
+            has_global_flag = USA_american_civil_war_global
+        } 
     }
 }
 music = {
     song = "SongOfGuanYu"
     chance = {
         modifier = {
-            factor = 1
+            factor = 75
             any_country = {
-                has_war = yes
+                has_capitulated = yes
+                days_since_capitulated < 45
             }
         }        
     }
@@ -88,10 +93,29 @@ music = {
     song = "WhenJohnnyComesMarchingHome"
     chance = {
         modifier = {
-            factor = 1
+            factor = 20
             any_country = {
                 has_war = yes
             }
         }        
+        modifier = {
+            factor = 25
+            has_global_flag = USA_american_civil_war_global
+        }     
+    }
+}
+music = {
+    song = "WhenJohnnyComesMarchingHome2"
+    chance = {
+        modifier = {
+            factor = 20
+            any_country = {
+                has_war = yes
+            }
+        }        
+        modifier = {
+            factor = 25
+            has_global_flag = USA_american_civil_war_global
+        } 
     }
 }
