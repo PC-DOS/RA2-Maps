@@ -3367,6 +3367,48 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_use_default_party_names = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    for_each_loop = {
+                        array = global.ideology_groups
+                        value = temp_current_ideology_group
+                        
+                        log = "SettingPartyName: [?temp_current_ideology_group.GetTokenKey]"
+                        meta_effect = {
+                            text = {
+                                set_party_name = {
+                                    ideology = [IDEOLOGY_GROUP]
+                                    long_name = [IDEOLOGY_GROUP]
+                                    name = [IDEOLOGY_GROUP]
+                                }
+                            }
+                            IDEOLOGY_GROUP = "[?temp_current_ideology_group.GetTokenKey]"
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_state_operations_add_marked_states_controllers_ruling_party_ideology_popularity = {
         allowed = {
             # Always allowed
