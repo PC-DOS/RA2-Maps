@@ -292,6 +292,7 @@ on_actions = {
                     JAP = {
                         load_focus_tree = SCP_EQ_Tools_generic_national_focuses_empty_focus_tree_allow_fallback
                         set_cosmetic_tag = TFR_PRC_to_ROC_ext_JAP_CHI_puppet
+                        add_stability = 5.0
                         every_character = {
                             retire = yes
                         }
@@ -363,15 +364,15 @@ on_actions = {
                         
                         set_country_leader_ideology = hybrid_regime
                         set_country_leader_name = {
-                            #ideology = authoritarian_democrat
+                            ideology = authoritarian_democrat
                             desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
                         }
                         set_country_leader_description = {
-                            #ideology = authoritarian_democrat
+                            ideology = authoritarian_democrat
                             desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
                         }
                         set_country_leader_portrait = {
-                            #ideology = authoritarian_democrat
+                            ideology = authoritarian_democrat
                             desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
                         }
                         set_country_leader_name = {
@@ -415,6 +416,125 @@ on_actions = {
                         }
                         set_country_flag = JAP_dealt_with_coronavirus
                         activate_mission = JAP_waning_coronavirus_mission
+                    }
+                }
+            }
+        }
+    }
+    on_monthly = {
+        effect = {
+            if = {
+                limit = {
+                    tag = JAP
+                    is_puppet_of = CHI
+                    CHI = { has_country_flag = TFR_PRC_to_ROC_ext_is_enabled }
+                }
+                JAP = {
+                    load_focus_tree = SCP_EQ_Tools_generic_national_focuses_empty_focus_tree_allow_fallback
+                    set_cosmetic_tag = TFR_PRC_to_ROC_ext_JAP_CHI_puppet
+                    add_stability = 5.0
+                    set_politics = {
+                        ruling_party = authoritarian_democrat
+                        elections_allowed = no
+                        last_election = "1945.9.3"
+                        election_frequency = 48
+                    }
+                    set_popularities = {
+                        authoritarian_democrat = 75
+                        conservative = 25
+                    }
+                    set_party_name = {
+                        ideology = totalitarian_socialist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_totalitarian_socialist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_totalitarian_socialist_party
+                    }
+                    set_party_name = {
+                        ideology = communist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_communist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_communist_party
+                    }
+                    set_party_name = {
+                        ideology = libertarian_socialist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_libertarian_socialist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_libertarian_socialist_party
+                    }
+                    set_party_name = {
+                        ideology = social_democrat
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_social_democrat_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_social_democrat_party
+                    }
+                    set_party_name = {
+                        ideology = social_liberal
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_social_liberal_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_social_liberal_party
+                    }
+                    set_party_name = {
+                        ideology = market_liberal
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_market_liberal_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_market_liberal_party
+                    }
+                    set_party_name = {
+                        ideology = conservative
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_conservative_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_conservative_party
+                    }
+                    set_party_name = {
+                        ideology = authoritarian_democrat
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_authoritarian_democrat_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_authoritarian_democrat_party
+                    }
+                    set_party_name = {
+                        ideology = nationalist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_nationalist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_nationalist_party
+                    }
+                    set_party_name = {
+                        ideology = fascist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_fascist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_fascist_party
+                    }
+                    set_party_name = {
+                        ideology = national_socialist
+                        long_name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_national_socialist_party_long
+                        name = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_national_socialist_party
+                    }
+                    
+                    set_country_leader_ideology = hybrid_regime
+                    set_country_leader_name = {
+                        ideology = authoritarian_democrat
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    }
+                    set_country_leader_description = {
+                        ideology = authoritarian_democrat
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    }
+                    set_country_leader_portrait = {
+                        ideology = authoritarian_democrat
+                        desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
+                    }
+                    set_country_leader_name = {
+                        ideology = conservative
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov
+                    }
+                    set_country_leader_description = {
+                        ideology = conservative
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_SAR_gov_desc
+                    }
+                    set_country_leader_portrait = {
+                        ideology = conservative
+                        desc = "gfx/Leaders/JAP/JAP_CHI_SAR_gov_seal.png"
+                    }
+                    set_country_leader_name = {
+                        ideology = nationalist
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    }
+                    set_country_leader_description = {
+                        ideology = nationalist
+                        desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    }
+                    set_country_leader_portrait = {
+                        ideology = nationalist
+                        desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
                     }
                 }
             }

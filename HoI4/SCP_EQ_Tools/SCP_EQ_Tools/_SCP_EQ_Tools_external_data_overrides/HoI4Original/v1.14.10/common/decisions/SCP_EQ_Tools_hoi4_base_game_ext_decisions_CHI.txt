@@ -530,12 +530,27 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
                 }
                 set_country_leader_name = {
+                    ideology = democratic
                     desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
+                    ideology = democratic
                     desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
+                    ideology = democratic
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
             }
@@ -601,12 +616,27 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
                 }
                 set_country_leader_name = {
+                    ideology = democratic
                     desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
+                    ideology = democratic
                     desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
+                    ideology = democratic
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
             }
