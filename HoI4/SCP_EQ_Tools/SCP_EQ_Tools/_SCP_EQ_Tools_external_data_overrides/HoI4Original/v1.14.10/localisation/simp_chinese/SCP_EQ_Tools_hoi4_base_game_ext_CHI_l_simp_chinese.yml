@@ -1,3 +1,21 @@
 ﻿l_simp_chinese:
  # CHI misc localizations
  NBIS:0 "国民政府军事委员会调查统计局"
+ 
+ # JAPs
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov:0 "中华民国日本特别行政区戡乱政府"
+ TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc:0 "抗日战争胜利后，中华民国与其他盟军国家对日本国进行军事占领。中华民国的占领区被命名为“中华民国日本特别行政区”，南京方面建立了戡乱政府对其进行管理。"
+ 
+ # Locations
+ Haishenwai:0 "海参崴"
+ Boli:0 "伯力"
+ Hailanpao:0 "海兰泡"
+ Kuyedao:0 "库页岛"
+ KuyedaoS:0 "库页岛北部"
+ KuyedaoN:0 "库页岛南部"
+ Miaojie:0 "庙街"
+ Liuqiu:0 "琉球"
+ Diaoyudao:0 "钓鱼岛"
+ NanshaIslands:0 "南沙群岛"
+ ZangnanRegion:0 "门隅-珞隅-察隅"
+ 

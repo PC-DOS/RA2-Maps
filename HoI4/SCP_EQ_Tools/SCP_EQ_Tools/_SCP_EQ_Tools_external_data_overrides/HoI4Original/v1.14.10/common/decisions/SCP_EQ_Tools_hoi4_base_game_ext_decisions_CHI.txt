@@ -130,9 +130,6 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     transfer_state_to = CHI
                 }
                 
-                # Southern Tibet
-                transfer_state = 434
-                
                 # Outer Northeast China
                 transfer_state = 657
                 transfer_state = 560
@@ -140,6 +137,22 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 transfer_state = 408
                 transfer_state = 655
                 transfer_state = 537
+                transfer_state = 555
+                408 = { set_state_name = "Haishenwai" }
+                409 = { set_state_name = "Boli" }
+                655 = { set_state_name = "KuyedaoN" }
+                537 = { set_state_name = "KuyedaoS" }
+                560 = { set_state_name = "Miaojie" }
+                set_province_name = { id = 957 name = "Haishenwai" }
+                
+                # Southern Tibet
+                transfer_state = 434
+                434 = { set_state_name = "ZangnanRegion" }
+                    
+                # Liu Qiu
+                transfer_state = 526
+                526 = { set_state_name = "Liuqiu" }
+                transfer_state = 645
                 
                 # Add core
                 every_controlled_state = {
@@ -516,6 +529,15 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     long_name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
                     name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
                 }
+                set_country_leader_name = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
             }
         }
     }
@@ -577,6 +599,15 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     ideology = fascism
                     long_name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
                     name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                }
+                set_country_leader_name = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
             }
         }
@@ -651,6 +682,15 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             JAP = {
                 every_character = {
                     retire = yes
+                }
+                set_country_leader_name = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
             }
             CHI = {
