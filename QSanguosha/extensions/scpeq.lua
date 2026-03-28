@@ -101,7 +101,7 @@ scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhasePro
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.DrawNCards, sgs.TurnStart},
+    events = {sgs.DrawNCards, sgs.TurnStart, sgs.EventPhaseEnd},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
@@ -113,6 +113,10 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
                 if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
+            end
+        elseif event == sgs.EventPhaseEnd and player:hasSkill(self:objectName()) and player:getPhase() == Player_Finish and player:getHandcardNum() < 5 then
+            if room:askForSkillInvoke(player, self:objectName(), data) then
+                room:drawCards(player, 5, self:objectName())
             end
         end
     end,
@@ -185,7 +189,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "叙跃",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可以跳过你的判定和弃牌阶段。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "叙供",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的回合开始阶段，你可以摸2张牌。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的回合开始阶段，你可以摸2张牌。你的回合结束阶段，若你的手牌数小于5，你可摸5张牌。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
