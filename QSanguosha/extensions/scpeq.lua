@@ -135,7 +135,7 @@ scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.DamageCaused},
+    events = {sgs.DamageCaused, sgs.TargetSpecified},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
@@ -143,6 +143,13 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
             local damage = data:toDamage()
             damage.damage = damage.damage + 2
             data:setValue(damage)
+        elseif event == sgs.TargetSpecified then
+            local use = data:toCardUse()
+            if use.card:isKindOf("Slash") then
+                if room:askForSkillInvoke(player, self:objectName(), data) then
+                    room:setCardFlag(use.card, "SlashIgnoreArmor")
+                end
+            end
         end
     end,
 }
@@ -178,7 +185,6 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes = sgs.CreateTargetMod
 }
 scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes)
 
-
 -- Localization
 sgs.LoadTranslationTable{
     ["scpeq"] = "SCP-EQ扩展",
@@ -196,7 +202,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "叙供",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的回合开始阶段，你可以摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。你可使你使用的【杀】无视防具。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用【杀】无距离、目标数和次数限制。",
 }
