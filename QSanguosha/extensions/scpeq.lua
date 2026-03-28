@@ -104,7 +104,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
-                    gameOver(plrSkillOwner)
+                    room:gameOver(plrSkillOwner)
                 end
             end
         end
