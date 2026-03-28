@@ -100,7 +100,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                     player:skip(phsNext)
                 end
             end
-        elseif event == sgs.EventPhaseStart and player:getPhase() == Player_Play then
+        elseif event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Play then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
@@ -132,7 +132,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
             end
-        elseif (event == sgs.EventPhaseStart or event == sgs.EventPhaseEnd) and (player:getPhase() == Player_Draw or player:getPhase() == Player_Play or player:getPhase() == Player_Finish) then
+        elseif (event == sgs.EventPhaseStart or event == sgs.EventPhaseEnd) and (player:getPhase() == sgs.Player_Draw or player:getPhase() == sgs.Player_Play or player:getPhase() == sgs.Player_Finish) then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if plrSkillOwner:getHandcardNum() < 5 then
@@ -170,7 +170,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                     end
                 end
             end
-        elseif event == sgs.EventPhaseEnd and player:getPhase() == Player_Play then
+        elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Play then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if not plrSkillOwner:hasSkill(self:objectName()) then
