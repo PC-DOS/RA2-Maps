@@ -195,7 +195,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
         elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Play then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
-                if not plrSkillOwner:hasSkill(self:objectName()) then
+                if not player:hasSkill(self:objectName()) then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", data) then
                         room:killPlayer(player)
                     end
