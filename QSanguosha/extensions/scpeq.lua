@@ -11,7 +11,7 @@ scpeqDrPicsellDois = sgs.General(extension, "scpeqDrPicsellDois", "qun", 5, true
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.Dying, sgs.Death, sgs.GameOverJudge, sgs.GameFinished, sgs.TurnedOver,
+    events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.TargetConfirming, sgs.Dying, sgs.Death, sgs.GameOverJudge, sgs.GameFinished, sgs.TurnedOver,
               sgs.EventLoseSkill, sgs.TurnStart, sgs.EventPhaseStart, sgs.EventPhaseEnd, sgs.EventPhaseChanging},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
@@ -42,9 +42,20 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                 player:setFaceUp(true)
             end
             
+            -- Card nullification
+            if event == sgs.TargetConfirming then
+                local use = data:toCardUse()
+                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification", data) then
+                    local nullified_list = use.nullified_list
+                    table.insert(nullified_list, player:objectName())
+                    use.nullified_list = nullified_list
+                    data:setValue(use)
+                end
+            end
+            
             -- Revive when dead
             if not player:isAlive() then
-                if room:askForSkillInvoke(player, self:objectName(), data) then
+                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
                     room:revivePlayer(player)
                     player:setAlive(true)
                     room:drawCards(player, 5, self:objectName())
@@ -91,19 +102,19 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
             
             if phsNext == sgs.Player_Judge and (player:getJudgingArea():length() > 0) then
                 -- Skip Judge Phase
-                if room:askForSkillInvoke(player, self:objectName(), data) and (not player:isSkipped(sgs.Player_Judge)) then
+                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge", data) and (not player:isSkipped(sgs.Player_Judge)) then
                     player:skip(phsNext)
                 end
             elseif phsNext == sgs.Player_Discard and (player:getMaxCards() < player:getHandcardNum()) then
                 -- Skip Discard Phase
-                if room:askForSkillInvoke(player, self:objectName(), data) and (not player:isSkipped(sgs.Player_Discard)) then
+                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipDiscard", data) and (not player:isSkipped(sgs.Player_Discard)) then
                     player:skip(phsNext)
                 end
             end
         elseif event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Play then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
-                if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
+                if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin", data) then
                     room:gameOver(plrSkillOwner:objectName())
                 end
             end
@@ -123,12 +134,12 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, self:objectName(), data) then
+        if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards", data) then
             data:setValue(data:toInt() + 5)
         elseif event == sgs.TurnStart then
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
-                if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
+                if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart", data) then
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
             end
@@ -136,7 +147,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if plrSkillOwner:getHandcardNum() < 5 then
-                    if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
+                    if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards", data) then
                         room:drawCards(plrSkillOwner, 5, self:objectName())
                     end
                 end
@@ -158,15 +169,24 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
         local room = player:getRoom()
         
         if player:hasSkill(self:objectName()) then
-            if event == sgs.DamageCaused and room:askForSkillInvoke(player, self:objectName(), data) then
+            if event == sgs.DamageCaused and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", data) then
                 local damage = data:toDamage()
                 damage.damage = damage.damage + 2
                 data:setValue(damage)
             elseif event == sgs.TargetSpecified then
                 local use = data:toCardUse()
-                if use.card:isKindOf("Slash") then
-                    if room:askForSkillInvoke(player, self:objectName(), data) then
+                if use.card:isKindOf("BasicCard") or use.card:isKindOf("TrickCard") then
+                    if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding", data) then
+                        -- Ignore armor
                         room:setCardFlag(use.card, "SlashIgnoreArmor")
+                        
+                        -- No responding
+                        local no_respond_list = use.no_respond_list
+                        for _, p in sgs.qlist(use.to) do
+                            table.insert(no_respond_list, p:objectName())
+                        end
+                        use.no_respond_list = no_respond_list
+                        data:setValue(use)
                     end
                 end
             end
@@ -174,7 +194,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
             plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if not plrSkillOwner:hasSkill(self:objectName()) then
-                    if room:askForSkillInvoke(plrSkillOwner, self:objectName(), data) then
+                    if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", data) then
                         room:killPlayer(player)
                     end
                 end
@@ -229,13 +249,24 @@ sgs.LoadTranslationTable{
     ["cv:scpeqDrPicsellDois"] = "Dr. Picsell Dois",
     ["illustrator:scpeqDrPicsellDois"] = "Alus",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "叙护",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远为5。当你死亡时，你复活并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你被翻面时，取消之。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远为5。当你死亡时，你复活并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你被翻面时，取消之。当你成为牌的目标时，你可取消之。",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification"] = "叙护（取消以你为目标的牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving"] = "叙护（死亡时，你复活并摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "叙跃",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可以跳过你的判定和弃牌阶段。任意其他角色的出牌阶段开始时，你可以令你直接获得胜利。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可以跳过你的判定和弃牌阶段。任意角色的出牌阶段开始时，你可以令你直接获得胜利。",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge"] = "叙跃（跳过你的判定阶段）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipDiscard"] = "叙跃（跳过你的弃牌阶段）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin"] = "叙跃（你立即获得胜利）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "叙供",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的回合开始阶段，你可以摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards"] = "叙供（在你的摸牌阶段多摸5张牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart"] = "叙供（回合开始阶段可摸2张牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards"] = "叙供（手牌数小于5时可摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。你可使你使用的【杀】无视防具。其他角色的出牌阶段结束时，你可以令其立即死亡。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可以令其立即死亡。",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage"] = "叙灭（你造成的伤害+2）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding"] = "叙灭（使用的牌无视防具且无法被响应）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（令当前回合角色立即死亡）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用【杀】无距离、目标数和次数限制。",
 }
