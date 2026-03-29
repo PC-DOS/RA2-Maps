@@ -70,7 +70,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
     name = "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1",
     frequency = sgs.Skill_Compulsory,
     events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.Dying, sgs.Death, 
-              sgs.EventLoseSkill, sgs.TurnStart, sgs.EventPhaseEnd},
+              sgs.EventLoseSkill, sgs.EventAcquireSkill, sgs.TurnStart, sgs.EventPhaseEnd},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
@@ -90,6 +90,22 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes", true)
+        end
+        
+        -- Avoid acquiring unwanted skills
+        if event == sgs.EventAcquireSkill then
+            if  not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect" and
+                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" and
+                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" and
+                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" and
+                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
+                
+                -- Ask for detaching skill
+                local sResult = room:askForChoice(plrSkillOwner, data:toString(), "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach")
+                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach" then
+                    room:detachSkillFromPlayer(plrSkillOwner, data:toString())
+                end
+            end
         end
     end,
     can_trigger = function(self, target)
@@ -410,9 +426,11 @@ sgs.LoadTranslationTable{
     ["cv:scpeqDrPicsellDois"] = "Dr. Picsell Dois",
     ["illustrator:scpeqDrPicsellDois"] = "Alus",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "叙护",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远不小于5。当你受到伤害、失去体力或体力值变更时，你将体力值恢复到体力上限。当你的体力上限减少至5以下时，你将体力上限变为5。当你死亡时，你可将体力值调整到体力上限并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你被翻面时，取消之。当你成为牌的目标时，你可取消之。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远不小于5。当你受到伤害、失去体力或体力值变更时，你将体力值恢复到体力上限。当你的体力上限减少至5以下时，你将体力上限变为5。当你死亡时，你可将体力值调整到体力上限并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你获得不在卡面上记载的技能时，你可选择获得之或丢弃之。当你被翻面时，取消之。当你成为牌的目标时，你可取消之。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving"] = "叙护（死亡时，你复活并摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification"] = "叙护（取消以你为目标的牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire"] = "获得技能",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach"] = "丢弃技能",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "叙跃",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可跳过你的判定和弃牌阶段。任意角色的出牌阶段开始时，你可令你胜利。游戏开始和你的准备阶段，你可选择你所在的势力。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge"] = "叙跃（跳过你的判定阶段）",
