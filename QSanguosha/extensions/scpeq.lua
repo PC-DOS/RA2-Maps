@@ -22,11 +22,11 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             if player:getMaxHp() < iMaxHP then
                 room:gainMaxHp(player, 5-player:getMaxHp())
             end
-            --room:setPlayerPropery(player, "maxhp", iMaxHP)
-            --player:setMaxHp(iMaxHP)
+            room:setPlayerPropery(player, "maxhp", iMaxHP)
+            player:setMaxHp(iMaxHP)
             
             -- Lock HP
-            --player:setHp(iMaxHP)
+            player:setHp(iMaxHP)
             local recRecover = sgs.RecoverStruct()
             recRecover.recover = iMaxHP * 5
             recRecover.who = player
@@ -217,16 +217,20 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500" then
                                 iDamageDelta = 24500
                             end
-                            damage.damage = damage.damage + iDamageDelta
+                            local iDamageValue = damage.damage + iDamageDelta
+                            damage.damage = iDamageValue
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource", data) then
                                 damage.from = nil
                             end
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageToHpLoss", data) then
-                                local iDamageValue = damage.damage
                                 damage.damage = 0
                                 room:loseHp(damage.to, iDamageValue, true, damage.from, self:objectName())
                             end
                             data:setValue(damage)
+                            if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp", data) then
+                                local iMaxHpDelta = -iDamageValue
+                                room:gainMaxHp(damage.to, iMaxHpDelta)
+                            end
                         end
                     end
                 end
@@ -367,7 +371,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart"] = "叙供（准备阶段可摸2张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards"] = "叙供（手牌数小于5时可摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+1/+2/+4/+5/+25/+245/+2450/+24500、视为无来源伤害、视为体力流失。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可以令其受到1点伤害/死亡。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+1/+2/+4/+5/+25/+245/+2450/+24500、视为无来源伤害、视为体力流失、同时失去体力上限。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可以令其受到1点伤害/死亡。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage"] = "叙灭（增加你造成的伤害）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1"] = "伤害+1",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2"] = "伤害+2",
@@ -379,6 +383,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500"] = "伤害+24500",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource"] = "叙灭（你造成的伤害视为无来源伤害）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageToHpLoss"] = "叙灭（你造成的伤害视为体力流失）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp"] = "叙灭（伤害目标失去体力上限）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding"] = "叙灭（使用的牌无视防具且无法被响应）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（当前回合角色受伤或死亡）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage"] = "目标受到伤害",
