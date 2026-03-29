@@ -170,31 +170,39 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        if player:hasSkill(self:objectName()) then
-            if event == sgs.DamageCaused and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", data) then
+        plrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        if plrSkillOwner then
+            if event == sgs.DamageCaused then
                 local damage = data:toDamage()
-                damage.damage = damage.damage + 2
-                data:setValue(damage)
-            elseif event == sgs.TargetSpecified then
-                local use = data:toCardUse()
-                if use.card:isKindOf("BasicCard") or use.card:isKindOf("TrickCard") then
-                    if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding", data) then
-                        -- Ignore armor
-                        room:setCardFlag(use.card, "SlashIgnoreArmor")
-                        
-                        -- No responding
-                        local no_respond_list = use.no_respond_list
-                        for _, p in sgs.qlist(use.to) do
-                            table.insert(no_respond_list, p:objectName())
+                if damage.from then
+                    if damage.from:objectName() == plrSkillOwner:objectName() then
+                        if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", data) then
+                            damage.damage = damage.damage + 2
+                            data:setValue(damage)
                         end
-                        use.no_respond_list = no_respond_list
-                        data:setValue(use)
                     end
                 end
-            end
-        elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Play then
-            plrSkillOwner = room:findPlayerBySkillName(self:objectName())
-            if plrSkillOwner then
+            elseif event == sgs.TargetSpecified then
+                local use = data:toCardUse()
+                if use.from then
+                    if use.from:objectName() == plrSkillOwner:objectName() then
+                        if use.card:isKindOf("BasicCard") or use.card:isKindOf("TrickCard") then
+                            if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding", data) then
+                                -- Ignore armor
+                                room:setCardFlag(use.card, "SlashIgnoreArmor")
+                                
+                                -- No responding
+                                local no_respond_list = use.no_respond_list
+                                for _, p in sgs.qlist(use.to) do
+                                    table.insert(no_respond_list, p:objectName())
+                                end
+                                use.no_respond_list = no_respond_list
+                                data:setValue(use)
+                            end
+                        end
+                    end
+                end
+            elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Play then
                 if not player:hasSkill(self:objectName()) then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", data) then
                         room:killPlayer(player)
