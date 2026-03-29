@@ -7,7 +7,7 @@ extension = sgs.Package("scpeq", sgs.Package_GeneralPack)
 -- General: Dr. Picsell Dois
 scpeqDrPicsellDois = sgs.General(extension, "scpeqDrPicsellDois", "qun", 5, true, false, false)
 -- General: Dr. Picsell Dois - Skills
--- Skill 1: Lock HP & Max HP, avoid lossing skills
+-- Skill 1: Lock HP & Max HP, avoid lossing skills or acquiring unwanted skills
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect",
     frequency = sgs.Skill_Compulsory,
