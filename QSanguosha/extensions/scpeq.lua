@@ -45,11 +45,13 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             -- Card nullification
             if event == sgs.TargetConfirming then
                 local use = data:toCardUse()
-                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification", data) then
-                    local nullified_list = use.nullified_list
-                    table.insert(nullified_list, player:objectName())
-                    use.nullified_list = nullified_list
-                    data:setValue(use)
+                if not (use.from:objectName() == player:objectName() and (use.to:contains(player) and use.to:length() == 1)) then
+                    if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification", data) then
+                        local nullified_list = use.nullified_list
+                        table.insert(nullified_list, player:objectName())
+                        use.nullified_list = nullified_list
+                        data:setValue(use)
+                    end
                 end
             end
             
@@ -266,7 +268,7 @@ sgs.LoadTranslationTable{
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+2。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可以令其立即死亡。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage"] = "叙灭（你造成的伤害+2）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding"] = "叙灭（使用的牌无视防具且无法被响应）",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（令当前回合角色立即死亡）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（当前回合角色立即死亡）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用【杀】无距离、目标数和次数限制。",
 }
