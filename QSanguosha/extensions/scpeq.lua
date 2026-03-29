@@ -106,6 +106,8 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
+        plrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        
         if event == sgs.EventPhaseChanging and player:hasSkill(self:objectName()) then
             local phcPhaseChange = data:toPhaseChange()
             local phsNext = phcPhaseChange.to
@@ -122,14 +124,12 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                 end
             end
         elseif event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Play then
-            plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin", data) then
                     room:gameOver(plrSkillOwner:objectName())
                 end
             end
         elseif (event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Start) or event == sgs.GameStart then
-            plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if plrSkillOwner:objectName() == player:objectName() and room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom", data) then
                     local sNewKingdom = room:askForKingdom(plrSkillOwner)
@@ -153,21 +153,56 @@ scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhasePro
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.DrawNCards, sgs.TurnStart, sgs.EventPhaseEnd, sgs.EventPhaseStart},
+    events = {sgs.DrawNCards, sgs.TurnStart, sgs.EventPhaseEnd, sgs.EventPhaseStart, sgs.CardsMoveOneTime},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
+        plrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        
+        -- Standard drawing
         if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards", data) then
             data:setValue(data:toInt() + 5)
         elseif event == sgs.TurnStart then
-            plrSkillOwner = room:findPlayerBySkillName(self:objectName())
             if plrSkillOwner then
                 if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart", data) then
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
             end
-        elseif (event == sgs.EventPhaseStart or event == sgs.EventPhaseEnd) and (player:getPhase() == sgs.Player_Draw or player:getPhase() == sgs.Player_Play or player:getPhase() == sgs.Player_Finish) then
-            plrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Finish then
+            if plrSkillOwner then
+                if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnFinish", data) then
+                    room:drawCards(plrSkillOwner, 2, self:objectName())
+                end
+            end
+        elseif event == sgs.CardsMoveOneTime then
+            if plrSkillOwner then
+                local move = data:toMoveOneTime()
+                -- Must check player:objectName() == plrSkillOwner:objectName(), otherwise this skill will be triggered for N times, N == PlayerCount
+                if move and player:objectName() == plrSkillOwner:objectName() then
+                    if move.from:objectName() == plrSkillOwner:objectName() then
+                        local nMovedCards = 0
+                        for i, p in sgs.qlist(move.from_places) do
+                            if p == sgs.Player_PlaceHand or p == sgs.Player_PlaceEquip then
+                                nMovedCards = nMovedCards + 1
+                            end
+                        end
+                        if nMovedCards > 0 then
+                            if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards", data) then
+                                local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw1x+scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw2x")
+                                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw1x" then
+                                    room:drawCards(plrSkillOwner, nMovedCards, self:objectName())
+                                elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw2x" then
+                                    room:drawCards(plrSkillOwner, 2*nMovedCards, self:objectName())
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        
+        -- Draw when no cards
+        if (event == sgs.EventPhaseStart or event == sgs.EventPhaseEnd) and (player:getPhase() == sgs.Player_Draw or player:getPhase() == sgs.Player_Play or player:getPhase() == sgs.Player_Finish) then
             if plrSkillOwner then
                 if plrSkillOwner:getHandcardNum() < 5 then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards", data) then
@@ -198,30 +233,30 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                 if damage.from then
                     if damage.from:objectName() == plrSkillOwner:objectName() then
                         if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", data) then
-                            local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage0+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage4+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage5+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage25+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage245+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2450+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg")
+                            local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage0+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage1+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage4+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage5+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage25+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage245+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2450+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage24500+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg")
                             local iDamageValue = damage.damage
                             local plrDamageTarget = damage.to
                             local iDamageDelta = 0
                             local recRecover = sgs.RecoverStruct()
-                            if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage0" then
+                            if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage0" then
                                 iDamageDelta = 0
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage1" then
                                 iDamageDelta = 1
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2" then
                                 iDamageDelta = 2
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage4" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage4" then
                                 iDamageDelta = 4
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage5" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage5" then
                                 iDamageDelta = 5
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage25" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage25" then
                                 iDamageDelta = 25
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage245" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage245" then
                                 iDamageDelta = 245
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2450" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2450" then
                                 iDamageDelta = 2450
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage24500" then
                                 iDamageDelta = 24500
-                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
+                            elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg" then
                                 -- Damage to recovery
                                 iDamageDelta = -iDamageValue
                                 recRecover.recover = iDamageValue
@@ -240,13 +275,13 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             data:setValue(damage)
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp", data) then
                                 local iMaxHpDelta = -iDamageValue
-                                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
+                                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg" then
                                     -- Special handling of negative damage value
                                     iMaxHpDelta = -iDamageDelta
                                 end
                                 room:changePlayerMaxHp(plrDamageTarget, iMaxHpDelta, self:objectName())
                             end
-                            if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
+                            if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg" then
                                 -- Special handling of negative damage value
                                 room:recover(plrDamageTarget, recRecover)
                             end
@@ -307,8 +342,8 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
             elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Play then
                 if not player:hasSkill(self:objectName()) then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", data) then
-                        local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_die")
-                        if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage" then
+                        local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDamage+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDie")
+                        if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDamage" then
                             local dmgDamage = sgs.DamageStruct()
                             dmgDamage.from = plrSkillOwner
                             dmgDamage.to = player
@@ -319,7 +354,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             --dmgDamage.transfer = false
                             --dmgDamage.trigger_chain = false
                             room:damage(dmgDamage)
-                        elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_die" then
+                        elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDie" then
                             room:killPlayer(player)
                         end
                     end
@@ -385,30 +420,34 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin"] = "叙跃（你立即获得胜利）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom"] = "叙跃（变更所在势力）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "叙供",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的准备阶段，你可以摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可以在你的摸牌阶段多摸5张牌。任意角色的准备阶段和结束阶段，你可以摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。当你失去手牌/装备区中的牌时，你可摸等量张牌。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards"] = "叙供（在你的摸牌阶段多摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart"] = "叙供（准备阶段可摸2张牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnFinish"] = "叙供（结束阶段可摸2张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards"] = "叙供（手牌数小于5时可摸5张牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards"] = "叙供（失去牌时摸牌）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw1x"] = "摸等量的牌",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw2x"] = "摸2倍的牌",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+0/+1/+2/+4/+5/+25/+245/+2450/+24500/取反、视为无来源伤害、视为体力流失、同时失去体力上限。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可以令其受到1点伤害/死亡。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage"] = "叙灭（增加你造成的伤害）",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage0"] = "伤害+0",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1"] = "伤害+1",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2"] = "伤害+2",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage4"] = "伤害+4",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage5"] = "伤害+5",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage25"] = "伤害+25",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage245"] = "伤害+245",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2450"] = "伤害+2450",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500"] = "伤害+24500",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg"] = "伤害取反",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage0"] = "伤害+0",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage1"] = "伤害+1",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2"] = "伤害+2",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage4"] = "伤害+4",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage5"] = "伤害+5",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage25"] = "伤害+25",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage245"] = "伤害+245",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2450"] = "伤害+2450",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage24500"] = "伤害+24500",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg"] = "伤害取反",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource"] = "叙灭（你造成的伤害视为无来源伤害）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageToHpLoss"] = "叙灭（你造成的伤害视为体力流失）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp"] = "叙灭（伤害目标失去体力上限）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding"] = "叙灭（使用的牌无视防具且无法被响应）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（当前回合角色受伤或死亡）",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage"] = "目标受到伤害",
-    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_die"] = "目标死亡",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDamage"] = "目标受到伤害",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDie"] = "目标死亡",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用牌无距离、目标数和次数限制。",
 }
