@@ -12,7 +12,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect",
     frequency = sgs.Skill_Compulsory,
     events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.TargetConfirming, sgs.Dying, sgs.Death, sgs.GameOverJudge, sgs.GameFinished, sgs.TurnedOver,
-              sgs.EventLoseSkill, sgs.TurnStart, sgs.EventPhaseStart, sgs.EventPhaseEnd, sgs.EventPhaseChanging},
+              sgs.EventLoseSkill, sgs.EventAcquireSkill, sgs.TurnStart, sgs.EventPhaseStart, sgs.EventPhaseEnd, sgs.EventPhaseChanging},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
@@ -35,6 +35,22 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             -- Avoid being turned over
             if not player:faceUp() then
                 player:setFaceUp(true)
+            end
+        
+            -- Avoid acquiring unwanted skills
+            if event == sgs.EventAcquireSkill then
+                if  data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect" and
+                    data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1" and
+                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" and
+                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" and
+                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" and
+                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
+                    
+                    local sResult = room:askForChoice(player, data:toString(), "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach")
+                    if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach" then
+                        room:detachSkillFromPlayer(player, data:toString())
+                    end
+                end
             end
             
             -- Card nullification
@@ -75,9 +91,23 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
         local room = player:getRoom()
         
         -- Avoid lossing skills
+        if event == sgs.EventLoseSkill then
+            if  data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect" or
+                data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1" or
+                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" or
+                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" or
+                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" or
+                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
+                
+                room:acquireSkill(player, data:toString(), true)
+            end
+        end
         plrSkillOwner = room:findPlayerBySkillName(self:objectName())
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect", true)
+        end
+        if not plrSkillOwner:hasSkill("#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1") then
+            room:acquireSkill(plrSkillOwner, "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1", true)
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect", true)
@@ -90,22 +120,6 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes", true)
-        end
-        
-        -- Avoid acquiring unwanted skills
-        if event == sgs.EventAcquireSkill then
-            if  not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect" and
-                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" and
-                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" and
-                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" and
-                not data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
-                
-                -- Ask for detaching skill
-                local sResult = room:askForChoice(plrSkillOwner, data:toString(), "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach")
-                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach" then
-                    room:detachSkillFromPlayer(plrSkillOwner, data:toString())
-                end
-            end
         end
     end,
     can_trigger = function(self, target)
