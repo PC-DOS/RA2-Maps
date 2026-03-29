@@ -193,8 +193,10 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                                 
                                 -- No responding
                                 local no_respond_list = use.no_respond_list
-                                for _, p in sgs.qlist(use.to) do
-                                    table.insert(no_respond_list, p:objectName())
+                                for _, p in sgs.qlist(room:getAllPlayers(true)) do
+                                    if not p:objectName() == plrSkillOwner:objectName() then
+                                        table.insert(no_respond_list, p:objectName())
+                                    end
                                 end
                                 use.no_respond_list = no_respond_list
                                 data:setValue(use)
