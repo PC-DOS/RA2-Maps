@@ -134,7 +134,11 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                 if plrSkillOwner:objectName() == player:objectName() and room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom", data) then
                     local sNewKingdom = room:askForKingdom(plrSkillOwner)
                     plrSkillOwner:setKingdom(sNewKingdom)
-                    room:setPlayerPropery(plrSkillOwner, "kingdom", sNewKingdom)
+                    --local msg = sgs.LogMessage()
+                    --msg.type = plrSkillOwner:getKingdom()
+                    --msg.to:append(plrSkillOwner)
+                    --room:sendLog(msg)
+                    --room:setPlayerPropery(plrSkillOwner, "kingdom", sNewKingdom)
                 end
             end
         end
