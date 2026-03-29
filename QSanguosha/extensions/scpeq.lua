@@ -199,7 +199,10 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                     if damage.from:objectName() == plrSkillOwner:objectName() then
                         if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", data) then
                             local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage0+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage4+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage5+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage25+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage245+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage2450+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg")
+                            local iDamageValue = damage.damage
+                            local plrDamageTarget = damage.to
                             local iDamageDelta = 0
+                            local recRecover = sgs.RecoverStruct()
                             if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage0" then
                                 iDamageDelta = 0
                             elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage1" then
@@ -219,13 +222,16 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damage24500" then
                                 iDamageDelta = 24500
                             elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
-                                iDamageDelta = -2 * damage.damage
+                                -- Damage to recovery
+                                iDamageDelta = -iDamageValue
+                                recRecover.recover = iDamageValue
+                                recRecover.who = plrSkillOwner
                             end
-                            local iDamageValue = damage.damage + iDamageDelta
-                            local plrDamageTarget = damage.to
+                            iDamageValue = iDamageValue + iDamageDelta
                             damage.damage = iDamageValue
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource", data) then
                                 damage.from = nil
+                                recRecover.who = nil
                             end
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageToHpLoss", data) then
                                 damage.damage = 0
@@ -234,7 +240,15 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             data:setValue(damage)
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp", data) then
                                 local iMaxHpDelta = -iDamageValue
+                                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
+                                    -- Special handling of negative damage value
+                                    iMaxHpDelta = -iDamageDelta
+                                end
                                 room:changePlayerMaxHp(plrDamageTarget, iMaxHpDelta, self:objectName())
+                            end
+                            if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_damageNeg" then
+                                -- Special handling of negative damage value
+                                room:recover(plrDamageTarget, recRecover)
                             end
                         end
                     end
