@@ -166,7 +166,7 @@ scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.DamageCaused, sgs.TargetSpecified, sgs.EventPhaseEnd},
+    events = {sgs.DamageCaused, sgs.CardUsed, sgs.EventPhaseEnd},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
@@ -182,7 +182,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                         end
                     end
                 end
-            elseif event == sgs.TargetSpecified then
+            elseif event == sgs.CardUsed then
                 local use = data:toCardUse()
                 if use.from then
                     if use.from:objectName() == plrSkillOwner:objectName() then
