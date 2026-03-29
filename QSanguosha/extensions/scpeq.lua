@@ -233,8 +233,8 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             end
                             data:setValue(damage)
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp", data) then
-                                local iMaxHpDelta = -iDamageValue
-                                plrDamageTarget:setMaxHp(plrDamageTarget:getMaxHp() + iMaxHpDelta)
+                                local iMaxHpDelta = iDamageValue
+                                room:loseMaxHp(plrDamageTarget, iMaxHpDelta)
                             end
                         end
                     end
