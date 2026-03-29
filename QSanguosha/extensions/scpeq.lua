@@ -220,7 +220,7 @@ scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMor
 -- Skill 5: Use more Slashes
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes = sgs.CreateTargetModSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes",
-    pattern = "Slash",
+    pattern = "Card",
     distance_limit_func = function(self, player)
         -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
         if player:hasSkill(self:objectName()) then
@@ -278,7 +278,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding"] = "叙灭（使用的牌无视防具且无法被响应）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote"] = "叙灭（当前回合角色立即死亡）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用【杀】无距离、目标数和次数限制。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用牌无距离、目标数和次数限制。",
 }
 
 -- Submit extension info
