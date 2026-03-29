@@ -22,11 +22,11 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             if player:getMaxHp() < iMaxHP then
                 room:gainMaxHp(player, 5-player:getMaxHp())
             end
-            room:setPlayerPropery(player, "maxhp", iMaxHP)
-            player:setMaxHp(iMaxHP)
+            --room:setPlayerPropery(player, "maxhp", iMaxHP)
+            --player:setMaxHp(iMaxHP)
             
             -- Lock HP
-            player:setHp(iMaxHP)
+            --player:setHp(iMaxHP)
             local recRecover = sgs.RecoverStruct()
             recRecover.recover = iMaxHP * 5
             recRecover.who = player
@@ -229,7 +229,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             data:setValue(damage)
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp", data) then
                                 local iMaxHpDelta = -iDamageValue
-                                room:gainMaxHp(damage.to, iMaxHpDelta)
+                                damage.to:setMaxHp(damage.to:getMaxHp() + iMaxHpDelta)
                             end
                         end
                     end
