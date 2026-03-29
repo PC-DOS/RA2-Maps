@@ -198,13 +198,16 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                 if use.from then
                     if use.from:objectName() == plrSkillOwner:objectName() then
                         if use.card:isKindOf("BasicCard") or use.card:isKindOf("TrickCard") then
-                            local IsSkillInvokingAllowed = false
                             -- Avoid disturbing
+                            local IsSkillInvokingAllowed = false
                             if plrSkillOwner:hasFlag("scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_AllowedFlag") then
                                 IsSkillInvokingAllowed = true
+                            elseif plrSkillOwner:hasFlag("scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_DisallowedFlag") then
+                                IsSkillInvokingAllowed = false
                             else
                                 IsSkillInvokingAllowed = room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding", data)
                             end
+                            
                             if IsSkillInvokingAllowed then
                                 -- Ignore armor
                                 room:setCardFlag(use.card, "SlashIgnoreArmor")
@@ -225,6 +228,13 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                                     plrSkillOwner:setFlags("-scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_AllowedFlag")
                                 else
                                     plrSkillOwner:setFlags("scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_AllowedFlag")
+                                end
+                            else
+                                -- Avoid disturbing
+                                if event == sgs.TargetSpecified then
+                                    plrSkillOwner:setFlags("-scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_DisallowedFlag")
+                                else
+                                    plrSkillOwner:setFlags("scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_NoResponding_DisallowedFlag")
                                 end
                             end
                         end
