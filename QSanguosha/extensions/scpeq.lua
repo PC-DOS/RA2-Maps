@@ -161,6 +161,13 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                 -- Skip Judge Phase
                 if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge", data) and (not player:isSkipped(sgs.Player_Judge)) then
                     player:skip(phsNext)
+                    if not player:getJudgingArea():isEmpty() then
+                        if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_DiscardJudge", data) then
+                            local crdCardsToDiscard = sgs.Sanguosha:cloneCard("slash")
+                            crdCardsToDiscard:addSubcards(player:getJudgingArea())
+                            room:throwCard(crdCardsToDiscard, player)
+                        end
+                    end
                 end
             elseif phsNext == sgs.Player_Discard and (player:getMaxCards() < player:getHandcardNum()) then
                 -- Skip Discard Phase
@@ -497,8 +504,9 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire"] = "获得技能",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach"] = "丢弃技能",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "叙跃",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可跳过你的判定和弃牌阶段。任意角色的出牌阶段开始时，你可令你胜利。游戏开始和你的准备阶段，你可选择你所在的势力。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可跳过你的判定阶段并弃置你判定区的牌。你可跳过你的弃牌阶段。任意角色的出牌阶段开始时，你可令你胜利。游戏开始和你的准备阶段，你可选择你所在的势力。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge"] = "叙跃（跳过你的判定阶段）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_DiscardJudge"] = "叙跃（弃置你判定区的牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipDiscard"] = "叙跃（跳过你的弃牌阶段）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin"] = "叙跃（你立即获得胜利）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom"] = "叙跃（变更你所在势力）",
