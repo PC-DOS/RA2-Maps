@@ -263,7 +263,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     end,
 }
 scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore)
-scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1 = sgs.CreateTriggerSkill{
+scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1 = sgs.CreateMaxCardsSkill{
     name = "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1",
     extra_func = function(self, player)
         -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
