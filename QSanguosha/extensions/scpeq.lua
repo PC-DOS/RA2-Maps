@@ -45,7 +45,9 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" and
                     data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1" and
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" and
-                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
+                    data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" and
+                    data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1" and
+                    data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2" then
                     
                     local sResult = room:askForChoice(player, data:toString(), "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach")
                     if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach" then
@@ -99,7 +101,9 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" or
                 data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1" and
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" or
-                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
+                data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" or
+                data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1" or
+                data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2" then
                 
                 room:acquireSkill(player, data:toString(), true)
             end
@@ -125,6 +129,12 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes", true)
+        end
+        if not plrSkillOwner:hasSkill("#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1") then
+            room:acquireSkill(plrSkillOwner, "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1", true)
+        end
+        if not plrSkillOwner:hasSkill("#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2") then
+            room:acquireSkill(plrSkillOwner, "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2", true)
         end
     end,
     can_trigger = function(self, target)
@@ -259,9 +269,12 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1 = sgs.CreateTrigger
         -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
         if player:hasSkill(self:objectName()) then
             return 24500
+        else
+            return 0
         end
     end
 }
+scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1)
 -- Skill 4: Cause more damage
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage",
@@ -442,6 +455,30 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes = sgs.CreateTargetMod
     end,
 }
 scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes)
+scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1 = sgs.CreateDistanceSkill{
+    name = "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1",
+    correct_func = function(self, from, to)
+        -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
+        if from:hasSkill(self:objectName()) then
+            return -5
+        else
+            return 0
+        end
+    end
+}
+scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden1)
+scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2 = sgs.CreateDistanceSkill{
+    name = "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2",
+    correct_func = function(self, from, to)
+        -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
+        if to:hasSkill(self:objectName()) then
+            return 5
+        else
+            return 0
+        end
+    end
+}
+scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes_Hidden2)
 
 -- Localization
 sgs.LoadTranslationTable{
@@ -495,7 +532,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDamage"] = "目标受到伤害",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DeathNote_OptDie"] = "目标死亡",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "天马",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用牌无距离、目标数和次数限制。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes"] = "锁定技。你使用牌无距离、目标数和次数限制。你到其他角色的距离-5，其他角色到你的距离+5。",
 }
 
 -- Submit extension info
