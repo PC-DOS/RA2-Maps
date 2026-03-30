@@ -43,6 +43,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                     data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1" and
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" and
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" and
+                    data:toString() ~= "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1" and
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" and
                     data:toString() ~= "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
                     
@@ -96,6 +97,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
                 data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1" or
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect" or
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore" or
+                data:toString() == "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1" and
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage" or
                 data:toString() == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PegasusSlashes" then
                 
@@ -114,6 +116,9 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore", true)
+        end
+        if not plrSkillOwner:hasSkill("#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1") then
+            room:acquireSkill(plrSkillOwner, "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1", true)
         end
         if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage") then
             room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage", true)
@@ -248,6 +253,15 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     end,
 }
 scpeqDrPicsellDois:addSkill(scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore)
+scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1 = sgs.CreateTriggerSkill{
+    name = "#scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore_Hidden1",
+    extra_func = function(self, player)
+        -- Skill ownership must be checked in CreateTargetModSkill, otherwise the effects will be applied to all players
+        if player:hasSkill(self:objectName()) then
+            return 24500
+        end
+    end
+}
 -- Skill 4: Cause more damage
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage",
@@ -452,7 +466,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin"] = "叙跃（你立即获得胜利）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom"] = "叙跃（变更你所在势力）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "叙供",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可在你的摸牌阶段多摸5张牌。任意角色的准备阶段和结束阶段，你可摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。当你失去手牌/装备区中的牌时，你可摸与失去的牌等量或2倍的牌。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore"] = "锁定技。你可在你的摸牌阶段多摸5张牌。任意角色的准备阶段和结束阶段，你可摸2张牌。任意角色的摸牌、出牌或回合结束阶段开始或结束时，若你的手牌数小于5，你可摸5张牌。当你失去手牌/装备区中的牌时，你可摸与失去的牌等量或2倍的牌。你的手牌上限+24500。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards"] = "叙供（在你的摸牌阶段多摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart"] = "叙供（准备阶段可摸2张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnFinish"] = "叙供（结束阶段可摸2张牌）",
