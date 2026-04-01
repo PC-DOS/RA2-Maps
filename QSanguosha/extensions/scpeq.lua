@@ -328,6 +328,16 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             end
                             iDamageValue = iDamageValue + iDamageDelta
                             damage.damage = iDamageValue
+                            if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType", data) then
+                                local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeThunder")
+                                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal" then
+                                    damage.nature = sgs.DamageStruct_Normal
+                                elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire" then
+                                    damage.nature = sgs.DamageStruct_Fire
+                                elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeThunder" then
+                                    damage.nature = sgs.DamageStruct_Thunder
+                                end
+                            end
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource", data) then
                                 damage.from = nil
                                 recRecover.who = nil
@@ -520,7 +530,7 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw1x"] = "摸等量的牌",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenMovingCards_OptDraw2x"] = "摸2倍的牌",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "叙灭",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+0/+1/+2/+4/+5/+25/+245/+2450/+24500/取反、视为无来源伤害、视为体力流失、同时失去体力上限。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可令其受到1点伤害/死亡。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage"] = "锁定技。你可让你造成的伤害+0/+1/+2/+4/+5/+25/+245/+2450/+24500/取反、变更伤害类型、视为无来源伤害、视为体力流失、同时失去体力上限。你可使你使用的基本牌或锦囊牌无视防具且无法被响应。其他角色的出牌阶段结束时，你可令其受到1点伤害/死亡。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage"] = "叙灭（增加你造成的伤害）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage0"] = "伤害+0",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage1"] = "伤害+1",
@@ -532,6 +542,10 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage2450"] = "伤害+2450",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamage24500"] = "伤害+24500",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_MoreDamage_OptDamageNeg"] = "伤害取反",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType"] = "叙灭（变更伤害类型）",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal"] = "普通伤害",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire"] = "火焰伤害",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeThunder"] = "雷电伤害",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageNoSource"] = "叙灭（你造成的伤害视为无来源伤害）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageToHpLoss"] = "叙灭（你造成的伤害视为体力流失）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_DamageMaxHp"] = "叙灭（伤害目标失去体力上限）",
