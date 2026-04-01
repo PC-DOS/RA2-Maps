@@ -329,7 +329,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
                             iDamageValue = iDamageValue + iDamageDelta
                             damage.damage = iDamageValue
                             if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType", data) then
-                                local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeThunder")
+                                local sResult = room:askForChoice(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType", "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeThunder")
                                 if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeNormal" then
                                     damage.nature = sgs.DamageStruct_Normal
                                 elseif sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage_ChangeDamageType_OptDamageTypeFire" then
