@@ -8366,6 +8366,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             YUN = {
+                # Politics
                 add_popularity = {
                     ideology = paternalism
                     popularity = 0.30
@@ -8434,6 +8435,162 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 retire_character = YUN_zhang_chong
                 add_ideas = {
                     YUN_Sun_Liren_sec
+                }
+                
+                # Land
+                annex_country = {
+                    target = CHI
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = MAN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = GUZ
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = XIK
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = GUX
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = SHX
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = QIN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = XIN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = TIB
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = TIB
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = GNG
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = GAN
+                    transfer_troops = yes
+                }
+                annex_country = {
+                    target = MEN
+                    transfer_troops = yes
+                }
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_claimed_by = YUN
+                            is_core_of = YUN
+                            is_claimed_by = CHI
+                            is_core_of = CHI
+                            is_claimed_by = MAN
+                            is_core_of = MAN
+                            is_claimed_by = GUZ
+                            is_core_of = GUZ
+                            is_claimed_by = XIK
+                            is_core_of = XIK
+                            is_claimed_by = GUX
+                            is_core_of = GUX
+                            is_claimed_by = SHX
+                            is_core_of = SHX
+                            is_claimed_by = QIN
+                            is_core_of = QIN
+                            is_claimed_by = XIN
+                            is_core_of = XIN
+                            is_claimed_by = TIB
+                            is_core_of = TIB
+                            is_claimed_by = GNG
+                            is_core_of = GNG
+                            is_claimed_by = GAN
+                            is_core_of = GAN
+                            is_claimed_by = MEN
+                            is_core_of = MEN
+                        }
+                    }
+                    transfer_state_to = YUN
+                    remove_claim_by = JAP
+                    remove_core_of = JAP
+                }
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_claimed_by = KOR
+                            is_core_of = KOR
+                        }
+                    }
+                    transfer_state_to = KOR
+                    remove_claim_by = JAP
+                    remove_core_of = JAP
+                }
+                JAP = {
+                    every_controlled_state = {
+                        limit = {
+                            OR = {
+                                is_claimed_by = USA
+                                is_core_of = USA
+                            }
+                        }
+                        transfer_state_to = USA
+                        remove_claim_by = JAP
+                        remove_core_of = JAP
+                    }
+                    every_controlled_state = {
+                        limit = {
+                            NOT = { is_in_home_area = yes }
+                        }
+                        transfer_state_to = YUN
+                        cancel_resistance = yes
+                        add_core_of = YUN
+                        remove_claim_by = JAP
+                        remove_core_of = JAP
+                    }
+                }
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    set_demilitarized_zone = no
+                    add_core_of = YUN
+                    remove_core_of = YUN
+                    is_core_of = YUN
+                    remove_core_of = CHI
+                    is_core_of = CHI
+                    remove_core_of = MAN
+                    is_core_of = MAN
+                    remove_core_of = GUZ
+                    is_core_of = GUZ
+                    remove_core_of = XIK
+                    is_core_of = XIK
+                    remove_core_of = GUX
+                    is_core_of = GUX
+                    remove_core_of = SHX
+                    is_core_of = SHX
+                    remove_core_of = QIN
+                    is_core_of = QIN
+                    remove_core_of = XIN
+                    is_core_of = XIN
+                    remove_core_of = TIB
+                    is_core_of = TIB
+                    remove_core_of = GNG
+                    is_core_of = GNG
+                    remove_core_of = GAN
+                    is_core_of = GAN
+                    remove_core_of = MEN
+                    is_core_of = MEN
+                    remove_core_of = JAP
+                    is_core_of = JAP
                 }
             }
         }
