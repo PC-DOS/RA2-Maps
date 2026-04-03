@@ -342,11 +342,12 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    every_controlled_state
+                    every_controlled_state = {
                         limit = {
                             is_in_home_area = yes
                         }
                         add_to_temp_array = { temp_arr_target_states = THIS }
+                    }
                 }
             }
             # Marking states
