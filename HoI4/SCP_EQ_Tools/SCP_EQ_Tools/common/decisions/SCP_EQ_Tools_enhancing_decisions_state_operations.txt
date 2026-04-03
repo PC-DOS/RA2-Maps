@@ -317,6 +317,96 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_home_area_states = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_controlled_state
+                        limit = {
+                            is_in_home_area = yes
+                        }
+                        add_to_temp_array = { temp_arr_target_states = THIS }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_mark_all_marked_states_controllers_invert_selection = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Initialize target states container, avoid recursive marking
+            clear_temp_array = temp_arr_target_states_to_select
+            clear_temp_array = temp_arr_target_states_to_unselect
+            # Enumerate states satisfying the criteria
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    every_controlled_state = {
+                        limit = {
+                            NOT = { has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked }
+                        }
+                        add_to_temp_array = { temp_arr_target_states_to_select = THIS }
+                    }
+                    every_controlled_state = {
+                        limit = {
+                            has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                        }
+                        add_to_temp_array = { temp_arr_target_states_to_unselect = THIS }
+                    }
+                }
+            }
+            # Marking states
+            for_each_scope_loop = {
+                array = temp_arr_target_states_to_select
+                set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+            for_each_scope_loop = {
+                array = temp_arr_target_states_to_unselect
+                clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_state_operations_mark_marked_state_controller = {
         allowed = {
             # Always allowed
