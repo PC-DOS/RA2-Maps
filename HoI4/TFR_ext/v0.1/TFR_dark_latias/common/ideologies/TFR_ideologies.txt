@@ -259,6 +259,14 @@ ideologies = {
 					64
 				}
 			}
+			buddhism_ho_oh_ideology = {
+				can_be_randomly_selected = no
+				color = {
+					234
+					84
+					50
+				}
+			}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_SOCIAL_DEMOCRAT_1"
@@ -334,6 +342,14 @@ ideologies = {
 			}
 			ultra_liberalism = {
 				can_be_randomly_selected = no #schizo_NAFO_EU
+			}
+			traditional_ho_oh_ideology = {
+				can_be_randomly_selected = no
+				color = {
+					250
+					190
+					0
+				}
 			}
 		}
 		dynamic_faction_names = {
@@ -746,6 +762,25 @@ ideologies = {
 				#Ascended Man
 				can_be_randomly_selected = no
 			}
+			classical_slavery = {
+				can_be_randomly_selected = no
+			}
+			ultra_ecoharmony = {
+				can_be_randomly_selected = no
+				color = {
+					50
+					100
+					75
+				}
+			}
+			ultra_ecoharmony_rayquaza = {
+				can_be_randomly_selected = no
+				color = {
+					50
+					100
+					75
+				}
+			}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_NATIONALIST_1"
@@ -796,9 +831,9 @@ ideologies = {
 			ecofascism = {
 				can_be_randomly_selected = no
 				color = {
-					14
-					30
-					14
+					50
+					100
+					50
 				}
 			}
 			national_syndicalism = {
@@ -823,6 +858,14 @@ ideologies = {
 					98
 					68
 					40
+				}
+			}
+			ecofascism_kyogre = {
+				can_be_randomly_selected = no
+				color = {
+					5
+					25
+					75
 				}
 			}
 		}
@@ -958,6 +1001,22 @@ ideologies = {
 					150
 					0
 					150
+				}
+			}
+			econazism = {
+				can_be_randomly_selected = no
+				color = {
+					15
+					45
+					15
+				}
+			}
+			econazism_groudon = {
+				can_be_randomly_selected = no
+				color = {
+					75
+					0
+					10
 				}
 			}
 		}

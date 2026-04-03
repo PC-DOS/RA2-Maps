@@ -1,0 +1,365 @@
+TFR_dark_latias_ext_decisions_KantoJohto_category = {
+
+    TFR_dark_latias_ext_decisions_KantoJohto_pokopia_world_separator = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    TFR_dark_latias_ext_decisions_KantoJohto_pokopia_open = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            # Johto
+            KSI = {
+                transfer_state = 531
+                add_state_core = 531
+                531 = { set_state_name = "Johto" }
+                set_province_name = { id = 11960 name = "EcruteakCity" }
+                set_province_name = { id = 1136 name = "OlivineCity" }
+                set_province_name = { id = 1133 name = "CherrygroveCity" }
+                set_province_name = { id = 9985 name = "TFR_dark_latias_ext_decisions_KantoJohto_empty" }
+                transfer_state = 1340
+                add_state_core = 1340
+                1340 = { set_state_name = "Goldenrod" }
+                set_province_name = { id = 7072 name = "GoldenrodCity" }
+            }
+            ROOT = {
+                puppet = KSI
+            }
+            KSI = {
+                set_cosmetic_tag = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto
+                set_politics = {
+                    ruling_party = social_democrat
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                }
+                set_popularities = {
+                    totalitarian_socialist = 0
+                    communist = 2.5
+                    libertarian_socialist = 4.5
+                    social_democrat = 45
+                    social_liberal = 7.5
+                    market_liberal = 4.5
+                    conservative = 25
+                    authoritarian_democrat = 10
+                    nationalist = 1
+                    fascist = 0
+                    national_socialist = 0
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_totalitarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_communist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_libertarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_social_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_social_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_market_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_conservative_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_authoritarian_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_nationalist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_fascist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_national_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KSI_Republic_of_Johto_national_socialist_party
+                }
+                every_character = {
+                    limit = {
+                        NOT = { is_character = KSI_ho_oh }
+                    }
+                    retire_character = THIS
+                }
+                set_country_leader_name = {
+                    name = KSI_ho_oh
+                }
+                set_country_leader_description = {
+                    desc = KSI_ho_oh_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/KSI/HO_OH.png" 
+                }
+                set_country_leader_ideology = buddhism_ho_oh_ideology
+            }
+            
+            # Kanto
+            KTO = {
+                transfer_state = 282
+                add_state_core = 282
+                set_province_name = { id = 14698 name = "PewterCity" }
+                set_province_name = { id = 1113 name = "SaffronCity" }
+                set_province_name = { id = 4100 name = "LavenderTown" }
+            }
+            ROOT = {
+                puppet = KTO
+            }
+            KTO = {
+                set_cosmetic_tag = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen
+                set_politics = {
+                    ruling_party = nationalist
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    totalitarian_socialist = 5
+                    communist = 0
+                    libertarian_socialist = 0
+                    social_democrat = 0
+                    social_liberal = 0
+                    market_liberal = 0
+                    conservative = 0
+                    authoritarian_democrat = 0
+                    nationalist = 55
+                    fascist = 25
+                    national_socialist = 15
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_totalitarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_communist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_libertarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_social_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_social_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_market_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_conservative_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_authoritarian_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_nationalist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_fascist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_national_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KTO_Shen_national_socialist_party
+                }
+                every_character = {
+                    limit = {
+                        NOT = { is_character = KTO_glacy }
+                    }
+                    retire_character = THIS
+                }
+                set_country_leader_name = {
+                    name = KTO_glacy
+                }
+                set_country_leader_description = {
+                    desc = KTO_glacy_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/KTO/Glacy.png" 
+                }
+                set_country_leader_ideology = classical_slavery
+            }
+            
+            # Hoenn
+            KYU = {
+                transfer_state = 528
+                add_state_core = 528
+                528 = { set_state_name = "Hoenn" }
+                set_province_name = { id = 4102 name = "LilycoveCity" }
+                set_province_name = { id = 10092 name = "FortreeCity" }
+                set_province_name = { id = 11925 name = "MauvilleCity" }
+                set_province_name = { id = 9950 name = "SlateportCity" }
+            }
+            ROOT = {
+                puppet = KYU
+            }
+            KYU = {
+                set_cosmetic_tag = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn
+                set_politics = {
+                    ruling_party = nationalist
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    totalitarian_socialist = 0
+                    communist = 0
+                    libertarian_socialist = 0
+                    social_democrat = 0
+                    social_liberal = 0
+                    market_liberal = 0
+                    conservative = 1.5
+                    authoritarian_democrat = 2.5
+                    nationalist = 36
+                    fascist = 30
+                    national_socialist = 30
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_totalitarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_communist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_libertarian_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_social_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_social_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_market_liberal_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_conservative_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_authoritarian_democrat_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_nationalist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_fascist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_national_socialist_party_long
+                    name = TFR_dark_latias_ext_decisions_KantoJohto_KYU_Free_State_of_Hoenn_national_socialist_party
+                }
+                every_character = {
+                    limit = {
+                        NOT = { is_character = KYU_unknown }
+                    }
+                    retire_character = THIS
+                }
+                set_country_leader_name = {
+                    name = KYU_unknown
+                }
+                set_country_leader_description = {
+                    desc = KYU_unknown_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/KYU/Unknown.png" 
+                }
+                set_country_leader_ideology = ultra_ecoharmony_rayquaza
+            }
+        }
+    }
+}

@@ -1,0 +1,290 @@
+characters={
+    # Johto
+	KSI_ho_oh = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/KSI/HO_OH.png" 
+			}
+		}
+		country_leader={
+			ideology=econazism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=ecofascism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=military_junta
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=ultra_conservatism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=constitutionalist
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=traditional_ho_oh_ideology
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=buddhism_ho_oh_ideology
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=reformist_socialism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=marxism_leninism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=social_fascism
+            desc=KSI_ho_oh_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+    # Kanto
+	KTO_glacy = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/KTO/Glacy.png" 
+			}
+		}
+		country_leader={
+			ideology=neonazism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=national_syndicalism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_slavery
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=oligarchist
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_conservatism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy_liberal
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=social_democracy
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=reformist_socialism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=left_nationalism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=jucheism
+            desc=KTO_glacy_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+    # Hoenn
+	KYU_unknown = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/KYU/Unknown.png" 
+			}
+		}
+		country_leader={
+			ideology=econazism_groudon
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=ecofascism_kyogre
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=ultra_ecoharmony_rayquaza
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=hybrid_regime
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy_liberal
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=social_democracy
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=eco_socialism
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=left_nationalism
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=jucheism
+            desc=KYU_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+}

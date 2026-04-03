@@ -1,9 +1,6 @@
-TFR_dark_latias_ext_decisions_VNT_category = {
+TFR_dark_latias_ext_decisions_KantoJohto_category = {
     visible = {
-        OR = {
-            tag = VNT
-            is_ai = no
-        }
+        is_ai = no
     }
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
     visible_when_empty = no

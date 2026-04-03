@@ -832,6 +832,12 @@ defined_text = {
 		}
 		localization_key = social_patriotism
 	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = buddhism_ho_oh_ideology
+		}
+		localization_key = buddhism_ho_oh_ideology
+	}
 }
 	
 	#Social Liberal
@@ -953,6 +959,12 @@ defined_text = {
 			has_country_leader_ideology = ultra_liberalism
 		}
 		localization_key = ultra_liberalism
+	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = traditional_ho_oh_ideology
+		}
+		localization_key = traditional_ho_oh_ideology
 	}
 }
 
@@ -1935,6 +1947,24 @@ defined_text = {
 		}
 		localization_key = radical_nationalism
 	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = classical_slavery
+		}
+		localization_key = classical_slavery
+	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = ultra_ecoharmony
+		}
+		localization_key = ultra_ecoharmony
+	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = ultra_ecoharmony_rayquaza
+		}
+		localization_key = ultra_ecoharmony_rayquaza
+	}
 }
 
 	#Fascism
@@ -2179,6 +2209,12 @@ defined_text = {
 		}
 		localization_key = ultranationalism
 	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = ecofascism_kyogre
+		}
+		localization_key = ecofascism_kyogre
+	}
 }
 
 	#National Socialist
@@ -2304,5 +2340,17 @@ defined_text = {
 			has_country_leader_ideology = gestalt_autocrat
 		}
 		localization_key = gestalt_autocrat
+	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = econazism
+		}
+		localization_key = econazism
+	}
+	text = {
+		trigger = {
+			has_country_leader_ideology = econazism_groudon
+		}
+		localization_key = econazism_groudon
 	}
 }
