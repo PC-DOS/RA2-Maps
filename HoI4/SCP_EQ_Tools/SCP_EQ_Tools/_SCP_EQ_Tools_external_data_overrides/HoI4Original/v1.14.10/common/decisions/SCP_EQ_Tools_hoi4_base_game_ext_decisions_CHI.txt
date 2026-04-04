@@ -554,6 +554,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     ideology = neutrality
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
+                set_country_leader_ideology = despotism
             }
         }
     }
@@ -640,6 +641,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     ideology = neutrality
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
+                set_country_leader_ideology = despotism
             }
         }
     }
@@ -667,6 +669,56 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             JAP = {
                 kill_ideology_leader = fascism
                 retire_character = JAP_emperor_hirohito
+                add_stability = 5.0
+                set_politics = {
+                    ruling_party = neutrality
+                }
+                set_popularities = {
+                    democratic = 25
+                    neutrality = 75
+                    communism = 0
+                    fascism = 0
+                }
+                set_party_name = {
+                    ideology = democratic
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                }
+                set_party_name = {
+                    ideology = neutrality
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                }
+                set_party_name = {
+                    ideology = fascism
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                }
+                set_country_leader_name = {
+                    ideology = democratic
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = democratic
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = democratic
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_ideology = despotism
             }
             CHI = {
                 country_event = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_execution_of_hirohito.1
@@ -714,15 +766,56 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 every_character = {
                     retire = yes
                 }
+                add_stability = 5.0
+                set_politics = {
+                    ruling_party = neutrality
+                }
+                set_popularities = {
+                    democratic = 25
+                    neutrality = 75
+                    communism = 0
+                    fascism = 0
+                }
+                set_party_name = {
+                    ideology = democratic
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                }
+                set_party_name = {
+                    ideology = neutrality
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                }
+                set_party_name = {
+                    ideology = fascism
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                }
                 set_country_leader_name = {
+                    ideology = democratic
                     desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
+                    ideology = democratic
                     desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
+                    ideology = democratic
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
                 }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_ideology = despotism
             }
             CHI = {
                 country_event = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1
@@ -755,6 +848,55 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     disband = no
                 }
                 add_stability = 5.0
+                set_politics = {
+                    ruling_party = neutrality
+                }
+                set_popularities = {
+                    democratic = 25
+                    neutrality = 75
+                    communism = 0
+                    fascism = 0
+                }
+                set_party_name = {
+                    ideology = democratic
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_democratic_party
+                }
+                set_party_name = {
+                    ideology = neutrality
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_neutrality_party
+                }
+                set_party_name = {
+                    ideology = fascism
+                    long_name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                    name = SCP_EQ_Tools_JAP_CHI_puppet_fascism_party
+                }
+                set_country_leader_name = {
+                    ideology = democratic
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = democratic
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = democratic
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_ideology = despotism
                 every_controlled_state = {
                     # Tokyo is Nanking, too
                     add_manpower = -1245000

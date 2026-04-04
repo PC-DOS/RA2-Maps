@@ -215,6 +215,18 @@ TNO_YUN_ext_decisions_category = {
                 every_character = {
                     retire = yes
                 }
+                add_stability = 5.0
+                set_politics = {
+                    ruling_party = despotism
+                }
+                set_popularities = {
+                    despotism = 100
+                }
+                set_party_name = {
+                    ideology = despotism
+                    long_name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party_long
+                    name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party
+                }
                 set_country_leader_name = {
                     ideology = despotism
                     desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
