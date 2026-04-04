@@ -1461,6 +1461,26 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             econ_centralization_change = yes
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            econ_leave_sphere = yes
+        }
+    }
     
     # Economy Types - Capitalism
     SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_capitalism = {

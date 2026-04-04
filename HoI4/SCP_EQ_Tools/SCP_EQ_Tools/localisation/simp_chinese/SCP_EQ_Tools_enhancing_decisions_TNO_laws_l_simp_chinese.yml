@@ -140,6 +140,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_add_econ_centralization_desc:0 "黑猫"
  SCP_EQ_Tools_enhancing_decisions_TNO_minus_econ_centralization:0 "减少5%经济集权度"
  SCP_EQ_Tools_enhancing_decisions_TNO_minus_econ_centralization_desc:0 "白猫"
+ SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere:0 "离开当前经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere_desc:0 "独立自主，自力更生，发展是硬道理"
  # Economy Types - Capitalism
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_capitalism:0 "将经济制度设为：$Econ_Type_Capitalism$"
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_capitalism_desc:0 "$Econ_Type_Capitalism_desc$"
