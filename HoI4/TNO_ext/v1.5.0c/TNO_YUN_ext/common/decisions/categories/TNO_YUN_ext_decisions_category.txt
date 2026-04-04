@@ -1,0 +1,8 @@
+TNO_YUN_ext_decisions_category = {
+    icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+    visible_when_empty = no
+
+    allowed = {
+        tag = YUN
+    }
+}

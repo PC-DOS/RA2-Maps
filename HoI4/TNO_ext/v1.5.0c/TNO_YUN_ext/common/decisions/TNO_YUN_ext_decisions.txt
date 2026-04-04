@@ -1,0 +1,226 @@
+TNO_YUN_ext_decisions_category = {
+    TNO_YUN_ext_decisions_JAP_fate_separator = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_global_flag = YUN_ROC_reborn
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    TNO_YUN_ext_decisions_JAP_fate_rename_occupied_zone = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_global_flag = YUN_ROC_reborn
+        }
+        available = {
+            has_global_flag = YUN_ROC_reborn
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            YUN = {
+                end_puppet = JAP
+                puppet = JAP
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_claimed_by = KOR
+                            is_core_of = KOR
+                        }
+                    }
+                    transfer_state_to = KOR
+                    remove_claim_by = JAP
+                    remove_core_of = JAP
+                }
+                JAP = {
+                    every_controlled_state = {
+                        limit = {
+                            OR = {
+                                is_claimed_by = USA
+                                is_core_of = USA
+                            }
+                        }
+                        transfer_state_to = USA
+                        remove_claim_by = JAP
+                        remove_core_of = JAP
+                    }
+                    every_controlled_state = {
+                        limit = {
+                            NOT = { is_in_home_area = yes }
+                        }
+                        transfer_state_to = YUN
+                        cancel_resistance = yes
+                        add_core_of = YUN
+                        remove_claim_by = JAP
+                        remove_core_of = JAP
+                    }
+                }
+                every_controlled_state = {
+                    cancel_resistance = yes
+                    set_demilitarized_zone = no
+                    add_core_of = YUN
+                    remove_core_of = YUN
+                    add_core_of = YUN
+                    remove_core_of = CHI
+                    add_core_of = CHI
+                    remove_core_of = MAN
+                    add_core_of = MAN
+                    remove_core_of = GUZ
+                    add_core_of = GUZ
+                    remove_core_of = XIK
+                    add_core_of = XIK
+                    remove_core_of = GUX
+                    add_core_of = GUX
+                    remove_core_of = SHX
+                    add_core_of = SHX
+                    remove_core_of = QIN
+                    add_core_of = QIN
+                    remove_core_of = XIN
+                    add_core_of = XIN
+                    remove_core_of = TIB
+                    add_core_of = TIB
+                    remove_core_of = GNG
+                    add_core_of = GNG
+                    remove_core_of = GAN
+                    add_core_of = GAN
+                    remove_core_of = MEN
+                    add_core_of = MEN
+                    remove_core_of = JAP
+                    add_core_of = JAP
+                }
+            }
+            JAP = {
+                if = {
+                    limit = {
+                        is_faction_leader = yes
+                    }
+                    dismantle_faction = yes
+                }
+                if = {
+                    limit = {
+                        NOT = { is_in_faction_with = YUN }
+                    }
+                    leave_faction = yes
+                }
+                set_cosmetic_tag = TNO_YUN_ext_JAP_YUN_puppet
+                add_stability = 5.0
+                remove_ideas = {
+                }
+                load_focus_tree = TNO_YUN_ext_national_focuses_empty_focus_tree
+                set_politics = {
+                    ruling_party = despotism
+                }
+                set_popularities = {
+                    despotism = 100
+                }
+                set_party_name = {
+                    ideology = despotism
+                    long_name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party_long
+                    name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party
+                }
+                set_country_leader_name = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = despotism
+                    desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
+                }
+                
+                remove_superpower = yes
+                delete_unit = {}
+                country_lock_all_division_template = yes
+                set_temp_variable = { gdp_growth_temp = -2450 }
+                econ_gdp_growth_change = yes
+                set_temp_variable = { temp_credit_rating_min = 1 }
+                econ_set_min_credit_rating = yes
+                set_temp_variable = { temp_credit_rating_max = 1 }
+                econ_set_max_credit_rating = yes
+                set_temp_variable = { temp_credit_rating = 1 }
+                econ_set_credit_rating = yes
+                set_temp_variable = { money_reserves_temp = -24525 }
+                econ_money_reserves_change_raw_money = yes
+            }
+        }
+    }
+    TNO_YUN_ext_decisions_JAP_fate_greate_purge = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_global_flag = YUN_ROC_reborn
+        }
+        available = {
+            has_global_flag = YUN_ROC_reborn
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            JAP = {
+                every_character = {
+                    retire = yes
+                }
+                set_country_leader_name = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = despotism
+                    desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
+                }
+            }
+            YUN = {
+                country_event = TNO_YUN_ext_events_YUN_execution_of_hirohito.1
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.2
+                    days = 1
+                }
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.3
+                    days = 2
+                }
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.4
+                    days = 3
+                }
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.5
+                    days = 4
+                }
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1
+                    days = 5
+                }
+            }
+        }
+    }
+}

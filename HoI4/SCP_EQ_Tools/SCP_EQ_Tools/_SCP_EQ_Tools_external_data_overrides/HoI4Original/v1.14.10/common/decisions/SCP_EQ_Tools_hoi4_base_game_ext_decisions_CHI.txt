@@ -532,11 +532,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 set_country_leader_name = {
                     ideology = democratic
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
                     ideology = democratic
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
                     ideology = democratic
@@ -544,11 +544,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 set_country_leader_name = {
                     ideology = neutrality
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
                     ideology = neutrality
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
                     ideology = neutrality
@@ -618,11 +618,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 set_country_leader_name = {
                     ideology = democratic
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
                     ideology = democratic
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
                     ideology = democratic
@@ -630,11 +630,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 set_country_leader_name = {
                     ideology = neutrality
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
                     ideology = neutrality
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
                     ideology = neutrality
@@ -715,10 +715,10 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                     retire = yes
                 }
                 set_country_leader_name = {
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
                 }
                 set_country_leader_description = {
-                    desc = TFR_PRC_to_ROC_ext_JAP_CHI_puppet_occupied_gov_desc
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
                 }
                 set_country_leader_portrait = {
                     desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"

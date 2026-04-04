@@ -1,0 +1,112 @@
+add_namespace = TNO_YUN_ext_events_YUN
+add_namespace = TNO_YUN_ext_events_YUN_execution_of_hirohito
+add_namespace = TNO_YUN_ext_events_YUN_tokyo_is_nanking
+
+# Execution of Hirohito
+news_event = {
+    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.1
+    title = TNO_YUN_ext_events_YUN_execution_of_hirohito.1.t
+    desc = TNO_YUN_ext_events_YUN_execution_of_hirohito.1.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_execution_of_hirohito_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_execution_of_hirohito.1.a
+    }
+}
+news_event = {
+    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.2
+    title = TNO_YUN_ext_events_YUN_execution_of_hirohito.2.t
+    desc = TNO_YUN_ext_events_YUN_execution_of_hirohito.2.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_execution_of_hirohito_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_execution_of_hirohito.2.a
+    }
+}
+news_event = {
+    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.3
+    title = TNO_YUN_ext_events_YUN_execution_of_hirohito.3.t
+    desc = TNO_YUN_ext_events_YUN_execution_of_hirohito.3.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_execution_of_hirohito_2
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_execution_of_hirohito.3.a
+    }
+}
+news_event = {
+    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.4
+    title = TNO_YUN_ext_events_YUN_execution_of_hirohito.4.t
+    desc = TNO_YUN_ext_events_YUN_execution_of_hirohito.4.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_execution_of_hirohito_4
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_execution_of_hirohito.4.a
+    }
+}
+news_event = {
+    id = TNO_YUN_ext_events_YUN_execution_of_hirohito.5
+    title = TNO_YUN_ext_events_YUN_execution_of_hirohito.5.t
+    desc = TNO_YUN_ext_events_YUN_execution_of_hirohito.5.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_execution_of_hirohito_3
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_execution_of_hirohito.5.a
+    }
+}
+
+# Tokyo is Nanking
+news_event = {
+    id = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1
+    title = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1.t
+    desc = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_tokyo_is_nanking_1
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1.a
+    }
+}
+news_event = {
+    id = TNO_YUN_ext_events_YUN_tokyo_is_nanking.2
+    title = TNO_YUN_ext_events_YUN_tokyo_is_nanking.2.t
+    desc = TNO_YUN_ext_events_YUN_tokyo_is_nanking.2.desc
+    picture = GFX_TNO_YUN_ext_events_YUN_pictures_tokyo_is_nanking_2
+    
+    major = yes
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+    option = {
+        name = TNO_YUN_ext_events_YUN_tokyo_is_nanking.2.a
+    }
+}
