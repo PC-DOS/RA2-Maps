@@ -184,6 +184,13 @@ TNO_YUN_ext_decisions_category = {
                 econ_set_credit_rating = yes
                 set_temp_variable = { money_reserves_temp = -24525 }
                 econ_money_reserves_change_raw_money = yes
+                set_variable = { nuclear_stockpile = 0 }
+                set_variable = { nuclear_stockpile_k = nuclear_stockpile }
+                divide_variable = { nuclear_stockpile_k = 1000 }
+                set_variable = { BonusContribution = 0.0 }
+                calculate_strike_capability = yes
+                set_temp_variable = { global_coverage_change_temp = -1.0 }
+                nuclear_global_coverage_change = yes
             }
         }
     }
