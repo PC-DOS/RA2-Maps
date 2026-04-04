@@ -8672,6 +8672,18 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     set_variable = { WI_current_state_officer = WI_state_officer_needed }
                     YUN_update_state_officers_effects = yes
                 }
+                
+                # Leader
+                set_country_leader_name = {
+                    name = YUN_sun_fo
+                }
+                set_country_leader_description = {
+                    desc = POLITICS_SUN_FO_DESC
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/leaders/YUN/YUN_Sun_Fo.dds"
+                }
+                set_country_leader_ideology = paternalism_xunzheng_subtype
             }
         }
         days_remove = 25
