@@ -8345,6 +8345,80 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     set_variable = { WI_current_state_officer = WI_state_officer_needed }
                     YUN_update_state_officers_effects = yes
                 }
+                
+                # After ROC reborn
+                if = {
+                    limit = {
+                        has_global_flag = YUN_ROC_reborn
+                    }
+                    every_state = {
+                        limit = {
+                            OR = {
+                                is_claimed_by = KOR
+                                is_core_of = KOR
+                            }
+                        }
+                        transfer_state_to = KOR
+                        remove_claim_by = JAP
+                        remove_core_of = JAP
+                    }
+                    JAP = {
+                        every_controlled_state = {
+                            limit = {
+                                OR = {
+                                    is_claimed_by = USA
+                                    is_core_of = USA
+                                }
+                            }
+                            transfer_state_to = USA
+                            remove_claim_by = JAP
+                            remove_core_of = JAP
+                        }
+                        every_controlled_state = {
+                            limit = {
+                                NOT = { is_in_home_area = yes }
+                            }
+                            transfer_state_to = YUN
+                            cancel_resistance = yes
+                            add_core_of = YUN
+                            remove_claim_by = JAP
+                            remove_core_of = JAP
+                        }
+                    }
+                    every_controlled_state = {
+                        cancel_resistance = yes
+                        set_demilitarized_zone = no
+                        add_core_of = YUN
+                        remove_core_of = YUN
+                        add_core_of = YUN
+                        remove_core_of = CHI
+                        add_core_of = CHI
+                        remove_core_of = MAN
+                        add_core_of = MAN
+                        remove_core_of = GUZ
+                        add_core_of = GUZ
+                        remove_core_of = XIK
+                        add_core_of = XIK
+                        remove_core_of = GUX
+                        add_core_of = GUX
+                        remove_core_of = SHX
+                        add_core_of = SHX
+                        remove_core_of = QIN
+                        add_core_of = QIN
+                        remove_core_of = XIN
+                        add_core_of = XIN
+                        remove_core_of = TIB
+                        add_core_of = TIB
+                        remove_core_of = GNG
+                        add_core_of = GNG
+                        remove_core_of = GAN
+                        add_core_of = GAN
+                        remove_core_of = MEN
+                        add_core_of = MEN
+                        remove_core_of = JAP
+                        add_core_of = JAP
+                    }
+                }
             }
         }
     }
@@ -8564,33 +8638,39 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     set_demilitarized_zone = no
                     add_core_of = YUN
                     remove_core_of = YUN
-                    is_core_of = YUN
+                    add_core_of = YUN
                     remove_core_of = CHI
-                    is_core_of = CHI
+                    add_core_of = CHI
                     remove_core_of = MAN
-                    is_core_of = MAN
+                    add_core_of = MAN
                     remove_core_of = GUZ
-                    is_core_of = GUZ
+                    add_core_of = GUZ
                     remove_core_of = XIK
-                    is_core_of = XIK
+                    add_core_of = XIK
                     remove_core_of = GUX
-                    is_core_of = GUX
+                    add_core_of = GUX
                     remove_core_of = SHX
-                    is_core_of = SHX
+                    add_core_of = SHX
                     remove_core_of = QIN
-                    is_core_of = QIN
+                    add_core_of = QIN
                     remove_core_of = XIN
-                    is_core_of = XIN
+                    add_core_of = XIN
                     remove_core_of = TIB
-                    is_core_of = TIB
+                    add_core_of = TIB
                     remove_core_of = GNG
-                    is_core_of = GNG
+                    add_core_of = GNG
                     remove_core_of = GAN
-                    is_core_of = GAN
+                    add_core_of = GAN
                     remove_core_of = MEN
-                    is_core_of = MEN
+                    add_core_of = MEN
                     remove_core_of = JAP
-                    is_core_of = JAP
+                    add_core_of = JAP
+                }
+                
+                # States administrative efficiency
+                every_controlled_state = {
+                    set_variable = { WI_current_state_officer = WI_state_officer_needed }
+                    YUN_update_state_officers_effects = yes
                 }
             }
         }
