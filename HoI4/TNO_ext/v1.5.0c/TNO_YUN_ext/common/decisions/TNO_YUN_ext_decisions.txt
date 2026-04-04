@@ -35,6 +35,20 @@ TNO_YUN_ext_decisions_category = {
             factor = 0
         }
         complete_effect = {
+            JAP = {
+                if = {
+                    limit = {
+                        is_faction_leader = yes
+                    }
+                    dismantle_faction = yes
+                }
+                if = {
+                    limit = {
+                        NOT = { is_in_faction_with = YUN }
+                    }
+                    leave_faction = yes
+                }
+            }
             YUN = {
                 end_puppet = JAP
                 puppet = JAP
@@ -105,18 +119,6 @@ TNO_YUN_ext_decisions_category = {
                 }
             }
             JAP = {
-                if = {
-                    limit = {
-                        is_faction_leader = yes
-                    }
-                    dismantle_faction = yes
-                }
-                if = {
-                    limit = {
-                        NOT = { is_in_faction_with = YUN }
-                    }
-                    leave_faction = yes
-                }
                 set_cosmetic_tag = TNO_YUN_ext_JAP_YUN_puppet
                 add_stability = 5.0
                 remove_ideas = {
@@ -194,6 +196,34 @@ TNO_YUN_ext_decisions_category = {
             }
         }
     }
+    TNO_YUN_ext_decisions_JAP_fate_kick_JAPs_out_of_faction = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_global_flag = YUN_ROC_reborn
+            JAP = {
+                is_in_faction_with = YUN
+            }
+        }
+        available = {
+            has_global_flag = YUN_ROC_reborn
+            JAP = {
+                is_in_faction_with = YUN
+            }
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            JAP = {
+                leave_faction = yes
+            }
+        }
+    }
     TNO_YUN_ext_decisions_JAP_fate_greate_purge = {
         allowed = {
             # Always allowed
@@ -215,31 +245,6 @@ TNO_YUN_ext_decisions_category = {
                 every_character = {
                     retire = yes
                 }
-                add_stability = 5.0
-                set_politics = {
-                    ruling_party = despotism
-                }
-                set_popularities = {
-                    despotism = 100
-                }
-                set_party_name = {
-                    ideology = despotism
-                    long_name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party_long
-                    name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party
-                }
-                set_country_leader_name = {
-                    ideology = despotism
-                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
-                }
-                set_country_leader_description = {
-                    ideology = despotism
-                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov_desc
-                }
-                set_country_leader_portrait = {
-                    ideology = despotism
-                    desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
-                }
-                set_country_leader_ideology = despotism_military_junta_subtype
             }
             YUN = {
                 country_event = TNO_YUN_ext_events_YUN_execution_of_hirohito.1
