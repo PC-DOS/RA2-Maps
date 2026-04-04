@@ -227,6 +227,7 @@ TNO_YUN_ext_decisions_category = {
                     ideology = despotism
                     desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
                 }
+                set_country_leader_ideology = despotism_military_junta_subtype
             }
             YUN = {
                 country_event = TNO_YUN_ext_events_YUN_execution_of_hirohito.1
