@@ -76,8 +76,6 @@ TNO_YUN_ext_decisions_category = {
                     cancel_resistance = yes
                     set_demilitarized_zone = no
                     add_core_of = YUN
-                    remove_core_of = YUN
-                    remove_claim_by = YUN
                     remove_core_of = CHI
                     remove_claim_by = CHI
                     remove_core_of = MAN
@@ -122,6 +120,30 @@ TNO_YUN_ext_decisions_category = {
                 set_cosmetic_tag = TNO_YUN_ext_JAP_YUN_puppet
                 add_stability = 5.0
                 remove_ideas = {
+                    JAP_zaibatsu_question
+                    JAP_legacy_guarded_pearl_exercises 
+                    JAP_legacy_guarded_pearl_exercises_revealed 
+                    JAP_showa_emperor 
+                    JAP_showa_emperor_yasuda 
+                    JAP_showa_emperor_ikeda 
+                    JAP_showa_emperor_takagi 
+                    JAP_showa_emperor_kaya 
+                    JAP_showa_emperor_ikeda_2 
+                    JAP_showa_emperor_takagi_2 
+                    JAP_showa_emperor_ikeda_3 
+                    JAP_showa_emperor_takagi_3 
+                    JAP_showa_emperor_HEA_passed 
+                    JAP_showa_emperor_HEA_failed 
+                    JAP_showa_emperor_HEA_sabotaged 
+                    JAP_showa_emperor_hardliner 
+                    JAP_showa_emperor_moderate 
+                    JAP_showa_emperor_ikeda_4 
+                    JAP_showa_emperor_takagi_4 
+                    JAP_showa_emperor_shiina 
+                    JAP_showa_emperor_fukuda 
+                    JAP_showa_emperor_muto 
+                    JAP_showa_emperor_hop 
+                    JAP_showa_emperor_gaw 
                 }
                 load_focus_tree = TNO_YUN_ext_national_focuses_empty_focus_tree
                 set_politics = {
@@ -147,6 +169,7 @@ TNO_YUN_ext_decisions_category = {
                     ideology = despotism
                     desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
                 }
+                set_country_leader_ideology = despotism_military_junta_subtype
                 
                 remove_superpower = yes
                 delete_unit = {}
