@@ -173,6 +173,7 @@ TNO_YUN_ext_decisions_category = {
                 }
                 set_country_leader_ideology = despotism_military_junta_subtype
                 
+                econ_leave_sphere = yes
                 remove_superpower = yes
                 delete_unit = {}
                 country_lock_all_division_template = yes
