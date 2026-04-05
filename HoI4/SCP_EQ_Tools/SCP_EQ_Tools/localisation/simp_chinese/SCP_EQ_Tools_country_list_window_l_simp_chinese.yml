@@ -1,0 +1,7 @@
+﻿l_simp_chinese:
+ # Country list window
+ SCP_EQ_Tools_country_list_window_TitleBar_text:0 "国家列表（点击一个国家以将其选中）"
+ SCP_EQ_Tools_country_list_window_TitleBar_tooltip:0 "本界面用于辅助您在“地图精细调整”工具中，选择暂时不在地图上存在的国家。"
+ SCP_EQ_Tools_country_list_window_lblSelectedCountryText_text:0 "当前选中的国家：[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetFlag][?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetName] ([?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag])"
+ SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_btnCountryFlag_tooltip:0 "[?this_country.GetFlag][?this_country.GetName] ([?this_country.GetTag])\n\n领导人：[?this_country.GetLeader]\n执政党：[?this_country.GetRulingParty] ([?this_country.GetRulingIdeologyNoun])"
+ 

@@ -453,6 +453,27 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = ROOT }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_open_country_list_window = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+            add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_state_operations_separator_marked_states_management = {
         allowed = {
             # Always allowed

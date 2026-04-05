@@ -1,0 +1,48 @@
+# Country list window - operating code
+
+scripted_gui = {    
+    # Country list main window
+    SCP_EQ_Tools_country_list_window_backend = {
+        window_name = "SCP_EQ_Tools_country_list_window"
+        #parent_window_token = top_bar
+        context_type = player_context
+        dirty = SCP_EQ_Tools_country_list_window_replotting_trigger
+        
+        visible = {
+            has_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+        }
+        
+        dynamic_lists = {
+            # Country listing
+            grdCountryFlagsContainer = {
+                array = global.countries
+                value = this_country
+                index = this_country_index
+                change_scope = no
+                entry_container = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag"
+            }
+        }
+        
+        properties = {
+            # Country flags
+            btnCountryFlag = {
+                image = "[?this_country.GetFlag]"
+            }
+        }
+        
+        effects = {
+            btnClose_click = {
+                # Close window
+                clr_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+                add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
+            }
+            
+            # Country selection
+            btnCountryFlag_click = {
+                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = this_country }
+                add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
+            }
+        }
+    }
+    
+}
