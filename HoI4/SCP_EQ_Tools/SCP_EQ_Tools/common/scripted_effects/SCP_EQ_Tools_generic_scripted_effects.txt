@@ -1200,13 +1200,13 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
             limit = {
                 check_variable = { money_reserves < 245 }
             }
-            divide_temp_variable = { gdp_growth_temp = 24.5 }
+            divide_temp_variable = { gdp_growth_temp = 125 }
         }
         else_if = {
             limit = {
                 check_variable = { money_reserves < 2450 }
             }
-            divide_temp_variable = { gdp_growth_temp = 1245 }
+            divide_temp_variable = { gdp_growth_temp = 2450 }
         }
         else_if = {
             limit = {
