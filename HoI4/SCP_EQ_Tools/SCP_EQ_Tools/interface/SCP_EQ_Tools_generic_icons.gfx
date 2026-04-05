@@ -16,6 +16,10 @@ spriteTypes = {
         name = GFX_SCP_EQ_Tools_generic_icons_minus
         texturefile = gfx/generic_icons/Generic_Minus.png
     }
+    spriteType = {
+        name = GFX_SCP_EQ_Tools_generic_placeholder_68x68
+        texturefile = gfx/generic_icons/Generic_Placeholder_68x68.png
+    }
     
     # Generic icons - EaW group
     spriteType = {

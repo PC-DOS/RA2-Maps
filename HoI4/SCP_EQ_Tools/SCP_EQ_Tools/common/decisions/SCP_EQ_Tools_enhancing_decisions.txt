@@ -6096,6 +6096,20 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             else = {
                 set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
             }
+            
+            # Initialization of some variables
+            if = {
+                limit = {
+                    NOT = { has_variable = ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country )
+                }
+                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = ROOT }
+            }
+            if = {
+                limit = {
+                    NOT = { has_variable = ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_ideology }
+                }
+                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_ideology = ROOT.current_party_ideology_group }
+            }
         }
     }
     

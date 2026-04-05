@@ -1,0 +1,48 @@
+# Ideology list window - operating code
+
+scripted_gui = {    
+    # Ideology list main window
+    SCP_EQ_Tools_ideology_list_window_backend = {
+        window_name = "SCP_EQ_Tools_ideology_list_window"
+        #parent_window_token = top_bar
+        context_type = player_context
+        dirty = SCP_EQ_Tools_ideology_list_window_replotting_trigger
+        
+        visible = {
+            has_country_flag = SCP_EQ_Tools_ideology_list_window_is_window_visible
+        }
+        
+        dynamic_lists = {
+            # Ideology listing
+            grdIdeologyIconsContainer = {
+                array = global.ideology_groups
+                value = this_ideology
+                index = this_ideology_index
+                change_scope = no
+                entry_container = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon"
+            }
+        }
+        
+        properties = {
+            # Ideology flags
+            btnIdeologyIcon = {
+                image = "GFX_ideology_[?this_ideology.GetTokenKey]_group"
+            }
+        }
+        
+        effects = {
+            btnClose_click = {
+                # Close window
+                clr_country_flag = SCP_EQ_Tools_ideology_list_window_is_window_visible
+                add_to_variable = { SCP_EQ_Tools_ideology_list_window_replotting_trigger = 1 }
+            }
+            
+            # Ideology selection
+            btnIdeologyIcon_click = {
+                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_ideology = this_ideology }
+                add_to_variable = { SCP_EQ_Tools_ideology_list_window_replotting_trigger = 1 }
+            }
+        }
+    }
+    
+}

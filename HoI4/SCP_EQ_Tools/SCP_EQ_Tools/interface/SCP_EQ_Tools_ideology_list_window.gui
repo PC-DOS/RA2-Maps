@@ -1,9 +1,9 @@
-# Country list window
+# Ideology list window
 
 guiTypes = {
-    # Country list main window
+    # Ideology list main window
     containerWindowType = {
-        name = "SCP_EQ_Tools_country_list_window"
+        name = "SCP_EQ_Tools_ideology_list_window"
         orientation = CENTER
         position = { x = -500 y = -300 }
         size = { width = 850 height = 600 }
@@ -38,8 +38,8 @@ guiTypes = {
                 maxHeight = 40
                 format = left
                 font = "vic_36"
-                text = "SCP_EQ_Tools_country_list_window_TitleBar_text"
-                pdx_tooltip = "SCP_EQ_Tools_country_list_window_TitleBar_tooltip"
+                text = "SCP_EQ_Tools_ideology_list_window_TitleBar_text"
+                pdx_tooltip = "SCP_EQ_Tools_ideology_list_window_TitleBar_tooltip"
             }
         
             # Close button
@@ -55,9 +55,9 @@ guiTypes = {
             }
         }
         
-        # Countries container
+        # Ideologies container
         containerWindowType = {
-            name = "cntCountriesContainer"
+            name = "cntIdeologiesContainer"
             orientation = UPPER_LEFT
             position = { x = 10 y = 60 }
             size = { width = 830 height = 530 }
@@ -69,9 +69,9 @@ guiTypes = {
                 #quadTextureSprite = "GFX_tiled_window"
             }
         
-            # Country flags container
+            # Ideology icons container
             containerWindowType = {
-                name = "cntCountryFlagsContainer"
+                name = "cntIdeologyIconsContainer"
                 orientation = UPPER_LEFT
                 position = { x = 0 y = 0 }
                 size = { width = 830 height = 490 }
@@ -87,37 +87,37 @@ guiTypes = {
                 }
                 
                 gridBoxType = {
-                    name = "grdCountryFlagsContainer"
+                    name = "grdIdeologyIconsContainer"
                     orientation = UPPER_LEFT
                     position = { x = 10 y = 0 }
                     size = { width = 810 height = 100%% }
-                    slotsize = {width = 100 height = 70 }
+                    slotsize = {width = 100 height = 98 }
                     format = "UPPER_LEFT"
                     max_slots_horizontal = 8
                 }
             }
         
-            # Selected country text
+            # Selected ideology text
             instantTextBoxType = {
-                name = "lblSelectedCountryText"
+                name = "lblSelectedIdeologyText"
                 orientation = "UPPER_LEFT"
                 position = { x = 10 y = 500 }
                 maxWidth = 830
                 maxHeight = 30
                 format = center
                 font = "hoi_24header"
-                text = "SCP_EQ_Tools_country_list_window_lblSelectedCountryText_text"
-                #pdx_tooltip = "SCP_EQ_Tools_country_list_window_lblSelectedCountryText_tooltip"
+                text = "SCP_EQ_Tools_ideology_list_window_lblSelectedIdeologyText_text"
+                #pdx_tooltip = "SCP_EQ_Tools_ideology_list_window_lblSelectedIdeologyText_tooltip"
             }
         }
     }
     
-    # Single country flag
+    # Single ideology icon
     containerWindowType = {
-        name = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag"
+        name = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon"
         orientation = UPPER_LEFT
         position = { x = 0 y = 0 }
-        size = { width = 100 height = 70 }
+        size = { width = 100 height = 98 }
         clipping = yes
         moveable = no
         background = {
@@ -126,17 +126,16 @@ guiTypes = {
             #quadTextureSprite = "GFX_tiled_window"
         }
         
-        # Flag
-        # Size: 82 x 52
+        # Icon
+        # Size: 68 x 68
         buttonType = {
-            name = "btnCountryFlag"
+            name = "btnIdeologyIcon"
             orientation = "CENTER"
-            position = { x = -41 y = -26 }
-            #quadTextureSprite ="GFX_flag_small2" # This is the container of 41x26 flag
-            quadTextureSprite ="GFX_shield_medium"
+            position = { x = -34 y = -34 }
+            spriteType = "GFX_SCP_EQ_Tools_generic_placeholder_68x68"
             alwaystransparent = no
             clicksound = click_default
-            pdx_tooltip = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_btnCountryFlag_tooltip"
+            pdx_tooltip = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon_btnIdeologyIcon_tooltip"
         }
     }
 }
