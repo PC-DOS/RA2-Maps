@@ -7511,10 +7511,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            # Leave 25.0% growth, taking gdp_growth_modifier into consideration
+            # Leave 24.5% growth, taking gdp_growth_modifier into consideration
             set_temp_variable = { gdp_growth_temp = gdp_growth }
             add_to_temp_variable = { gdp_growth_temp = modifier@gdp_growth_modifier }
-            subtract_from_temp_variable = { gdp_growth_temp = 25.0 }
+            subtract_from_temp_variable = { gdp_growth_temp = 24.5 }
             multiply_temp_variable = { gdp_growth_temp = -1 }
             econ_gdp_growth_change = yes
             # Clear inflation
