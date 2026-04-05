@@ -1200,19 +1200,19 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
             limit = {
                 check_variable = { money_reserves < 245 }
             }
-            divide_temp_variable = { gdp_growth_temp = 125 }
+            divide_temp_variable = { gdp_growth_temp = 45 }
         }
         else_if = {
             limit = {
                 check_variable = { money_reserves < 2450 }
             }
-            divide_temp_variable = { gdp_growth_temp = 2450 }
+            divide_temp_variable = { gdp_growth_temp = 525 }
         }
         else_if = {
             limit = {
                 check_variable = { money_reserves < 24525 }
             }
-            divide_temp_variable = { gdp_growth_temp = 24525 }
+            divide_temp_variable = { gdp_growth_temp = 12450 }
         }
         else_if = {
             limit = {
@@ -1230,7 +1230,7 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
             limit = {
                 check_variable = { temp_total_gdp_growth > 50.0 }
             }
-            divide_temp_variable = { gdp_growth_temp = 2.5 }
+            divide_temp_variable = { gdp_growth_temp = 1.25 }
         }
         econ_gdp_growth_change = yes
     }
