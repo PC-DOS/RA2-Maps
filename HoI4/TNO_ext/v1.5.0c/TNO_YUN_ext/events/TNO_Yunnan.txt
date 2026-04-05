@@ -1506,7 +1506,7 @@ country_event = {#Lu Han flies to Lijiang for parties yay
 
 	picture = GFX_report_event_YUN_Lu_Han_2
 
-	# Avoid being triggered when YUN_ROC_reborn is set already
+	# P.D.: Avoid being triggered when YUN_ROC_reborn is set already
 	trigger = {
 		NOT = { has_global_flag = YUN_ROC_reborn }
 	}

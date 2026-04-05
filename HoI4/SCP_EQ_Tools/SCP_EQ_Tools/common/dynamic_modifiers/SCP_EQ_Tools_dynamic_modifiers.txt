@@ -367,12 +367,12 @@ SCP_EQ_Tools_dynamic_modifiers_TFR_SCP_force_1 = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TFR
     enable = { always = yes }
     remove_trigger = { always = no }
-    academic_development_monthly = 0.5
-    society_development_monthly = 0.5
-    industrial_development_monthly = 0.5
-    poverty_development_monthly = 0.5
-    farming_development_monthly = 0.5
-    military_development_monthly = 0.5
+    academic_development_monthly = 0.25
+    society_development_monthly = 0.25
+    industrial_development_monthly = 0.25
+    poverty_development_monthly = 0.25
+    farming_development_monthly = 0.25
+    military_development_monthly = 0.25
     income_growth_factor = SCP_EQ_Tools_dynamic_modifiers_TFR_SCP_force_1_income_growth_factor
     inflation_monthly = SCP_EQ_Tools_dynamic_modifiers_TFR_SCP_force_1_inflation_monthly
     misc_income = SCP_EQ_Tools_dynamic_modifiers_TFR_SCP_force_1_misc_income
@@ -386,7 +386,7 @@ SCP_EQ_Tools_dynamic_modifiers_TNO_SCP_force_1 = {
     country_resource_uranium = 24525
     country_resource_consumer_goods = 24525
     country_resource_power = 24525
-    gdp_growth_modifier = 50.0
+    gdp_growth_modifier = 25.0
     inflation_rate_modifier = -24525.0
     interest_rate_modifier = -24525.0
     misc_income_modifier = SCP_EQ_Tools_dynamic_modifiers_TNO_SCP_force_1_misc_income_modifier
