@@ -1,6 +1,7 @@
 add_namespace = TNO_YUN_ext_events_YUN
 add_namespace = TNO_YUN_ext_events_YUN_execution_of_hirohito
 add_namespace = TNO_YUN_ext_events_YUN_tokyo_is_nanking
+add_namespace = TNO_YUN_ext_events_YUN_fuck_you_JAPs
 
 # Execution of Hirohito
 news_event = {
@@ -108,5 +109,116 @@ news_event = {
     
     option = {
         name = TNO_YUN_ext_events_YUN_tokyo_is_nanking.2.a
+    }
+}
+
+# Fuck you JAPs
+country_event = {
+    id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
+    title = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1.t
+    desc = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1.d
+    #picture = TNO_YUN_ext_events_YUN_fuck_you_JAPs_1
+    fire_only_once = no
+    is_triggered_only = yes
+    trigger = {
+        JAP = {
+            is_puppet_of = YUN
+        }
+    }
+    immediate = {
+    }
+    option = {
+        name = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1.a
+        
+        ai_chance = {
+            base = 0
+        }
+        
+        JAP = {
+            add_political_power = -24500
+            add_command_power = -24500
+            army_experience = -2450
+            navy_experience = -2450
+            air_experience = -2450
+            add_stability = 5.0
+            add_war_support = 5.0
+            delete_unit = {}
+            country_lock_all_division_template = yes
+            load_focus_tree = TNO_YUN_ext_national_focuses_empty_focus_tree
+            set_politics = {
+                ruling_party = despotism
+            }
+            set_popularities = {
+                despotism = 100
+            }
+            set_party_name = {
+                ideology = despotism
+                long_name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party_long
+                name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party
+            }
+            set_country_leader_name = {
+                ideology = despotism
+                desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
+            }
+            set_country_leader_description = {
+                ideology = despotism
+                desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov_desc
+            }
+            set_country_leader_portrait = {
+                ideology = despotism
+                desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
+            }
+            set_country_leader_ideology = despotism_military_junta_subtype
+            
+            set_temp_variable = { temp_credit_rating_min = 1 }
+            econ_set_min_credit_rating = yes
+            set_temp_variable = { temp_credit_rating_max = 1 }
+            econ_set_max_credit_rating = yes
+            set_temp_variable = { temp_credit_rating = 1 }
+            econ_set_credit_rating = yes
+            set_variable = { nuclear_stockpile = 0 }
+            set_variable = { nuclear_stockpile_k = nuclear_stockpile }
+            divide_variable = { nuclear_stockpile_k = 1000 }
+            set_variable = { BonusContribution = 0.0 }
+            calculate_strike_capability = yes
+            set_temp_variable = { global_coverage_change_temp = -1.0 }
+            nuclear_global_coverage_change = yes
+            set_temp_variable = { pus_temp = -24500 }
+            econ_pus_change = yes
+            
+            # What do you think you are here?
+            # See common\scripted_effects\TNO_BoP_GUI_scripted_effects.txt
+            for_each_loop = {
+                array = TNO_BoP_Tabs
+                value = TabName
+                
+                TNO_BoP_RemoveTab = yes
+            }
+            
+            # Death
+            every_controlled_state = {
+                limit = {
+                    NOT = { is_claimed_by = YUN }
+                    NOT = { is_core_of = YUN }
+                }
+                add_manpower = -12450
+                if = {
+                    limit = {
+                        state_population_k < 0.001
+                        state_population < 1
+                    }
+                    add_manpower = 1
+                }
+                JAP = {
+                    add_manpower = -1245000
+                }
+            }
+            
+            # Loop
+            country_event = {
+                id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
+                days = 4
+            }
+        }
     }
 }

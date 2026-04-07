@@ -12,7 +12,8 @@ guiTypes = {
         background = {
             name = "Background"
             #quadTextureSprite = "GFX_tiled_window_transparent"
-            quadTextureSprite = "GFX_tiled_window"
+            #quadTextureSprite = "GFX_tiled_window"
+            quadTextureSprite ="GFX_tiled_window_thin_border2"
         }
         
         # Title bar

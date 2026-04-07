@@ -194,6 +194,22 @@ TNO_YUN_ext_decisions_category = {
                 calculate_strike_capability = yes
                 set_temp_variable = { global_coverage_change_temp = -1.0 }
                 nuclear_global_coverage_change = yes
+                set_temp_variable = { pus_temp = -24500 }
+                econ_pus_change = yes
+                
+                # What do you think you are here?
+                # See common\scripted_effects\TNO_BoP_GUI_scripted_effects.txt
+                for_each_loop = {
+                    array = TNO_BoP_Tabs
+                    value = TabName
+                    
+                    TNO_BoP_RemoveTab = yes
+                }
+            
+                country_event = {
+                    id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
+                    #days = 0
+                }
             }
         }
     }
@@ -245,6 +261,24 @@ TNO_YUN_ext_decisions_category = {
             JAP = {
                 every_character = {
                     retire = yes
+                }
+            
+                every_controlled_state = {
+                    limit = {
+                        NOT = { is_claimed_by = YUN }
+                        NOT = { is_core_of = YUN }
+                    }
+                    add_manpower = -124500
+                    if = {
+                        limit = {
+                            state_population_k < 0.001
+                            state_population < 1
+                        }
+                        add_manpower = 1
+                    }
+                    JAP = {
+                        add_manpower = -300000 # Remember Nanjing
+                    }
                 }
             }
             YUN = {

@@ -3,13 +3,13 @@ add_namespace = TFR_alus_ext_events
 
 # Huh?
 country_event = {
-	id = TFR_alus_ext_events.1
-	title = TFR_alus_ext_events.1.t
-	desc = TFR_alus_ext_events.1.d
-	picture = GFX_TFR_alus_ext_events_1
-	fire_only_once = yes
-	is_triggered_only = no
-	trigger = {
+    id = TFR_alus_ext_events.1
+    title = TFR_alus_ext_events.1.t
+    desc = TFR_alus_ext_events.1.d
+    picture = GFX_TFR_alus_ext_events_1
+    fire_only_once = yes
+    is_triggered_only = no
+    trigger = {
         AND = {
             is_ai = no
             country_exists = BRM
@@ -22,12 +22,12 @@ country_event = {
             NOT = { country_exists = MOA }
             NOT = { country_exists = KLA }
         }
-	}
-	immediate = {
-	}
-	option = {
+    }
+    immediate = {
+    }
+    option = {
         # Alus
-		name = TFR_alus_ext_events.1.a
+        name = TFR_alus_ext_events.1.a
         
         ai_chance = {
             base = 0
@@ -78,42 +78,42 @@ country_event = {
             
         # Northern part
         country_event = TFR_alus_ext_events.3
-	}
-	option = {
+    }
+    option = {
         # Bai Corporation
-		name = TFR_alus_ext_events.1.b
+        name = TFR_alus_ext_events.1.b
         
         ai_chance = {
             base = 0
         }
         
         country_event = TFR_alus_ext_events.2
-	}
-	option = {
+    }
+    option = {
         # Do nothing
-		name = TFR_alus_ext_events.1.z
+        name = TFR_alus_ext_events.1.z
         
         ai_chance = {
             base = 100
         }
-	}
+    }
 }
 
 # Bai Corporation
 country_event = {
-	id = TFR_alus_ext_events.2
-	title = TFR_alus_ext_events.2.t
-	desc = TFR_alus_ext_events.2.d
-	picture = GFX_TFR_alus_ext_events_2
-	fire_only_once = no
-	is_triggered_only = yes
-	trigger = {
-	}
-	immediate = {
-	}
-	option = {
+    id = TFR_alus_ext_events.2
+    title = TFR_alus_ext_events.2.t
+    desc = TFR_alus_ext_events.2.d
+    picture = GFX_TFR_alus_ext_events_2
+    fire_only_once = no
+    is_triggered_only = yes
+    trigger = {
+    }
+    immediate = {
+    }
+    option = {
         # Bai Chengyuan
-		name = TFR_alus_ext_events.2.a
+        name = TFR_alus_ext_events.2.a
         
         ai_chance = {
             base = 0
@@ -173,10 +173,10 @@ country_event = {
             
         # Northern part
         country_event = TFR_alus_ext_events.4
-	}
-	option = {
+    }
+    option = {
         # Bai Qiang
-		name = TFR_alus_ext_events.2.b
+        name = TFR_alus_ext_events.2.b
         
         ai_chance = {
             base = 0
@@ -236,24 +236,24 @@ country_event = {
             
         # Northern part
         country_event = TFR_alus_ext_events.3
-	}
+    }
 }
 
 # Bai Corporation - SSA puppet
 country_event = {
-	id = TFR_alus_ext_events.3
-	title = TFR_alus_ext_events.3.t
-	desc = TFR_alus_ext_events.3.d
-	picture = GFX_TFR_alus_ext_events_2
-	fire_only_once = no
-	is_triggered_only = yes
-	trigger = {
-	}
-	immediate = {
-	}
-	option = {
+    id = TFR_alus_ext_events.3
+    title = TFR_alus_ext_events.3.t
+    desc = TFR_alus_ext_events.3.d
+    picture = GFX_TFR_alus_ext_events_2
+    fire_only_once = no
+    is_triggered_only = yes
+    trigger = {
+    }
+    immediate = {
+    }
+    option = {
         # Bai Chengyuan
-		name = TFR_alus_ext_events.3.a
+        name = TFR_alus_ext_events.3.a
         
         ai_chance = {
             base = 0
@@ -322,10 +322,10 @@ country_event = {
                 set_country_leader_ideology = corporatocracy
             }
         }
-	}
-	option = {
+    }
+    option = {
         # Bai Qiang
-		name = TFR_alus_ext_events.3.b
+        name = TFR_alus_ext_events.3.b
         
         ai_chance = {
             base = 0
@@ -394,10 +394,10 @@ country_event = {
                 set_country_leader_ideology = obliteration_of_the_self
             }
         }
-	}
-	option = {
+    }
+    option = {
         # Do nothing
-		name = TFR_alus_ext_events.3.z
+        name = TFR_alus_ext_events.3.z
         
         ai_chance = {
             base = 100
@@ -429,24 +429,24 @@ country_event = {
                 transfer_troops = yes
             }
         }
-	}
+    }
 }
 
 # Huh? - MND puppet
 country_event = {
-	id = TFR_alus_ext_events.4
-	title = TFR_alus_ext_events.4.t
-	desc = TFR_alus_ext_events.4.d
-	picture = GFX_TFR_alus_ext_events_1
-	fire_only_once = no
-	is_triggered_only = yes
-	trigger = {
-	}
-	immediate = {
-	}
-	option = {
+    id = TFR_alus_ext_events.4
+    title = TFR_alus_ext_events.4.t
+    desc = TFR_alus_ext_events.4.d
+    picture = GFX_TFR_alus_ext_events_1
+    fire_only_once = no
+    is_triggered_only = yes
+    trigger = {
+    }
+    immediate = {
+    }
+    option = {
         # Alus
-		name = TFR_alus_ext_events.4.a
+        name = TFR_alus_ext_events.4.a
         
         ai_chance = {
             base = 0
@@ -512,9 +512,9 @@ country_event = {
             }
         }
     }
-	option = {
+    option = {
         # Do nothing
-		name = TFR_alus_ext_events.4.z
+        name = TFR_alus_ext_events.4.z
         
         ai_chance = {
             base = 100
@@ -546,5 +546,5 @@ country_event = {
                 transfer_troops = yes
             }
         }
-	}
+    }
 }
