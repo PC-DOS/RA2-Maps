@@ -194,6 +194,8 @@ TNO_YUN_ext_decisions_category = {
                 calculate_strike_capability = yes
                 set_temp_variable = { global_coverage_change_temp = -1.0 }
                 nuclear_global_coverage_change = yes
+                set_variable = { free_production_units = 0 }
+                recalculate_PUs_on_demand = yes
                 
                 # What do you think you are here?
                 # See common\scripted_effects\TNO_BoP_GUI_scripted_effects.txt
