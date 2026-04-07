@@ -1099,6 +1099,8 @@
  AST_autonomy_dominion_DEF: "澳大利亚自治领"
  AST_subject: "澳大利亚总督区"
  AST_subject_DEF: "澳大利亚总督区"
+ AST_CHI_subject: "澳大利亚特别行政区"
+ AST_CHI_subject_DEF: "澳大利亚特别行政区"
  NZL_fascism: "新西兰王国"
  NZL_fascism_DEF: "新西兰王国"
  NZL_democratic: "新西兰王国"
