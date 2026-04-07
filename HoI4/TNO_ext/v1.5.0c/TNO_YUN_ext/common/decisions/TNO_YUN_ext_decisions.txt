@@ -199,16 +199,12 @@ TNO_YUN_ext_decisions_category = {
                 
                 # What do you think you are here?
                 # See common\scripted_effects\TNO_BoP_GUI_scripted_effects.txt
-                for_each_loop = {
-                    array = TNO_BoP_Tabs
-                    value = TabName
-                    
-                    TNO_BoP_RemoveTab = yes
-                }
+                set_temp_variable = { TabName = token:BoP_Tab_GlobalConflicts } 
+                TNO_BoP_RemoveTab = yes
             
                 country_event = {
                     id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
-                    #days = 0
+                    days = 1
                 }
             }
         }
