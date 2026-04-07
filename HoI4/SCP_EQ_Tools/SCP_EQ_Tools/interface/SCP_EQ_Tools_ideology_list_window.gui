@@ -131,11 +131,24 @@ guiTypes = {
         buttonType = {
             name = "btnIdeologyIcon"
             orientation = "CENTER"
-            position = { x = -34 y = -34 }
+            position = { x = -34 y = -45 }
             spriteType = "GFX_SCP_EQ_Tools_generic_placeholder_68x68"
             alwaystransparent = no
             clicksound = click_default
             pdx_tooltip = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon_btnIdeologyIcon_tooltip"
+        }
+        
+        # Ideology name
+        instantTextBoxType = {
+            name = "lblIdeologyName"
+            orientation = "CENTER"
+            position = { x = -45 y = 25 }
+            maxWidth = 90
+            maxHeight = 32
+            format = center
+            font = "hoi_16mbs"
+            text = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon_lblIdeologyName_text"
+            #pdx_tooltip = "SCP_EQ_Tools_ideology_list_window_grdIdeologyIconsContainer_ideology_icon_lblIdeologyName_tooltip"
         }
     }
 }

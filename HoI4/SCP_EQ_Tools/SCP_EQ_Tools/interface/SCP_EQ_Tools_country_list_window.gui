@@ -78,7 +78,7 @@ guiTypes = {
                 clipping = yes
                 moveable = no
                 verticalScrollbar = "right_vertical_slider"
-                scroll_wheel_factor = 40
+                scroll_wheel_factor = 98
                 smooth_scrolling = yes
                 background = {
                     name = "Background"
@@ -91,7 +91,7 @@ guiTypes = {
                     orientation = UPPER_LEFT
                     position = { x = 10 y = 0 }
                     size = { width = 810 height = 100%% }
-                    slotsize = {width = 100 height = 70 }
+                    slotsize = {width = 100 height = 98 }
                     format = "UPPER_LEFT"
                     max_slots_horizontal = 8
                 }
@@ -117,7 +117,7 @@ guiTypes = {
         name = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag"
         orientation = UPPER_LEFT
         position = { x = 0 y = 0 }
-        size = { width = 100 height = 70 }
+        size = { width = 100 height = 98 }
         clipping = yes
         moveable = no
         background = {
@@ -131,12 +131,25 @@ guiTypes = {
         buttonType = {
             name = "btnCountryFlag"
             orientation = "CENTER"
-            position = { x = -41 y = -26 }
+            position = { x = -41 y = -37 }
             #quadTextureSprite ="GFX_flag_small2" # This is the container of 41x26 flag
             quadTextureSprite ="GFX_shield_medium"
             alwaystransparent = no
             clicksound = click_default
             pdx_tooltip = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_btnCountryFlag_tooltip"
+        }
+        
+        # Country name
+        instantTextBoxType = {
+            name = "lblCountryName"
+            orientation = "CENTER"
+            position = { x = -45 y = 17 }
+            maxWidth = 90
+            maxHeight = 20
+            format = center
+            font = "hoi_16mbs"
+            text = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_lblCountryName_text"
+            #pdx_tooltip = "SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_lblCountryName_tooltip"
         }
     }
 }
