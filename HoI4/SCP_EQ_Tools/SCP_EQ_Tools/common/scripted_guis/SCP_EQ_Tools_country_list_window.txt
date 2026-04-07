@@ -42,6 +42,9 @@ scripted_gui = {
                 set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = this_country }
                 add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
             }
+            btnCountryFlag_right_click = {
+                goto_state = var:this_country.capital
+            }
         }
     }
     
