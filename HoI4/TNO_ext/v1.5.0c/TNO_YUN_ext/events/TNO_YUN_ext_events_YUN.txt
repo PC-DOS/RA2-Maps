@@ -213,7 +213,7 @@ country_event = {
             # Loop
             country_event = {
                 id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
-                days = 4
+                days = 5
             }
         }
     }

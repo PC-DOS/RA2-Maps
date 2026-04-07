@@ -202,10 +202,7 @@ TNO_YUN_ext_decisions_category = {
                 set_temp_variable = { TabName = token:BoP_Tab_GlobalConflicts } 
                 TNO_BoP_RemoveTab = yes
             
-                country_event = {
-                    id = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
-                    days = 1
-                }
+                country_event = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
             }
         }
     }
