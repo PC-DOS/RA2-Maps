@@ -43,7 +43,14 @@ scripted_gui = {
                 add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
             }
             btnCountryFlag_right_click = {
-                goto_state = var:this_country.capital
+                meta_effect = {
+                    text = {
+                        ROOT = {
+                            goto_state = [STATE_ID]
+                        }
+                    }
+                    STATE_ID = "[?this_country:capital.GetID]"
+                }
             }
         }
     }

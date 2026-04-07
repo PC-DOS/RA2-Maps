@@ -1,8 +1,8 @@
 ﻿l_simp_chinese:
  # Country list window
- SCP_EQ_Tools_country_list_window_TitleBar_text:0 "国家列表（左键单击一个国家以将其选中，右键单击以将视角移动到该国首都）"
- SCP_EQ_Tools_country_list_window_TitleBar_tooltip:0 "本界面用于辅助您在“地图精细调整”工具中，选择暂时不在地图上存在的国家。"
+ SCP_EQ_Tools_country_list_window_TitleBar_text:0 "国家列表（左键单击一个国家以将其选中）"
+ SCP_EQ_Tools_country_list_window_TitleBar_tooltip:0 "本界面用于辅助您在“地图精细调整”工具中，选择暂时不在地图上存在的国家。\n\n左键单击一个国家的国旗，即可将其选中。\n右键单击一个国家的国旗，可以在地图上定位到该国首都。"
  SCP_EQ_Tools_country_list_window_lblSelectedCountryText_text:0 "当前选中的国家：[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetFlag][?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetName]（[?ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country.GetTag]）"
- SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_btnCountryFlag_tooltip:0 "[?this_country.GetFlag][?this_country.GetName]（[?this_country.GetTag]）\n\n领导人：[?this_country.GetLeader]\n执政党：[?this_country.GetRulingParty]（[?this_country.GetRulingIdeologyNoun]）"
+ SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_btnCountryFlag_tooltip:0 "[?this_country.GetFlag][?this_country.GetName]（[?this_country.GetTag]）\n\n首都：[?this_country:capital.GetName]（[?this_country:capital.GetID]） 的 [?this_country:capital.GetCapitalVictoryPointName]\n领导人：[?this_country.GetLeader]\n执政党：[?this_country.GetRulingParty]（[?this_country.GetRulingIdeologyNoun]）"
  SCP_EQ_Tools_country_list_window_grdCountryFlagsContainer_country_flag_lblCountryName_text:0 "[?this_country.GetName]\n（[?this_country.GetTag]）"
  
