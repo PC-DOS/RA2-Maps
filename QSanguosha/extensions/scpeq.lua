@@ -91,12 +91,15 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             end
             
             -- Revive when dead
-            if not player:isAlive() then
-                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
-                    room:setTag("SkipNormalDeathProcess", sgs.QVariant(true))
-                    room:revivePlayer(player)
-                    player:setAlive(true)
-                    room:drawCards(player, 5, self:objectName())
+            if event == sgs.Death then
+                if not player:isAlive() then
+                    if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
+                        room:setTag("SkipNormalDeathProcess", sgs.QVariant(true))
+                        room:setTag("SkipNormalDeathProcess", sgs.QVariant(true))
+                        room:revivePlayer(player)
+                        player:setAlive(true)
+                        room:drawCards(player, 5, self:objectName())
+                    end
                 end
             end
         end
