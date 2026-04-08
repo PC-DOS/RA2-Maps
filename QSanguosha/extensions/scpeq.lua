@@ -11,7 +11,7 @@ scpeqDrPicsellDois = sgs.General(extension, "scpeqDrPicsellDois", "qun", 5, true
 scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
     name = "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect",
     frequency = sgs.Skill_Compulsory,
-    events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.TargetConfirming, sgs.Dying, sgs.Death, sgs.GameOverJudge, sgs.GameFinished, sgs.TurnedOver, sgs.ThrowEquipArea,
+    events = {sgs.HpLost, sgs.HpChanged, sgs.MaxHpChanged, sgs.Damaged, sgs.TargetConfirming, sgs.Dying, sgs.Death, sgs.BuryVictim, sgs.BeforeGameOverJudge, sgs.GameOverJudge, sgs.GameFinished, sgs.TurnedOver, sgs.ThrowEquipArea,
               sgs.EventLoseSkill, sgs.EventAcquireSkill, sgs.MarkChanged, sgs.TurnStart, sgs.EventPhaseStart, sgs.EventPhaseEnd, sgs.EventPhaseChanging},
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
@@ -91,7 +91,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             end
             
             -- Revive when dead
-            if not player:isAlive() then
+            if event == sgs.Death or event == sgs.BuryVictim or event == sgs.BeforeGameOverJudge then
                 --room:setTag("SkipGameRule", sgs.QVariant(true))
                 if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
                     --room:setTag("SkipNormalDeathProcess", sgs.QVariant(true))
