@@ -57,15 +57,16 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             end
         
             -- Avoid acquiring unwanted marks
-            if event == sgs.MarkChanged then
-                local mrkMark = data:toMark()
-                if mrkMark then
-                    local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
-                    if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
-                        player:loseMark(mrkMark.name, mrkMark.count)
-                    end
-                end
-            end
+            -- This will make the game very noisy, ignored
+            --if event == sgs.MarkChanged then
+            --    local mrkMark = data:toMark()
+            --    if mrkMark then
+            --        local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
+            --        if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
+            --            player:loseMark(mrkMark.name, mrkMark.count)
+            --        end
+            --    end
+            --end
             
             -- Avoid throw equip area
             if event == sgs.ThrowEquipArea then
@@ -129,8 +130,8 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
                 room:acquireSkill(player, data:toString(), true)
             end
         end
-        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
-        for _,plrSkillOwner in arrSkillOwner do
+        
+        for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
             if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect") then
                 room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect", true)
             end
@@ -174,8 +175,6 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
-        
         if event == sgs.EventPhaseChanging and player:hasSkill(self:objectName()) then
             local phcPhaseChange = data:toPhaseChange()
             local phsNext = phcPhaseChange.to
@@ -199,7 +198,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                 end
             end
         elseif event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Play then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 if plrSkillOwner then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_AutoWin", data) then
                         room:gameOver(plrSkillOwner:objectName())
@@ -207,7 +206,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
                 end
             end
         elseif (event == sgs.EventPhaseStart and player:getPhase() == sgs.Player_Start) or event == sgs.GameStart then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 if plrSkillOwner:objectName() == player:objectName() and room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_ChangeKingdom", data) then
                     local sNewKingdom = room:askForKingdom(plrSkillOwner)
                     plrSkillOwner:setKingdom(sNewKingdom)
@@ -234,25 +233,23 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
-        
         -- Standard drawing
         if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards", data) then
             data:setValue(data:toInt() + 5)
         elseif event == sgs.TurnStart then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnStart", data) then
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
             end
         elseif event == sgs.EventPhaseEnd and player:getPhase() == sgs.Player_Finish then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawAtTurnFinish", data) then
                     room:drawCards(plrSkillOwner, 2, self:objectName())
                 end
             end
         elseif event == sgs.CardsMoveOneTime then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 local move = data:toMoveOneTime()
                 -- Must check player:objectName() == plrSkillOwner:objectName(), otherwise this skill will be triggered for N times, N == PlayerCount
                 if move and player:objectName() == plrSkillOwner:objectName() then
@@ -280,7 +277,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
         
         -- Draw when no cards
         if (event == sgs.EventPhaseStart or event == sgs.EventPhaseEnd) and (player:getPhase() == sgs.Player_Draw or player:getPhase() == sgs.Player_Play or player:getPhase() == sgs.Player_Finish) then
-            for _,plrSkillOwner in arrSkillOwner do
+            for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
                 if plrSkillOwner:getHandcardNum() < 5 then
                     if room:askForSkillInvoke(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawWhenNoCards", data) then
                         room:drawCards(plrSkillOwner, 5, self:objectName())
@@ -315,8 +312,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
-        for _,plrSkillOwner in arrSkillOwner do
+        for _,plrSkillOwner in sgs.list(room:findPlayersBySkillName(self:objectName())) do
             if event == sgs.DamageCaused then
                 local damage = data:toDamage()
                 if damage.from then
@@ -533,7 +529,7 @@ sgs.LoadTranslationTable{
     ["cv:scpeqDrPicsellDois"] = "Dr. Picsell Dois",
     ["illustrator:scpeqDrPicsellDois"] = "Alus",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "叙护",
-    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远不小于5。当你受到伤害、失去体力或体力值变更时，你将体力值恢复到体力上限。当你的体力上限减少至5以下时，你将体力上限变为5。当你死亡时，你可将体力值调整到体力上限并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你获得不在卡面上记载的技能时，你可选择获得之或丢弃之。当你获得标记时，你可选择获得之或丢弃之。当你被翻面时，取消之。当你的装备区被废除时，防止之。当你成为牌的目标时，你可取消之。",
+    [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect"] = "锁定技。你的体力值和体力上限永远不小于5。当你受到伤害、失去体力或体力值变更时，你将体力值恢复到体力上限。当你的体力上限减少至5以下时，你将体力上限变为5。当你死亡时，你可将体力值调整到体力上限并摸5张牌。当你失去记载在卡面上的技能时，防止之。当你获得不在卡面上记载的技能时，你可选择获得之或丢弃之。当你被翻面时，取消之。当你的装备区被废除时，防止之。当你成为牌的目标时，你可取消之。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving"] = "叙护（死亡时，你复活并摸5张牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification"] = "叙护（取消以你为目标的牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire"] = "获得技能",
