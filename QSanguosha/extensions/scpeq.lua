@@ -92,14 +92,15 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
             
             -- Revive when dead
             if event == sgs.Dying or event == sgs.Death or event == sgs.BuryVictim or event == sgs.BeforeGameOverJudge then
-                --room:setTag("SkipGameRule", sgs.QVariant(true))
-                if room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
-                    --room:setTag("SkipNormalDeathProcess", sgs.QVariant(true))
+                if not player:isAlive() and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Reviving", data) then
                     room:revivePlayer(player)
                     --player:setAlive(true)
                     room:drawCards(player, 5, self:objectName())
-                else
-                    room:setTag("SkipGameRule", sgs.QVariant(false))
+                    dthDeath = data:toDeath()
+                    if dthDeath then
+                        dthDeath.who = nil
+                    end
+                    data:setValue(dthDeath)
                 end
             end
         end
