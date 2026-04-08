@@ -55,15 +55,6 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                     end
                 end
             end
-        
-            -- Avoid acquiring unwanted marks
-            if event == sgs.MarkChanged then
-                local mrkMark = data:toMark()
-                local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
-                if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
-                    player:loseMark(mrkMark.name)
-                end
-            end
             
             -- Avoid throw equip area
             if event == sgs.ThrowEquipArea then
@@ -94,6 +85,21 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                     room:revivePlayer(player)
                     player:setAlive(true)
                     room:drawCards(player, 5, self:objectName())
+                end
+            end
+        end
+        
+        -- Avoid acquiring unwanted marks
+        if event == sgs.MarkChanged then
+            local mrkMark = data:toMark()
+            if mrkMark then
+                if mrkMark.who then
+                    if mrkMark.who:objectName() == player:objectName() and mark.who:hasSkill(self:objectName()) then
+                        local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
+                        if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
+                            player:loseMark(mrkMark.name)
+                        end
+                    end
                 end
             end
         end
@@ -232,7 +238,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
         
         -- Standard drawing
         if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards", data) then
@@ -313,7 +319,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = room:findPlayerBySkillName(self:objectName())
+        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
         for _,plrSkillOwner in arrSkillOwner do
             if event == sgs.DamageCaused then
                 local damage = data:toDamage()
@@ -536,6 +542,8 @@ sgs.LoadTranslationTable{
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Nullification"] = "叙护（取消以你为目标的牌）",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptAcquire"] = "获得技能",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringSkill_OptDetach"] = "丢弃技能",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire"] = "获得标记",
+    ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach"] = "丢弃标记",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "叙跃",
     [":scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect"] = "锁定技。你可跳过你的判定阶段并弃置你判定区的牌。你可跳过你的弃牌阶段。任意角色的出牌阶段开始时，你可令你胜利。游戏开始和你的准备阶段，你可选择你所在的势力。",
     ["scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect_SkipJudge"] = "叙跃（跳过你的判定阶段）",
