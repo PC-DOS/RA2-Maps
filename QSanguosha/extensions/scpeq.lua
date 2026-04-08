@@ -55,6 +55,17 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                     end
                 end
             end
+        
+            -- Avoid acquiring unwanted marks
+            if event == sgs.MarkChanged then
+                local mrkMark = data:toMark()
+                if mrkMark then
+                    local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
+                    if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
+                        player:loseMark(mrkMark.name, mrkMark.count)
+                    end
+                end
+            end
             
             -- Avoid throw equip area
             if event == sgs.ThrowEquipArea then
@@ -88,21 +99,6 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect = sgs.CreateTriggerSkill{
                 end
             end
         end
-        
-        -- Avoid acquiring unwanted marks
-        if event == sgs.MarkChanged then
-            local mrkMark = data:toMark()
-            if mrkMark then
-                if mrkMark.who then
-                    if mrkMark.who:objectName() == player:objectName() and mark.who:hasSkill(self:objectName()) then
-                        local sResult = room:askForChoice(player, mrkMark.name, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptAcquire+scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach")
-                        if sResult == "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_AcquiringMark_OptDetach" then
-                            player:loseMark(mrkMark.name)
-                        end
-                    end
-                end
-            end
-        end
     end,
     can_trigger = function(self, target)
         -- Default can_trigger is (target:hasSkill(self:objectName()) and target:isAlive())
@@ -133,7 +129,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect_Hidden1 = sgs.CreateTrigge
                 room:acquireSkill(player, data:toString(), true)
             end
         end
-        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
+        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
         for _,plrSkillOwner in arrSkillOwner do
             if not plrSkillOwner:hasSkill("scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect") then
                 room:acquireSkill(plrSkillOwner, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_HPProtect", true)
@@ -178,7 +174,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_PhaseProtect = sgs.CreateTriggerSkil
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
+        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
         
         if event == sgs.EventPhaseChanging and player:hasSkill(self:objectName()) then
             local phcPhaseChange = data:toPhaseChange()
@@ -238,7 +234,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawMore = sgs.CreateTriggerSkill{
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
+        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
         
         -- Standard drawing
         if event == sgs.DrawNCards and player:hasSkill(self:objectName()) and room:askForSkillInvoke(player, "scpeqDrPicsellDois_Skill_UpperLayerNarrator_DrawNCards", data) then
@@ -319,7 +315,7 @@ scpeqDrPicsellDois_Skill_UpperLayerNarrator_CauseMoreDamage = sgs.CreateTriggerS
     on_trigger = function(self, event, player, data)
         local room = player:getRoom()
         
-        arrSkillOwner = sgs.qlist(room:findPlayersBySkillName(self:objectName()))
+        arrSkillOwner = sgs.list(room:findPlayersBySkillName(self:objectName()))
         for _,plrSkillOwner in arrSkillOwner do
             if event == sgs.DamageCaused then
                 local damage = data:toDamage()
