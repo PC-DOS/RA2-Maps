@@ -287,4 +287,100 @@ characters={
 			}
 		}
 	}
+    # Sinnoh
+	HOK_unknown = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/HOK/Unknown.png" 
+			}
+		}
+		country_leader={
+			ideology=obliteration_of_the_self
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=clerical_fascism
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=theocracy
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=hybrid_regime
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy_liberal
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=social_democracy
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=eco_socialism
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=left_nationalism
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=jucheism
+            desc=HOK_unknown_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
 }
