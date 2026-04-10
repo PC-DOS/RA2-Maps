@@ -189,6 +189,16 @@ country_event = {
             set_temp_variable = { TabName = token:BoP_Tab_GlobalConflicts } 
             TNO_BoP_RemoveTab = yes
             
+            # Government development
+            tno_improve_admin_efficiency = yes
+            tno_improve_academic_base = yes
+            tno_improve_research_facilities = yes
+            tno_improve_healthcare = yes
+            tno_improve_industrial_expertise = yes
+            tno_improve_industrial_equipment = yes
+            tno_improve_agriculture = yes
+            tno_improve_army_professionalism = yes
+            
             # Death
             every_controlled_state = {
                 limit = {
