@@ -324,7 +324,7 @@ SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
         disband = no
     }
     destroy_ships = {
-        type = battlecruiser
+        type = battle_cruiser
         count = all
     }
     destroy_ships = {
@@ -349,6 +349,34 @@ SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
     }
     destroy_ships = {
         type = submarine
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_very_light
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_more_light
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_light
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_cruiser
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_heavy
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_carrier
+        count = all
+    }
+    destroy_ships = {
+        type = ship_hull_submarine
         count = all
     }
 }

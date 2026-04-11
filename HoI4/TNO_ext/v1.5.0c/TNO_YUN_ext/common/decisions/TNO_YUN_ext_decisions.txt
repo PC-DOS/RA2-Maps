@@ -175,7 +175,74 @@ TNO_YUN_ext_decisions_category = {
                 
                 econ_leave_sphere = yes
                 remove_superpower = yes
+                add_political_power = -24500
+                add_command_power = -24500
+                army_experience = -2450
+                navy_experience = -2450
+                air_experience = -2450
+                add_stability = 5.0
+                add_war_support = 5.0
+                add_equipment_to_stockpile = {
+                    type = convoy
+                    amount = -24500
+                }
                 delete_unit = {}
+                destroy_ships = {
+                    type = battlecruiser
+                    count = all
+                }
+                destroy_ships = {
+                    type = battleship
+                    count = all
+                }
+                destroy_ships = {
+                    type = carrier
+                    count = all
+                }
+                destroy_ships = {
+                    type = destroyer
+                    count = all
+                }
+                destroy_ships = {
+                    type = heavy_cruiser
+                    count = all
+                }
+                destroy_ships = {
+                    type = light_cruiser
+                    count = all
+                }
+                destroy_ships = {
+                    type = submarine
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_very_light
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_more_light
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_light
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_cruiser
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_heavy
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_carrier
+                    count = all
+                }
+                destroy_ships = {
+                    type = ship_hull_submarine
+                    count = all
+                }
                 country_lock_all_division_template = yes
                 set_temp_variable = { gdp_growth_temp = -2450 }
                 econ_gdp_growth_change = yes
