@@ -508,6 +508,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             air_experience = 2450
             add_stability = 5.0
             add_war_support = 5.0
+            add_equipment_to_stockpile = {
+                type = convoy
+                amount = 24500
+            }
         }
     }
     SCP_EQ_Tools_enhancing_decisions_add_fuel = {
@@ -4815,6 +4819,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 air_experience = 2450
                 add_stability = 5.0
                 add_war_support = 5.0
+                add_equipment_to_stockpile = {
+                    type = convoy
+                    amount = 24500
+                }
             }
         }
     }
@@ -4846,6 +4854,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 air_experience = -2450
                 add_stability = -5.0
                 add_war_support = -5.0
+                add_equipment_to_stockpile = {
+                    type = convoy
+                    amount = -24500
+                }
             }
         }
     }
