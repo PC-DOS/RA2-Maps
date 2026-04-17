@@ -18,3 +18,5 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
 --NDefines.NFocus.FOCUS_PROGRESS_WAR = 5
 -- Reduce some diplomacy operations' tension
 NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0
+-- More political power
+POLITICAL_POWER_UPPER_CAP = 24500

@@ -481,7 +481,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            add_political_power = 2450
+            add_political_power = 24500
         }
     }
     SCP_EQ_Tools_enhancing_decisions_add_MP = {
@@ -4762,7 +4762,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                add_political_power = 2450
+                add_political_power = 24500
             }
         }
     }
@@ -4787,7 +4787,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                add_political_power = -2450
+                add_political_power = -24500
             }
         }
     }

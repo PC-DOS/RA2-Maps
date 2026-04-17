@@ -3,8 +3,8 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1 = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic
     enable = { always = yes }
     remove_trigger = { always = no }
-    political_power_gain = 2450
-    political_power_cost = -2450
+    political_power_gain = 24500
+    political_power_cost = -24500
     stability_factor = 245.0
     stability_weekly = 245.0
     drift_defence_factor = 245.0

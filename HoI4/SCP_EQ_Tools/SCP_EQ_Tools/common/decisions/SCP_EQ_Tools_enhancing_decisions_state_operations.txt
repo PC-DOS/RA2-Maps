@@ -3805,7 +3805,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    add_political_power = 2450
+                    add_political_power = 24500
                 }
             }
         }
@@ -3832,7 +3832,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    add_political_power = -2450
+                    add_political_power = -24500
                 }
             }
         }
