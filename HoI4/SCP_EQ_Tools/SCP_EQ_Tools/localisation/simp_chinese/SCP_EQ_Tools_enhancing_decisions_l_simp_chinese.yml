@@ -43,7 +43,7 @@
  SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_desc:0 "加Buff\n这是一项套用到地区的修正，我们当前控制了[?num_controlled_states]个地区，已在[?arr_SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_state_factories_enabled_states^num]个地区启用"
  SCP_EQ_Tools_enhancing_decisions_separator_resources_and_development:0 "资源与发展"
  SCP_EQ_Tools_enhancing_decisions_separator_resources_and_development_desc:0 "政治资本、战略资源、建设，等等"
- SCP_EQ_Tools_enhancing_decisions_add_PP:0 "增加2450政治点数"
+ SCP_EQ_Tools_enhancing_decisions_add_PP:0 "增加24500政治点数"
  SCP_EQ_Tools_enhancing_decisions_add_PP_desc:0 "识人术，社交的手腕，暗黑心理学……"
  SCP_EQ_Tools_enhancing_decisions_add_MP:0 "增加军事相关点数"
  SCP_EQ_Tools_enhancing_decisions_add_MP_desc:0 "人力、支持度、稳定度、指挥点数、经验……我们啥都缺"
