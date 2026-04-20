@@ -2885,6 +2885,60 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_all_marked_states_controllers_lock_division_templates = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    country_lock_all_division_template = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_all_marked_states_controllers_unlock_division_templates = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    country_lock_all_division_template = no
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_state_operations_annex_marked_states_controllers = {
         allowed = {
             # Always allowed
