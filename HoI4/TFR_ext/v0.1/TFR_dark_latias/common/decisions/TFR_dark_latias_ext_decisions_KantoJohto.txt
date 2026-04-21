@@ -47,7 +47,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                 set_province_name = { id = 9985 name = "TFR_dark_latias_ext_KantoJohto_empty" }
                 transfer_state = 1340
                 add_state_core = 1340
-                1340 = { set_state_name = "Goldenrod" }
+                1340 = { set_state_name = "GoldenrodCity" }
                 set_province_name = { id = 7072 name = "GoldenrodCity" }
             }
             ROOT = {
