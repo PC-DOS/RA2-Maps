@@ -20,3 +20,7 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
 NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0
 -- More political power
 NDefines.NCountry.POLITICAL_POWER_UPPER_CAP = 24500
+
+-- Camera options
+NDefines.NFrontend.CAMERA_MIN_HEIGHT = 25.0
+NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 75.0
