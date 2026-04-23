@@ -26,5 +26,6 @@ NDefines.NMilitary.MAX_AIR_EXPERIENCE = 24500
 
 -- Camera options
 NDefines.NFrontend.CAMERA_MIN_HEIGHT = 25
-NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 100
+NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 125
 NDefines.NGraphics.CAMERA_ZOOM_SPEED = 25
+NDefines.NGraphics.UNITS_DISTANCE_CUTOFF = 100
