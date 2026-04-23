@@ -18,9 +18,13 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 245
 --NDefines.NFocus.FOCUS_PROGRESS_WAR = 5
 -- Reduce some diplomacy operations' tension
 NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0
--- More political power
+-- More political power and others
 NDefines.NCountry.POLITICAL_POWER_UPPER_CAP = 24500
+NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 24500
+NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 24500
+NDefines.NMilitary.MAX_AIR_EXPERIENCE = 24500
 
 -- Camera options
 NDefines.NFrontend.CAMERA_MIN_HEIGHT = 25
-NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 54.5
+NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 100
+NDefines.NGraphics.CAMERA_ZOOM_SPEED = 25
