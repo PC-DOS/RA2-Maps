@@ -23,4 +23,4 @@ NDefines.NCountry.POLITICAL_POWER_UPPER_CAP = 24500
 
 -- Camera options
 NDefines.NFrontend.CAMERA_MIN_HEIGHT = 25
-NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 52.5
+NDefines.NGraphics.DRAW_COUNTRY_NAMES_CUTOFF = 54.5
