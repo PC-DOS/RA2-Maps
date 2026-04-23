@@ -10,17 +10,17 @@
  HOK_unknown_desc:0 "§R错误：未找到国家领导人信息，国家领导人不存在或拒绝访问，请联系系统管理员。§!"
  # Country name
  TFR_dark_latias_ext_KantoJohto_KSI_Republic_of_Johto:0 "城都民国"
- TFR_dark_latias_ext_KantoJohto_KSI_Republic_of_Johto_DEF:0 "城都民国"
  TFR_dark_latias_ext_KantoJohto_KSI_Republic_of_Johto_ADJ:0 "城都民国"
- TFR_dark_latias_ext_KantoJohto_KTO_Shen_DEF:0 "关东沈国"
- TFR_dark_latias_ext_KantoJohto_KTO_Shen_DEF:0 "关东沈国"
+ TFR_dark_latias_ext_KantoJohto_KSI_Republic_of_Johto_DEF:0 "城都民国"
+ TFR_dark_latias_ext_KantoJohto_KTO_Shen:0 "关东沈国"
  TFR_dark_latias_ext_KantoJohto_KTO_Shen_ADJ:0 "关东沈国"
+ TFR_dark_latias_ext_KantoJohto_KTO_Shen_DEF:0 "关东沈国"
  TFR_dark_latias_ext_KantoJohto_KYU_Free_State_of_Hoenn:0 "丰源自由邦"
- TFR_dark_latias_ext_KantoJohto_KYU_Free_State_of_Hoenn_DEF:0 "丰源自由邦"
  TFR_dark_latias_ext_KantoJohto_KYU_Free_State_of_Hoenn_ADJ:0 "丰源自由邦"
+ TFR_dark_latias_ext_KantoJohto_KYU_Free_State_of_Hoenn_DEF:0 "丰源自由邦"
  TFR_dark_latias_ext_KantoJohto_HOK_Hisui_Salvation_Emblem:0 "洗翠救世会"
- TFR_dark_latias_ext_KantoJohto_HOK_Hisui_Salvation_Emblem_DEF:0 "洗翠救世会"
  TFR_dark_latias_ext_KantoJohto_HOK_Hisui_Salvation_Emblem_ADJ:0 "洗翠救世会"
+ TFR_dark_latias_ext_KantoJohto_HOK_Hisui_Salvation_Emblem_DEF:0 "洗翠救世会"
  # Parties
  # Johto
  TFR_dark_latias_ext_KantoJohto_KSI_Republic_of_Johto_totalitarian_socialist_party_long: "§R非法§!"
