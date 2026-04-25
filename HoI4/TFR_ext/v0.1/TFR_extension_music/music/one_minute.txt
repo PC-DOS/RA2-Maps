@@ -81,7 +81,31 @@ music = {
     song = "SongOfGuanYu"
     chance = {
         modifier = {
-            factor = 75
+            factor = 45
+            any_country = {
+                has_capitulated = yes
+                days_since_capitulated < 45
+            }
+        }        
+    }
+}
+music = {
+    song = "GuanYuXiangCao"
+    chance = {
+        modifier = {
+            factor = 55
+            any_country = {
+                has_capitulated = yes
+                days_since_capitulated < 45
+            }
+        }        
+    }
+}
+music = {
+    song = "WuZhangYuanChengXiangGuiTian"
+    chance = {
+        modifier = {
+            factor = 55
             any_country = {
                 has_capitulated = yes
                 days_since_capitulated < 45
@@ -93,26 +117,34 @@ music = {
     song = "WhenJohnnyComesMarchingHome"
     chance = {
         modifier = {
-            factor = 20
+            factor = 5
             any_country = {
                 has_war = yes
             }
-        }        
+        }
+        modifier = {
+            factor = 5
+            NOT = { country_exists = USA }
+        }
         modifier = {
             factor = 25
             has_global_flag = USA_american_civil_war_global
-        }     
+        }
     }
 }
 music = {
     song = "WhenJohnnyComesMarchingHome2"
     chance = {
         modifier = {
-            factor = 20
+            factor = 5
             any_country = {
                 has_war = yes
             }
-        }        
+        }
+        modifier = {
+            factor = 5
+            NOT = { country_exists = USA }
+        }
         modifier = {
             factor = 25
             has_global_flag = USA_american_civil_war_global
