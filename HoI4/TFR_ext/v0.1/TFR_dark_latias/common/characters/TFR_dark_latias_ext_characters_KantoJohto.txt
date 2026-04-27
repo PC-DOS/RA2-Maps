@@ -383,4 +383,198 @@ characters={
 			}
 		}
 	}
+    
+    # West Kanto
+	CHB_xianyu_fantuan = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/CHB/XianyuFantuan.png" 
+			}
+		}
+		country_leader={
+			ideology=neonazism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=national_syndicalism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_slavery
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=oligarchist
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_conservatism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=supervised_democracy_liberal
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=social_democracy
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=reformist_socialism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=left_nationalism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=jucheism
+            desc=CHB_xianyu_fantuan_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
+    
+    # Crystal Union Mt.Silver Emergency Government
+	NAG_crystal_union_emergency_committee = {
+		portraits = {
+			civilian = {
+				large="gfx/Leaders/NAG/CrystalUnionEmergencyCommittee.png" 
+			}
+		}
+		country_leader={
+			ideology=neonazism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_fascism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=military_junta
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=hybrid_regime
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=constitutionalist
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=classical_liberalism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=centrist
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=progressivism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=reformist_socialism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=market_socialism
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+		country_leader={
+			ideology=left_wing_junta
+            desc=NAG_crystal_union_emergency_committee_desc
+			expire="1.1.1.1"
+			id=-1
+			traits = {
+			}
+		}
+	}
 }

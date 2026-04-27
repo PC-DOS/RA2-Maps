@@ -44,6 +44,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                 set_province_name = { id = 11960 name = "EcruteakCity" }
                 set_province_name = { id = 1136 name = "OlivineCity" }
                 set_province_name = { id = 1133 name = "CherrygroveCity" }
+                set_province_name = { id = 4142 name = "VioletCity" }
                 set_province_name = { id = 9985 name = "TFR_dark_latias_ext_KantoJohto_empty" }
                 transfer_state = 1340
                 add_state_core = 1340
@@ -473,6 +474,236 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     portrait = "gfx/Leaders/HOK/Unknown.png" 
                 }
                 set_country_leader_ideology = theocracy
+            }
+            
+            # West Kanto
+            CHB = {
+                transfer_state = 532
+                add_state_core = 532
+                532 = { set_state_name = "WestKanto" }
+                set_province_name = { id = 12072 name = "IndigoPlateau" }
+                set_province_name = { id = 12097 name = "TohjoFallsW" }
+                set_province_name = { id = 7087 name = "TohjoFallsE" }
+            }
+            ROOT = {
+                puppet = CHB
+            }
+            CHB = {
+                set_cosmetic_tag = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto
+                set_politics = {
+                    ruling_party = nationalist
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 60
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    totalitarian_socialist = 0
+                    communist = 0
+                    libertarian_socialist = 0
+                    social_democrat = 0
+                    social_liberal = 0
+                    market_liberal = 0
+                    conservative = 0
+                    authoritarian_democrat = 0
+                    nationalist = 75
+                    fascist = 15
+                    national_socialist = 10
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_totalitarian_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_communist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_libertarian_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_social_democrat_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_social_liberal_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_market_liberal_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_conservative_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_authoritarian_democrat_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_nationalist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_fascist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_national_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_CHB_Democratic_Republic_of_West_Kanto_national_socialist_party
+                }
+                every_character = {
+                    limit = {
+                        NOT = { is_character = CHB_xianyu_fantuan }
+                    }
+                    retire_character = THIS
+                }
+                set_country_leader_name = {
+                    name = CHB_xianyu_fantuan
+                }
+                set_country_leader_description = {
+                    desc = CHB_xianyu_fantuan_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/CHB/XianyuFantuan.png" 
+                }
+                set_country_leader_ideology = classical_slavery
+            }
+            
+            # Crystal Union Mt.Silver Emergency Government
+            NAG = {
+                transfer_state = 535
+                add_state_core = 535
+                535 = { set_state_name = "MtSilver" }
+                set_province_name = { id = 10032 name = "SilverCity" }
+            }
+            ROOT = {
+                puppet = NAG
+            }
+            NAG = {
+                set_cosmetic_tag = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government
+                set_politics = {
+                    ruling_party = conservative
+                    elections_allowed = yes
+                    last_election = "2002.7.13"
+                    election_frequency = 48
+                    elections_allowed = yes
+                }
+                set_popularities = {
+                    totalitarian_socialist = 0
+                    communist = 0
+                    libertarian_socialist = 1.5
+                    social_democrat = 10
+                    social_liberal = 12.5
+                    market_liberal = 15
+                    conservative = 35
+                    authoritarian_democrat = 23.5
+                    nationalist = 2.5
+                    fascist = 0
+                    national_socialist = 0
+                }
+                set_party_name = {
+                    ideology = totalitarian_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_totalitarian_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_totalitarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = communist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_communist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_communist_party
+                }
+                set_party_name = {
+                    ideology = libertarian_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_libertarian_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_libertarian_socialist_party
+                }
+                set_party_name = {
+                    ideology = social_democrat
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_social_democrat_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_social_democrat_party
+                }
+                set_party_name = {
+                    ideology = social_liberal
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_social_liberal_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_social_liberal_party
+                }
+                set_party_name = {
+                    ideology = market_liberal
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_market_liberal_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_market_liberal_party
+                }
+                set_party_name = {
+                    ideology = conservative
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_conservative_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_conservative_party
+                }
+                set_party_name = {
+                    ideology = authoritarian_democrat
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_authoritarian_democrat_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_authoritarian_democrat_party
+                }
+                set_party_name = {
+                    ideology = nationalist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_nationalist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_nationalist_party
+                }
+                set_party_name = {
+                    ideology = fascist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_fascist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_fascist_party
+                }
+                set_party_name = {
+                    ideology = national_socialist
+                    long_name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_national_socialist_party_long
+                    name = TFR_dark_latias_ext_KantoJohto_NAG_Crystal_Union_Mt_Silver_Emergency_Government_national_socialist_party
+                }
+                every_character = {
+                    limit = {
+                        NOT = { is_character = NAG_crystal_union_emergency_committee }
+                    }
+                    retire_character = THIS
+                }
+                set_country_leader_name = {
+                    name = NAG_crystal_union_emergency_committee
+                }
+                set_country_leader_description = {
+                    desc = NAG_crystal_union_emergency_committee_desc
+                }
+                set_country_leader_portrait = {
+                    portrait = "gfx/Leaders/NAG/CrystalUnionEmergencyCommittee.png" 
+                }
+                set_country_leader_ideology = constitutionalist 
+            }
+            
+            # Special
+            KTO = {
+                give_military_access = CHB
+                diplomatic_relation = {
+                    country = CHB
+                    relation = docking_rights
+                    active = yes
+                }
+            }
+            CHB = {
+                give_military_access = KTO
+                diplomatic_relation = {
+                    country = KTO
+                    relation = docking_rights
+                    active = yes
+                }
             }
         }
     }
