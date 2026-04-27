@@ -484,6 +484,10 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                 set_province_name = { id = 12072 name = "IndigoPlateau" }
                 set_province_name = { id = 12097 name = "TohjoFallsW" }
                 set_province_name = { id = 7087 name = "TohjoFallsE" }
+                set_victory_points = {
+                    province = 12072
+                    value = 10
+                }
             }
             ROOT = {
                 puppet = CHB
