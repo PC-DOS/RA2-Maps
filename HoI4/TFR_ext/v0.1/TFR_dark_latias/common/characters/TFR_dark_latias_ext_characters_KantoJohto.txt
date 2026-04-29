@@ -485,7 +485,7 @@ characters={
 	NAG_crystal_union_emergency_committee = {
 		portraits = {
 			civilian = {
-				large="gfx/Leaders/NAG/CrystalUnionEmergencyCommittee.png" 
+				large="gfx/Leaders/NAG/CrystalUnionEmergencyCommittee_Building1.png" 
 			}
 		}
 		country_leader={
