@@ -687,7 +687,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     desc = NAG_crystal_union_emergency_committee_desc
                 }
                 set_country_leader_portrait = {
-                    portrait = "gfx/Leaders/NAG/CrystalUnionEmergencyCommittee.png" 
+                    portrait = "gfx/Leaders/NAG/CrystalUnionEmergencyCommittee_Building1.png" 
                 }
                 set_country_leader_ideology = constitutionalist 
             }
