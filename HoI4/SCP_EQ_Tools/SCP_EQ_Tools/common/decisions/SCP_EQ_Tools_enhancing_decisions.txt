@@ -2224,11 +2224,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_controlled_state = {
                 every_possible_country = {
                     limit = {
-                        NOT = { tag = ROOT }
-                        NOT = { is_ally_with = ROOT }
-                        NOT = { is_in_faction_with = ROOT }
-                        NOT = { is_puppet_of = ROOT }
-                        NOT = { is_subject_of = ROOT }
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                     }
                     delete_unit = {
                         state = PREV
@@ -2428,18 +2425,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_state = {
                 limit = {
                     controller = {
-                        NOT = { tag = ROOT }
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                         NOT = { has_war_with = ROOT }
-                        NOT = { is_ally_with = ROOT }
-                        NOT = { is_in_faction_with = ROOT }
-                        NOT = { is_puppet_of = ROOT }
-                        NOT = { is_subject_of = ROOT }
-                        NOT = { 
-                            has_volunteers_amount_from = {
-                                tag = ROOT
-                                count > 0
-                            }
-                        }
+                        NOT = { SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes }
                     }
                 }
                 add_to_temp_array = { temp_param_arr_teleporting_start_states = THIS }
@@ -2493,11 +2482,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_possible_country = {
                 limit = {
                     OR = {
-                        tag = ROOT
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
                         is_guaranteed_by = ROOT
                     }
                 }
@@ -2906,10 +2892,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -2938,10 +2922,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -2971,10 +2953,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -3032,10 +3012,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -3100,10 +3078,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -3134,10 +3110,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             every_other_country = {
                 limit = {
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -3168,14 +3142,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        has_volunteers_amount_from = {
-                            tag = ROOT
-                            count > 0
-                        }
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3284,10 +3254,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3324,10 +3292,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3365,10 +3331,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3407,10 +3371,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3451,10 +3413,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3496,10 +3456,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3529,10 +3487,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3562,10 +3518,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3605,10 +3559,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -3644,14 +3596,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             random_other_country = {
                 limit = {
                     OR = {
-                        has_volunteers_amount_from = {
-                            tag = ROOT
-                            count > 0
-                        }
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT
@@ -5611,10 +5559,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     is_embargoed_by = ROOT
-                    has_volunteers_amount_from = {
-                        tag = ROOT
-                        count > 0
-                    }
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     NOT = {
                         tag = ROOT
                     }
@@ -5648,10 +5594,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 }
                 every_other_country = {
                     limit = {
-                        has_volunteers_amount_from = {
-                            tag = PREV
-                            count > 0
-                        }
+                        set_temp_variable = { temp_param_country_to_check = PREV }
+                        SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
                     }
                     PREV = {
                         recall_volunteers_from = PREV
@@ -5906,11 +5850,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_country = {
                 limit = {
                     OR = {
-                        tag = ROOT
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
                     }
                 }
                 every_controlled_state = {
@@ -7214,10 +7155,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             every_other_country = {
                 limit = {
                     OR = {
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
                     }
                     NOT = {
                         tag = ROOT

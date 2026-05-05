@@ -907,8 +907,8 @@ SCP_EQ_Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = {
 #     0 - Any owner
 #     1 - Armies owned by the scope who calls this scripted effect
 #     2 - Armies owned by the scope who calls this scripted effect and all of its allies
-#     3 - Armies owned ROOT scope
-#     4 - Armies owned ROOT scope and all of its allies
+#     3 - Armies owned by ROOT scope
+#     4 - Armies owned by ROOT scope and all of its allies
 SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
     set_temp_variable = { temp_current_caller_country = THIS }
     
@@ -937,11 +937,8 @@ SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
             # Case 2: Caller is in peace with this state's controller, and the controller is not caller's ally, nor caller have military access to the controller
             limit = {
                 controller = {
-                    NOT = { tag = var:temp_current_caller_country }
-                    NOT = { is_ally_with = var:temp_current_caller_country }
-                    NOT = { is_in_faction_with = var:temp_current_caller_country }
-                    NOT = { is_puppet_of = var:temp_current_caller_country }
-                    NOT = { is_subject_of = var:temp_current_caller_country }
+                    set_temp_variable = { temp_param_country_to_check = var:temp_current_caller_country }
+                    NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                 }
             }
             controller = {
@@ -987,11 +984,8 @@ SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
             teleport_armies = {
                 limit = {
                     OR = {
-                        tag = var:temp_current_caller_country
-                        is_ally_with = var:temp_current_caller_country
-                        is_in_faction_with = var:temp_current_caller_country
-                        is_puppet_of = var:temp_current_caller_country
-                        is_subject_of = var:temp_current_caller_country
+                        set_temp_variable = { temp_param_country_to_check = var:temp_current_caller_country }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
                     }
                 }
                 to_state_array = temp_param_arr_teleporting_target_states
@@ -1011,11 +1005,8 @@ SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
             teleport_armies = {
                 limit = {
                     OR = {
-                        tag = ROOT
-                        is_ally_with = ROOT
-                        is_in_faction_with = ROOT
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
+                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
                     }
                 }
                 to_state_array = temp_param_arr_teleporting_target_states

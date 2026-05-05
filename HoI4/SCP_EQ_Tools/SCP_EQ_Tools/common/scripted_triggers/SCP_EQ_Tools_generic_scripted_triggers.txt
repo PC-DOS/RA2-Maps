@@ -10,3 +10,91 @@ SCP_EQ_Tools_generic_scripted_triggers_always_false = {
 SCP_EQ_Tools_generic_scripted_triggers_is_custom_diplomacy_triggers_loaded = {
     always = yes
 }
+
+# Parameter 1: temp_param_country_to_check
+SCP_EQ_Tools_generic_scripted_triggers_is_ally = {
+    set_temp_variable = { temp_current_country = THIS }
+
+    if = {
+        limit = {
+            is_ally_with = var:temp_param_country_to_check
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            is_in_faction_with = var:temp_param_country_to_check
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            is_puppet_of = var:temp_param_country_to_check
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            is_subject_of = var:temp_param_country_to_check
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            var:temp_param_country_to_check = {
+                is_puppet_of = var:temp_current_country
+            }
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            var:temp_param_country_to_check = {
+                is_subject_of = var:temp_current_country
+            }
+        }
+        always = yes
+    }
+    else = {
+        always = no
+    }
+}
+
+# Parameter 1: temp_param_country_to_check
+SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = {
+    set_temp_variable = { temp_current_country = THIS }
+    
+    if = {
+        limit = {
+            tag = temp_param_country_to_check
+        }
+        always = yes
+    }
+    else_if = {
+        limit = {
+            SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
+        }
+        always = yes
+    }
+    else = {
+        always = no
+    }
+}
+
+# Parameter 1: temp_param_country_to_check
+SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = {
+    set_temp_variable = { temp_current_country = THIS }
+    
+    if = {
+        limit = {
+            has_volunteers_amount_from = {
+                tag = var:temp_param_country_to_check
+                count > 0
+            }
+        }
+        always = yes
+    }
+    else = {
+        always = no
+    }
+}
