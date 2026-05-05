@@ -138,6 +138,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 transfer_state = 655
                 transfer_state = 537
                 transfer_state = 555
+                transfer_state = 970
                 408 = { set_state_name = "Haishenwai" }
                 409 = { set_state_name = "Boli" }
                 655 = { set_state_name = "KuyedaoN" }
