@@ -3,17 +3,19 @@ opinion_modifiers = {
 	faction_traitor = {
 		value = -75
 		months = 12
+		decay = 2.5
 	}
 	
 	faction_traitor_trade = {
 		trade = yes
 		value = -40
 		months = 12
+		decay = 2.5
 	}
 	
 	our_liberators = {
-		value = 40
-		months = 18
-		decay = 1
+		value = 50
+		months = 60
+		@decay = 1
 	}
 }
