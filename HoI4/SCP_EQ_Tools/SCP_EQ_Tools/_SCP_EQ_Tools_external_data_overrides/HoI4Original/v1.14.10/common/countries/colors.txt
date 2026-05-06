@@ -184,8 +184,8 @@ IRQ = {
 	color_ui = rgb { 231 148 129 }
 }
 JAP = {
-	color = rgb { 130 19 46 }
-	color_ui = rgb { 130 19 46 }
+	color = rgb { 255 220 175 }
+	color_ui = rgb { 255 220 175 }
 }
 LIB = {
 	color = rgb { 152 130 191 }
