@@ -30,4 +30,29 @@ on_actions = {
             }
         }
     }
+    
+    on_monthly = {
+        effect = {
+            SOV = {
+                if = {
+                    limit = {
+                        AND = {
+                            OR = {
+                                is_puppet_of = GER
+                                is_subject_of = GER
+                            }
+                            OR = {
+                                has_autonomy_state = autonomy_reichskommissariat
+                                has_autonomy_state = autonomy_reichsprotectorate
+                            }
+                            GER = {
+                                has_government = fascism
+                            }
+                        }
+                    }
+                    set_cosmetic_tag = SOV_reichskommissariat
+                }
+            }
+        }
+    }
 }

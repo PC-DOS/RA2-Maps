@@ -1286,3 +1286,8 @@ CHI_JAP_fascism_autonomy_wtt_imperial_associate = {
     color = hsv { 0.18 0.6 0.9 } #255 244 190
     color_ui = hsv { 0.18 0.3 0.9 }
 }
+
+SOV_reichskommissariat = {
+	color = rgb { 115 115 115 }
+	color_ui = rgb { 122 145 93 }
+}
