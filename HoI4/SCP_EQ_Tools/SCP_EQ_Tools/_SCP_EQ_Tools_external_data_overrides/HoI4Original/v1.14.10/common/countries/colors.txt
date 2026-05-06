@@ -184,8 +184,8 @@ IRQ = {
 	color_ui = rgb { 231 148 129 }
 }
 JAP = {
-	color = rgb { 255 220 175 }
-	color_ui = rgb { 255 220 175 }
+	color = rgb { 160 150 60 }
+	color_ui = rgb { 160 150 60 }
 }
 LIB = {
 	color = rgb { 152 130 191 }
@@ -265,8 +265,8 @@ MON = {
 	color_ui = rgb { 209 247 133 }
 }
 MEN = {
-	color = rgb { 185  255  152 }
-	color_ui = rgb { 165  230  132 }
+	color = rgb { 65 200 0 }
+	color_ui = rgb { 65 200 0 }
 }
 TAN = {
 	color = rgb { 152 130 191 }
