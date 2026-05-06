@@ -338,6 +338,31 @@ TNO_YUN_ext_decisions_category = {
                         add_manpower = -300000 # Remember Nanjing
                     }
                 }
+                
+                set_politics = {
+                    ruling_party = despotism
+                }
+                set_popularities = {
+                    despotism = 100
+                }
+                set_party_name = {
+                    ideology = despotism
+                    long_name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party_long
+                    name = TNO_YUN_ext_JAP_YUN_puppet_despotism_party
+                }
+                set_country_leader_name = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = despotism
+                    desc = TNO_YUN_ext_JAP_YUN_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = despotism
+                    desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
+                }
+                set_country_leader_ideology = despotism_military_junta_subtype
             }
             YUN = {
                 country_event = TNO_YUN_ext_events_YUN_execution_of_hirohito.1

@@ -780,6 +780,23 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 every_character = {
                     retire = yes
                 }
+                
+                set_politics = {
+                    ruling_party = neutrality
+                }
+                set_country_leader_name = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov
+                }
+                set_country_leader_description = {
+                    ideology = neutrality
+                    desc = SCP_EQ_Tools_JAP_CHI_puppet_occupied_gov_desc
+                }
+                set_country_leader_portrait = {
+                    ideology = neutrality
+                    desc = "gfx/Leaders/CHI/JAP_CHI_occupied_gov_seal.png"
+                }
+                set_country_leader_ideology = despotism
             }
             CHI = {
                 country_event = SCP_EQ_Tools_hoi4_base_game_ext_events_CHI_tokyo_is_nanking.1
