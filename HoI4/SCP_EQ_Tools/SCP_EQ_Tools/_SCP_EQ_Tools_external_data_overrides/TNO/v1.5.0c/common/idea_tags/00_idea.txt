@@ -10,7 +10,7 @@ idea_categories = {
 	hidden_ideas = {
 		hidden = yes
 	
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		ledger = hidden
@@ -19,7 +19,7 @@ idea_categories = {
 	country = {
 		type = national_spirit
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		ledger = hidden
@@ -33,7 +33,7 @@ idea_categories = {
 		# EndOf: P.D.: Added a political_advisor slot
 		slot = tno_hog_dummy_1 #Needed for diplo interface purpose, no effect
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -45,7 +45,7 @@ idea_categories = {
 		slot = theorist #Needed for diplo interface purpose, no effect
 		slot = tno_minister_dummy_1 #Needed for diplo interface purpose, no effect
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 
 	}
@@ -79,7 +79,7 @@ idea_categories = {
 		slot = tno_slavery
 		slot = tno_political_dummy_1
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -92,7 +92,7 @@ idea_categories = {
 		slot = tno_military_dummy_1
 		slot = tno_military_dummy_2
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -105,7 +105,7 @@ idea_categories = {
 		slot = tno_unemployment
 		slot = tno_income_taxation
 	
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -118,7 +118,7 @@ idea_categories = {
 		slot = tno_gender_rights
 		slot = tno_regulations
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -136,7 +136,7 @@ idea_categories = {
 		slot = tno_women
 		slot = tno_misc_dummy_1
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
@@ -162,7 +162,7 @@ idea_categories = {
 		
 		ledger = civilian
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 	
@@ -177,7 +177,7 @@ idea_categories = {
 
 		ledger = civilian
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 	
@@ -192,14 +192,14 @@ idea_categories = {
 		
 		ledger = invalid # must be overridden
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 	}
 
 	academy_spirit = {
 		type = army_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -212,7 +212,7 @@ idea_categories = {
 	army_spirit = {
 		type = army_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -224,7 +224,7 @@ idea_categories = {
 	division_command_spirit = {
 		type = army_spirit
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -236,7 +236,7 @@ idea_categories = {
 	naval_academy_spirit = {
 		type = navy_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -248,7 +248,7 @@ idea_categories = {
 	navy_spirit = {
 		type = navy_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -260,7 +260,7 @@ idea_categories = {
 	naval_command_spirit = {
 		type = navy_spirit
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -272,7 +272,7 @@ idea_categories = {
 	air_force_academy_spirit = {
 		type = air_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -284,7 +284,7 @@ idea_categories = {
 	air_force_spirit = {
 		type = air_spirit
 
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		politics_tab = no
@@ -298,7 +298,7 @@ idea_categories = {
 		
 		politics_tab = no
 		
-		cost = 9999
+		cost = 99999
 		removal_cost = -1
 		
 		ledger = hidden

@@ -1,0 +1,6 @@
+spriteTypes = {
+    spriteType = {
+        name = GFX_TNO_YUN_ext_JAP_internal_GUI_ROC_occupied_cover
+        texturefile = gfx/TNO_YUN_ext_JAP_internal_GUI/JAP_internal_ROC_occupied_cover.png
+    }
+}
