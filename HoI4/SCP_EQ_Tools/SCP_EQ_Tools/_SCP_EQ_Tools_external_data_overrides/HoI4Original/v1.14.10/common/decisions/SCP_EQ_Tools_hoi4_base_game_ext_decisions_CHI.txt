@@ -505,7 +505,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 if = {
                     limit = {
-                        NOT = { is_in_faction_with = YUN }
+                        NOT = { is_in_faction_with = CHI }
                     }
                     leave_faction = yes
                 }
@@ -606,7 +606,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 }
                 if = {
                     limit = {
-                        NOT = { is_in_faction_with = YUN }
+                        NOT = { is_in_faction_with = CHI }
                     }
                     leave_faction = yes
                 }
