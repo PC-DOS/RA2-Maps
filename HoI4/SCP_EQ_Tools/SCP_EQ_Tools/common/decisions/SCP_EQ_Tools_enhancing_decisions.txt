@@ -5732,18 +5732,18 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             if = {
                 limit = {
-                    check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
+                    check_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 730 }
                 }
-                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 365 }
+                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 365 }
             }
             else_if = {
                 limit = {
-                    check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 365 }
+                    check_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 365 }
                 }
-                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 180 }
+                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 180 }
             }
             else = {
-                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
+                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 730 }
             }
         }
     }

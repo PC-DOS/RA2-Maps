@@ -5,7 +5,7 @@ on_actions = {
             random_country = {
                 # Advanced nuking
                 set_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_enabled = 1 }
-                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_radiation_time = 730 }
+                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 730 }
                 # Prevent AI from leaving factions from diplomacy UI by default
                 set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
             }
