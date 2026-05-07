@@ -257,6 +257,7 @@ on_actions = {
             set_country_flag = SCP_EQ_Tools_generic_on_actions_new_month_starts
             # Handles "nuclear radiation" effect dealt by SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state
             every_controlled_state = {
+                set_temp_variable = { temp_param_is_radiation_time_checks_bypassed = 0 }
                 SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = yes
             }
             # Check if we need to remove this country's "nuked" flag
