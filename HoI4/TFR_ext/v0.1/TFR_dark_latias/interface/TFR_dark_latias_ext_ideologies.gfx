@@ -1,0 +1,43 @@
+spriteTypes = {
+    # Ideologies
+    spriteType = {
+        name = GFX_ideology_gestalt_autocrat
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/gestalt_autocrat.png
+    }
+    spriteType = {
+        name = GFX_ideology_southern_islands_liberalism
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/southern_islands_liberalism.png
+    }
+    spriteType = {
+        name = GFX_ideology_buddhism_ho_oh_ideology
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/buddhism_ho_oh_ideology.png
+    }
+    spriteType = {
+        name = GFX_ideology_traditional_ho_oh_ideology
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/traditional_ho_oh_ideology.png
+    }
+    spriteType = {
+        name = GFX_ideology_classical_slavery
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/classical_slavery.png
+    }
+    spriteType = {
+        name = GFX_ideology_ultra_ecoharmony
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/ultra_ecoharmony.png
+    }
+    spriteType = {
+        name = GFX_ideology_ultra_ecoharmony_rayquaza
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/ultra_ecoharmony_rayquaza.png
+    }
+    spriteType = {
+        name = GFX_ideology_ecofascism_kyogre
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/ecofascism_kyogre.png
+    }
+    spriteType = {
+        name = GFX_ideology_econazism
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/econazism.png
+    }
+    spriteType = {
+        name = GFX_ideology_econazism_groudon
+        texturefile = gfx/TFR_dark_latias_ext_ideologies/econazism_groudon.png
+    }
+}
