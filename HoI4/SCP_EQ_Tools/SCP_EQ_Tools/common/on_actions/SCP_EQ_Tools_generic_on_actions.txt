@@ -65,13 +65,8 @@ on_actions = {
                             has_country_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_country_nuked
                             OR = {
                                 check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_manpower_part = 0 }
-                                AND = {
-                                    NOT = { tag = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    NOT = { is_ally_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    NOT = { is_in_faction_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    NOT = { is_puppet_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    NOT = { is_subject_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                }
+                                set_temp_variable = { temp_param_country_to_check = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                             }
                         }
                     }
@@ -99,13 +94,8 @@ on_actions = {
                             controller = {
                                 OR = {
                                     check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
-                                    AND = {
-                                        NOT = { tag = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_ally_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_in_faction_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_puppet_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_subject_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    }
+                                    set_temp_variable = { temp_param_country_to_check = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                                 }
                             }
                         }
@@ -141,13 +131,8 @@ on_actions = {
                             controller = {
                                 OR = {
                                     check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
-                                    AND = {
-                                        NOT = { tag = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_ally_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_in_faction_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_puppet_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_subject_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    }
+                                    set_temp_variable = { temp_param_country_to_check = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                                 }
                             }
                         }
@@ -188,13 +173,8 @@ on_actions = {
                             controller = {
                                 OR = {
                                     check_variable = { global.SCP_EQ_Tools_enhancing_decisions_is_advanced_nuking_ignores_allies_misc_part = 0 }
-                                    AND = {
-                                        NOT = { tag = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_ally_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_in_faction_with = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_puppet_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                        NOT = { is_subject_of = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
-                                    }
+                                    set_temp_variable = { temp_param_country_to_check = PREV.SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_last_nuke_sender }
+                                    NOT = { SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes }
                                 }
                             }
                         }

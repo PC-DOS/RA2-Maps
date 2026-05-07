@@ -871,7 +871,7 @@ SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
                         }
                     }
                 }
-                log = "Radiation fades out at [CURRENT_STATE], radiation level [CURRENT_RADIATION_LEVEL]"
+                #log = "Radiation fades out at [CURRENT_STATE], radiation level [CURRENT_RADIATION_LEVEL]"
                 remove_province_modifier = {
                     static_modifiers = { SCP_EQ_Tools_province_modifiers_nuked_modifier }
                     province = {
@@ -886,14 +886,14 @@ SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = {
                 limit = {
                     check_variable = { SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level > 0 }
                 }
-                log = "[CURRENT_STATE] still have radiation level [NEXT_RADIATION_LEVEL]"
+                #log = "[CURRENT_STATE] still have radiation level [NEXT_RADIATION_LEVEL]"
                 set_state_flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
             }
         }
         RADIATION_TIME = "[?global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time]"
-        CURRENT_STATE = "[?THIS.GetName]"
-        CURRENT_RADIATION_LEVEL = "[?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
-        NEXT_RADIATION_LEVEL = "[?temp_next_rad_level]"
+        #CURRENT_STATE = "[?THIS.GetName]"
+        #CURRENT_RADIATION_LEVEL = "[?SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_current_state_radiation_level]"
+        #NEXT_RADIATION_LEVEL = "[?temp_next_rad_level]"
     }
 }
 
