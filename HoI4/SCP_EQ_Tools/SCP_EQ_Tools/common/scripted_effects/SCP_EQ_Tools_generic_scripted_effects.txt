@@ -892,8 +892,8 @@ SCP_EQ_Tools_generic_scripted_effects_clear_nuke_effects_on_specified_state = {
                     flag = SCP_EQ_Tools_generic_scripted_effects_nuke_specified_state_is_this_state_nuked
                 }
             }
-            SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = yes
         }
+        SCP_EQ_Tools_generic_scripted_effects_reduct_nuke_effects_on_specified_state = yes
     }
 }
 
