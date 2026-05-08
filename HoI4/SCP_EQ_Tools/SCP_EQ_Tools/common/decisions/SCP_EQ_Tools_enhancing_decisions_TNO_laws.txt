@@ -1,6 +1,25 @@
 SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
 
     # Social Laws
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_social_laws = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_health_care_improve = {
         allowed = {
             # Always allowed
@@ -223,6 +242,25 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
     }
     
     # Economic Laws
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_economic_laws = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_trade_laws_improve = {
         allowed = {
             # Always allowed
@@ -533,6 +571,25 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
     }
     
     # Military Laws
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_military_laws = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_conscription_improve = {
         allowed = {
             # Always allowed
@@ -711,6 +768,25 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
     }
     
     # Political Laws
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_political_laws = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_political_parties_improve = {
         allowed = {
             # Always allowed
@@ -1065,6 +1141,25 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
     }
     
     # Misc Laws
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_misc_laws = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_pollution_improve = {
         allowed = {
             # Always allowed
@@ -1419,6 +1514,25 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
     }
     
     # Economy Centralization
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_add_econ_centralization = {
         allowed = {
             # Always allowed
@@ -1459,26 +1573,6 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
         complete_effect = {
             set_temp_variable = { econ_centralization_temp = -5 }
             econ_centralization_change = yes
-        }
-    }
-    SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere = {
-        allowed = {
-            # Always allowed
-        }
-        visible = {
-            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
-        }
-        available = {
-            # Always available
-        }
-        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
-        fire_only_once = no
-        days_re_enable = 0
-        ai_will_do = {
-            factor = 0
-        }
-        complete_effect = {
-            econ_leave_sphere = yes
         }
     }
     
@@ -2060,6 +2154,157 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             #econ_type_change = yes
             set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Corporatism }
             econ_subtype_change = yes
+        }
+    }
+    
+    # Economy Sphere
+    SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy_sphere = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            always = no
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            econ_leave_sphere = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_from_all_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                clear_embargo_PREV = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_to_all_countries = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                ROOT = {
+                    clear_embargo_PREV = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_of_random_country_embargoed_by_us = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            random_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                set_temp_variable = { target = THIS }
+                ROOT = {
+                    econ_join_sphere_target = yes
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere = {
+        target_array = global.countries
+        target_trigger = {
+            FROM = {
+                country_exists = FROM
+                has_country_flag = HAS_ECON_SPHERE
+                check_variable = { ECON_SPHERE_LEADER = THIS }
+            }
+        }
+        on_map_mode = decision_view_only
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+            }
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            FROM = {
+                set_temp_variable = { target = THIS }
+                ROOT = {
+                    econ_join_sphere_target = yes
+                }
+            }
         }
     }
     

@@ -8917,6 +8917,13 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     portrait = "gfx/leaders/YUN/YUN_Sun_Fo.dds"
                 }
                 set_country_leader_ideology = paternalism_xunzheng_subtype
+                
+                # Economy
+                econ_leave_sphere = yes
+                set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
+                econ_type_change = yes
+                set_temp_variable = { TNO_economy_subtype_temp = 0 }
+                econ_subtype_change = yes
             }
         }
         days_remove = 25

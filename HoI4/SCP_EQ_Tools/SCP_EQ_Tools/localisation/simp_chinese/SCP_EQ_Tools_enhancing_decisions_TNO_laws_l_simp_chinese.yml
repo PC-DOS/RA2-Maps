@@ -3,6 +3,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_laws_category:0 "TNO政策法律修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_laws_category_desc:0 "SCP基金会小马国分部的工具箱的一部分，在TNO中实现政策法律的修改。"
  # Social Laws
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_social_laws:0 "社会法案修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_social_laws_desc:0 "社会法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_health_care_improve:0 "医保制度升一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_health_care_improve_desc:0 "但愿世间人无病，何妨架上药生尘"
  SCP_EQ_Tools_enhancing_decisions_TNO_health_care_worsen:0 "医保制度降一档"
@@ -24,6 +26,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_security_worsen:0 "安保制度降一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_security_worsen_desc:0 "吔屎啦，梁非凡！"
  # Economic Laws
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economic_laws:0 "经济法案修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economic_laws_desc:0 "经济法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_trade_laws_improve:0 "贸易制度升一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_trade_laws_improve_desc:0 "开门！自由贸易！"
  SCP_EQ_Tools_enhancing_decisions_TNO_trade_laws_worsen:0 "贸易制度降一档"
@@ -53,6 +57,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_regulations_worsen:0 "工业监管降一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_regulations_worsen_desc:0 "我死后哪管洪水滔天"
  # Military Laws
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_military_laws:0 "军事法案修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_military_laws_desc:0 "军事法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_conscription_improve:0 "征募制度升一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_conscription_improve_desc:0 "他也不出兵，不知道在干什么"
  SCP_EQ_Tools_enhancing_decisions_TNO_conscription_worsen:0 "征募制度降一档"
@@ -70,6 +76,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_draft_exemptions_worsen:0 "兵役豁免降一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_draft_exemptions_worsen_desc:0 "脖子右拧"
  # Political Laws
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_political_laws:0 "政治法案修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_political_laws_desc:0 "政治法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_political_parties_improve:0 "政党制度升一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_political_parties_improve_desc:0 "这是碰都不能碰的话题"
  SCP_EQ_Tools_enhancing_decisions_TNO_political_parties_worsen:0 "政党制度降一档"
@@ -103,6 +111,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_vote_franchise_worsen:0 "选举权降一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_vote_franchise_worsen_desc:0 "这是碰都不能碰的话题"
  # Misc Laws
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_misc_laws:0 "杂项法案修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_misc_laws_desc:0 "杂项法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_pollution_improve:0 "污染管控升一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_pollution_improve_desc:0 "绿水青山就是金山银山"
  SCP_EQ_Tools_enhancing_decisions_TNO_pollution_worsen:0 "污染管控降一档"
@@ -136,12 +146,12 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_lgbt_rights_worsen:0 "性少数群体降一档"
  SCP_EQ_Tools_enhancing_decisions_TNO_lgbt_rights_worsen_desc:0 "全送去粉碎回收厂"
  # Economy Centralization
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy:0 "经济制度修改"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy_desc:0 "经济制度修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_add_econ_centralization:0 "增加5%经济集权度"
  SCP_EQ_Tools_enhancing_decisions_TNO_add_econ_centralization_desc:0 "黑猫"
  SCP_EQ_Tools_enhancing_decisions_TNO_minus_econ_centralization:0 "减少5%经济集权度"
  SCP_EQ_Tools_enhancing_decisions_TNO_minus_econ_centralization_desc:0 "白猫"
- SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere:0 "离开当前经济圈"
- SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere_desc:0 "独立自主，自力更生，发展是硬道理"
  # Economy Types - Capitalism
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_capitalism:0 "将经济制度设为：$Econ_Type_Capitalism$"
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_capitalism_desc:0 "$Econ_Type_Capitalism_desc$"
@@ -195,4 +205,17 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_socialized_economy_desc:0 "$Econ_Subtype_Socialized_Economy_desc$"
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_colonial_economy_corporatism:0 "将经济制度设为：$Econ_Subtype_Colonial_Economy_Corporatism$"
  SCP_EQ_Tools_enhancing_decisions_TNO_set_economy_type_colonial_economy_corporatism_desc:0 "$Econ_Subtype_Colonial_Economy_Corporatism_desc$"
+ # Economy Sphere
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy_sphere:0 "贸易与经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_separator_economy_sphere_desc:0 "贸易与经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_from_all_countries:0 "解除所有国家对我国的禁运"
+ SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_from_all_countries_desc:0 "开门！自由贸易！"
+ SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_to_all_countries:0 "解除我国对所有国家的禁运"
+ SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_to_all_countries_desc:0 "开门！自由贸易！"
+ SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere:0 "离开当前经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_leave_sphere_desc:0 "独立自主，自力更生，发展是硬道理"
+ SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_of_random_country_embargoed_by_us:0 "加入被我国禁运的国家所在的经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_of_random_country_embargoed_by_us_desc:0 "我们直接跟他们结盟啊\n\n注意：请使用外交界面上的“发布贸易禁运”按钮进行禁运标记"
+ SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere:0 "加入[FROM.GetFlag][FROM.GetName]经济圈"
+ SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_desc:0 "我们直接跟他们结盟啊"
  
