@@ -1,0 +1,58 @@
+# Ref. HoI4Root/common/unit_medals/00_default.txt
+# 
+# Valid unit modifiers are not exhaustive
+# Currently supported:
+# army_morale
+# army_morale_factor
+# army_org
+# army_org_factor
+# supply_consumption_factor
+# equipment_capture
+# equipment_capture_factor
+# army_fuel_capacity_factor
+# army_fuel_consumption_factor
+# recon_factor
+# recon_factor_while_entrenched
+# transport_capacity (?)
+# breakthrough_factor
+# armor_factor
+# army_strength_factor
+# experience_loss_factor
+# leader_modifier applies unit modifiers to all units under them as a general, similarly to traits.
+# army_attack_factor
+# army_defence_factor
+# max_dig_in
+# max_dig_in_factor
+
+@cost = 0
+
+# For automatic medal granting
+unit_medals = {
+    SCP_EQ_Tools_generic_unit_medals_SCP_foundation_medal = {
+        
+        available = {
+            always = yes
+        }
+
+        frame = 1
+        icon = "GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small"
+        
+        cost = @cost
+        
+        unit_modifiers = {
+            army_defence_factor = 0.025
+            army_attack_factor = 0.025
+            army_defence_factor = 0.025
+            supply_consumption_factor = -0.025
+            army_morale_factor = 0.025
+            army_org_factor = 0.025
+            army_strength_factor = 0.025
+            army_fuel_capacity_factor = 0.025
+            army_fuel_consumption_factor = -0.025
+        }
+
+        one_time_effect = {
+            add_divisional_commander_xp = 45
+        }
+    }
+}

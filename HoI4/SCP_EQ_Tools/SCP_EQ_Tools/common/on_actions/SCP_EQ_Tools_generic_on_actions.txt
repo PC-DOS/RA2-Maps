@@ -244,4 +244,22 @@ on_actions = {
             SCP_EQ_Tools_generic_scripted_effects_check_and_set_country_nuked_flag = yes
         }
     }
+    on_add_history = {
+        effect = {
+            # For automatic medal granting
+            # ROOT is the unit
+            ROOT = {
+                if = {
+                    limit = {
+                        owner = {
+                            check_variable = { SCP_EQ_Tools_enhancing_decisions_is_auto_medal_granting_enabled = 1 }
+                        }
+                    }
+                    add_unit_medal_to_latest_entry = {
+                        unit_medals = SCP_EQ_Tools_generic_unit_medals_SCP_foundation_medal
+                    }
+                }
+            }
+        }
+    }
 }
