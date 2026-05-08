@@ -410,7 +410,9 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             factor = 0
         }
         complete_effect = {
-            CHI_hyper_inflation_clear_all = yes
+            CHI = {
+                CHI_hyper_inflation_clear_all = yes
+            }
         }
     }
     SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_inflation_level_up = {
@@ -430,7 +432,9 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             factor = 0
         }
         complete_effect = {
-            CHI_hyper_inflation_level_up = yes
+            CHI = {
+                CHI_hyper_inflation_level_up = yes
+            }
         }
     }
     SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_inflation_level_down = {
@@ -450,7 +454,9 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
             factor = 0
         }
         complete_effect = {
-            CHI_hyper_inflation_level_down = yes
+            CHI = {
+                CHI_hyper_inflation_level_down = yes
+            }
         }
     }
 
@@ -1002,7 +1008,7 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
         }
         complete_effect = {
             set_temp_variable = { temp_param_nuke_target_tag = JAP }
-            set_temp_variable = { temp_param_nuke_sender_tag = ROOT } 
+            set_temp_variable = { temp_param_nuke_sender_tag = CHI } 
             set_temp_variable = { temp_param_is_advanced_nuking_enabled = 1 }
             JAP = {
                 every_controlled_state = {
