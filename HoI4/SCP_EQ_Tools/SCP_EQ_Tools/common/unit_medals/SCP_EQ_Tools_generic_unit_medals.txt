@@ -40,19 +40,19 @@ unit_medals = {
         cost = @cost
         
         unit_modifiers = {
-            army_defence_factor = 0.025
-            army_attack_factor = 0.025
-            army_defence_factor = 0.025
-            supply_consumption_factor = -0.025
-            army_morale_factor = 0.025
-            army_org_factor = 0.025
-            army_strength_factor = 0.025
-            army_fuel_capacity_factor = 0.025
-            army_fuel_consumption_factor = -0.025
+            army_defence_factor = 0.1245
+            army_attack_factor = 0.1245
+            army_defence_factor = 0.1245
+            supply_consumption_factor = -0.1245
+            army_morale_factor = 0.1245
+            army_org_factor = 0.1245
+            army_strength_factor = 0.1245
+            army_fuel_capacity_factor = 0.1245
+            army_fuel_consumption_factor = -0.1245
         }
 
         one_time_effect = {
-            add_divisional_commander_xp = 45
+            add_divisional_commander_xp = 125
         }
     }
 }
