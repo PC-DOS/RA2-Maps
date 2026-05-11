@@ -34,8 +34,8 @@ unit_medals = {
             always = yes
         }
 
-        frame = 0
-        icon = "GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small"
+        frame = 1
+        icon = "GFX_SCP_EQ_Tools_generic_unit_medals_SCP_foundation_medal"
         
         cost = @cost
         
