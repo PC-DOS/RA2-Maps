@@ -1,0 +1,11 @@
+spriteTypes = {
+    # Generic medals
+    spriteType = {
+        name = GFX_SCP_EQ_Tools_generic_unit_medals_SCP_foundation_medal
+        texturefile = gfx/generic_icons/SCP_1_Generic_Small.png
+    }
+    spriteType = {
+        name = GFX_SCP_EQ_Tools_generic_unit_medals_SCP_foundation_medal_large
+        texturefile = gfx/generic_icons/SCP_1_Generic_Small.png
+    }
+}
