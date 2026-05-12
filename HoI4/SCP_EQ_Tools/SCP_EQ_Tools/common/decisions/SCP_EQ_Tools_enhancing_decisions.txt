@@ -8656,32 +8656,24 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         cancel_resistance = yes
                         set_demilitarized_zone = no
                         add_core_of = YUN
-                        remove_core_of = CHI
-                        remove_claim_by = CHI
-                        remove_core_of = MAN
-                        remove_claim_by = MAN
-                        remove_core_of = GUZ
-                        remove_claim_by = GUZ
-                        remove_core_of = XIK
-                        remove_claim_by = XIK
-                        remove_core_of = GUX
-                        remove_claim_by = GUX
-                        remove_core_of = SHX
-                        remove_claim_by = SHX
-                        remove_core_of = QIN
-                        remove_claim_by = QIN
-                        remove_core_of = XIN
-                        remove_claim_by = XIN
-                        remove_core_of = TIB
-                        remove_claim_by = TIB
-                        remove_core_of = GNG
-                        remove_claim_by = GNG
-                        remove_core_of = GAN
-                        remove_claim_by = GAN
-                        remove_core_of = MEN
-                        remove_claim_by = MEN
-                        remove_core_of = JAP
-                        remove_claim_by = JAP
+                    }
+                    for_each_loop = {
+                        array = global.countries
+                        value = temp_current_country
+                        
+                        if = {
+                            limit = {
+                                NOT = {
+                                    check_variable = { temp_current_country = YUN }
+                                }
+                            }
+                            YUN = {
+                                every_controlled_state = {
+                                    remove_claim_by = temp_current_country
+                                    remove_core_of = temp_current_country
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -8705,6 +8697,13 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         }
         complete_effect = {
             YUN = {
+                # Faction
+                if = {
+                    limit = {
+                        is_in_faction_with = JAP
+                    }
+                    leave_faction = yes
+                }
                 # Politics
                 add_popularity = {
                     ideology = paternalism
@@ -8875,6 +8874,30 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     remove_claim_by = JAP
                     remove_core_of = JAP
                 }
+                YUN = {
+                    puppet = {
+                        target = KOR
+                    }
+                }
+                KOR = {
+                    set_politics = {
+                        ruling_party = conservatism
+                        last_election = "1962.1.1"
+                        election_frequency = 48
+                        elections_allowed = no
+                    }
+                    set_popularities = {
+                        communist = 0
+                        ultranationalism = 0
+                        socialist = 0
+                        progressivism = 0
+                        liberalism = 20
+                        conservatism = 80
+                        paternalism = 0
+                        despotism = 0
+                        fascism = 0
+                    }
+                }
                 JAP = {
                     every_controlled_state = {
                         limit = {
@@ -8902,32 +8925,24 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     cancel_resistance = yes
                     set_demilitarized_zone = no
                     add_core_of = YUN
-                    remove_core_of = CHI
-                    remove_claim_by = CHI
-                    remove_core_of = MAN
-                    remove_claim_by = MAN
-                    remove_core_of = GUZ
-                    remove_claim_by = GUZ
-                    remove_core_of = XIK
-                    remove_claim_by = XIK
-                    remove_core_of = GUX
-                    remove_claim_by = GUX
-                    remove_core_of = SHX
-                    remove_claim_by = SHX
-                    remove_core_of = QIN
-                    remove_claim_by = QIN
-                    remove_core_of = XIN
-                    remove_claim_by = XIN
-                    remove_core_of = TIB
-                    remove_claim_by = TIB
-                    remove_core_of = GNG
-                    remove_claim_by = GNG
-                    remove_core_of = GAN
-                    remove_claim_by = GAN
-                    remove_core_of = MEN
-                    remove_claim_by = MEN
-                    remove_core_of = JAP
-                    remove_claim_by = JAP
+                }
+                for_each_loop = {
+                    array = global.countries
+                    value = temp_current_country
+                    
+                    if = {
+                        limit = {
+                            NOT = {
+                                check_variable = { temp_current_country = YUN }
+                            }
+                        }
+                        YUN = {
+                            every_controlled_state = {
+                                remove_claim_by = temp_current_country
+                                remove_core_of = temp_current_country
+                            }
+                        }
+                    }
                 }
                 
                 # States administrative efficiency
