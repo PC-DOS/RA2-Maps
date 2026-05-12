@@ -1,0 +1,80 @@
+on_actions = {
+    on_weekly = {
+        effect = {
+            if = {
+                limit = {
+                    country_exists = SRT
+                    NOT = { country_exists = GER }
+                    SRT = {
+                        OR = {
+                            has_government = paternalism
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                            has_government = socialist
+                            has_government = communist
+                        }
+                    }
+                }
+                SRT = {
+                    set_cosmetic_tag = TNO_YUN_ext_GER_YUN_puppet
+                }
+            }
+            if = {
+                limit = {
+                    POL = {
+                        OR = {
+                            is_puppet_of = YUN
+                            has_government = despotism
+                            has_government = paternalism
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                            has_government = socialist
+                            has_government = communist
+                        }
+                    }
+                }
+                POL = {
+                    set_cosmetic_tag = TNO_YUN_ext_POL_YUN_puppet
+                }
+            }
+            if = {
+                limit = {
+                    BEL = {
+                        OR = {
+                            is_puppet_of = YUN
+                            has_government = despotism
+                            has_government = paternalism
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                            has_government = socialist
+                            has_government = communist
+                        }
+                    }
+                }
+                BEL = {
+                    set_cosmetic_tag = TNO_YUN_ext_BEL_YUN_puppet
+                }
+            }
+            if = {
+                limit = {
+                    GER = {
+                        OR = {
+                            is_puppet_of = YUN
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                            has_government = socialist
+                            has_government = communist
+                        }
+                    }
+                }
+                GER = {
+                    set_cosmetic_tag = TNO_YUN_ext_GER_YUN_puppet
+                }
+            }
+        }
+    }
+}

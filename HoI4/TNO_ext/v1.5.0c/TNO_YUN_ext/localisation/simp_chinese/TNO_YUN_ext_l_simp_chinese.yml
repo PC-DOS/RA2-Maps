@@ -7,7 +7,22 @@
  # Cosmetic tags
  TNO_YUN_ext_JAP_YUN_puppet:0 "中华民国驻日戡乱政府"
  TNO_YUN_ext_JAP_YUN_puppet_ADJ:0 "中华民国驻日戡乱政府"
- TNO_YUN_ext_JAP_YUN_puppet_ADF:0 "中华民国驻日戡乱政府"
+ TNO_YUN_ext_JAP_YUN_puppet_DEF:0 "中华民国驻日戡乱政府"
+ TNO_YUN_ext_GER_YUN_puppet:0 "德意志联邦共和国"
+ TNO_YUN_ext_GER_YUN_puppet_ADJ:0 "德国"
+ TNO_YUN_ext_GER_YUN_puppet_DEF:0 "德意志联邦共和国"
+ TNO_YUN_ext_GER_YUN_puppet_socialist:0 "德意志民主共和国"
+ TNO_YUN_ext_GER_YUN_puppet_socialist_ADJ:0 "德国"
+ TNO_YUN_ext_GER_YUN_puppet_socialist_DEF:0 "德意志民主共和国"
+ TNO_YUN_ext_GER_YUN_puppet_communist:0 "德意志民主共和国"
+ TNO_YUN_ext_GER_YUN_puppet_communist_ADJ:0 "德国"
+ TNO_YUN_ext_GER_YUN_puppet_communist_DEF:0 "德意志民主共和国"
+ TNO_YUN_ext_POL_YUN_puppet:0 "波兰共和国"
+ TNO_YUN_ext_POL_YUN_puppet_ADJ:0 "波兰"
+ TNO_YUN_ext_POL_YUN_puppet_DEF:0 "波兰共和国"
+ TNO_YUN_ext_BEL_YUN_puppet:0 "比利时王国"
+ TNO_YUN_ext_BEL_YUN_puppet_ADJ:0 "比利时"
+ TNO_YUN_ext_BEL_YUN_puppet_DEF:0 "比利时王国"
  
  # Characters
  TNO_YUN_ext_JAP_YUN_puppet_occupied_gov:0 "中华民国日本特别行政区戡乱政府"
