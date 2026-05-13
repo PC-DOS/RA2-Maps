@@ -1,13 +1,13 @@
 # MAIN THEME
 music = {
 	name = "maintheme"
-	file = "TNO_songs/optimism.ogg"
+	file = "TNO_songs/SongOfTheGreatWall.ogg"
 	volume = 0.65
 }
 
 music = {
 	name = "main_vanilla"
-	file = "TNO_songs/optimism.ogg"
+	file = "TNO_songs/SongOfTheGreatWall.ogg"
 	volume = 0.65
 }
 
