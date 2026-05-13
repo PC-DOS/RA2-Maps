@@ -121,18 +121,20 @@ defined_text = {
                 original_tag = SGR
                 original_tag = HGR
                 original_tag = BGR
-                is_in_faction_with = GER
+                AND = {
+                    is_in_faction_with = GER
+                    NOT = { GER = { is_puppet = yes } }
+                    NOT = { GER = { is_subject = yes } }
+                }
             }
             NOT = { original_tag = BRG }
             NOT = { has_government = paternalism }
-            NOT = {
-                GER = {
-                    OR = {
-                        is_puppet_of = ROOT
-                        is_subject_of = ROOT
-                    }
-                }
-            }
+            NOT = { has_government = conservatism }
+            NOT = { has_government = liberalism }
+            NOT = { has_government = progressivism }
+            NOT = { has_government = socialist }
+            NOT = { has_government = communist }
+            
         }
         localization_key = TNO_newspaper_header_GER
     }
