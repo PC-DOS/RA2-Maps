@@ -1,0 +1,17 @@
+spriteTypes = {
+    spriteType = {
+        name = GFX_TNO_YUN_ext_newspaper_headers_YUN
+        texturefile = gfx/TNO_YUN_ext_newspaper_headers/custom_header_YUN.png
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = GFX_TNO_YUN_ext_newspaper_headers_YUN_ROC
+        texturefile = gfx/TNO_YUN_ext_newspaper_headers/custom_header_YUN_ROC.png
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = GFX_TNO_YUN_ext_newspaper_headers_YUN_NPA
+        texturefile = gfx/TNO_YUN_ext_newspaper_headers/custom_header_YUN_NPA.png
+        legacy_lazy_load = no
+    }
+}

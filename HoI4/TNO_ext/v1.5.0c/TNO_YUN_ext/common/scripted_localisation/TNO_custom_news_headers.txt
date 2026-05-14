@@ -149,19 +149,34 @@ defined_text = {
     ### Asia ###
     text = {
         trigger = {
-            OR = {
-                original_tag = CHI
-                AND = {
-                    original_tag = YUN
-                    has_global_flag = YUN_ROC_reborn
-                }
-            }
+            original_tag = CHI
         }
         localization_key = TNO_newspaper_header_CHI
     }
     text = {
         trigger = {
             original_tag = YUN
+            has_global_flag = YUN_ROC_reborn
+        }
+        localization_key = TNO_YUN_ext_newspaper_headers_YUN_ROC
+    }
+    text = {
+        trigger = {
+            original_tag = YUN
+            has_global_flag = YUN_NPA_partial_victory
+        }
+        localization_key = TNO_YUN_ext_newspaper_headers_YUN_NPA
+    }
+    text = {
+        trigger = {
+            original_tag = YUN
+        }
+        localization_key = TNO_YUN_ext_newspaper_headers_YUN
+    }
+    text = {
+        trigger = {
+            original_tag = YUN
+            always = no
         }
         localization_key = TNO_newspaper_header_YUN
     }
