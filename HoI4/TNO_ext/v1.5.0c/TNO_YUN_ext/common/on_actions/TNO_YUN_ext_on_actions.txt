@@ -75,6 +75,21 @@ on_actions = {
                     set_cosmetic_tag = TNO_YUN_ext_GER_YUN_puppet
                 }
             }
+            if = {
+                limit = {
+                    BHU = {
+                        NOT = { is_puppet_of = AZH }
+                        NOT = { is_subject_of = AZH }
+                    }
+                }
+                BHU = {
+                    drop_cosmetic_tag = yes
+                    remove_ideas = {
+                        BHU_Transitional_Military_Occupation
+                        BHU_Bhotamuzh_Resistance
+                    }
+                }
+            }
         }
     }
 }
