@@ -222,16 +222,16 @@ static const float GB_OUTLINE_CUTOFF_SEA = 0.990f; // Magic number to balance cu
 static const float GB_OPACITY_NEAR = 1.0f; // Transparency when camera is near
 static const float GB_OPACITY_FAR = 1.0f;  // Transparency when camera is far
 static const float BORDER_NIGHT_DESATURATION_MAX = 0.2f; // how much border colors can get desaturated at night. 1.0f is full grey
-//P.D. TNO colormap constants
+//P.D. TNO colormap constants, changes color effects most significantly
 static const float BORDER_FOW_REMOVAL_FACTOR = 1.0f; // How much of the FOW that is removed from the borders. 1.0f is no FOW
 static const float BORDER_LIGHT_REMOVAL_FACTOR = 0.8f; // How much of the light calculations that are removed from the borders. 1.0f is no light
-static const float GB_STRENGTH_CH1 = 0.8; // Opacity of bottom layer
-static const float GB_STRENGTH_CH2 = 0.8; // Opacity of top layer
+static const float GB_STRENGTH_CH1 = 0.85; // Opacity of bottom layer
+static const float GB_STRENGTH_CH2 = 0.75; // Opacity of top layer
 //static const float BORDER_FOW_REMOVAL_FACTOR = .8f; // How much of the FOW that is removed from the borders. 1.0f is no FOW
 //static const float BORDER_LIGHT_REMOVAL_FACTOR = 0.8f; // How much of the light calculations that are removed from the borders. 1.0f is no light
 //static const float GB_STRENGTH_CH1 = 1.0; // Opacity of bottom layer
 //static const float GB_STRENGTH_CH2 = 0.5; // Opacity of top layer
-//EndOf: P.D. TNO colormap constants
+//EndOf: P.D. TNO colormap constants, changes color effects most significantly
 static const float GB_FIRST_LAYER_PRIORITY = 0.4; // Priority for first/second layer when both are active at the same pixel
 static const float BORDER_MAP_TILE = 18000.0f;
 
