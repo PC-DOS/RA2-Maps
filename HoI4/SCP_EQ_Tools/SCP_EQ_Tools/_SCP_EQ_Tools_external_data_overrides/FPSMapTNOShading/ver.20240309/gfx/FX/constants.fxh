@@ -92,11 +92,17 @@ static const float 	SNOW_FROST_MIN_EFFECT  		= 0.4f;
 static const float3 ICE_COLOR 					= float3( 0.5f, 0.6f, 0.9f );
 static const float 	ICE_NOISE_TILING  			= 0.1f; //0.068f;
 
-static const float WATER_COLOR_LIGHTNESS = 0.5;
+//P.D. TNO colormap constants
+static const float WATER_COLOR_LIGHTNESS = 0.4;
 static const float WATER_RIPPLE_EFFECT = 0.0025;
+//static const float WATER_COLOR_LIGHTNESS = 0.5;
+//static const float WATER_RIPPLE_EFFECT = 0.0025;
 
-static const float COLORMAP_OVERLAY_STRENGTH 	= 0.75f;
-static const float COLORMAP_MUD_OVERLAY_STRENGTH = 0.7f;
+static const float COLORMAP_OVERLAY_STRENGTH 	= 0.5f;
+static const float COLORMAP_MUD_OVERLAY_STRENGTH = 0.45f;
+//static const float COLORMAP_OVERLAY_STRENGTH 	= 0.75f;
+//static const float COLORMAP_MUD_OVERLAY_STRENGTH = 0.7f;
+//EndOf: P.D. TNO colormap constants
 
 static const float3 FAKE_CUBEMAP_COLOR 			= float3(0.0f, 0.0f, 0.0f);
 
