@@ -36,5 +36,5 @@ NDefines.NGraphics.CAMERA_ZOOM_SPEED_DISTANCE_MULT = 5.0
 
 -- Hide black country borders (TNO new map style)
 NDefines.NGraphics.GRADIENT_BORDERS_THICKNESS_COUNTRY_LOW = 1.0 --5.0 -- thickness in pixels
-NDefines.NGraphics.GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 1.5 --2.0 -- The center gradient is linear 1/255 per pixel for this many pixels
-NDefines.NGraphics.GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 5.0 --25.0
+NDefines.NGraphics.GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 2.0 --2.0 -- The center gradient is linear 1/255 per pixel for this many pixels
+NDefines.NGraphics.GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 10.0 --25.0
