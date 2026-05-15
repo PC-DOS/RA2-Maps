@@ -1,4 +1,27 @@
 on_actions = {
+    on_startup = {
+        effect = {
+            TIB = {
+                every_owned_state = {
+                    add_core_of = CHI
+                    add_core_of = PRC
+                }
+            }
+            TAN = {
+                every_owned_state = {
+                    add_core_of = CHI
+                    add_core_of = PRC
+                }
+            }
+            MON = {
+                every_owned_state = {
+                    add_core_of = CHI
+                    add_core_of = PRC
+                }
+            }
+        }
+    }
+    
     on_state_control_changed = {
         effect = {
             # ROOT is new controller, FROM is old controller, FROM.FROM is state ID
