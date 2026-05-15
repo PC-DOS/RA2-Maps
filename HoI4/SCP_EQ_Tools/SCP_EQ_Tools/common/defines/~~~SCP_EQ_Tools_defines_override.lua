@@ -7,6 +7,8 @@
 -- Setting them to values over 10000 may cause overflow 
 NDefines.NDiplomacy.MAX_TRUST_VALUE = 5245
 NDefines.NDiplomacy.MIN_TRUST_VALUE = -5245
+-- Faster wargoal justification
+NDefines.NDiplomacy.MIN_WARGOAL_JUSTIFY_COST = 0.2 -- 1 cost == 5 days
 -- Faster volunteer sending
 NDefines.NDiplomacy.VOLUNTEERS_TRANSFER_SPEED = 1
 -- Faster lend-lease delivering
