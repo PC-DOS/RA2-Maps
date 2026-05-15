@@ -90,6 +90,11 @@ on_actions = {
                     }
                 }
             }
+            
+            # Save RFK
+            USA = {
+                set_variable = { RFK_Assassination_Target = -250 }
+            }
         }
     }
 }
