@@ -8,13 +8,13 @@ Code
 // To update: run "reloadfx all"
 // --------------------------------------------------------------
 
-// --------------------------------------------------------------
-// ------------------    Light          -------------------------
-// --------------------------------------------------------------
-
 // Modified by Dr. Picsell Dois with reference to TNO v1.5.0c's constants.fxh
 // DO NOT override this file in other mods directly
 // You can modify lines with "P.D." comment
+
+// --------------------------------------------------------------
+// ------------------    Light          -------------------------
+// --------------------------------------------------------------
 
 static const float NIGHT_AMBIENT_BOOST = 3.0f; // can just be baked into the below later ye?
 
@@ -160,10 +160,14 @@ static const float  WATER_HEIGHT_RECP_SQUARED = WATER_HEIGHT_RECP * WATER_HEIGHT
 // ------------------    FOG            -------------------------
 // --------------------------------------------------------------
 
-static const float3 FOG_COLOR 					= float3( 0.12, 0.28, 0.6 );
+//P.D. TNO FOG constants
+static const float3 FOG_COLOR 					= float3( 0, 0, 0 );
+//static const float3 FOG_COLOR 					= float3( 0.12, 0.28, 0.6 );
 static const float 	FOG_BEGIN					= 1.0f;
 static const float 	FOG_END 					= 150.0f;
-static const float 	FOG_MAX 					= 0.35f; 
+static const float 	FOG_MAX 					= 0.25f; 
+//static const float 	FOG_MAX 					= 0.35f; 
+//EndOf: P.D. TNO FOG constants
 
 //static const float 	FOG_MAX 					= 1000.7f;
 
