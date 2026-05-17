@@ -234,6 +234,11 @@ if __name__ == "__main__" :
                     print(f"        Country name changed: {dctCurrentLocFile["LocKeys"][sCurrentNonDefKey][1]} -> {dctCurrentLocFile["LocKeys"][CurrentLocKey][1]}")
                 
                     dctCurrentLocFile["LocKeys"][sCurrentNonDefKey] = copy.deepcopy(dctCurrentLocFile["LocKeys"][CurrentLocKey])
+                else :
+                    print(f"    Copy: {CurrentLocKey} ({dctCurrentLocFile["LocKeys"][CurrentLocKey][1]}) -> {sCurrentNonDefKey} (Default)")
+                    print(f"        Country name changed: (Default) -> {dctCurrentLocFile["LocKeys"][CurrentLocKey][1]}")
+                
+                    dctCurrentLocFile["LocKeys"][sCurrentNonDefKey] = copy.deepcopy(dctCurrentLocFile["LocKeys"][CurrentLocKey])
                 #End If
             #End If
         #Next
