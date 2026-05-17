@@ -41,3 +41,141 @@
 #         ...
 #     }
 # }
+# 
+# Focus:
+# 
+# Pure minimum (at the top of the branch): 
+# 
+# focus = {
+#     id = TAG_focus_name
+#     x = 5
+#     y = 0
+#     icon = GFX_focus_icon_name
+# 
+#     cost = 8
+#     search_filters = { FOCUS_FILTER_MANPOWER }  # Not necessary but recommended, like the icon.
+# 
+#     completion_reward = {
+#         add_manpower = 1000
+#     }
+# }
+# 
+# Average focuses: 
+# 
+# focus = {
+#     id = TAG_focus_name_2
+#     x = -1
+#     y = 1
+#     relative_position_id = TAG_focus_name # A total position of x = 4 y = 1, with the earlier example
+#     icon = GFX_other_focus_icon_name
+#     prerequisite = { focus = TAG_focus_name }
+#     mutually_exclusive = { focus = TAG_focus_name_3 }
+# 
+#     cost = 8
+#     will_lead_to_war_with = QAT
+# 
+#     available = {
+#         country_exists = QAT
+#         NOT = {
+#             has_subject = QAT
+#         }
+#     }
+# 
+#     ai_will_do = {
+#         base = 5
+#         modifier = {
+#             factor = 0
+#             has_war = yes
+#         }
+#     }
+# 
+#     completion_reward = {
+#         declare_war_on = {
+#             target = QAT
+#             type = annex_everything
+#         }
+#     }
+# }
+# 
+# focus = {
+#     id = TAG_focus_name_3
+#     x = 1
+#     y = 1
+#     relative_position_id = TAG_focus_name # A total position of x = 6 y = 1, with the earlier example
+#     icon = GFX_other_focus_icon_name
+#     prerequisite = { focus = TAG_focus_name }
+#     mutually_exclusive = { focus = TAG_focus_name_2 }
+# 
+#     cost = 8
+#     search_filters = { FOCUS_FILTER_POLITICAL }
+# 
+#     available = {
+#         country_exists = QAT
+#         NOT = {
+#             has_war_with = QAT
+#         }
+#     }
+#     cancel = {
+#         has_war_with = QAT
+#     }
+#     cancel_if_invalid = no
+#     continue_if_invalid = yes
+# 
+#     text_icon = example_style
+# 
+#     ai_will_do = {
+#         base = 3
+#     }
+# 
+#     select_effect = {
+#         QAT = {
+#             country_event = my_event.0
+#         }
+#     }
+#     completion_reward = {
+#         QAT = {
+#             country_event = my_event.1
+#         }
+#     }
+# }
+# 
+# An allow_branch focus: 
+# 
+# focus = {
+#     id = TAG_democratic_branch
+#     x = 10
+#     y = 0
+#     offset = {
+#         x = -8
+#         trigger = {
+#             has_completed_focus = TAG_democratic_branch
+#         }
+#     }
+#     icon = GFX_other_focus_icon_name
+#     mutually_exclusive = { focus = TAG_radical_branch }
+# 
+#     cost = 8
+#     search_filters = { FOCUS_FILTER_POLITICAL }
+# 
+#     allow_branch = {
+#         NOT = {
+#             has_completed_focus = TAG_radical_branch
+#         }
+#     }
+# 
+#     completion_reward = {
+#         add_popularity = {
+#             ideology = democratic
+#             popularity = 0.1
+#         }
+#         hidden_effect = {
+#             load_focus_tree = {
+#                 tree = TAG_focus_tree   # Reloads the same focus tree, marking it as completed.
+#                 keep_completed = yes    # Instead of doing load_focus_tree, the mark_focus_tree_layout_dirty can be moved to be within immediate effects of a hidden event that's fired by this focus with no delay.
+#             }
+#             mark_focus_tree_layout_dirty = yes  # Updates the offset and allow_branch.
+#         }
+#     }
+# }
+# 
+# 
