@@ -213,8 +213,8 @@ def SaveLocalizationFile(sYamlPath : str, dctLocFile : dict) :
     
 # Main entry point
 if __name__ == "__main__" :
-    sLocalizationInputDir = UniformPathString("C:\\Users\\Administrator\\Desktop\\1\\", IsPathToDirectory=True)
-    sLocalizationOutputDir = UniformPathString("C:\\Users\\Administrator\\Desktop\\2\\", IsPathToDirectory=True)
+    sLocalizationInputDir = UniformPathString("C:/Users/Administrator/Documents/Paradox Interactive/Hearts of Iron IV/mod/TNO/localisation/simp_chinese", IsPathToDirectory=True)
+    sLocalizationOutputDir = UniformPathString("C:/Users/Administrator/Documents/Paradox Interactive/Hearts of Iron IV/mod/TNO/localisation/simp_chinese/out", IsPathToDirectory=True)
     CreateDirectory(sLocalizationOutputDir)
 
     # Enumerate localizations
@@ -224,6 +224,19 @@ if __name__ == "__main__" :
         sCurrentInputFullPath = UniformPathString(sLocalizationInputDir + CurrentLocFile)
         print(f"Reading {sCurrentInputFullPath}")
         dctCurrentLocFile = LoadLocalizationFile(sCurrentInputFullPath)
+        
+        # Country "_DEF" to full name
+        for CurrentLocKey in dctCurrentLocFile["LocKeys"].keys() :
+            if CurrentLocKey.lower().endswith("_def") :
+                sCurrentNonDefKey = CurrentLocKey[0 : len(CurrentLocKey)-4]
+                if sCurrentNonDefKey in dctCurrentLocFile["LocKeys"].keys() :
+                    print(f"    Copy: {CurrentLocKey} ({dctCurrentLocFile["LocKeys"][CurrentLocKey][1]}) -> {sCurrentNonDefKey} ({dctCurrentLocFile["LocKeys"][sCurrentNonDefKey][1]})")
+                    print(f"        Country name changed: {dctCurrentLocFile["LocKeys"][sCurrentNonDefKey][1]} -> {dctCurrentLocFile["LocKeys"][CurrentLocKey][1]}")
+                
+                    dctCurrentLocFile["LocKeys"][sCurrentNonDefKey] = copy.deepcopy(dctCurrentLocFile["LocKeys"][CurrentLocKey])
+                #End If
+            #End If
+        #Next
         
         sCurrentOutputFullPath = UniformPathString(sLocalizationOutputDir + CurrentLocFile)
         print(f"Writing {sCurrentOutputFullPath}")
