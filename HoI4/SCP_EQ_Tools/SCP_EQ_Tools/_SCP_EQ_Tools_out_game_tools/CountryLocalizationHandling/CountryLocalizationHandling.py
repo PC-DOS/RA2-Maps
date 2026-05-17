@@ -226,7 +226,8 @@ if __name__ == "__main__" :
         dctCurrentLocFile = LoadLocalizationFile(sCurrentInputFullPath)
         
         # Country "_DEF" to full name
-        for CurrentLocKey in dctCurrentLocFile["LocKeys"].keys() :
+        arrLocKeys = list(dctCurrentLocFile["LocKeys"].keys())
+        for CurrentLocKey in arrLocKeys :
             if CurrentLocKey.lower().endswith("_def") :
                 sCurrentNonDefKey = CurrentLocKey[0 : len(CurrentLocKey)-4]
                 if sCurrentNonDefKey in dctCurrentLocFile["LocKeys"].keys() :
