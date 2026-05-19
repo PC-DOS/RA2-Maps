@@ -912,6 +912,16 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 }
                 
                 set_temp_variable = { temp_current_state = THIS }
+                
+                # We use state-scoped array SCP_EQ_Tools_enhancing_decisions_prev_controllers to avoid transfering state between 2 countries infinitely
+                if = {
+                    limit = {
+                        check_variable = { SCP_EQ_Tools_enhancing_decisions_prev_controllers^num = 0 }
+                    }
+                    
+                    add_to_array = { SCP_EQ_Tools_enhancing_decisions_prev_controllers = controller }
+                }
+                
                 # Determine countries who claims but is not controlling this state
                 clear_temp_array = temp_arr_possible_new_owners
                 every_possible_country = {
@@ -924,12 +934,47 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                                     is_core_of = var:temp_current_country
                                     is_claimed_by = var:temp_current_country
                                 }
+                                
+                                # Countries that has not controlled this state has a higher priority
+                                NOT = { is_in_array = { SCP_EQ_Tools_enhancing_decisions_prev_controllers = var:temp_current_country } }
                             }
                         }
                         add_to_temp_array = { temp_arr_possible_new_owners = temp_current_country }
                     }
                 }
-                # Select new owner
+                # Check if we cannot select any valid country with SCP_EQ_Tools_enhancing_decisions_prev_controllers filled
+                if = {
+                    limit = {
+                        check_variable = { temp_arr_possible_new_owners^num = 0 }
+                    }
+                    
+                    # Clear previous controllers array
+                    clear_array = SCP_EQ_Tools_enhancing_decisions_prev_controllers
+                    add_to_array = { SCP_EQ_Tools_enhancing_decisions_prev_controllers = controller }
+                    
+                    # Reselect all possible countries
+                    clear_temp_array = temp_arr_possible_new_owners
+                    every_possible_country = {
+                        set_temp_variable = { temp_current_country = THIS }
+                        if = {
+                            limit = {
+                                var:temp_current_state = {
+                                    NOT = { is_controlled_by = var:temp_current_country }
+                                    OR = {
+                                        is_core_of = var:temp_current_country
+                                        is_claimed_by = var:temp_current_country
+                                    }
+                                    
+                                    # Countries that has not controlled this state has a higher priority
+                                    NOT = { is_in_array = { SCP_EQ_Tools_enhancing_decisions_prev_controllers = var:temp_current_country } }
+                                }
+                            }
+                            add_to_temp_array = { temp_arr_possible_new_owners = temp_current_country }
+                        }
+                    }
+                }
+                
+                # Select new controller
                 if = {
                     limit = {
                         check_variable = { temp_arr_possible_new_owners^num > 0 }
@@ -941,6 +986,9 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                         integer = yes
                     }
                     transfer_state_to = var:temp_arr_possible_new_owners^temp_new_owner_index
+                    
+                    # Store last controller
+                    add_to_array = { SCP_EQ_Tools_enhancing_decisions_prev_controllers = var:temp_arr_possible_new_owners^temp_new_owner_index }
                 }
             }
         }
