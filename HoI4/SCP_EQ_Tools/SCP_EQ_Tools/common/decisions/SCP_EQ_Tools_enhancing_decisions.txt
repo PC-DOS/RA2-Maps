@@ -8776,6 +8776,19 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 }
                 
                 # Land
+                if = {
+                    limit = {
+                        CHI = {
+                            capital_scope = {
+                                NOT = { is_controlled_by = YUN }
+                            }
+                        }
+                    }
+                    set_capital = {
+                        state = CHI.capital
+                        remember_old_capital = yes
+                    }
+                }
                 annex_country = {
                     target = CHI
                     transfer_troops = yes
