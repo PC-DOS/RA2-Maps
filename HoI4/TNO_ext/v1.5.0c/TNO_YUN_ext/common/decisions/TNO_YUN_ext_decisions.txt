@@ -40,6 +40,13 @@ TNO_YUN_ext_decisions_category = {
                     limit = {
                         is_faction_leader = yes
                     }
+                    every_country = {
+                        limit = {
+                            is_in_faction_with = JAP
+                        }
+                        leave_faction = yes
+                        econ_leave_sphere = yes
+                    }
                     dismantle_faction = yes
                 }
                 if = {
