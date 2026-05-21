@@ -277,6 +277,9 @@ TNO_YUN_ext_decisions_category = {
             
                 country_event = TNO_YUN_ext_events_YUN_fuck_you_JAPs.1
             }
+            USA = {
+                USA_decrease_depression = yes
+            }
         }
     }
     TNO_YUN_ext_decisions_JAP_fate_kick_JAPs_out_of_faction = {
@@ -394,6 +397,9 @@ TNO_YUN_ext_decisions_category = {
                     id = TNO_YUN_ext_events_YUN_tokyo_is_nanking.1
                     days = 5
                 }
+            }
+            USA = {
+                USA_decrease_depression = yes
             }
         }
     }

@@ -8979,6 +8979,19 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     }
                 }
                 JAP = {
+                    if = {
+                        limit = {
+                            any_controlled_state = {
+                                OR = {
+                                    is_claimed_by = USA
+                                    is_core_of = USA
+                                }
+                            }
+                        }
+                        USA = {
+                            USA_decrease_depression = yes
+                        }
+                    }
                     every_controlled_state = {
                         limit = {
                             OR = {
