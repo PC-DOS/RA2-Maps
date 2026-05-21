@@ -2383,6 +2383,80 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_TNO_remove_faction_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            remove_faction_status = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_subjects_remove_faction_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    OR = {
+                        is_puppet_of = ROOT
+                        is_subject_of = ROOT
+                    }
+                }
+                remove_faction_status = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_TNO_allies_remove_faction_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_country = {
+                limit = {
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
+                }
+                remove_faction_status = yes
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_clear_embargo_from_all_countries = {
         allowed = {
             # Always allowed
