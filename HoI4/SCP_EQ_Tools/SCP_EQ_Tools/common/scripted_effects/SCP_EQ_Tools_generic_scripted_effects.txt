@@ -265,11 +265,24 @@ SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = {
 }
 
 # Parameter 1: temp_param_target_ideology_token
+# Parameter 2: temp_param_is_elections_allowed
 SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = {
     meta_effect = {
         text = {
-            set_politics = {
-                ruling_party = [TARGET_IDEOLOGY]
+            if = {
+                limit = {
+                    check_variable = { temp_param_is_elections_allowed = 1 }
+                }
+                set_politics = {
+                    ruling_party = [TARGET_IDEOLOGY]
+                    elections_allowed = yes
+                }
+            }
+            else = {
+                set_politics = {
+                    ruling_party = [TARGET_IDEOLOGY]
+                    elections_allowed = no
+                }
             }
         }
         TARGET_IDEOLOGY = "[?temp_param_target_ideology_token.GetTokenKey]"
@@ -287,6 +300,15 @@ SCP_EQ_Tools_generic_scripted_effects_puppet_country = {
     set_temp_variable = { temp_param_target_ideology_popularity_delta = 0.25 }
     var:temp_param_overlord_tag = {
         set_temp_variable = { temp_overlord_ideology_token = current_party_ideology_group }
+        if = {
+            limit = {
+                has_elections = yes
+            }
+            set_temp_variable = { temp_param_is_elections_allowed = 1 }
+        }
+        else = {
+            set_temp_variable = { temp_param_is_elections_allowed = 0 }
+        }
     }
     
     # Puppet target country

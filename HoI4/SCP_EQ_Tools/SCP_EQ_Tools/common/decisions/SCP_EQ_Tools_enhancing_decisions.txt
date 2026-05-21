@@ -1961,6 +1961,28 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_allow_elections = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+            set_temp_variable = { temp_param_is_elections_allowed = 1 }
+            SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_hold_election = {
         allowed = {
             # Always allowed
@@ -4625,11 +4647,47 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             ROOT = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                if = {
+                    limit = {
+                        has_elections = yes
+                    }
+                    set_temp_variable = { temp_param_is_elections_allowed = 1 }
+                }
+                else = {
+                    set_temp_variable = { temp_param_is_elections_allowed = 0 }
+                }
             }
             every_other_country = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
+                SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_all_countries_embargoed_by_us_allow_elections = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                set_temp_variable = { temp_param_is_elections_allowed = 1 }
                 SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
             }
         }
@@ -4879,6 +4937,15 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     is_embargoed_by = ROOT
                 }
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
+                if = {
+                    limit = {
+                        has_elections = yes
+                    }
+                    set_temp_variable = { temp_param_is_elections_allowed = 1 }
+                }
+                else = {
+                    set_temp_variable = { temp_param_is_elections_allowed = 0 }
+                }
                 ROOT = {
                     SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = yes
                 }
