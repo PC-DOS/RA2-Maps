@@ -23,6 +23,9 @@
  TNO_YUN_ext_BEL_YUN_puppet:0 "比利时王国"
  TNO_YUN_ext_BEL_YUN_puppet_ADJ:0 "比利时"
  TNO_YUN_ext_BEL_YUN_puppet_DEF:0 "比利时王国"
+ TNO_YUN_ext_BHU_YUN_puppet:0 "不丹王国"
+ TNO_YUN_ext_BHU_YUN_puppet_ADJ:0 "不丹"
+ TNO_YUN_ext_BHU_YUN_puppet_DEF:0 "不丹王国"
  
  # Characters
  TNO_YUN_ext_JAP_YUN_puppet_occupied_gov:0 "中华民国日本特别行政区戡乱政府"

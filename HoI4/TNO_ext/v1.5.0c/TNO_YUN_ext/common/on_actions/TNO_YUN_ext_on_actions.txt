@@ -84,6 +84,7 @@ on_actions = {
                 }
                 BHU = {
                     drop_cosmetic_tag = yes
+                    set_cosmetic_tag = TNO_YUN_ext_BHU_YUN_puppet
                     remove_ideas = {
                         BHU_Transitional_Military_Occupation
                         BHU_Bhotamuzh_Resistance
