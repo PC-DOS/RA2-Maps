@@ -229,6 +229,32 @@ country_event = {
                 desc = "gfx/Leaders/YUN/JAP_YUN_occupied_gov_seal.png"
             }
             set_country_leader_ideology = despotism_military_junta_subtype
+            remove_ideas = {
+                JAP_zaibatsu_question
+                JAP_legacy_guarded_pearl_exercises 
+                JAP_legacy_guarded_pearl_exercises_revealed 
+                JAP_showa_emperor 
+                JAP_showa_emperor_yasuda 
+                JAP_showa_emperor_ikeda 
+                JAP_showa_emperor_takagi 
+                JAP_showa_emperor_kaya 
+                JAP_showa_emperor_ikeda_2 
+                JAP_showa_emperor_takagi_2 
+                JAP_showa_emperor_ikeda_3 
+                JAP_showa_emperor_takagi_3 
+                JAP_showa_emperor_HEA_passed 
+                JAP_showa_emperor_HEA_failed 
+                JAP_showa_emperor_HEA_sabotaged 
+                JAP_showa_emperor_hardliner 
+                JAP_showa_emperor_moderate 
+                JAP_showa_emperor_ikeda_4 
+                JAP_showa_emperor_takagi_4 
+                JAP_showa_emperor_shiina 
+                JAP_showa_emperor_fukuda 
+                JAP_showa_emperor_muto 
+                JAP_showa_emperor_hop 
+                JAP_showa_emperor_gaw 
+            }
             
             set_temp_variable = { temp_credit_rating_min = 1 }
             econ_set_min_credit_rating = yes
