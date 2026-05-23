@@ -524,7 +524,17 @@ SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status = {
                 }
             }
         }
-        transfer_state_to = controller
+        if = {
+            limit = {
+                controller = {
+                    has_capitulated = yes
+                }
+            }
+            transfer_state_to = var:temp_param_invoker_tag
+        }
+        else = {
+            transfer_state_to = controller
+        }
         set_state_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_state_marked
         set_variable = { SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_state_new_owner = controller }
         
@@ -601,6 +611,51 @@ SCP_EQ_Tools_generic_scripted_effects_set_truce_with_all_enemy_countries = {
     every_enemy_country = {
         set_temp_variable = { temp_param_target_tag = THIS }
         SCP_EQ_Tools_generic_scripted_effects_set_truce = yes
+    }
+}
+
+# Parameter 1: temp_arr_tags_to_keep
+SCP_EQ_Tools_generic_scripted_effects_remove_all_claims_of_current_state = {
+    every_possible_country = {
+        limit = {
+            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
+        }
+        PREV = {
+            remove_claim_by = PREV
+        }
+    }
+}
+
+# Parameter 1: temp_arr_tags_to_keep
+SCP_EQ_Tools_generic_scripted_effects_remove_all_cores_of_current_state = {
+    every_possible_country = {
+        limit = {
+            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
+        }
+        PREV = {
+            remove_core_of = PREV
+        }
+    }
+}
+
+# Parameter 1: temp_arr_tags_to_keep
+SCP_EQ_Tools_generic_scripted_effects_remove_all_cores_and_claims_of_current_state = {
+    every_possible_country = {
+        limit = {
+            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
+        }
+        PREV = {
+            remove_claim_by = PREV
+            remove_core_of = PREV
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_remove_all_others_cores_and_claims_to_all_controlled_states = {
+    clear_temp_array = { temp_arr_tags_to_keep }
+    add_to_temp_array = { temp_arr_tags_to_keep = THIS }
+    every_controlled_state = {
+        SCP_EQ_Tools_generic_scripted_effects_remove_all_cores_and_claims_of_current_state = yes
     }
 }
 

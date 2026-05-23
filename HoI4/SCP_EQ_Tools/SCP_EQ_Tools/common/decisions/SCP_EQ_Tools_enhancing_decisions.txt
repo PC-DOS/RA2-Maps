@@ -2117,24 +2117,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            for_each_loop = {
-                array = global.countries
-                value = temp_current_country
-                
-                if = {
-                    limit = {
-                        NOT = {
-                            check_variable = { temp_current_country = ROOT }
-                        }
-                    }
-                    ROOT = {
-                        every_controlled_state = {
-                            remove_claim_by = temp_current_country
-                            remove_core_of = temp_current_country
-                        }
-                    }
-                }
-            }
+            SCP_EQ_Tools_generic_scripted_effects_remove_all_others_cores_and_claims_to_all_controlled_states = yes
         }
     }
     SCP_EQ_Tools_enhancing_decisions_own_all_claimed_but_not_controlled_states = {
@@ -8892,23 +8875,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         set_demilitarized_zone = no
                         add_core_of = YUN
                     }
-                    for_each_loop = {
-                        array = global.countries
-                        value = temp_current_country
-                        
-                        if = {
-                            limit = {
-                                NOT = {
-                                    check_variable = { temp_current_country = YUN }
-                                }
-                            }
-                            YUN = {
-                                every_controlled_state = {
-                                    remove_claim_by = temp_current_country
-                                    remove_core_of = temp_current_country
-                                }
-                            }
-                        }
+                    YUN = {
+                        SCP_EQ_Tools_generic_scripted_effects_remove_all_others_cores_and_claims_to_all_controlled_states = yes
                     }
                 }
             }
@@ -9187,23 +9155,8 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     set_demilitarized_zone = no
                     add_core_of = YUN
                 }
-                for_each_loop = {
-                    array = global.countries
-                    value = temp_current_country
-                    
-                    if = {
-                        limit = {
-                            NOT = {
-                                check_variable = { temp_current_country = YUN }
-                            }
-                        }
-                        YUN = {
-                            every_controlled_state = {
-                                remove_claim_by = temp_current_country
-                                remove_core_of = temp_current_country
-                            }
-                        }
-                    }
+                YUN = {
+                    SCP_EQ_Tools_generic_scripted_effects_remove_all_others_cores_and_claims_to_all_controlled_states = yes
                 }
                 
                 # States administrative efficiency
