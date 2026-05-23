@@ -616,37 +616,52 @@ SCP_EQ_Tools_generic_scripted_effects_set_truce_with_all_enemy_countries = {
 
 # Parameter 1: temp_arr_tags_to_keep
 SCP_EQ_Tools_generic_scripted_effects_remove_all_claims_of_current_state = {
-    every_possible_country = {
-        limit = {
-            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
-        }
-        PREV = {
-            remove_claim_by = PREV
+    for_each_loop = {
+        array = global.countries
+        value = temp_current_country
+        
+        if = {
+            limit = {
+                NOT = {
+                    is_in_array = { temp_arr_tags_to_keep = temp_current_country }
+                }
+            }
+            remove_claim_by = var:temp_current_country
         }
     }
 }
 
 # Parameter 1: temp_arr_tags_to_keep
 SCP_EQ_Tools_generic_scripted_effects_remove_all_cores_of_current_state = {
-    every_possible_country = {
-        limit = {
-            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
-        }
-        PREV = {
-            remove_core_of = PREV
+    for_each_loop = {
+        array = global.countries
+        value = temp_current_country
+        
+        if = {
+            limit = {
+                NOT = {
+                    is_in_array = { temp_arr_tags_to_keep = temp_current_country }
+                }
+            }
+            remove_core_of = var:temp_current_country
         }
     }
 }
 
 # Parameter 1: temp_arr_tags_to_keep
 SCP_EQ_Tools_generic_scripted_effects_remove_all_cores_and_claims_of_current_state = {
-    every_possible_country = {
-        limit = {
-            NOT = { is_in_array = { temp_arr_tags_to_keep = THIS } }
-        }
-        PREV = {
-            remove_claim_by = PREV
-            remove_core_of = PREV
+    for_each_loop = {
+        array = global.countries
+        value = temp_current_country
+        
+        if = {
+            limit = {
+                NOT = {
+                    is_in_array = { temp_arr_tags_to_keep = temp_current_country }
+                }
+            }
+            remove_claim_by = var:temp_current_country
+            remove_core_of = var:temp_current_country
         }
     }
 }
