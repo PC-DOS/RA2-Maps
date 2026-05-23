@@ -2303,9 +2303,67 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_enemy_country = {
-                white_peace = ROOT
-            }
+            SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_white_peace_with_all_enemies_keep_current_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries_keep_current_status = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_annex_all_capitulated_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = yes
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_annex_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = yes
         }
     }
     SCP_EQ_Tools_enhancing_decisions_start_peace_conference_with_all_enemies = {
@@ -2325,39 +2383,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             factor = 0
         }
         complete_effect = {
-            every_enemy_country = {
-                limit = {
-                    # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
-                    # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
-                    # Thus, we need to exclude those faction members or subject countries.
-                    # Otherwise, it will crash the game.
-                    # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
-                    NOT = {
-                        # Excludes subjects whose overlord is in war with us
-                        AND = {
-                            is_subject = yes
-                            overlord = {
-                                has_war_with = ROOT
-                            }
-                        }
-                        # Excludes faction memebers whose faction leader is in war with us
-                        AND = {
-                            is_in_faction = yes
-                            is_faction_leader = no
-                            faction_leader = {
-                                has_war_with = ROOT
-                            }
-                        }
-                    }
-                }
-                ROOT = {
-                    # Current scope is the winner, target and its subjects are the losers
-                    start_peace_conference  = {
-                        tag = PREV
-                        score_factor = 1.0
-                    }
-                }
-            }
+            SCP_EQ_Tools_generic_scripted_effects_start_peace_conference_with_all_enemy_countries = yes
         }
     }
     SCP_EQ_Tools_enhancing_decisions_teleport_capital_armies_to_enemy_capitals = {
@@ -2933,6 +2959,93 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_annex_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                SCP_EQ_Tools_generic_scripted_effects_annex_all_enemy_countries = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_annex_all_capitulated_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_white_peace_with_all_enemies_keep_current_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_other_country = {
+                limit = {
+                    set_temp_variable = { temp_param_country_to_check = ROOT }
+                    SCP_EQ_Tools_generic_scripted_triggers_has_volunteer = yes
+                    NOT = {
+                        tag = ROOT
+                    }
+                }
+                SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries_keep_current_status = yes
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_countries_with_our_volunteers_white_peace_with_all_enemies = {
         allowed = {
             # Always allowed
@@ -2958,9 +3071,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         tag = ROOT
                     }
                 }
-                every_enemy_country = {
-                    white_peace = PREV
-                }
+                SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries = yes
             }
         }
     }
@@ -4282,9 +4393,82 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                every_enemy_country = {
-                    white_peace = PREV
+                SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_all_countries_embargoed_by_us_white_peace_with_all_enemies_keep_current_status = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    is_embargoed_by = ROOT
                 }
+                SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries_keep_current_status = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_all_countries_embargoed_by_us_annex_all_capitulated_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = yes
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_all_countries_embargoed_by_us_annex_all_enemies = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            every_possible_country = {
+                limit = {
+                    is_embargoed_by = ROOT
+                }
+                SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = yes
             }
         }
     }
@@ -4309,39 +4493,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 limit = {
                     is_embargoed_by = ROOT
                 }
-                every_enemy_country = {
-                    limit = {
-                        # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
-                        # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
-                        # Thus, we need to exclude those faction members or subject countries.
-                        # Otherwise, it will crash the game.
-                        # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
-                        NOT = {
-                            # Excludes subjects whose overlord is in war with us
-                            AND = {
-                                is_subject = yes
-                                overlord = {
-                                    has_war_with = PREV
-                                }
-                            }
-                            # Excludes faction memebers whose faction leader is in war with us
-                            AND = {
-                                is_in_faction = yes
-                                is_faction_leader = no
-                                faction_leader = {
-                                    has_war_with = PREV
-                                }
-                            }
-                        }
-                    }
-                    PREV = {
-                        # Current scope is the winner, target and its subjects are the losers
-                        start_peace_conference  = {
-                            tag = PREV
-                            score_factor = 1.0
-                        }
-                    }
-                }
+                SCP_EQ_Tools_generic_scripted_effects_start_peace_conference_with_all_enemy_countries = yes
             }
         }
     }

@@ -439,6 +439,171 @@ SCP_EQ_Tools_generic_scripted_effects_control_all_enemy_controlled_states = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_annex_all_enemy_countries = {
+    every_enemy_country = {
+        PREV = {
+            annex_country = {
+                target = PREV
+                transfer_troops = yes
+            }
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_annex_all_capitulated_enemy_countries = {
+    every_enemy_country = {
+        limit = {
+            has_capitulated = yes
+        }
+        PREV = {
+            annex_country = {
+                target = PREV
+                transfer_troops = yes
+            }
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_start_peace_conference_with_all_enemy_countries = {
+    every_enemy_country = {
+        limit = {
+            # When invoking start_peace_conference with a country, it will be executed on LIMITED_FACTION scope:
+            # If the target country is a faction leader, all of its faction memebers will be considered losers in a single peace conference.
+            # Thus, we need to exclude those faction members or subject countries.
+            # Otherwise, it will crash the game.
+            # See https://hoi4.paradoxwikis.com/Effect#start_peace_conference
+            NOT = {
+                # Excludes subjects whose overlord is in war with us
+                AND = {
+                    is_subject = yes
+                    overlord = {
+                        has_war_with = PREV
+                    }
+                }
+                # Excludes faction memebers whose faction leader is in war with us
+                AND = {
+                    is_in_faction = yes
+                    is_faction_leader = no
+                    faction_leader = {
+                        has_war_with = PREV
+                    }
+                }
+            }
+        }
+        PREV = {
+            # Current scope is the winner, target and its subjects are the losers
+            start_peace_conference  = {
+                tag = PREV
+                score_factor = 1.0
+            }
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries = {
+    every_enemy_country = {
+        white_peace = PREV
+    }
+}
+
+# Parameter 1: temp_param_invoker_tag
+# Parameter 2: temp_param_target_tag
+SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status = {
+    every_state = {
+        limit = {
+            OR = {
+                # Check if some of our owned states are controlled by the target's allies
+                controller = {
+                    set_temp_variable = { temp_param_country_to_check = temp_param_target_tag }
+                    SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
+                }
+                # Check if some of this country's owned states are controlled by our allies
+                controller = {
+                    set_temp_variable = { temp_param_country_to_check = temp_param_invoker_tag }
+                    SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
+                }
+            }
+        }
+        transfer_state_to = controller
+        set_state_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_state_marked
+        set_variable = { SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_state_new_owner = controller }
+        
+        # Check if controller is a subject
+        controller = {
+            if = {
+                limit = {
+                    OR = {
+                        is_puppet = yes
+                        is_subject = yes
+                    }
+                }
+                set_country_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_country_marked
+                set_variable = { SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_overlord = overlord }
+            }
+        }
+    }
+    
+    # Normal white peace
+    var:temp_param_target_tag = {
+        white_peace = var:temp_param_invoker_tag
+    }
+    
+    # Transfer state after white peace
+    every_state = {
+        limit = {
+            has_state_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_state_marked
+        }
+        transfer_state_to = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_state_new_owner
+        clr_state_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_state_marked
+        clear_variable = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_state_new_owner
+    }
+    
+    # Recover subject status
+    every_possible_country = {
+        limit = {
+            has_country_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_country_marked
+        }
+        if = {
+            limit = {
+                country_exists = THIS
+                country_exists = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_overlord
+            }
+            var:SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_overlord = {
+                puppet = PREV
+            }
+        }
+        clr_country_flag = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_is_this_country_marked
+        clear_variable = SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status_overlord
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_white_peace_with_all_enemy_countries_keep_current_status = {
+    set_temp_variable = { temp_param_invoker_tag = THIS }
+    every_enemy_country = {
+        set_temp_variable = { temp_param_target_tag = THIS }
+        SCP_EQ_Tools_generic_scripted_effects_white_peace_keep_current_status = yes
+    }
+}
+
+# Parameter 1: temp_param_invoker_tag
+# Parameter 2: temp_param_target_tag
+SCP_EQ_Tools_generic_scripted_effects_set_truce = {
+    var:temp_param_target_tag = {
+        set_truce = {
+            target = var:temp_param_invoker_tag
+            days = 365
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_set_truce_with_all_enemy_countries = {
+    set_temp_variable = { temp_param_invoker_tag = THIS }
+    every_enemy_country = {
+        set_temp_variable = { temp_param_target_tag = THIS }
+        SCP_EQ_Tools_generic_scripted_effects_set_truce = yes
+    }
+}
+
 # Parameter 1: temp_param_state_population_change_percentage
 # Parameter 2: temp_param_is_side_effect_handled
 SCP_EQ_Tools_generic_scripted_effects_change_state_population_by_percentage = {
