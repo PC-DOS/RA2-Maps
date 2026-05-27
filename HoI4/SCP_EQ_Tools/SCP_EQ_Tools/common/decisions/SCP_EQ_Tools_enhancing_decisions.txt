@@ -9482,6 +9482,10 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 econ_type_change = yes
                 set_temp_variable = { TNO_economy_subtype_temp = 0 }
                 econ_subtype_change = yes
+                set_temp_variable = { temp_credit_rating_max = 10 }
+                econ_set_max_credit_rating = yes
+                set_temp_variable = { temp_credit_rating_min = 10 }
+                econ_set_min_credit_rating = yes
                 
                 # Laws
                 tno_laws_clear = yes
