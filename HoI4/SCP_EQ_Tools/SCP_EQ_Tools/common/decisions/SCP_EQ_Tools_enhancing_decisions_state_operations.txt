@@ -995,7 +995,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 set_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_marked_states_status_snapshot_present
                 set_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner = owner }
                 set_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller = controller }
-                clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims }
+                clear_array = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims
                 every_possible_country = {
                     limit = {
                         PREV = {
@@ -1004,7 +1004,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     }
                     add_to_array = { PREV.SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims = THIS }
                 }
-                clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores }
+                clear_array = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores
                 every_possible_country = {
                     limit = {
                         PREV = {
@@ -1099,10 +1099,10 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_marked_states_status_snapshot_present
-                clear_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner }
-                clear_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller }
-                clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims }
-                clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores }
+                clear_variable = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner
+                clear_variable = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller
+                clear_array = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims
+                clear_array = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores
             }
         }
     }
