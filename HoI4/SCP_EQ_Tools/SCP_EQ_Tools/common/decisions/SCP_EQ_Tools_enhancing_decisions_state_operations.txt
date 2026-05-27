@@ -1041,8 +1041,16 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     limit = {
                         has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_marked_states_status_snapshot_present
                     }
-                    set_state_owner_to = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner
-                    set_state_controller_to = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller
+                    if = {
+                        limit = { 
+                            check_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller }
+                        }
+                        transfer_state_to = var:SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner
+                    }
+                    else = {
+                        set_state_owner_to = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner
+                        set_state_controller_to = SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller
+                    }
                     every_possible_country = {
                         if = {
                             limit = {
