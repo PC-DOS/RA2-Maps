@@ -1098,7 +1098,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 limit = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
-                clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                clr_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_marked_states_status_snapshot_present
                 clear_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_owner }
                 clear_variable = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_controller }
                 clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims }
