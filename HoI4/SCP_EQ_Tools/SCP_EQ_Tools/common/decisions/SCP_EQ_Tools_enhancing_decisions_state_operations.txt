@@ -1002,7 +1002,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                             is_claimed_by = PREV
                         }
                     }
-                    add_to_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims = THIS }
+                    add_to_array = { PREV.SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims = THIS }
                 }
                 clear_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores }
                 every_possible_country = {
@@ -1011,7 +1011,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                             is_core_of = PREV
                         }
                     }
-                    add_to_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores = THIS }
+                    add_to_array = { PREV.SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores = THIS }
                 }
             }
         }
@@ -1046,7 +1046,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     every_possible_country = {
                         if = {
                             limit = {
-                                is_in_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims = THIS }
+                                is_in_array = { PREV.SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_claims = THIS }
                             }
                             PREV = {
                                 add_claim_by = PREV
@@ -1061,7 +1061,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     every_possible_country = {
                         if = {
                             limit = {
-                                is_in_array = { SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores = THIS }
+                                is_in_array = { PREV.SCP_EQ_Tools_enhancing_decisions_state_operations_save_marked_states_status_snapshot_cores = THIS }
                             }
                             PREV = {
                                 add_core_of = PREV
