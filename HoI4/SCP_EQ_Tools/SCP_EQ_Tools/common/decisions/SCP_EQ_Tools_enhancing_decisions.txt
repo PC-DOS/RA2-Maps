@@ -48,7 +48,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
             # Use a non-existent effect to test if the mod is loaded successfully
             # Check %UserProfile%/Documents/Paradox Interactive/Hearts of Iron IV/logs/error.log
-            SCP_EQ_Tools_Debug_this_effect_does_not_exist = 1
+            #SCP_EQ_Tools_Debug_this_effect_does_not_exist = 1
         }
     }
     SCP_EQ_Tools_enhancing_decisions_recruit_PD = {
