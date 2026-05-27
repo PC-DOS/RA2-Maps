@@ -106,6 +106,26 @@ SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_finish_research_onekey = {
+    #log = "SCP_EQ_Tools_enhancing_decisions_finish_research_onekey"
+    for_each_loop = {
+        array = global.technology
+        value = temp_current_research
+        
+        #log = "UnlockingTech: [?temp_current_research.GetTokenKey]"
+        meta_effect = {
+            text = {
+                set_technology = {
+                    [TECH] = 1
+                    popup = no
+                }
+            }
+            TECH = "[?temp_current_research.GetTokenKey]"
+        }
+        mark_technology_tree_layout_dirty = yes
+    }
+}
+
 # Parameter 1: temp_param_controller_tag
 # Return value: temp_arr_controlled_province_id
 SCP_EQ_Tools_generic_scripted_effects_get_controlled_provinces = {
