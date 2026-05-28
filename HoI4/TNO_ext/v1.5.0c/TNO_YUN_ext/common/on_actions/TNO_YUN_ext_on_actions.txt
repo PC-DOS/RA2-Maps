@@ -60,6 +60,23 @@ on_actions = {
             }
             if = {
                 limit = {
+                    CZE = {
+                        OR = {
+                            is_puppet_of = YUN
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                            has_government = socialist
+                            has_government = communist
+                        }
+                    }
+                }
+                CZE = {
+                    set_cosmetic_tag = TNO_YUN_ext_CZE_YUN_puppet
+                }
+            }
+            if = {
+                limit = {
                     GER = {
                         OR = {
                             is_puppet_of = YUN
