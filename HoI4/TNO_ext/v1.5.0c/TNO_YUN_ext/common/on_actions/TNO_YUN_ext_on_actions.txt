@@ -112,6 +112,7 @@ on_actions = {
             # Save RFK
             USA = {
                 set_variable = { RFK_Assassination_Target = -250 }
+                set_variable = { total_congress_votes = 24500 }
             }
         }
     }
