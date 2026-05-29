@@ -112,7 +112,16 @@ on_actions = {
             # Save RFK
             USA = {
                 set_variable = { RFK_Assassination_Target = -250 }
-                set_variable = { total_congress_votes = 24500 }
+                if = {
+                    limit = {
+                        OR = {
+                            has_government = conservatism
+                            has_government = liberalism
+                            has_government = progressivism
+                        }
+                    }
+                    set_variable = { total_congress_votes = 24500 }
+                }
             }
         }
     }
