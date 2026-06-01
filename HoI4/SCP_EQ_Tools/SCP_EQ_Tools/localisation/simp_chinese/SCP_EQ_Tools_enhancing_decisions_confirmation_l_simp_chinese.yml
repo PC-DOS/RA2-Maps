@@ -1,0 +1,7 @@
+﻿l_simp_chinese:
+ # Confirmation of some decisions
+ # Confirmation - delete all owned arimes
+ SCP_EQ_Tools_enhancing_decisions_confirmation.1.t:0 "删除所有部队？"
+ SCP_EQ_Tools_enhancing_decisions_confirmation.1.d:0 "这将删除所有由我方控制的部队，是否继续？"
+ SCP_EQ_Tools_enhancing_decisions_confirmation.1.a:0 "是"
+ SCP_EQ_Tools_enhancing_decisions_confirmation.1.b:0 "否"

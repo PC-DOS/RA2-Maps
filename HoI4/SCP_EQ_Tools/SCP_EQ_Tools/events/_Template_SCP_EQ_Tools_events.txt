@@ -1,0 +1,129 @@
+# Ref. https://hoi4.paradoxwikis.com/Idea_modding
+# 
+# add_namespace = my_event
+# add_namespace = my_hidden_event
+# 
+# country_event = {
+#     id = my_event.1
+#     title = my_event.1.t
+#     desc = my_event.1.desc
+#     
+#     is_triggered_only = yes
+#     
+#     option = {
+#         name = my_event.1.a
+#         add_political_power = 100
+#     }
+# }
+# 
+# add_namespace = my_news_event
+# news_event = {
+#     id = my_news_event.1
+#     title = {
+#         text = my_news_event.1.t.a
+#         trigger = {
+#             tag = POL
+#         }
+#     }
+#     title = {
+#         text = my_event.1.t
+#     }
+#     desc = {
+#         text = my_news_event.1.desc.a
+#         trigger = {
+#             tag = POL
+#         }
+#     }
+#     desc = {
+#         text = my_event.1.desc
+#     }
+#     
+#     picture = GFX_my_news_event_picture
+#     
+#     is_triggered_only = yes
+#     major = yes
+#     
+#     option = {
+#         name = my_news_event.1.a
+#         trigger = {
+#             tag = POL
+#         }
+#     }
+#     
+#     option = {
+#         name = my_news_event.1.b
+#         trigger = {
+#             NOT = { tag = POL }
+#         }
+#     }
+#     
+#     option = {
+#         name = my_news_event.1.c
+#         original_recipient_only = yes
+#     }
+# }
+# 
+# country_event = {
+#     id = my_hidden_event.1
+#     
+#     trigger = {
+#         has_country_flag = event_happened
+#         country_exists = BHR
+#     }
+#     
+#     mean_time_to_happen = {
+#         days = 10
+#         months = 2
+#         years = 1
+#         modifier = {
+#             base = 300
+#             country_exists = QAT
+#         }
+#         modifier = {
+#             add = 10
+#             country_exists = OMA
+#         }
+#     }
+#     
+#     fire_only_once = yes
+#     hidden = yes
+#     
+#     immediate = {
+#         random_country = {
+#             limit = {
+#                 is_neighbor_of = BHR
+#             }
+#             annex_country = {
+#                 target = BHR
+#                 transfer_troops = yes
+#             }
+#         }
+#     }
+# }
+# 
+# state_event = {
+#     id = my_event.2
+#     title = my_event.2.t
+#     desc = my_event.2.desc
+#     picture = GFX_my_event_picture
+#     
+#     trigger = {
+#         ROOT = {
+#             has_country_flag = fire_this_event
+#         }
+#     }
+#     is_triggered_only = yes
+#     
+#     option = {
+#         name = my_event.2.a
+#         transfer_state_to = ROOT
+#     }
+#     
+#     option = {
+#         name = my_event.2.b
+#         ai_chance = {
+#             base = 0        # Never pick this option.
+#         }
+#         transfer_state_to = FROM
+#     }
+# }
