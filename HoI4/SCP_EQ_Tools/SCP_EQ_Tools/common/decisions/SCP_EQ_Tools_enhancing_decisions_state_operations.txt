@@ -4651,7 +4651,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     meta_effect = {
                         text = {
                             add_opinion_modifier = {
-                                target = TARGET_TAG
+                                target = [TARGET_TAG]
                                 modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_turbo_boost
                             }
                         }
@@ -4720,7 +4720,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     meta_effect = {
                         text = {
                             add_opinion_modifier = {
-                                target = TARGET_TAG
+                                target = [TARGET_TAG]
                                 modifier = SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_super_damp
                             }
                         }
@@ -4822,7 +4822,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     meta_effect = {
                         text = {
                             add_opinion_modifier = {
-                                target = TARGET_TAG
+                                target = [TARGET_TAG]
                                 modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_turbo_boost
                             }
                         }
@@ -4891,7 +4891,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     meta_effect = {
                         text = {
                             add_opinion_modifier = {
-                                target = TARGET_TAG
+                                target = [TARGET_TAG]
                                 modifier = SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_super_damp
                             }
                         }
