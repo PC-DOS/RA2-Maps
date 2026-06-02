@@ -9,7 +9,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Always visible
         }
         available = {
-            always = no
+            # Always available
         }
         icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
         fire_only_once = no
@@ -32,7 +32,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             # Always visible
         }
         available = {
-            always = no
+            # Always available
         }
         icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
         fire_only_once = no
