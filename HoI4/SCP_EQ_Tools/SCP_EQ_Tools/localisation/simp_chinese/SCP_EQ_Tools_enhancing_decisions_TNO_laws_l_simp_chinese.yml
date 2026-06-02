@@ -239,8 +239,6 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_add_subjects_to_sphere_desc:0 "有一位老人在中国的南海边画了一个圈"
  SCP_EQ_Tools_enhancing_decisions_TNO_add_allies_to_sphere:0 "所有盟友加入我国所在的经济圈"
  SCP_EQ_Tools_enhancing_decisions_TNO_add_allies_to_sphere_desc:0 "有一位老人在中国的南海边画了一个圈"
- SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_of_random_country_embargoed_by_us:0 "加入被我国禁运的国家所在的经济圈"
- SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_of_random_country_embargoed_by_us_desc:0 "我们直接跟他们结盟啊\n\n注意：请使用外交界面上的“发布贸易禁运”按钮进行禁运标记"
  SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere:0 "加入[FROM.GetFlag][FROM.GetName]经济圈"
  SCP_EQ_Tools_enhancing_decisions_TNO_join_sphere_desc:0 "我们直接跟他们结盟啊"
  
