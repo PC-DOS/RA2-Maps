@@ -15,7 +15,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
         on_map_mode = map_only
-        icon = GFX_SCP_EQ_Tools_generic_icons_add
+        icon = GFX_SCP_EQ_Tools_generic_icons_add_transparent
         fire_only_once = no
         days_re_enable = 0
         ai_will_do = {
@@ -40,7 +40,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
         on_map_mode = map_only
-        icon = GFX_SCP_EQ_Tools_generic_icons_minus
+        icon = GFX_SCP_EQ_Tools_generic_icons_minus_transparent
         fire_only_once = no
         days_re_enable = 0
         ai_will_do = {
