@@ -45,6 +45,21 @@ SCP_EQ_Tools_generic_scripted_effects_compare_array = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = {
+    if = {
+        limit = {
+            NOT = { has_variable = SCP_EQ_Tools_enhancing_decisions_global_target }
+        }
+        set_variable = { SCP_EQ_Tools_enhancing_decisions_global_target = THIS }
+    }
+    if = {
+        limit = {
+            NOT = { has_variable = SCP_EQ_Tools_enhancing_decisions_marked_ideology }
+        }
+        set_variable = { SCP_EQ_Tools_enhancing_decisions_marked_ideology = current_party_ideology_group }
+    }
+}
+
 # Parameter 1: temp_param_resource_change
 SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = {
     # Generic resources

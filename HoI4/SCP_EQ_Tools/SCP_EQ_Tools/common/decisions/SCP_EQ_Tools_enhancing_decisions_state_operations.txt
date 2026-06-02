@@ -3725,12 +3725,6 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            if = {
-                limit = {
-                    NOT = { has_variable = ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = 0 }
-                }
-                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = ROOT.current_party_ideology_group }
-            }
             every_state = {
                 limit = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
@@ -3760,12 +3754,6 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            if = {
-                limit = {
-                    NOT = { has_variable = ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = 0 }
-                }
-                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = ROOT.current_party_ideology_group }
-            }
             every_state = {
                 limit = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
@@ -3795,12 +3783,6 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            if = {
-                limit = {
-                    NOT = { has_variable = ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = 0 }
-                }
-                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology = ROOT.current_party_ideology_group }
-            }
             every_state = {
                 limit = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked

@@ -11,8 +11,7 @@ on_actions = {
             }
             # Initialize global decision target
             every_possible_country = {
-                set_variable = { SCP_EQ_Tools_enhancing_decisions_global_target = THIS }
-                set_variable = { SCP_EQ_Tools_enhancing_decisions_marked_ideology = THIS.current_party_ideology_group }
+                SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             }
             # Initialize dynamic modifier variables
             every_possible_country = {

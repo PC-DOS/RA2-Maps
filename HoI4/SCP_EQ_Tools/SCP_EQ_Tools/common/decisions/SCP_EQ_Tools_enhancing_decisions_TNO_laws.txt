@@ -18,6 +18,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -39,6 +40,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_health_care_improve = yes
                 TNO_improve_health_care_policy_effectiveness_high = yes
@@ -63,6 +65,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_health_care_worsen = yes
                 TNO_improve_health_care_policy_effectiveness_high = yes
@@ -87,6 +90,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_education_improve = yes
                 TNO_improve_education_policy_effectiveness_high = yes
@@ -111,6 +115,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_education_worsen = yes
                 TNO_improve_education_policy_effectiveness_high = yes
@@ -135,6 +140,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_penal_system_improve = yes
                 TNO_improve_penal_system_policy_effectiveness_high = yes
@@ -159,6 +165,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_penal_system_worsen = yes
                 TNO_improve_penal_system_policy_effectiveness_high = yes
@@ -183,6 +190,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_gender_rights_improve = yes
                 TNO_improve_gender_rights_policy_effectiveness_high = yes
@@ -207,6 +215,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_gender_rights_worsen = yes
                 TNO_improve_gender_rights_policy_effectiveness_high = yes
@@ -231,6 +240,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_security_improve = yes
                 TNO_improve_security_policy_effectiveness_high = yes
@@ -255,6 +265,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_security_worsen = yes
                 TNO_improve_security_policy_effectiveness_high = yes
@@ -281,6 +292,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -302,6 +314,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_trade_laws_improve = yes
                 TNO_improve_trade_laws_policy_effectiveness_high = yes
@@ -326,6 +339,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_trade_laws_worsen = yes
                 TNO_improve_trade_laws_policy_effectiveness_high = yes
@@ -350,6 +364,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_income_taxation_improve = yes
                 TNO_improve_income_taxation_policy_effectiveness_high = yes
@@ -374,6 +389,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_income_taxation_worsen = yes
                 TNO_improve_income_taxation_policy_effectiveness_high = yes
@@ -398,6 +414,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_minimum_wage_improve = yes
                 TNO_improve_minimum_wage_policy_effectiveness_high = yes
@@ -422,6 +439,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_minimum_wage_worsen = yes
                 TNO_improve_minimum_wage_policy_effectiveness_high = yes
@@ -446,6 +464,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_max_workhours_improve = yes
                 TNO_improve_max_workhours_policy_effectiveness_high = yes
@@ -470,6 +489,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_max_workhours_worsen = yes
                 TNO_improve_max_workhours_policy_effectiveness_high = yes
@@ -494,6 +514,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_pensions_improve = yes
                 TNO_improve_pensions_policy_effectiveness_high = yes
@@ -518,6 +539,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_pensions_worsen = yes
                 TNO_improve_pensions_policy_effectiveness_high = yes
@@ -542,6 +564,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_unemployment_improve = yes
                 TNO_improve_unemployment_policy_effectiveness_high = yes
@@ -566,6 +589,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_unemployment_worsen = yes
                 TNO_improve_unemployment_policy_effectiveness_high = yes
@@ -590,6 +614,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_regulations_improve = yes
                 TNO_improve_regulations_policy_effectiveness_high = yes
@@ -614,6 +639,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_regulations_worsen = yes
                 TNO_improve_regulations_policy_effectiveness_high = yes
@@ -640,6 +666,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -661,6 +688,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_conscription_improve = yes
                 TNO_improve_conscription_policy_effectiveness_high = yes
@@ -685,6 +713,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_conscription_worsen = yes
                 TNO_improve_conscription_policy_effectiveness_high = yes
@@ -709,6 +738,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_military_supervision_improve = yes
                 TNO_improve_military_supervision_policy_effectiveness_high = yes
@@ -733,6 +763,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_military_supervision_worsen = yes
                 TNO_improve_military_supervision_policy_effectiveness_high = yes
@@ -757,6 +788,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_training_improve = yes
                 TNO_improve_training_policy_effectiveness_high = yes
@@ -781,6 +813,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_training_worsen = yes
                 TNO_improve_training_policy_effectiveness_high = yes
@@ -805,6 +838,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_draft_exemptions_improve = yes
                 TNO_improve_draft_exemptions_policy_effectiveness_high = yes
@@ -829,6 +863,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_draft_exemptions_worsen = yes
                 TNO_improve_draft_exemptions_policy_effectiveness_high = yes
@@ -855,6 +890,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -876,6 +912,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_political_parties_improve = yes
                 TNO_improve_political_parties_policy_effectiveness_high = yes
@@ -900,6 +937,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_political_parties_worsen = yes
                 TNO_improve_political_parties_policy_effectiveness_high = yes
@@ -924,6 +962,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_religious_rights_improve = yes
                 TNO_improve_religious_rights_policy_effectiveness_high = yes
@@ -948,6 +987,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_religious_rights_worsen = yes
                 TNO_improve_religious_rights_policy_effectiveness_high = yes
@@ -972,6 +1012,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_trade_unions_improve = yes
                 TNO_improve_trade_unions_policy_effectiveness_high = yes
@@ -996,6 +1037,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_trade_unions_worsen = yes
                 TNO_improve_trade_unions_policy_effectiveness_high = yes
@@ -1020,6 +1062,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_immigration_improve = yes
                 TNO_improve_immigration_policy_effectiveness_high = yes
@@ -1044,6 +1087,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_immigration_worsen = yes
                 TNO_improve_immigration_policy_effectiveness_high = yes
@@ -1068,6 +1112,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_slavery_improve = yes
                 TNO_improve_slavery_policy_effectiveness_high = yes
@@ -1092,6 +1137,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_slavery_worsen = yes
                 TNO_improve_slavery_policy_effectiveness_high = yes
@@ -1116,6 +1162,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_public_meetings_improve = yes
                 TNO_improve_public_meetings_policy_effectiveness_high = yes
@@ -1140,6 +1187,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_public_meetings_worsen = yes
                 TNO_improve_public_meetings_policy_effectiveness_high = yes
@@ -1164,6 +1212,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_press_rights_improve = yes
                 TNO_improve_press_rights_policy_effectiveness_high = yes
@@ -1188,6 +1237,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_press_rights_worsen = yes
                 TNO_improve_press_rights_policy_effectiveness_high = yes
@@ -1212,6 +1262,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_vote_franchise_improve = yes
                 TNO_improve_vote_franchise_policy_effectiveness_high = yes
@@ -1236,6 +1287,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_vote_franchise_worsen = yes
                 TNO_improve_vote_franchise_policy_effectiveness_high = yes
@@ -1262,6 +1314,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -1283,6 +1336,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_pollution_improve = yes
                 #TNO_improve_pollution_policy_effectiveness_high = yes
@@ -1307,6 +1361,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_pollution_worsen = yes
                 #TNO_improve_pollution_policy_effectiveness_high = yes
@@ -1331,6 +1386,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_safety_improve = yes
                 #TNO_improve_safety_policy_effectiveness_high = yes
@@ -1355,6 +1411,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_safety_worsen = yes
                 #TNO_improve_safety_policy_effectiveness_high = yes
@@ -1379,6 +1436,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_child_labor_improve = yes
                 #TNO_improve_child_labor_policy_effectiveness_high = yes
@@ -1403,6 +1461,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_child_labor_worsen = yes
                 #TNO_improve_child_labor_policy_effectiveness_high = yes
@@ -1427,6 +1486,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_refugees_improve = yes
                 #TNO_improve_refugees_policy_effectiveness_high = yes
@@ -1451,6 +1511,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_refugees_worsen = yes
                 #TNO_improve_refugees_policy_effectiveness_high = yes
@@ -1475,6 +1536,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_racial_integration_improve = yes
                 #TNO_improve_racial_integration_policy_effectiveness_high = yes
@@ -1499,6 +1561,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_racial_integration_worsen = yes
                 #TNO_improve_racial_integration_policy_effectiveness_high = yes
@@ -1523,6 +1586,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_women_improve = yes
                 #TNO_improve_women_policy_effectiveness_high = yes
@@ -1547,6 +1611,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_women_worsen = yes
                 #TNO_improve_women_policy_effectiveness_high = yes
@@ -1571,6 +1636,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_minorities_improve = yes
                 #TNO_improve_minorities_policy_effectiveness_high = yes
@@ -1595,6 +1661,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_minorities_worsen = yes
                 #TNO_improve_minorities_policy_effectiveness_high = yes
@@ -1619,6 +1686,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_lgbt_rights_improve = yes
                 #TNO_improve_lgbt_rights_policy_effectiveness_high = yes
@@ -1643,6 +1711,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_lgbt_rights_worsen = yes
                 #TNO_improve_lgbt_rights_policy_effectiveness_high = yes
@@ -1669,6 +1738,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -1690,6 +1760,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { econ_centralization_temp = 5 }
                 econ_centralization_change = yes
@@ -1713,6 +1784,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { econ_centralization_temp = -5 }
                 econ_centralization_change = yes
@@ -1738,6 +1810,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 econ_type_change = yes
@@ -1763,6 +1836,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1788,6 +1862,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1813,6 +1888,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1838,6 +1914,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1863,6 +1940,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1888,6 +1966,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
                 #econ_type_change = yes
@@ -1915,6 +1994,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 econ_type_change = yes
@@ -1940,6 +2020,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -1965,6 +2046,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -1990,6 +2072,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2015,6 +2098,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2040,6 +2124,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2065,6 +2150,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2090,6 +2176,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2115,6 +2202,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2140,6 +2228,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2165,6 +2254,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
                 #econ_type_change = yes
@@ -2192,6 +2282,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 econ_type_change = yes
@@ -2217,6 +2308,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2242,6 +2334,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2267,6 +2360,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2292,6 +2386,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2317,6 +2412,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2342,6 +2438,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 #set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
                 #econ_type_change = yes
@@ -2369,6 +2466,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target:TNO_economy_type }
                 every_country = {
@@ -2400,6 +2498,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target:TNO_economy_type }
                 every_country = {
@@ -2429,6 +2528,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target:TNO_economy_type }
                 every_country = {
@@ -2470,6 +2570,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { TNO_economy_type_temp = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target:TNO_economy_type }
                 every_country = {
@@ -2509,6 +2610,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
             }
         }
@@ -2530,6 +2632,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 econ_leave_sphere = yes
             }
@@ -2552,6 +2655,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_country = {
                     limit = {
@@ -2582,6 +2686,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_country = {
                     limit = {
@@ -2610,6 +2715,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 remove_faction_status = yes
             }
@@ -2632,6 +2738,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_country = {
                     limit = {
@@ -2662,6 +2769,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_country = {
                     limit = {
@@ -2690,6 +2798,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_possible_country = {
                     clear_embargo_PREV = yes
@@ -2714,6 +2823,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_possible_country = {
                     ROOT = {
@@ -2740,6 +2850,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 econ_leave_sphere = yes
                 set_temp_variable = { target = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target }
@@ -2764,6 +2875,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 if = {
                     limit = {
@@ -2804,6 +2916,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 if = {
                     limit = {
@@ -2853,6 +2966,7 @@ SCP_EQ_Tools_enhancing_decisions_TNO_laws_category = {
             factor = 0
         }
         complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 FROM = {
                     set_temp_variable = { target = THIS }

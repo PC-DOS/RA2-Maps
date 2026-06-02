@@ -5,7 +5,7 @@
  SCP_EQ_Tools_enhancing_decisions_marked_ideology_info_shared:0 "[?ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology.GetTokenLocalizedKey]（[?ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology.GetTokenKey]）"
  SCP_EQ_Tools_enhancing_decisions_category_desc:0 "SCP基金会小马国分部的工具箱，\nDr. Picsell Dois出品，\n希望能让您的钢铁雄心4之旅轻松一些。\n\n当前决议作用域（“我国”的定义）：$SCP_EQ_Tools_enhancing_decisions_global_target_info_shared$\n\n当前被标记的意识形态：$SCP_EQ_Tools_enhancing_decisions_marked_ideology_info_shared$"
  # Generic decisions group
- SCP_EQ_Tools_enhancing_decisions_separator_targets_marks_management:0 "标记管理"
+ SCP_EQ_Tools_enhancing_decisions_separator_targets_marks_management:0 "作用域与标记管理"
  SCP_EQ_Tools_enhancing_decisions_separator_targets_marks_management_desc:0 "这些决议用于选择本决议组的作用对象"
  SCP_EQ_Tools_enhancing_decisions_global_target_open_country_list_window:0 "选择决议作用目标"
  SCP_EQ_Tools_enhancing_decisions_global_target_open_country_list_window_desc:0 "我们给他打个暗语啊"
@@ -13,7 +13,7 @@
  SCP_EQ_Tools_enhancing_decisions_global_target_clear_desc:0 "他也没看到，那我们就不管了啊"
  SCP_EQ_Tools_enhancing_decisions_marked_ideology_open_ideology_list_window:0 "打开意识形态选择工具"
  SCP_EQ_Tools_enhancing_decisions_marked_ideology_open_ideology_list_window_desc:0 "我们给他打个暗语啊"
- SCP_EQ_Tools_enhancing_decisions_marked_ideology_clear:0 "清除意识形态标记（视为标记当前游玩的国家）"
+ SCP_EQ_Tools_enhancing_decisions_marked_ideology_clear:0 "初始化意识形态标记（视为标记当前游玩的国家）"
  SCP_EQ_Tools_enhancing_decisions_marked_ideology_clear_desc:0 "他也没看到，那我们就不管了啊"
  SCP_EQ_Tools_enhancing_decisions_separator_buffs:0 "增强与修正"
  SCP_EQ_Tools_enhancing_decisions_separator_buffs_desc:0 "这些决议为您提供常驻增强与修正"
