@@ -1284,7 +1284,7 @@ SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
             limit = { check_variable = { temp_param_army_owner_types_to_be_teleported = 3 } }
             teleport_armies = {
                 limit = {
-                    tag = ROOT
+                    tag = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target
                 }
                 to_state_array = temp_param_arr_teleporting_target_states
             }
@@ -1294,7 +1294,7 @@ SCP_EQ_Tools_generic_scripted_effects_teleport_armies = {
             teleport_armies = {
                 limit = {
                     OR = {
-                        set_temp_variable = { temp_param_country_to_check = ROOT }
+                        set_temp_variable = { temp_param_country_to_check = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target }
                         SCP_EQ_Tools_generic_scripted_triggers_is_ally_or_self = yes
                     }
                 }

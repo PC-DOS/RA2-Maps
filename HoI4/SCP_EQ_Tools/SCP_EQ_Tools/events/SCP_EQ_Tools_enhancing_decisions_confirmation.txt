@@ -13,7 +13,9 @@ country_event = {
     option = {
         name = SCP_EQ_Tools_enhancing_decisions_confirmation.1.a
         
-        SCP_EQ_Tools_generic_scripted_effects_delete_all_units = yes
+        var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+            SCP_EQ_Tools_generic_scripted_effects_delete_all_units = yes
+        }
     }
     option = {
         name = SCP_EQ_Tools_enhancing_decisions_confirmation.1.b

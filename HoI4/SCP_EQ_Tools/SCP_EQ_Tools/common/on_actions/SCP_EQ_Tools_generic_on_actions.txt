@@ -9,6 +9,10 @@ on_actions = {
                 # Prevent AI from leaving factions from diplomacy UI by default
                 set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
             }
+            # Initialize global decision target
+            every_possible_country = {
+                set_variable = { SCP_EQ_Tools_enhancing_decisions_global_target = THIS }
+            }
             # Initialize dynamic modifier variables
             every_possible_country = {
                 # Generic dynamic modifiers group
