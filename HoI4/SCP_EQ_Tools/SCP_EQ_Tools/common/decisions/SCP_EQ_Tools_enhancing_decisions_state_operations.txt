@@ -470,7 +470,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            set_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+            set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_open_country_list_window_is_selecting
             add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
         }
     }
@@ -536,7 +536,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             factor = 0
         }
         complete_effect = {
-            set_country_flag = SCP_EQ_Tools_ideology_list_window_is_window_visible
+            set_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_open_ideology_list_window_is_selecting
             add_to_variable = { SCP_EQ_Tools_ideology_list_window_replotting_trigger = 1 }
         }
     }

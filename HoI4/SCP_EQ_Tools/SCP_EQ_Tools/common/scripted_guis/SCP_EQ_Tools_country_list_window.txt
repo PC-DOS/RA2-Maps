@@ -9,7 +9,10 @@ scripted_gui = {
         dirty = SCP_EQ_Tools_country_list_window_replotting_trigger
         
         visible = {
-            has_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+            OR = {
+                has_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_open_country_list_window_is_selecting
+            }
         }
         
         dynamic_lists = {
@@ -34,12 +37,19 @@ scripted_gui = {
             btnClose_click = {
                 # Close window
                 clr_country_flag = SCP_EQ_Tools_country_list_window_is_window_visible
+                clr_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_open_country_list_window_is_selecting
                 add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
             }
             
             # Country selection
             btnCountryFlag_click = {
-                set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = this_country }
+                set_variable = { ROOT.SCP_EQ_Tools_country_list_window_selected_country = this_country }
+                if = {
+                    limit = {
+                        has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_open_country_list_window_is_selecting
+                    }
+                    set_variable = { ROOT.SCP_EQ_Tools_enhancing_decisions_state_operations_marked_country = this_country }
+                }
                 add_to_variable = { SCP_EQ_Tools_country_list_window_replotting_trigger = 1 }
             }
             btnCountryFlag_right_click = {
