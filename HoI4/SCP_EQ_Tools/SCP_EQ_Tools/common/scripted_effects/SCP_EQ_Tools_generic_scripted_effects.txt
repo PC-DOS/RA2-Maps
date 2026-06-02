@@ -60,6 +60,12 @@ SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = 
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = {
+    ROOT = {
+        SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence = yes
+    }
+}
+
 # Parameter 1: temp_param_resource_change
 SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = {
     # Generic resources
