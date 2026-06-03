@@ -6778,6 +6778,30 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_TNO_poverty_decrease = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_TNO_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                set_variable = { poverty_monthly_change = 25 }
+                poverty_monthly_calculation = yes
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_TNO_admin_efficiency_up = {
         allowed = {
             # Always allowed
@@ -6798,6 +6822,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_admin_efficiency = yes
+                TNO_improve_admin_efficiency_high = yes
             }
         }
     }
@@ -6821,6 +6846,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_academic_base = yes
+                TNO_improve_academic_base_high = yes
             }
         }
     }
@@ -6844,6 +6870,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_research_facilities = yes
+                TNO_improve_research_facilities_high = yes
             }
         }
     }
@@ -6867,6 +6894,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_healthcare = yes
+                TNO_improve_healthcare_high = yes
             }
         }
     }
@@ -6890,6 +6918,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_industrial_expertise = yes
+                TNO_improve_industrial_expertise_high = yes
             }
         }
     }
@@ -6913,6 +6942,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_industrial_equipment = yes
+                TNO_improve_industrial_equipment_high = yes
             }
         }
     }
@@ -6936,6 +6966,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_agriculture = yes
+                TNO_improve_agriculture_high = yes
             }
         }
     }
@@ -6959,6 +6990,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 tno_improve_army_professionalism = yes
+                TNO_improve_army_professionalism_high = yes
             }
         }
     }
