@@ -546,6 +546,8 @@ on_actions = {
                         JAP_covid_idea_4
                         JAP_covid_idea_5
                     }
+                    set_country_flag = JAP_dealt_with_coronavirus
+                    activate_mission = JAP_waning_coronavirus_mission
                 }
             }
         }
