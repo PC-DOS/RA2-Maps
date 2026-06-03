@@ -6954,7 +6954,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 
                 # Gotta make poverty decreases slow
                 add_to_temp_variable = { temp_poverty_monthly_change_back = 5 }
-                set_variable = { poverty_monthly_change = poverty_monthly_change }
+                set_variable = { poverty_monthly_change = temp_poverty_monthly_change_back }
             }
         }
     }
