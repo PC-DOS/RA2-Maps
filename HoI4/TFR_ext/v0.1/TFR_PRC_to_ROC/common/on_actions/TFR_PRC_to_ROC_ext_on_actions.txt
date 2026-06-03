@@ -539,6 +539,13 @@ on_actions = {
                         ideology = nationalist
                         desc = "gfx/Leaders/JAP/JAP_CHI_occupied_gov_seal.png"
                     }
+                    remove_ideas = {
+                        JAP_covid_idea_1
+                        JAP_covid_idea_2
+                        JAP_covid_idea_3
+                        JAP_covid_idea_4
+                        JAP_covid_idea_5
+                    }
                 }
             }
         }
