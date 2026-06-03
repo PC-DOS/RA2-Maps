@@ -6947,8 +6947,14 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                # One-time quick poverty change
+                set_temp_variable = { temp_poverty_monthly_change_back = poverty_monthly_change }
                 set_variable = { poverty_monthly_change = 25 }
                 poverty_monthly_calculation = yes
+                
+                # Gotta make poverty decreases slow
+                add_to_temp_variable = { temp_poverty_monthly_change_back = 5 }
+                set_variable = { poverty_monthly_change = poverty_monthly_change }
             }
         }
     }
