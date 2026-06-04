@@ -25,6 +25,14 @@ spriteTypes = {
         texturefile = gfx/generic_icons/Generic_Minus_Transp.png
     }
     spriteType = {
+        name = GFX_SCP_EQ_Tools_generic_icons_left
+        texturefile = gfx/generic_icons/Generic_Left.png
+    }
+    spriteType = {
+        name = GFX_SCP_EQ_Tools_generic_icons_right
+        texturefile = gfx/generic_icons/Generic_Right.png
+    }
+    spriteType = {
         name = GFX_SCP_EQ_Tools_generic_placeholder_68x68
         texturefile = gfx/generic_icons/Generic_Placeholder_68x68.png
     }

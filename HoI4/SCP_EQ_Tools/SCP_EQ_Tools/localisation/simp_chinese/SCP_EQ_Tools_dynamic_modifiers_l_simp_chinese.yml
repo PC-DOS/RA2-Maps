@@ -30,6 +30,10 @@
  SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_state_supplies_desc:0 "心也宽，体也胖，路也走不动，山也不能够爬"
  SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_state_factories:0 "SCP之力-1-地区工厂"
  SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_state_factories_desc:0 "大庆红旗映彩霞，英雄扬鞭催战马"
+ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_right:0 "SCP之力-1-权力平衡-右移"
+ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_right_desc:0 "再过二十年我们重相会，伟大的祖国，该有多么美"
+ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_left:0 "SCP之力-1-权力平衡-左移"
+ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_left_desc:0 "全国人民齐奋起，反击右倾翻案风"
  # EAW dynamic modifiers group
  SCP_EQ_Tools_dynamic_modifiers_EAW_SCP_force_1:0 "SCP之力（EAW）-1"
  SCP_EQ_Tools_dynamic_modifiers_EAW_SCP_force_1_desc:0 "一些有趣的小工具"

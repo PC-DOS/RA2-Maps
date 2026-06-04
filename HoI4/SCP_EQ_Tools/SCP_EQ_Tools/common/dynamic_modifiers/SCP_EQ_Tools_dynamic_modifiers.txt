@@ -355,6 +355,18 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_state_factories = {
     remove_trigger = { always = no }
     local_factories = 245.0
 }
+SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_right = {
+    icon = GFX_SCP_EQ_Tools_generic_icons_right
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    power_balance_daily = 5.0
+}
+SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_left = {
+    icon = GFX_SCP_EQ_Tools_generic_icons_left
+    enable = { always = yes }
+    remove_trigger = { always = no }
+    power_balance_daily = -5.0
+}
 
 # EAW dynamic modifiers group
 SCP_EQ_Tools_dynamic_modifiers_EAW_SCP_force_1 = {

@@ -598,6 +598,69 @@ SCP_EQ_Tools_generic_scripted_effects_toggle_SCP_item_1_state_factories_for_all_
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_bop_move_right = {
+    if = {
+        limit = { NOT = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_right_enabled } }
+        add_dynamic_modifier = {
+            modifier = SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_right
+        }
+        set_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_right_enabled
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_bop_move_right = {
+    if = {
+        limit = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_right_enabled }
+        remove_dynamic_modifier = {
+            modifier = SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_right
+        }
+        clr_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_right_enabled
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_toggle_SCP_item_1_bop_move_right = {
+    if = {
+        limit = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_right_enabled }
+        SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_bop_move_right = yes
+    }
+    else = {
+        SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_bop_move_right = yes
+    }
+}
+
+
+SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_bop_move_left = {
+    if = {
+        limit = { NOT = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_left_enabled } }
+        add_dynamic_modifier = {
+            modifier = SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_left
+        }
+        set_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_left_enabled
+        force_update_dynamic_modifier = yes
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_bop_move_left = {
+    if = {
+        limit = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_left_enabled }
+        remove_dynamic_modifier = {
+            modifier = SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_bop_move_left
+        }
+        clr_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_left_enabled
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_toggle_SCP_item_1_bop_move_left = {
+    if = {
+        limit = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_bop_move_left_enabled }
+        SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_bop_move_left = yes
+    }
+    else = {
+        SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_bop_move_left = yes
+    }
+}
+
 # EAW dynamic modifiers group
 
 SCP_EQ_Tools_generic_scripted_effects_EAW_enable_SCP_item_1 = {
