@@ -55,7 +55,7 @@ on_actions = {
                     set_province_name = { id = 3977 name = "Shuangchengzi" } #State 408
                     set_province_name = { id = 6961 name = "Qijiawai" } #State 408
                     set_province_name = { id = 12189 name = "Boli" } #State 409
-                    set_province_name = { id = 9604 name = "" } #State 409
+                    set_province_name = { id = 9604 name = "TFR_PRC_to_ROC_ext_location_empty_name" } #State 409
                     set_province_name = { id = 7763 name = "Hailanpao" } #State 1328
                     set_province_name = { id = 12446 name = "Kuyedao" } #State 537
                     set_province_name = { id = 12263 name = "Zhumin" } #State 560
@@ -594,7 +594,7 @@ on_actions = {
                     }
                     409 = { set_state_name = "Boli" }
                     set_province_name = { id = 12189 name = "Boli" }
-                    set_province_name = { id = 9604 name = "" }
+                    set_province_name = { id = 9604 name = "TFR_PRC_to_ROC_ext_location_empty_name" }
                 }
                 if = {
                     limit = {
