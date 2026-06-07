@@ -49,10 +49,19 @@ on_actions = {
                     409 = { set_state_name = "Boli" }
                     537 = { set_state_name = "Kuyedao" }
                     560 = { set_state_name = "Miaojie" }
-                    set_province_name = { id = 957 name = "Haishenwai" }
-                    set_province_name = { id = 12189 name = "Boli" }
-                    set_province_name = { id = 7763 name = "Hailanpao" }
-                
+                    657 = { set_state_name = "Qimuniwoji" }
+                    1328 = { set_state_name = "Hailanpao" }
+                    set_province_name = { id = 957 name = "Haishenwai" } #State 408
+                    set_province_name = { id = 3977 name = "Shuangchengzi" } #State 408
+                    set_province_name = { id = 6961 name = "Qijiawai" } #State 408
+                    set_province_name = { id = 12189 name = "Boli" } #State 409
+                    set_province_name = { id = 9604 name = "" } #State 409
+                    set_province_name = { id = 7763 name = "Hailanpao" } #State 1328
+                    set_province_name = { id = 12446 name = "Kuyedao" } #State 537
+                    set_province_name = { id = 12263 name = "Zhumin" } #State 560
+                    set_province_name = { id = 12559 name = "Miaojie" } #State 560
+                    set_province_name = { id = 12678 name = "Qimuniwoji"} #State 657
+                    
                     # Outer Northwest China
                     329 = { set_state_name = "TangnuWulianghai" }
                     
@@ -548,6 +557,181 @@ on_actions = {
                     }
                     set_country_flag = JAP_dealt_with_coronavirus
                     activate_mission = JAP_waning_coronavirus_mission
+                }
+            }
+            
+            if = {
+                limit = {
+                    OR = {
+                        tag = CHI
+                        tag = PRC
+                    }
+                }
+                
+                # Outer Northeast China
+                if = {
+                    limit = {
+                        408 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    408 = { set_state_name = "Haishenwai" }
+                    set_province_name = { id = 957 name = "Haishenwai" }
+                    set_province_name = { id = 3977 name = "Shuangchengzi" }
+                    set_province_name = { id = 6961 name = "Qijiawai" }
+                }
+                if = {
+                    limit = {
+                        409 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    409 = { set_state_name = "Boli" }
+                    set_province_name = { id = 12189 name = "Boli" }
+                    set_province_name = { id = 9604 name = "" }
+                }
+                if = {
+                    limit = {
+                        537 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    537 = { set_state_name = "Kuyedao" }
+                    set_province_name = { id = 12446 name = "Kuyedao" }
+                }
+                if = {
+                    limit = {
+                        560 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    560 = { set_state_name = "Miaojie" }
+                    set_province_name = { id = 12559 name = "Miaojie" }
+                    set_province_name = { id = 12263 name = "Zhumin" }
+                }
+                if = {
+                    limit = {
+                        657 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    657 = { set_state_name = "Qimuniwoji" }
+                    set_province_name = { id = 12678 name = "Qimuniwoji"}
+                }
+                if = {
+                    limit = {
+                        1328 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    1328 = { set_state_name = "Hailanpao" }
+                    set_province_name = { id = 7763 name = "Hailanpao" }
+                }
+            
+                # Outer Northwest China
+                if = {
+                    limit = {
+                        329 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    329 = { set_state_name = "TangnuWulianghai" }
+                }
+                
+                # Liu Qiu
+                if = {
+                    limit = {
+                        526 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    526 = { set_state_name = "Liuqiu" }
+                }
+                
+                # Diao Yu Dao
+                if = {
+                    limit = {
+                        876 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    876 = { set_state_name = "Diaoyudao" }
+                    set_province_name = { id = 13215 name = "Diaoyudao" }
+                }
+                
+                # Nan Sha
+                if = {
+                    limit = {
+                        1382 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    1382 = { set_state_name = "NanshaIslands" }
+                }
+                if = {
+                    limit = {
+                        1383 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    1383 = { set_state_name = "NanshaIslands" }
+                }
+                if = {
+                    limit = {
+                        1384 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    1384 = { set_state_name = "NanshaIslands" }
+                }
+                
+                # Zang Nan
+                if = {
+                    limit = {
+                        434 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    434 = { set_state_name = "NanshaIslands" }
                 }
             }
         }
