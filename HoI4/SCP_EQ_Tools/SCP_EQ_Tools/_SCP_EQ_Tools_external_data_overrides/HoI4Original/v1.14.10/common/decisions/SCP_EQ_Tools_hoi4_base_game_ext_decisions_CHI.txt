@@ -141,9 +141,11 @@ SCP_EQ_Tools_hoi4_base_game_ext_decisions_CHI_category = {
                 transfer_state = 970
                 408 = { set_state_name = "Haishenwai" }
                 409 = { set_state_name = "Boli" }
+                657 = { set_state_name = "Hailanpao" }
                 655 = { set_state_name = "KuyedaoN" }
                 537 = { set_state_name = "KuyedaoS" }
                 560 = { set_state_name = "Miaojie" }
+                970 = { set_state_name = "Yakesa" }
                 set_province_name = { id = 957 name = "Haishenwai" }
                 set_province_name = { id = 12189 name = "Boli" }
                 
