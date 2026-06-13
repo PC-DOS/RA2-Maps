@@ -12,6 +12,7 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1 = {
     war_stability_factor = 5.0
     war_support_factor = 245.0
     war_support_weekly = 245.0
+    factory_energy_consumption = -245.0
     base_fuel_gain = 24525
     #base_fuel_gain_factor = 0.25
     #fuel_cost = -245
@@ -71,6 +72,7 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1 = {
     country_resource_tungsten = 24525
     country_resource_steel = 24525
     country_resource_chromium = 24525
+    country_resource_coal = 24525
 }
 SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_training = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic

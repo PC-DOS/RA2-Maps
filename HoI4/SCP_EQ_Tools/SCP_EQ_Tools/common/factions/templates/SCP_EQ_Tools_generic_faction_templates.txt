@@ -1,0 +1,6 @@
+﻿SCP_EQ_Tools_generic_faction_templates_default = {
+    name = SCP_EQ_Tools_generic_factions_default
+
+    #icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic
+    icon = GFX_SCP_EQ_Tools_generic_icons_SCP_EQ_1_Generic
+}

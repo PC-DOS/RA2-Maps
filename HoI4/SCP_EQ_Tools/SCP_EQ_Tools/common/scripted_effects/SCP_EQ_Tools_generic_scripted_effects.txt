@@ -93,6 +93,10 @@ SCP_EQ_Tools_generic_scripted_effects_add_all_resource_types_in_state = {
         type = chromium
         amount = var:temp_param_resource_change
     }
+    add_resource = {
+        type = coal
+        amount = var:temp_param_resource_change
+    }
     # EaW resources
     if = {
         limit = {
