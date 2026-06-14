@@ -13,6 +13,7 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1 = {
     war_support_factor = 245.0
     war_support_weekly = 245.0
     factory_energy_consumption = -245.0
+    out_of_power_impact_factor = -245.0
     base_fuel_gain = 24525
     #base_fuel_gain_factor = 0.25
     #fuel_cost = -245
@@ -162,6 +163,8 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_army = {
     experience_gain_army_unit = 245
     experience_gain_army_unit_factor = 25.0
     experience_loss_factor = -1.0
+    # New in HoI4 1.17 (NCNS)
+    max_organisation = 245.0
 }
 SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_naval = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic
@@ -221,6 +224,10 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_naval = {
     # See https://tieba.baidu.com/p/9294925158
     # Also common/units/equipment/ship_hull_xxxxx.txt
     #navy_weather_penalty = -1.0
+    # New in HoI4 1.17 (NCNS)
+    naval_invasion_division_cap = 245.0
+    naval_invasion_plan_cap = 245.0
+    naval_invasion_prep_days = -5.0
 }
 SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_air = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic
@@ -250,6 +257,9 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_air = {
     air_manpower_requirement_factor = -0.5
     air_accidents_factor = -5.0
     enemy_army_bonus_air_superiority_factor = -1.0
+    # New in HoI4 1.17 (NCNS)
+    air_invasion_plan_cap = 245.0
+    air_invasion_prep_days = -5.0
 }
 SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_intelligence = {
     icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic
