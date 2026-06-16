@@ -56,6 +56,131 @@ on_actions = {
     
     on_monthly = {
         effect = {
+            if = {
+                limit = {
+                    OR = {
+                        tag = CHI
+                        tag = PRC
+                    }
+                }
+                if = {
+                    limit = {
+                        408 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    408 = { set_state_name = "Haishenwai" }
+                    set_province_name = { id = 957 name = "Haishenwai" }
+                }
+                if = {
+                    limit = {
+                        409 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    409 = { set_state_name = "Boli" }
+                    set_province_name = { id = 12189 name = "Boli" }
+                }
+                if = {
+                    limit = {
+                        657 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    657 = { set_state_name = "Hailanpao" }
+                }
+                if = {
+                    limit = {
+                        655 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    655 = { set_state_name = "KuyedaoN" }
+                }
+                if = {
+                    limit = {
+                        537 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    537 = { set_state_name = "KuyedaoS" }
+                }
+                if = {
+                    limit = {
+                        560 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    560 = { set_state_name = "Miaojie" }
+                }
+                if = {
+                    limit = {
+                        970 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    970 = { set_state_name = "Yakesa" }
+                }
+                if = {
+                    limit = {
+                        329 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    329 = { set_state_name = "TangnuWulianghai" }
+                }
+                if = {
+                    limit = {
+                        434 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    434 = { set_state_name = "ZangnanRegion" }
+                }
+                if = {
+                    limit = {
+                        526 = {
+                            OR = {
+                                is_controlled_by = CHI
+                                is_controlled_by = PRC
+                            }
+                        }
+                    }
+                    526 = { set_state_name = "Liuqiu" }
+                }
+            }
+        }
+    }
+    
+    on_monthly_SOV = {
+        effect = {
             SOV = {
                 if = {
                     limit = {
