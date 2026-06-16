@@ -1914,6 +1914,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         has_dlc = "No Compromise, No Surrender"
                     }
                     create_faction_from_template = SCP_EQ_Tools_generic_faction_templates_default
+                }
                 else = {
                     create_faction = SCP_EQ_Tools_generic_factions_default
                 }
