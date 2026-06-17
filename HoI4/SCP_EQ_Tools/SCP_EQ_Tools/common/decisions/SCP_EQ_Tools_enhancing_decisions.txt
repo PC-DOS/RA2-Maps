@@ -8267,7 +8267,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     econ_set_min_credit_rating = yes
                     
                     # Laws
-                    SCP_EQ_Tools_generic_scripted_effects_TNO_load_law_template_heaven = yes
+                    SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_heaven = yes
                     
                     # Ideas
                     remove_ideas = YUN_hidden_potential_0

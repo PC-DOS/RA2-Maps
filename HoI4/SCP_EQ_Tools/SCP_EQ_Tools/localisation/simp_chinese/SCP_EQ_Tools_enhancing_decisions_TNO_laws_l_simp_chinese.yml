@@ -7,6 +7,8 @@
  SCP_EQ_Tools_enhancing_decisions_TNO_separator_law_templates_desc:0 "法案模板"
  SCP_EQ_Tools_enhancing_decisions_TNO_load_law_template_heaven:0 "套用「人间天堂」模板"
  SCP_EQ_Tools_enhancing_decisions_TNO_load_law_template_heaven_desc:0 "以国民福祉为重的模板，建议搭配修正Buff使用，或对退休金、失业救济等法律进行微调，避免经济失控"
+ SCP_EQ_Tools_enhancing_decisions_TNO_load_law_template_normal:0 "套用「中等福利」模板"
+ SCP_EQ_Tools_enhancing_decisions_TNO_load_law_template_normal_desc:0 "平衡了福利和开支的模板，建议搭配修正Buff使用，或对退休金、失业救济等法律进行微调，避免经济失控"
  # Social Laws
  SCP_EQ_Tools_enhancing_decisions_TNO_separator_social_laws:0 "社会法案修改"
  SCP_EQ_Tools_enhancing_decisions_TNO_separator_social_laws_desc:0 "社会法案修改"
