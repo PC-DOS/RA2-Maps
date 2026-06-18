@@ -17,3 +17,7 @@
 	
 	NDefines.NFrontend.CAMERA_LOOKAT_SETTINGS_X = 2058.0
 	NDefines.NFrontend.CAMERA_MIN_HEIGHT = 30.0
+    
+    -- P.D.: Avoid loading another game's save
+    NDefines.NGame.SAVE_VERSION = 245
+    -- EndOf: P.D.: Avoid loading another game's save
