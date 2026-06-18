@@ -19,5 +19,5 @@
 	NDefines.NFrontend.CAMERA_MIN_HEIGHT = 30.0
     
     -- P.D.: Avoid loading another game's save
-    NDefines.NGame.SAVE_VERSION = 245
+    NDefines.NGame.SAVE_VERSION = 5
     -- EndOf: P.D.: Avoid loading another game's save
