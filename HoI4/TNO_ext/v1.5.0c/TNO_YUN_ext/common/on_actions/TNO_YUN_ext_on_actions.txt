@@ -136,7 +136,7 @@ on_actions = {
                 remove_ideas = YUN_hidden_potential_4
                 remove_ideas = YUN_hidden_potential_5
                 remove_ideas = YUN_army_of_the_southwest
-                remove_ideas = TNO_Oil_Crisis_dynamic_modifier
+                TNO_Oil_Crisis_remove_modifier = yes
             }
         }
     }
