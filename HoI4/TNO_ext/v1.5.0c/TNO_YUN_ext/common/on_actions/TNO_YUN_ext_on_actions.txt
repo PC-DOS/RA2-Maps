@@ -1,5 +1,5 @@
 on_actions = {
-    on_weekly = {
+    on_weekly_YUN = {
         effect = {
             if = {
                 limit = {
@@ -122,6 +122,21 @@ on_actions = {
                     }
                     set_variable = { total_congress_votes = 24500 }
                 }
+            }
+            
+            # Ideas
+            if = {
+                limit = {
+                    has_global_flag = YUN_ROC_reborn
+                }
+                remove_ideas = YUN_hidden_potential_0
+                remove_ideas = YUN_hidden_potential_1
+                remove_ideas = YUN_hidden_potential_2
+                remove_ideas = YUN_hidden_potential_3
+                remove_ideas = YUN_hidden_potential_4
+                remove_ideas = YUN_hidden_potential_5
+                remove_ideas = YUN_army_of_the_southwest
+                remove_ideas = TNO_Oil_Crisis_dynamic_modifier
             }
         }
     }
