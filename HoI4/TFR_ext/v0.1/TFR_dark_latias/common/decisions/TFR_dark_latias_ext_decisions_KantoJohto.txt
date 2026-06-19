@@ -134,7 +134,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = KSI_ho_oh }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = KSI_ho_oh
@@ -240,7 +240,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = KTO_glacy }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = KTO_glacy
@@ -348,7 +348,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = KYU_unknown }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = KYU_unknown
@@ -462,7 +462,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = HOK_unknown }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = HOK_unknown
@@ -573,7 +573,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = CHB_xianyu_fantuan }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = CHB_xianyu_fantuan
@@ -678,7 +678,7 @@ TFR_dark_latias_ext_decisions_KantoJohto_category = {
                     limit = {
                         NOT = { is_character = NAG_crystal_union_emergency_committee }
                     }
-                    retire_character = THIS
+                    retire = yes
                 }
                 set_country_leader_name = {
                     name = NAG_crystal_union_emergency_committee

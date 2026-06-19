@@ -1,6 +1,7 @@
 ﻿	capital = 1334
 	
 	recruit_character = HOK_makiko_kishi_char 
+	recruit_character = HOK_unknown 
 	
 	set_research_slots = 2
 	set_convoys = 0
