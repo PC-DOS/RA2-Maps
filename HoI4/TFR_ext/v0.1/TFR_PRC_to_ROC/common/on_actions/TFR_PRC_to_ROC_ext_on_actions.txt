@@ -111,6 +111,9 @@ on_actions = {
                         }
                     }
                     
+                    # Remove PRC A.R. or S.A.R. modifiers
+                    PRC_remove_special_regional_modifiers = yes
+                    
                     # Capital
                     set_capital = {
                         state = 1189
