@@ -640,6 +640,13 @@ on_actions = {
                     }
                     434 = { set_state_name = "NanshaIslands" }
                 }
+            }
+            
+            if = {
+                limit = {
+                    tag = CHI
+                    has_country_flag = TFR_PRC_to_ROC_ext_is_enabled
+                }
                     
                 # Remove PRC A.R. or S.A.R. modifiers
                 PRC_remove_special_regional_modifiers = yes
