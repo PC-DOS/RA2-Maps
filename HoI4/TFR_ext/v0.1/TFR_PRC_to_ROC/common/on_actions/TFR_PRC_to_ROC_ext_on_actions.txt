@@ -653,6 +653,9 @@ on_actions = {
                     
                 # Remove PRC A.R. or S.A.R. modifiers
                 PRC_remove_special_regional_modifiers = yes
+                remove_ideas = {
+                    CHI_prc_embargo_idea
+                }
             }
         }
     }
