@@ -4140,6 +4140,38 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_allies_get_onetime_support = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                every_other_country = {
+                    limit = {
+                        set_temp_variable = { temp_param_country_to_check = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target }
+                        SCP_EQ_Tools_generic_scripted_triggers_is_ally = yes
+                        NOT = {
+                            tag = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target
+                        }
+                    }
+                    SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = yes
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_allies_add_industrial_complex_random = {
         allowed = {
             # Always allowed
@@ -6814,66 +6846,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
-                # Ref. common/scripted_effects/TNO_economy_backend_scripted_effects.txt
-                # Major sliders
-                set_variable = { econ_army_expenditures_minimal_pct = 0 }
-                set_variable = { econ_army_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_naval_expenditures_minimal_pct = 0 }
-                set_variable = { econ_naval_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_nuclear_expenditures_minimal_pct = 0 }
-                set_variable = { econ_nuclear_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_research_expenditures_minimal_pct = 0 }
-                set_variable = { econ_research_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_social_expenditures_minimal_pct = 0 }
-                set_variable = { econ_social_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_admin_expenditures_minimal_pct = 0 }
-                set_variable = { econ_admin_expenditures_maximal_pct = 100 }
-    
-                set_variable = { econ_consumer_goods_minimal_pct = 0 }
-                set_variable = { econ_consumer_goods_maximal_pct = 100 }
-                # Minor sliders
-                set_variable = { econ_army_maintenance_minimal_pct = 0 }
-                set_variable = { econ_army_R_D_minimal_pct = 0 }
-                set_variable = { econ_army_logistics_minimal_pct = 0 }
-                set_variable = { econ_army_procurement_minimal_pct = 0 }
-    
-                set_variable = { econ_social_healthcare_minimal_pct = 0 }
-                set_variable = { econ_social_pensions_minimal_pct = 0 }
-                set_variable = { econ_social_education_minimal_pct = 0 }
-                set_variable = { econ_social_unemployment_minimal_pct = 0 }
-    
-                set_variable = { econ_admin_security_minimal_pct = 0 }
-                set_variable = { econ_admin_regulations_minimal_pct = 0 }
-                set_variable = { econ_admin_pollution_minimal_pct = 0 }
-                set_variable = { econ_admin_bureaucracy_minimal_pct = 0 }
-    
-                set_variable = { econ_research_science_minimal_pct = 0 }
-                set_variable = { econ_research_facilities_minimal_pct = 0 }
-    
-                set_variable = { econ_army_maintenance_maximal_pct = 100 }
-                set_variable = { econ_army_R_D_maximal_pct = 100 }
-                set_variable = { econ_army_logistics_maximal_pct = 100 }
-                set_variable = { econ_army_procurement_maximal_pct = 100 }
-    
-                set_variable = { econ_social_healthcare_maximal_pct = 100 }
-                set_variable = { econ_social_pensions_maximal_pct = 100 }
-                set_variable = { econ_social_education_maximal_pct = 100 }
-                set_variable = { econ_social_unemployment_maximal_pct = 100 }
-    
-                set_variable = { econ_admin_security_maximal_pct = 100 }
-                set_variable = { econ_admin_regulations_maximal_pct = 100 }
-                set_variable = { econ_admin_pollution_maximal_pct = 100 }
-                set_variable = { econ_admin_bureaucracy_maximal_pct = 100 }
-    
-                set_variable = { econ_research_science_maximal_pct = 100 }
-                set_variable = { econ_research_facilities_maximal_pct = 100 }
-                
-                update_econ_sliders = yes
+                SCP_EQ_Tools_generic_scripted_effects_TNO_unlock_economy_panel_sliders = yes
             }
         }
     }

@@ -1522,6 +1522,208 @@ SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
+    # Industrial complex
+    every_controlled_state = {
+        add_extra_state_shared_building_slots = 1
+        add_building_construction = {
+            type = industrial_complex
+            level = 1
+            instant_build = yes
+        }
+    }
+    # Infrastructure
+    every_controlled_state = {
+        add_building_construction = {
+            type = infrastructure
+            level = 25
+            instant_build = yes
+        }
+    }
+    # Railway
+    clear_temp_array = temp_param_arr_railway_start_states
+    clear_temp_array = temp_param_arr_railway_end_states
+    every_controlled_state = {
+        add_to_temp_array = { temp_param_arr_railway_start_states = THIS }
+        add_to_temp_array = { temp_param_arr_railway_end_states = THIS }
+    }
+    set_temp_variable = { temp_param_is_railway_build_only_on_allied = 1 }
+    SCP_EQ_Tools_generic_scripted_effects_build_railway_from_state_to_state = yes
+    # Supply
+    if = {
+        limit = {
+            PREV = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_toggle_SCP_item_1_state_supplies_enabled }
+        }
+        SCP_EQ_Tools_generic_scripted_effects_disable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+        SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
+    }
+    # Division templates
+    country_lock_all_division_template = false
+    # PP
+    add_political_power = 245
+    # MP
+    add_command_power = 245
+    add_manpower = 245245
+    army_experience = 245
+    navy_experience = 245
+    air_experience = 245
+    add_stability = 5.0
+    add_war_support = 5.0
+    add_equipment_to_stockpile = {
+        type = convoy
+        amount = 24500
+    }
+    
+    # EaW
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_EAW_decisions_enabled
+            }
+        }
+        
+    }
+    # TFR
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TFR_decisions_enabled
+            }
+        }
+        SCP_EQ_Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
+        # Allow AI's production
+        remove_ideas = ai_disabled_production
+        # Debt
+        set_temp_variable = { debt_var_temp = -245245.0 }
+        add_debt = yes
+        SCP_EQ_Tools_generic_scripted_effects_TFR_reset_inflation = yes
+        # Development
+        set_temp_variable = { academic_development_var_temp = 0.25 }
+        add_academic_development = yes
+        increase_academic = yes
+        set_temp_variable = { farming_development_var_temp = 0.25 }
+        add_farming_development = yes
+        increase_farming = yes
+        set_temp_variable = { poverty_development_var_temp = 0.25 }
+        add_poverty_development = yes
+        increase_poverty = yes
+        set_temp_variable = { industrial_development_var_temp = 0.25 }
+        add_industrial_development = yes
+        increase_industrial = yes
+        set_temp_variable = { military_development_var_temp = 0.25 }
+        add_military_development = yes
+        increase_military = yes
+        set_temp_variable = { society_development_var_temp = 0.25 }
+        add_society_development = yes
+        increase_society = yes
+        # Office park
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = office_park
+                level = 1
+                instant_build = yes
+            }
+        }
+    }
+    # TNO
+    if = {
+        limit = {
+            ROOT = {
+                has_country_flag = SCP_EQ_Tools_enhancing_decisions_TNO_decisions_enabled
+            }
+        }
+        # Debt
+        SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = yes
+        SCP_EQ_Tools_generic_scripted_effects_TNO_unlock_economy_panel_sliders = yes
+        
+        # Poverty & Development
+        # One-time quick poverty change
+        set_temp_variable = { temp_poverty_monthly_change_back = poverty_monthly_change }
+        set_variable = { poverty_monthly_change = 25 }
+        poverty_monthly_calculation = yes
+        # Gotta make poverty decreases slow
+        add_to_temp_variable = { temp_poverty_monthly_change_back = 2.5 }
+        set_variable = { poverty_monthly_change = temp_poverty_monthly_change_back }
+        tno_improve_admin_efficiency = yes
+        TNO_improve_admin_efficiency_high = yes
+        tno_improve_academic_base = yes
+        TNO_improve_academic_base_high = yes
+        tno_improve_research_facilities = yes
+        TNO_improve_research_facilities_high = yes
+        tno_improve_healthcare = yes
+        TNO_improve_healthcare_high = yes
+        tno_improve_industrial_expertise = yes
+        TNO_improve_industrial_expertise_high = yes
+        tno_improve_industrial_equipment = yes
+        TNO_improve_industrial_equipment_high = yes
+        tno_improve_agriculture = yes
+        TNO_improve_agriculture_high = yes
+        tno_improve_army_professionalism = yes
+        TNO_improve_army_professionalism_high = yes
+        econ_raise_min_credit_rating = yes
+        econ_raise_max_credit_rating = yes
+        econ_raise_credit_rating = yes
+        
+        # PUs
+        set_temp_variable = { pus_temp = 245 }
+        econ_pus_change = yes
+        
+        # Buildings
+        every_controlled_state = {
+            limit = {
+                nuclear_reactor < 1
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = nuclear_reactor
+                level = 1
+                instant_build = yes
+            }
+        }
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = hospitals
+                level = 1
+                instant_build = yes
+            }
+        }
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = schools
+                level = 1
+                instant_build = yes
+            }
+        }
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = prisons
+                level = 1
+                instant_build = yes
+            }
+        }
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = offices
+                level = 1
+                instant_build = yes
+            }
+        }
+        every_controlled_state = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = barracks
+                level = 1
+                instant_build = yes
+            }
+        }
+    }
+}
+
 SCP_EQ_Tools_generic_scripted_effects_TFR_clear_debt = {
     set_variable = { debt_var = 0 }
     set_temp_variable = { debt_var_temp = 0 }
@@ -1600,4 +1802,67 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
     add_to_variable = { TNO_economy_GUI_dirty = 1 }
     set_variable = { reserves_management_amount = 0 }
     update_economy_tab = yes
+}
+
+SCP_EQ_Tools_generic_scripted_effects_TNO_unlock_economy_panel_sliders = {
+    # Ref. common/scripted_effects/TNO_economy_backend_scripted_effects.txt
+    # Major sliders
+    set_variable = { econ_army_expenditures_minimal_pct = 0 }
+    set_variable = { econ_army_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_naval_expenditures_minimal_pct = 0 }
+    set_variable = { econ_naval_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_nuclear_expenditures_minimal_pct = 0 }
+    set_variable = { econ_nuclear_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_research_expenditures_minimal_pct = 0 }
+    set_variable = { econ_research_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_social_expenditures_minimal_pct = 0 }
+    set_variable = { econ_social_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_admin_expenditures_minimal_pct = 0 }
+    set_variable = { econ_admin_expenditures_maximal_pct = 100 }
+
+    set_variable = { econ_consumer_goods_minimal_pct = 0 }
+    set_variable = { econ_consumer_goods_maximal_pct = 100 }
+    # Minor sliders
+    set_variable = { econ_army_maintenance_minimal_pct = 0 }
+    set_variable = { econ_army_R_D_minimal_pct = 0 }
+    set_variable = { econ_army_logistics_minimal_pct = 0 }
+    set_variable = { econ_army_procurement_minimal_pct = 0 }
+
+    set_variable = { econ_social_healthcare_minimal_pct = 0 }
+    set_variable = { econ_social_pensions_minimal_pct = 0 }
+    set_variable = { econ_social_education_minimal_pct = 0 }
+    set_variable = { econ_social_unemployment_minimal_pct = 0 }
+
+    set_variable = { econ_admin_security_minimal_pct = 0 }
+    set_variable = { econ_admin_regulations_minimal_pct = 0 }
+    set_variable = { econ_admin_pollution_minimal_pct = 0 }
+    set_variable = { econ_admin_bureaucracy_minimal_pct = 0 }
+
+    set_variable = { econ_research_science_minimal_pct = 0 }
+    set_variable = { econ_research_facilities_minimal_pct = 0 }
+
+    set_variable = { econ_army_maintenance_maximal_pct = 100 }
+    set_variable = { econ_army_R_D_maximal_pct = 100 }
+    set_variable = { econ_army_logistics_maximal_pct = 100 }
+    set_variable = { econ_army_procurement_maximal_pct = 100 }
+
+    set_variable = { econ_social_healthcare_maximal_pct = 100 }
+    set_variable = { econ_social_pensions_maximal_pct = 100 }
+    set_variable = { econ_social_education_maximal_pct = 100 }
+    set_variable = { econ_social_unemployment_maximal_pct = 100 }
+
+    set_variable = { econ_admin_security_maximal_pct = 100 }
+    set_variable = { econ_admin_regulations_maximal_pct = 100 }
+    set_variable = { econ_admin_pollution_maximal_pct = 100 }
+    set_variable = { econ_admin_bureaucracy_maximal_pct = 100 }
+
+    set_variable = { econ_research_science_maximal_pct = 100 }
+    set_variable = { econ_research_facilities_maximal_pct = 100 }
+    
+    update_econ_sliders = yes
 }
