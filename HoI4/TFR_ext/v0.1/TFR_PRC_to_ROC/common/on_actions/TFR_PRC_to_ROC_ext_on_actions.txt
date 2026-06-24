@@ -205,6 +205,8 @@ on_actions = {
                         CHI_low_international_recognition_idea
                         CHI_american_protection_idea
                         CHI_prc_embargo_idea
+                        CHI_prc_embargo_idea1
+                        CHI_prc_embargo_low_idea
                     }
                     
                     # FUCK YOU JAPS
@@ -655,6 +657,8 @@ on_actions = {
                 PRC_remove_special_regional_modifiers = yes
                 remove_ideas = {
                     CHI_prc_embargo_idea
+                    CHI_prc_embargo_idea1
+                    CHI_prc_embargo_low_idea
                 }
             }
         }
