@@ -92,7 +92,7 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_excellent = {
     add_ideas = tno_racial_integration_integrated_military
     add_ideas = tno_women_military_assistance
     add_ideas = tno_minorities_equal_rights
-    add_ideas = tno_lgbt_rights_lgbt_outlawed
+    add_ideas = tno_lgbt_rights_lgbt_allowed
 }
 
 SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_good = {
@@ -181,7 +181,7 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_good = {
     add_ideas = tno_racial_integration_integrated_military
     add_ideas = tno_women_military_assistance
     add_ideas = tno_minorities_equal_rights
-    add_ideas = tno_lgbt_rights_lgbt_outlawed
+    add_ideas = tno_lgbt_rights_lgbt_allowed
 }
 
 SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_average = {
@@ -270,7 +270,7 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_average = {
     add_ideas = tno_racial_integration_integrated_military
     add_ideas = tno_women_military_assistance
     add_ideas = tno_minorities_equal_rights
-    add_ideas = tno_lgbt_rights_lgbt_outlawed
+    add_ideas = tno_lgbt_rights_partially_deciminalized
 }
 
 SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_fair = {
@@ -359,7 +359,7 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_fair = {
     add_ideas = tno_racial_integration_integrated_military
     add_ideas = tno_women_military_assistance
     add_ideas = tno_minorities_equal_rights
-    add_ideas = tno_lgbt_rights_lgbt_outlawed
+    add_ideas = tno_lgbt_rights_partially_deciminalized
 }
 
 SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_poor = {
@@ -448,5 +448,5 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_laws_load_law_template_poor = {
     add_ideas = tno_racial_integration_integrated_military
     add_ideas = tno_women_military_assistance
     add_ideas = tno_minorities_equal_rights
-    add_ideas = tno_lgbt_rights_lgbt_outlawed
+    add_ideas = tno_lgbt_rights_partially_deciminalized
 }
