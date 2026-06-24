@@ -1607,7 +1607,6 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
                 has_country_flag = SCP_EQ_Tools_enhancing_decisions_TFR_decisions_enabled
             }
         }
-        SCP_EQ_Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
         # Allow AI's production
         remove_ideas = ai_disabled_production
         # Debt
