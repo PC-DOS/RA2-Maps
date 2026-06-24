@@ -13,4 +13,12 @@ opinion_modifiers = {
         trade = yes
         value = -5245
     }
+    
+    
+    SCP_EQ_Tools_generic_opinion_modifiers_diplomatic_opinion_onetime_support = {
+        value = 50
+    }
+    SCP_EQ_Tools_generic_opinion_modifiers_trade_opinion_onetime_support = {
+        value = 50
+    }
 }
