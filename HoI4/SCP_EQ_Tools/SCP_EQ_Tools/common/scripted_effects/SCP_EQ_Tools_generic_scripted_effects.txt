@@ -1594,14 +1594,6 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
     # States with resistance
     every_controlled_state = {
         limit = {
-            NOT = { is_core_of = PREV }
-            NOT = { has_resistance = yes }
-        }
-        cancel_resistance = yes
-        add_core_of = PREV
-    }
-    every_controlled_state = {
-        limit = {
             has_resistance = yes
             compliance > 95
         }
