@@ -1578,13 +1578,13 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
     # Division templates
     country_lock_all_division_template = false
     # PP
-    add_political_power = 245
+    add_political_power = 1245
     # MP
-    add_command_power = 245
+    add_command_power = 1245
     add_manpower = 245245
-    army_experience = 245
-    navy_experience = 245
-    air_experience = 245
+    army_experience = 1245
+    navy_experience = 1245
+    air_experience = 1245
     add_stability = 5.0
     add_war_support = 5.0
     add_equipment_to_stockpile = {
