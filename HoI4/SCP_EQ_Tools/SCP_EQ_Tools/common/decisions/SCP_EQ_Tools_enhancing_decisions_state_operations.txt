@@ -2587,7 +2587,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                         SCP_EQ_Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
                         # Allow AI's production
                         remove_ideas = ai_disabled_production
-                        country_lock_all_division_template = no
+                        SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
                     }
                     # TNO
                     if = {
@@ -3270,7 +3270,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    country_lock_all_division_template = yes
+                    SCP_EQ_Tools_generic_scripted_effects_lock_all_division_template_by_user = yes
                 }
             }
         }
@@ -3298,7 +3298,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
                 }
                 controller = {
-                    country_lock_all_division_template = no
+                    SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_unconditionally = yes
                 }
             }
         }

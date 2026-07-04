@@ -3280,7 +3280,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
-                country_lock_all_division_template = no
+                SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_unconditionally = yes
             }
         }
     }
@@ -4084,7 +4084,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         SCP_EQ_Tools_generic_scripted_effects_TFR_enable_SCP_item_1 = yes
                         # Allow AI's production
                         remove_ideas = ai_disabled_production
-                        country_lock_all_division_template = no
+                        SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
                     }
                     # TNO
                     if = {
@@ -4442,7 +4442,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                             tag = var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target
                         }
                     }
-                    country_lock_all_division_template = false
+                    SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
                 }
             }
         }
@@ -5505,7 +5505,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 SCP_EQ_Tools_generic_scripted_effects_TFR_toggle_SCP_item_1 = yes
                 # Allow AI's production
                 remove_ideas = ai_disabled_production
-                country_lock_all_division_template = no
+                SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
             }
         }
     }
@@ -6376,7 +6376,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 remove_ideas = ai_disabled_production
-                country_lock_all_division_template = no
+                SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_unconditionally = yes
             }
         }
     }
@@ -6410,7 +6410,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                         }
                     }
                     remove_ideas = ai_disabled_production
-                    country_lock_all_division_template = no
+                    SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
                 }
             }
         }
@@ -6436,7 +6436,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 every_possible_country = {
                     remove_ideas = ai_disabled_production
-                    country_lock_all_division_template = no
+                    SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
                 }
             }
         }

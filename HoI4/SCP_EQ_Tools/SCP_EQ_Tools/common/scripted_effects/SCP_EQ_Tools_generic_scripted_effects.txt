@@ -1522,6 +1522,25 @@ SCP_EQ_Tools_generic_scripted_effects_create_generic_division_1 = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_lock_all_division_template_by_user = {
+    set_country_flag = SCP_EQ_Tools_enhancing_decisions_is_all_division_template_locked_by_user
+    country_lock_all_division_template = yes
+}
+
+SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_unconditionally = {
+    country_lock_all_division_template = no
+    clr_country_flag = SCP_EQ_Tools_enhancing_decisions_is_all_division_template_locked_by_user
+}
+
+SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = {
+    if = {
+        limit = {
+            NOT = { has_country_flag = SCP_EQ_Tools_enhancing_decisions_is_all_division_template_locked_by_user }
+        }
+    }
+    country_lock_all_division_template = no
+}
+
 SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
     # Everything is not free...
     meta_effect = {
@@ -1576,7 +1595,7 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         SCP_EQ_Tools_generic_scripted_effects_enable_SCP_item_1_state_supplies_for_all_controlled_states = yes
     }
     # Division templates
-    country_lock_all_division_template = false
+    SCP_EQ_Tools_generic_scripted_effects_unlock_all_division_template_if_not_locked_by_user = yes
     # PP
     add_political_power = 1245
     # MP
