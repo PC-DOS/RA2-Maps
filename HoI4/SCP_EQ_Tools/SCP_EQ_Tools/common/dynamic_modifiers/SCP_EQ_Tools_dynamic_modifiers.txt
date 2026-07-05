@@ -140,7 +140,8 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_army = {
     army_attack_speed_factor = 245.0
     army_defence_factor = 245.0
     army_speed_factor = 245.0
-    army_strength_factor = 245.0
+    # This value should not be too high (e.g. 245.0), or the armies will be more frequent to retreat, especially during amphibious invation
+    army_strength_factor = 124.5
     army_morale = 245
     army_morale_factor = 5.0
     army_org = 245
