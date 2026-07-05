@@ -216,6 +216,7 @@ SCP_EQ_Tools_dynamic_modifiers_SCP_force_1_naval = {
     screening_efficiency = 5.0
     screening_without_screens = 5.0
     #naval_enemy_retreat_chance = -1.0
+    convoy_retreat_speed = 25.0
     positioning = 5.0
     naval_accidents_chance = -5.0
     experience_gain_navy_unit = 245
