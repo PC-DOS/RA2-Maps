@@ -41,7 +41,7 @@ sub_units = {
         breakthrough = 0.45
         
         # Defensive
-        defense = 0.5
+        defense = 1.25
 
         # Misc Abilities
         maximum_speed = 24.5
@@ -124,7 +124,7 @@ sub_units = {
         breakthrough = 0.45
         
         # Defensive
-        defense = 0.5
+        defense = 1.25
 
         # Misc Abilities
         maximum_speed = 24.5
