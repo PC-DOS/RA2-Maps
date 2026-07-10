@@ -1,0 +1,32 @@
+spriteTypes = {
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_pronvince
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_province.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_region
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_region.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_NPA
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_npa.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_ROC_1
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_roc_1.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_ROC_2
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_roc_2.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_ROC_3
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_roc_3.png
+        noOfFrames = 2
+    }
+}
