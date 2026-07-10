@@ -54,6 +54,9 @@
  TNO_YUN_ext_agencies_YUN_ROC_2:0 "中华民国国家安全局"
  TNO_YUN_ext_agencies_YUN_ROC_3:0 "中华民国国家安全局"
  
+ TNO_YUN_ext_agencies_YUN_NPA_JAP_1:0 "中华民国驻日戡乱政府调查课"
+ TNO_YUN_ext_agencies_YUN_NPA_JAP_2:0 "中华民国驻日戡乱政府特别行动处"
+ 
  # Events
  # Execution of Hirohito
  TNO_YUN_ext_events_YUN_execution_of_hirohito.1.t:0 "[Get_newspaper_header]特别军事法庭对原日本天皇裕仁判处死刑立即执行"

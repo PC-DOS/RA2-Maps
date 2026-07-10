@@ -29,4 +29,65 @@ spriteTypes = {
         texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_roc_3.png
         noOfFrames = 2
     }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_NPA_JAP_1
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_npa_jap_1.png
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = GTX_TNO_YUN_ext_agencies_YUN_NPA_JAP_2
+        texturefile = gfx/TNO_YUN_ext_agencies/agency_logo_yun_npa_jap_2.png
+        noOfFrames = 2
+    }
+    
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_ger"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_ger.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_1"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_1.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_2"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_2.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_3"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_3.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_4"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_4.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_5"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_5.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_6"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_6.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_7"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_7.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_8"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_8.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_TNO_YUN_ext_intelligence_agency_logo_generic_9"
+		texturefile = "gfx/TNO_YUN_ext_agencies/agency_logo_generic_9.dds"
+		noOfFrames = 2
+	}
 }
