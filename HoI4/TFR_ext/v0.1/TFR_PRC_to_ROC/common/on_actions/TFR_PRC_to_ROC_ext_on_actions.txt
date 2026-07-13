@@ -209,6 +209,10 @@ on_actions = {
                         CHI_prc_embargo_low_idea
                     }
                     
+                    # Delete useless division templates
+                    delete_unit_template_and_units = "Zhonghua Minguo Lujun Siling Bu"
+                    delete_unit_template_and_units = "Zhanqu Siling Bu"
+                    
                     # FUCK YOU JAPS
                     puppet = {
                         target = JAP
