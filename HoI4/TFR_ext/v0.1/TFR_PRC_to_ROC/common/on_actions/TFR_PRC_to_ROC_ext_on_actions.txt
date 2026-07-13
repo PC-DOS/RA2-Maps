@@ -210,8 +210,44 @@ on_actions = {
                     }
                     
                     # Delete useless division templates
-                    delete_unit_template_and_units = "Zhonghua Minguo Lujun Siling Bu"
-                    delete_unit_template_and_units = "Zhanqu Siling Bu"
+                    delete_unit_template_and_units = { 
+                        division_template = "Zhonghua Minguo Lujun Siling Bu" 
+                        disband = no
+                    }
+                    delete_unit_template_and_units =  { 
+                        division_template = "Zhanqu Siling Bu"
+                        disband = no
+                    }
+                    
+                    # Korea
+                    puppet = {
+                        target = KOR
+                    }
+                    KOR = {
+                        annex_country = {
+                            target = PRK
+                            transfer_troops = yes
+                        }
+                        every_controlled_state = {
+                            remove_claim_by = PRK
+                            remove_core_of = PRK
+                            remove_claim_by = KOR
+                            add_core_of = KOR
+                        }
+
+                        set_politics = {
+                            ruling_party = social_liberal
+                            last_election = "2017.5.9"
+                            election_frequency = 60
+                            elections_allowed = yes
+                        }
+                        set_popularities = {
+                            social_democrat = 10
+                            social_liberal = 48
+                            market_liberal = 7
+                            conservative = 35
+                        }
+                    }
                     
                     # FUCK YOU JAPS
                     puppet = {
