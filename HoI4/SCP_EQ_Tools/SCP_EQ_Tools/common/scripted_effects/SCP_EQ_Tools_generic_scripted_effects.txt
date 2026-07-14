@@ -1666,10 +1666,22 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         # Office park
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = office_park
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    office_park < 5
+                }
+                add_building_construction = {
+                    type = office_park
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
     }
@@ -1730,42 +1742,102 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         }
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = hospitals
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    hospitals < 5
+                }
+                add_building_construction = {
+                    type = hospitals
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = schools
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    schools < 5
+                }
+                add_building_construction = {
+                    type = schools
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = prisons
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    prisons < 5
+                }
+                add_building_construction = {
+                    type = prisons
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = offices
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    offices < 5
+                }
+                add_building_construction = {
+                    type = offices
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
         every_controlled_state = {
             add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = barracks
-                level = 1
-                instant_build = yes
+            if = {
+                limit = {
+                    barracks < 5
+                }
+                add_building_construction = {
+                    type = barracks
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            else = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
             }
         }
     }
