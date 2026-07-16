@@ -25,6 +25,9 @@ NDefines.NCountry.POLITICAL_POWER_UPPER_CAP = 24500
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 24500
 NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 24500
 NDefines.NMilitary.MAX_AIR_EXPERIENCE = 24500
+-- Consumer Goods
+NDefines.NProduction.MINIMUM_NUMBER_OF_FACTORIES_TAKEN_BY_CONSUMER_GOODS_VALUE = 0 -- The minimum number of factories we have to put on consumer goods, by value.
+NDefines.NProduction.MINIMUM_NUMBER_OF_FACTORIES_TAKEN_BY_CONSUMER_GOODS_PERCENT = 0.0 -- The minimum number of factories we have to put on consumer goods, in percent
 
 -- Camera options
 NDefines.NFrontend.CAMERA_MIN_HEIGHT = 25
