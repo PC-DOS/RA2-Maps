@@ -5590,6 +5590,11 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                             desc = SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_accessing_market_to_marked_states_controllers
                             can_access_market = yes
                         }
+                        add_relation_rule_override = {
+                            target = PREV
+                            trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true
+                            can_access_market = yes
+                        }
                         PREV = {
                             add_relation_rule_override = {
                                 target = PREV

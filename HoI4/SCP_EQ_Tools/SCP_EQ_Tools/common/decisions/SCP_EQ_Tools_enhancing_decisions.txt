@@ -3651,6 +3651,11 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                 }
                 every_possible_country = {
                     var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                        add_relation_rule_override = {
+                            target = PREV
+                            trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true
+                            can_access_market = yes
+                        }
                         PREV = {
                             add_relation_rule_override = {
                                 target = PREV
