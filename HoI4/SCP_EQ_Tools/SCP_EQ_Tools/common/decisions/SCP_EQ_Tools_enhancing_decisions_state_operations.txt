@@ -5562,6 +5562,46 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_accessing_market_to_marked_states_controllers = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                        set_rule = {
+                            desc = SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_accessing_market_to_marked_states_controllers
+                            can_access_market = yes
+                        }
+                        PREV = {
+                            add_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true
+                                can_access_market = yes
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_volunteer_sending_to_marked_states_controllers = {
         allowed = {
             # Always allowed
@@ -5586,6 +5626,10 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 }
                 controller = {
                     var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                        set_rule = {
+                            desc = SCP_EQ_Tools_enhancing_decisions_state_operations_force_allow_volunteer_sending_to_marked_states_controllers
+                            can_send_volunteers = yes
+                        }
                         add_relation_rule_override = {
                             target = PREV
                             trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true

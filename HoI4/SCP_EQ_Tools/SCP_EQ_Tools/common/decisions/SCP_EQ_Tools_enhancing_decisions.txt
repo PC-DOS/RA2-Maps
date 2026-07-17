@@ -3626,6 +3626,43 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_force_allow_accessing_market = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                set_rule = {
+                    desc = SCP_EQ_Tools_enhancing_decisions_force_allow_accessing_market
+                    can_access_market = yes
+                }
+                every_possible_country = {
+                    var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                        PREV = {
+                            add_relation_rule_override = {
+                                target = PREV
+                                trigger = SCP_EQ_Tools_generic_scripted_triggers_always_true
+                                can_access_market = yes
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_force_allow_volunteer_sending = {
         allowed = {
             # Always allowed
