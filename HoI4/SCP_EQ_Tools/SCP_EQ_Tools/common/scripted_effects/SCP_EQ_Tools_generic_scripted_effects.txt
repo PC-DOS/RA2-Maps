@@ -1749,6 +1749,15 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
             }
         }
         every_controlled_state = {
+            limit = {
+                power < 12450
+            }
+            add_resource = {
+                type = power
+                amount = 1245
+            }
+        }
+        every_controlled_state = {
             add_extra_state_shared_building_slots = 1
             if = {
                 limit = {
