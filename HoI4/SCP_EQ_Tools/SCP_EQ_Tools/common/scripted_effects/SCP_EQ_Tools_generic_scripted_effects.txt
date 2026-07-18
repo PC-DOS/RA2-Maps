@@ -1695,7 +1695,7 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         # Debt
         SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = yes
         SCP_EQ_Tools_generic_scripted_effects_TNO_unlock_economy_panel_sliders = yes
-        set_temp_variable = { money_reserves_temp = 245 }
+        set_temp_variable = { money_reserves_temp = 25 }
         econ_money_reserves_change_raw_money = yes
         set_temp_variable = { temp_econ_GDP_boost_percentage = 0.5 }
         econ_GDP_boost_once_percentage = yes
