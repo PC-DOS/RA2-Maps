@@ -7560,10 +7560,15 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { temp_pus_alloc = production_units }
+                clamp_temp_variable = { 
+                    var = temp_pus_alloc 
+                    max = resource@power
+                }
                 subtract_from_temp_variable = { temp_pus_alloc = PU_civilian_factories }
                 subtract_from_temp_variable = { temp_pus_alloc = PU_military_factories }
                 subtract_from_temp_variable = { temp_pus_alloc = PU_consumer_goods }
                 divide_temp_variable = { temp_pus_alloc = 2 }
+                round_temp_variable = temp_pus_alloc
                 set_variable = { PU_civilian_factories_desired = temp_pus_alloc }
                 set_variable = { PU_military_factories_desired = temp_pus_alloc }
                 update_production_unit_allocation = yes
