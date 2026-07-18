@@ -8,6 +8,8 @@ on_actions = {
                 set_variable = { global.SCP_EQ_Tools_enhancing_decisions_advanced_nuking_radiation_time = 730 }
                 # Prevent AI from leaving factions from diplomacy UI by default
                 set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_faction_operation_level = 2 }
+                # Prevent AI from staging coups by default
+                set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 2 }
             }
             # Initialize global decision target
             every_possible_country = {

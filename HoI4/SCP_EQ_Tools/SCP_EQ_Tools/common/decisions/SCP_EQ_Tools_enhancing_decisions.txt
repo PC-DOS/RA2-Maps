@@ -5006,6 +5006,47 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             }
         }
     }
+    SCP_EQ_Tools_enhancing_decisions_toggle_ai_coup_staging_level = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            # Always visible
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+                # global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level has 3 levels:
+                #    0: AI can stage coups freely
+                #    1: AI cannot stage coups of player's country
+                #    2: AI cannot stage coups of any country
+                if = {
+                    limit = {
+                        check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 2 }
+                    }
+                    set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 1 }
+                }
+                else_if = {
+                    limit = {
+                        check_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 1 }
+                    }
+                    set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 0 }
+                }
+                else = {
+                    set_variable = { global.SCP_EQ_Tools_enhancing_decisions_ai_coup_staging_level = 2 }
+                }
+            }
+        }
+    }
     SCP_EQ_Tools_enhancing_decisions_toggle_ai_guaranteeing = {
         allowed = {
             # Always allowed
