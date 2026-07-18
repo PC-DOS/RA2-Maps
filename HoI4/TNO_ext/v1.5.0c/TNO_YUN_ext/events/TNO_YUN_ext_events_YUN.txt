@@ -294,6 +294,18 @@ country_event = {
                 add_manpower = -12450
                 if = {
                     limit = {
+                        state_population_k > 5000
+                        add_manpower = -1245000
+                    }
+                }
+                if = {
+                    limit = {
+                        state_population_k > 1000
+                        add_manpower = -124500
+                    }
+                }
+                if = {
+                    limit = {
                         state_population_k < 0.001
                         state_population < 1
                     }
