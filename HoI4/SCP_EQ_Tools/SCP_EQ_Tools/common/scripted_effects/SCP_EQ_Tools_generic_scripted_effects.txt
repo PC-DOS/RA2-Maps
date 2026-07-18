@@ -1733,7 +1733,7 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         econ_raise_credit_rating = yes
         
         # PUs
-        set_temp_variable = { pus_temp = 245 }
+        set_temp_variable = { pus_temp = 25 }
         econ_pus_change = yes
         
         # Buildings
@@ -1750,11 +1750,11 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         }
         every_controlled_state = {
             limit = {
-                power < 2450
+                power < 245
             }
             add_resource = {
                 type = power
-                amount = 245
+                amount = 25
             }
         }
         every_controlled_state = {
