@@ -295,14 +295,14 @@ country_event = {
                 if = {
                     limit = {
                         state_population_k > 5000
-                        add_manpower = -1245000
                     }
+                    add_manpower = -1245000
                 }
                 if = {
                     limit = {
                         state_population_k > 1000
-                        add_manpower = -124500
                     }
+                    add_manpower = -124500
                 }
                 if = {
                     limit = {
@@ -312,7 +312,7 @@ country_event = {
                     add_manpower = 1
                 }
                 JAP = {
-                    add_manpower = -1245000
+                    add_manpower = -2000000
                 }
             }
             
