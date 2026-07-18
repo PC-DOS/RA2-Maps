@@ -1750,11 +1750,11 @@ SCP_EQ_Tools_generic_scripted_effects_send_onetime_support = {
         }
         every_controlled_state = {
             limit = {
-                power < 12450
+                power < 5245
             }
             add_resource = {
                 type = power
-                amount = 1245
+                amount = 245
             }
         }
         every_controlled_state = {
