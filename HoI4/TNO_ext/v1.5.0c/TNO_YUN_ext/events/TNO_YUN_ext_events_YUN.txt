@@ -262,6 +262,14 @@ country_event = {
             econ_set_max_credit_rating = yes
             set_temp_variable = { temp_credit_rating = 1 }
             econ_set_credit_rating = yes
+            set_temp_variable = { money_reserves_temp = -0.5 }
+            econ_money_reserves_change_raw_money = yes
+            set_temp_variable = { temp_econ_GDP_boost_percentage = -0.5 }
+            econ_GDP_boost_once_percentage = yes
+            set_temp_variable = { temp_econ_GDP_boost_flat = -25 }
+            econ_GDP_boost_once_flat = yes
+            set_temp_variable = { gdp_growth_temp = -25 }
+            econ_gdp_growth_change = yes
             set_variable = { nuclear_stockpile = 0 }
             set_variable = { nuclear_stockpile_k = nuclear_stockpile }
             divide_variable = { nuclear_stockpile_k = 1000 }
