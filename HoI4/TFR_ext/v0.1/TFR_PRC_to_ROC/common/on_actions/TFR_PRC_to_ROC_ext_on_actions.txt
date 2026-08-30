@@ -613,9 +613,11 @@ on_actions = {
                             }
                         }
                     }
-                    329 = { set_state_name = "TangnuWulianghai" }
-                    remove_dynamic_modifier = {
-                        modifier = SOV_republic_of_russia
+                    329 = { 
+                        set_state_name = "TangnuWulianghai"
+                        remove_dynamic_modifier = {
+                            modifier = SOV_republic_of_russia
+                        }
                     }
                 }
                 
