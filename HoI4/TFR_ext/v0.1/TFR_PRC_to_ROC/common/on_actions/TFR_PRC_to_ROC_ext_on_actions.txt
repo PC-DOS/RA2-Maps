@@ -63,7 +63,12 @@ on_actions = {
                     set_province_name = { id = 12678 name = "Qimuniwoji"} #State 657
                     
                     # Outer Northwest China
-                    329 = { set_state_name = "TangnuWulianghai" }
+                    329 = { 
+                        set_state_name = "TangnuWulianghai"
+                        remove_dynamic_modifier = {
+                            modifier = SOV_republic_of_russia
+                        }
+                    }
                     
                     # Liu Qiu
                     transfer_state = 526
@@ -609,6 +614,9 @@ on_actions = {
                         }
                     }
                     329 = { set_state_name = "TangnuWulianghai" }
+                    remove_dynamic_modifier = {
+                        modifier = SOV_republic_of_russia
+                    }
                 }
                 
                 # Liu Qiu
@@ -683,7 +691,7 @@ on_actions = {
                             }
                         }
                     }
-                    434 = { set_state_name = "NanshaIslands" }
+                    434 = { set_state_name = "ZangnanRegion" }
                 }
             }
             
