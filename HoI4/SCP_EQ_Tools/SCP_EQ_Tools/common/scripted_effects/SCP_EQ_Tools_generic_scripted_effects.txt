@@ -1933,9 +1933,9 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
         add_to_temp_variable = { temp_total_gdp_growth = modifier@gdp_growth_modifier }
         if = {
             limit = {
-                check_variable = { temp_total_gdp_growth > 50.0 }
+                check_variable = { temp_total_gdp_growth > 45.0 }
             }
-            divide_temp_variable = { gdp_growth_temp = 1.25 }
+            divide_temp_variable = { gdp_growth_temp = 5.25 }
         }
         econ_gdp_growth_change = yes
     }
