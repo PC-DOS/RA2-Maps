@@ -1945,6 +1945,10 @@ SCP_EQ_Tools_generic_scripted_effects_TNO_clear_debt_and_money_reserves = {
                         check_variable = { temp_total_gdp_growth > 12.5 }
                         check_variable = { GDP > 5000 }
                     }
+                    AND = {
+                        check_variable = { temp_total_gdp_growth > 4.5 }
+                        check_variable = { GDP > 10000 }
+                    }
                 }
             }
             divide_temp_variable = { gdp_growth_temp = 24.5 }
