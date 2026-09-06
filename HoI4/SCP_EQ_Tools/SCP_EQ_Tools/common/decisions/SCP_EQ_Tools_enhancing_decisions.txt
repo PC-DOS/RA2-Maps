@@ -7001,10 +7001,38 @@ SCP_EQ_Tools_enhancing_decisions_category = {
         complete_effect = {
             SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
-                # Leave 24.5% growth, taking gdp_growth_modifier into consideration
+                # Calibrate GDP growth by current GDP, taking gdp_growth_modifier into consideration
                 set_temp_variable = { gdp_growth_temp = gdp_growth }
                 add_to_temp_variable = { gdp_growth_temp = modifier@gdp_growth_modifier }
-                subtract_from_temp_variable = { gdp_growth_temp = 24.5 }
+                if = {
+                    limit = {
+                        AND = {
+                            check_variable = { gdp_growth_temp > 4.5 }
+                            check_variable = { GDP > 10000 }
+                        }
+                    }
+                    subtract_from_temp_variable = { gdp_growth_temp = 4.5 }
+                }
+                else_if = {
+                    limit = {
+                        AND = {
+                            check_variable = { gdp_growth_temp > 12.5 }
+                            check_variable = { GDP > 5000 }
+                        }
+                    }
+                    subtract_from_temp_variable = { gdp_growth_temp = 12.5 }
+                }
+                else_if = {
+                    limit = {
+                        AND = {
+                            check_variable = { gdp_growth_temp > 24.5 }
+                        }
+                    }
+                    subtract_from_temp_variable = { gdp_growth_temp = 24.5 }
+                }
+                else = {
+                    subtract_from_temp_variable = { gdp_growth_temp = 24.5 }
+                }
                 multiply_temp_variable = { gdp_growth_temp = -1 }
                 econ_gdp_growth_change = yes
                 # Clear inflation
