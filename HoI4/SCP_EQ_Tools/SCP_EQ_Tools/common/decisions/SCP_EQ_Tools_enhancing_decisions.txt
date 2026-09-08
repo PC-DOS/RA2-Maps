@@ -5923,7 +5923,7 @@ SCP_EQ_Tools_enhancing_decisions_category = {
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { industrial_development_var_temp = 0.25 }
                 add_industrial_development = yes
-                increase_industrial = yes
+                increase_industry = yes
             }
         }
     }
