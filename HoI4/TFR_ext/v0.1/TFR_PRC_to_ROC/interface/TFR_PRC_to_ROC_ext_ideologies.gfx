@@ -1,7 +1,7 @@
 spriteTypes = {
     # Ideologies
     spriteType = {
-        name = GFX_ideology_constitutionalist_CHI
+        name = GFX_ideology_CHI_constitutionalist
         texturefile = gfx/TFR_PRC_to_ROC_ext_ideologies/constitutionalist_CHI.png
     }
 }
