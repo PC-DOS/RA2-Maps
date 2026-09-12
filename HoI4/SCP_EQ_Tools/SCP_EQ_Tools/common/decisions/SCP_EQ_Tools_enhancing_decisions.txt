@@ -8340,9 +8340,6 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                                     }
                                 }
                             }
-                            USA = {
-                                USA_decrease_depression = yes
-                            }
                         }
                         every_controlled_state = {
                             limit = {
