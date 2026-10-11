@@ -212,11 +212,11 @@ on_actions = {
                     }
                     set_popularities = {
                         authoritarian_democrat = 1.5
-                        conservative = 50.5
+                        conservative = 45.5
                         market_liberal = 4
-                        social_liberal = 22.5
-                        social_democrat = 4.5
-                        libertarian_socialist = 14.5
+                        social_liberal = 25.5
+                        social_democrat = 5.5
+                        libertarian_socialist = 15.5
                         communist = 2.5
                     }
                     
