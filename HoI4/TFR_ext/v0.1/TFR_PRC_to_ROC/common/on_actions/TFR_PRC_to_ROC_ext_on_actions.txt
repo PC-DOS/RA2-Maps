@@ -203,6 +203,103 @@ on_actions = {
                         name = TFR_PRC_to_ROC_ext_CHI_national_socialist_party
                     }
                     
+                    # Politics
+                    set_politics = {
+                        ruling_party = conservative
+                        elections_allowed = yes
+                        last_election = "2016.1.16"
+                        election_frequency = 48
+                    }
+                    set_popularities = {
+                        authoritarian_democrat = 1.5
+                        conservative = 50.5
+                        market_liberal = 4
+                        social_liberal = 22.5
+                        social_democrat = 4.5
+                        libertarian_socialist = 14.5
+                        communist = 2.5
+                    }
+                    
+                    # Leaders
+                    PRC = {
+                        every_character = {
+                            limit = {
+                                OR = {
+                                    is_character = PRC_xi_jinping
+                                    is_character = PRC_Hu_Chunhua
+                                    is_character = PRC_wang_yang
+                                    is_character = PRC_Zheng_Jianbang
+                                }
+                            }
+                            set_nationality = CHI
+                        }
+                        every_character = {
+                            limit = {
+                                always = yes
+                            }
+                            set_nationality = CHI
+                        }
+                    }
+                    random_character = {
+                        limit = {
+                            OR = {
+                                is_character = PRC_Zheng_Jianbang
+                            }
+                        }
+                        add_country_leader_role = {
+                            promote_leader = yes
+                            country_leader = {
+                                ideology = social_democracy
+                                expire = "1.1.1.1"
+                                traits = {  }
+                            }
+                        }
+                        promote_character = social_democracy
+                        #add_country_leader_role = {
+                        #    promote_leader = yes
+                        #    country_leader = {
+                        #        ideology = reformist_socialism
+                        #        expire = "1.1.1.1"
+                        #        traits = {  }
+                        #    }
+                        #}
+                        promote_character = reformist_socialism
+                    }
+                    random_character = {
+                        limit = {
+                            OR = {
+                                is_character = PRC_li_zuocheng
+                            }
+                        }
+                        #add_country_leader_role = {
+                        #    promote_leader = yes
+                        #    country_leader = {
+                        #        ideology = left_wing_junta 
+                        #        expire = "1.1.1.1"
+                        #        traits = {  }
+                        #    }
+                        #}
+                        promote_character = left_wing_junta
+                        add_country_leader_role = {
+                            promote_leader = yes
+                            country_leader = {
+                                ideology = national_syndicalism 
+                                expire = "1.1.1.1"
+                                traits = {  }
+                            }
+                        }
+                        promote_character = national_syndicalism
+                        add_country_leader_role = {
+                            promote_leader = yes
+                            country_leader = {
+                                ideology = national_bolshevism 
+                                expire = "1.1.1.1"
+                                traits = {  }
+                            }
+                        }
+                        promote_character = national_bolshevism
+                    }
+                    
                     # Ideas
                     remove_ideas = {
                         CHI_taiwanese_independence_movement_idea
