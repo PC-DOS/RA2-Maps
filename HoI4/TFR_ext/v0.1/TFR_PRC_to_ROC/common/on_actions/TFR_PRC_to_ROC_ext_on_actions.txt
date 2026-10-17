@@ -243,6 +243,14 @@ on_actions = {
                     random_character = {
                         limit = {
                             OR = {
+                                is_character = PRC_xi_jinping
+                            }
+                        }
+                        promote_character = market_socialism
+                    }
+                    random_character = {
+                        limit = {
+                            OR = {
                                 is_character = PRC_Zheng_Jianbang
                             }
                         }
