@@ -1,0 +1,119 @@
+# Scripted localisation is similar to creating your own namespaces. It is defined in /Hearts of Iron IV/common/scripted_localisation/*.txt and used in localisation in a similar manner to namespaces. However, unlike namespaces, by default the current scope is assumed when using scripted localisation, making scoping optional. An example of a scripted localisation definition is:
+# 
+# defined_text = {
+#     name = mod_scripted_loc
+#     text = {
+#         trigger = {
+#             tag = FRA
+#         }
+#         localization_key = FRA_localization_key
+#     }
+#     text = {
+#         localization_key = mod_localization_key
+#     }
+# }
+# 
+# This consists of these entries:
+# 
+#     name = my_scripted_loc - The name of the scripted localisation used to refer to it within regular localisation.
+#     text = { ... } - A possible choice for localisation. The game picks the topmost text = { ... } block to serve as the localisation's output. In particular, these are used in the example:
+#         trigger = { ... } is the trigger block evaluated for the checked scope, using this scripted localisation if true. Temporary variables set in this trigger block will remain set when displaying the localisation key, allowing math to be done between different variables or using scripted localisation recursively (such as to display every element of an array).
+#         localization_key = my_loc_key (Note the American spelling with Z rather than the British spelling with S used elsewhere) assigns the localisation key to be used with this scripted localisation option.
+# 
+# The example above will show the FRA_localization_key localisation key for France and the mod_localization_key one otherwise as a backup. The first localization key that meets the triggers will be used, meaning it is often more intuitive to specify localisation entries with more specific requirements first before those with more general triggers. In localisation, that example can be used as
+# 
+# l_english:
+#  some_localisation: "[mod_scripted_loc]"
+#  FRA_localization_key: "France-exclusive localisation"
+#  mod_localization_key: "Generic localisation"
+# 
+# Scripted localisation also allows randomisation of the localisation key that would be chosen, using random_list. For example, the following code will give a 60% and a 40% chance respectively for mod_localization_key_1 or mod_localization_key_2 to be chosen when this scripted localisation entry is used:
+# 
+# defined_text = {
+#     name = mod_scripted_loc
+#     text = {
+#         random_list = {
+#             30 = { localization_key = mod_localization_key_1 }
+#             20 = { localization_key = mod_localization_key_2 }
+#         }
+#     }
+# }
+# 
+# Dynamic scripted localisation
+# 
+# The localization_key argument now directly supports the use of dynamic localisation. That is, it is possible to use a piece of dynamic localisation as part of a localisation key call. This allows for a far more streamlined system of localisation automation when it is needed. For example:
+# 
+# defined_text = {
+#     name = mod_scripted_loc
+#     text = {
+#         localization_key = "mod_localization_version_[?my_variable]"
+#     }
+# }
+# 
+# When the scripted localisation is called, it will read the value of my_variable and place the value into the string of the localisation key as specified and evaluate the entire localisation key as a whole after the variable has been implemented.
+# 
+# l_english:
+#  some_localisation: "[mod_scripted_loc]"
+#  mod_localization_version_1: "This localization will be called when my_variable is equal to 1."
+#  mod_localization_version_2: "This localization will be called when my_variable is equal to 2."
+#  mod_localization_version_3: "This localization will be called when my_variable is equal to 3."
+# 
+# Temporary variable display
+# 
+# Temporary variables allow for calculations within triggers, and with scripted localisation, the result of such calculations can be directly shown in text without the need to use a separate variable. This is especially useful if a desired value is inherently tied to another variable, saving the necessity of having to constantly update a variable to the new value.
+# 
+# An example of this use case is to display money with dynamic units, i.e. millions, billions, trillions, where the basic unit assigned to a variable gdp_value is in billions, and we wish to change the display units to millions when gdp_value is under 1 and to trillions when gdp_value reaches 1,000. Below is an implementation of it using scripted localisation and local temporary variable calculation.
+# 
+# defined_text = {
+#     name = gdp_display_units
+#     text = {
+#         trigger = {
+#             check_variable = {
+#                 var = gdp_value
+#                 value = 1000
+#                 compare = greater_than_or_equals
+#             }
+# 
+#             # 1 trillion is 1,000 billion
+#             set_temp_variable = { temp_display_T = gdp_value }
+#             divide_temp_variable = { temp_display_T = 1000 }
+#         }
+#         localization_key = trillions
+#     }
+#     text = {
+#         trigger = {
+#             check_variable = {
+#                 var = gdp_value
+#                 value = 1
+#                 compare = greater_than_or_equals
+#             }
+# 
+#             # billions display case
+#             set_temp_variable = { temp_display_B = gdp_value } # note that the localization could simply use [?gdp_value|2] instead of [?temp_display_B|2]. This is done as such for demonstration.
+#         }
+#         localization_key = billions
+#     }
+#     text = {
+#         trigger = {
+#             # 1 million is 0.001 billion
+#             set_temp_variable = { temp_display_M = gdp_value }
+#             multiply_temp_variable = { temp_display_M = 1000 }
+#         }
+#         localization_key = millions
+#     }
+# }
+# 
+# In localisation,
+# 
+# l_english:
+#  total_gdp: "Our total GDP is [gdp_display_units]"
+#  # localisation keys belonging to [gdp_display_units]
+#  trillions: "$$[?temp_display_T|2]T"
+#  billions: "$$[?temp_display_B|2]B"
+#  millions: "$$[?temp_display_M|2]M"
+# 
+# Note that the double dollar signs ($$) are necessary to differentiate this from a localization key call.
+# 
+# In this example, a gdp_value of 5000 will display as $5.00T, a gdp_value of 300 will display as $300.00B, and a gdp_value of 0.520 will display as $520.00M
+# 
+# As can be seen, the temporary variable value that has been calculated within their corresponding trigger blocks can be called like any other variable, but is only accessible within the scripted localisation itself and nowhere else. While the temporary variables can be accessed by localisation keys further down from the trigger (and subsequently text) block that it was calculated in, it is still good practice to organize it this way to not lose track of which temporary variable calculations belong to which localisation key.

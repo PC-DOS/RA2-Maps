@@ -3744,7 +3744,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 }
                 controller = {
                     set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
-                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.05 }
                     SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
                 }
             }
@@ -3803,7 +3803,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
             var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
                 set_temp_variable = { temp_param_target_ideology_token = current_party_ideology_group }
             }
-            set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+            set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.05 }
             every_state = {
                 limit = {
                     has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
@@ -3908,7 +3908,7 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                 }
                 controller = {
                     set_temp_variable = { temp_param_target_ideology_token = ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology }
-                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.25 }
+                    set_temp_variable = { temp_param_target_ideology_popularity_delta = -0.05 }
                     SCP_EQ_Tools_generic_scripted_effects_change_ideology_popularity = yes
                 }
             }
@@ -4588,6 +4588,43 @@ SCP_EQ_Tools_enhancing_decisions_state_operations_category = {
                             }
                             IDEOLOGY_GROUP = "[?temp_current_ideology_group.GetTokenKey]"
                         }
+                    }
+                }
+            }
+        }
+    }
+    SCP_EQ_Tools_enhancing_decisions_state_operations_marked_states_controllers_use_default_party_names_marked_ideology_only = {
+        allowed = {
+            # Always allowed
+        }
+        visible = {
+            has_country_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_enabled
+        }
+        available = {
+            # Always available
+        }
+        icon = GFX_SCP_EQ_Tools_generic_icons_SCP_1_Generic_Small
+        fire_only_once = no
+        days_re_enable = 0
+        ai_will_do = {
+            factor = 0
+        }
+        complete_effect = {
+            SCP_EQ_Tools_generic_scripted_effects_check_global_targets_and_marks_presence_root_only = yes
+            every_state = {
+                limit = {
+                    has_state_flag = SCP_EQ_Tools_enhancing_decisions_state_operations_is_this_state_marked
+                }
+                controller = {
+                    meta_effect = {
+                        text = {
+                            set_party_name = {
+                                ideology = [IDEOLOGY_GROUP]
+                                long_name = [IDEOLOGY_GROUP]
+                                name = [IDEOLOGY_GROUP]
+                            }
+                        }
+                        IDEOLOGY_GROUP = "[?ROOT.SCP_EQ_Tools_enhancing_decisions_marked_ideology.GetTokenKey]"
                     }
                 }
             }
