@@ -1,12 +1,12 @@
-# Parse temp_arr_ideology_support_100
+# Parse SCP_EQ_Tools_party_support_values
 defined_text = {
-    name = SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportListFromTempArr
+    name = SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportList
     text = {
         trigger = { 
-            check_variable = { temp_next_arr_index < temp_arr_ideology_support_100^num }
             set_temp_variable = { temp_current_arr_index = temp_next_arr_index }
+            check_variable = { temp_current_arr_index < SCP_EQ_Tools_party_support_values^num }
             add_to_temp_variable = { temp_next_arr_index = 1 }
         }
-        localization_key = "[?global.ideology_groups^temp_current_arr_index.GetTokenKey]=[?temp_arr_ideology_support_100^temp_current_arr_index] [SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportListFromTempArr]"
+        localization_key = "[?global.ideology_groups^temp_current_arr_index.GetTokenKey]=[?SCP_EQ_Tools_party_support_values^temp_current_arr_index] [SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportList]"
     }
 }

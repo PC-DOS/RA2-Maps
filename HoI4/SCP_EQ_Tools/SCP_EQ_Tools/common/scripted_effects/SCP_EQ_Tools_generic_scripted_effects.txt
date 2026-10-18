@@ -334,6 +334,34 @@ SCP_EQ_Tools_generic_scripted_effects_change_ruling_party = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_store_ideology_support_snapshot = {
+    clear_array = SCP_EQ_Tools_party_support_values
+    for_each_loop = {
+        array = global.ideology_groups
+        value = temp_current_ideology
+        index = i
+        
+        meta_effect = {
+            text = {
+                add_to_array = { SCP_EQ_Tools_party_support_values = party_popularity_100@[CURRENT_IDEOLOGY_KEY] }
+            }
+            CURRENT_IDEOLOGY_KEY = "[?temp_current_ideology.GetTokenKey]"
+        }
+    }
+}
+
+SCP_EQ_Tools_generic_scripted_effects_recover_ideology_support_snapshot = {
+    meta_effect = {
+        text = {
+            log = "SCP_EQ_Tools_generic_scripted_effects_puppet_country: recovering party support: [IDEOLOGY_SUPPORT_ARRAY]"
+            set_popularities = {
+                [IDEOLOGY_SUPPORT_ARRAY]
+            }
+        }
+        IDEOLOGY_SUPPORT_ARRAY = "[SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportList]"
+    }
+}
+
 # Parameter 1: temp_param_overlord_tag
 # Parameter 2: temp_param_target_tag
 # Parameter 3: temp_param_is_original_ruling_party_kept
@@ -355,18 +383,8 @@ SCP_EQ_Tools_generic_scripted_effects_puppet_country = {
             set_temp_variable = { temp_param_is_elections_allowed = 0 }
         }
     }
-    clear_temp_array = temp_arr_ideology_support_100
-    for_each_loop = {
-        array = global.ideology_groups
-        value = temp_current_ideology
-        index = i
-        
-        meta_effect = {
-            text = {
-                add_to_temp_array = { temp_arr_ideology_support_100 = var:temp_param_target_tag.party_popularity_100@[CURRENT_IDEOLOGY_KEY] }
-            }
-            CURRENT_IDEOLOGY_KEY = "[?temp_current_ideology.GetTokenKey]"
-        }
+    var:temp_param_target_tag = {
+        SCP_EQ_Tools_generic_scripted_effects_store_ideology_support_snapshot = yes
     }
     
     # Puppet target country
@@ -394,15 +412,7 @@ SCP_EQ_Tools_generic_scripted_effects_puppet_country = {
             }
             
             # Recover ideology support before puppetting
-            meta_effect = {
-                text = {
-                    log = "SCP_EQ_Tools_generic_scripted_effects_puppet_country: recovering party support: [IDEOLOGY_SUPPORT_ARRAY]"
-                    set_popularities = {
-                        [IDEOLOGY_SUPPORT_ARRAY]
-                    }
-                }
-                IDEOLOGY_SUPPORT_ARRAY = "[SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportListFromTempArr]"
-            }
+            SCP_EQ_Tools_generic_scripted_effects_recover_ideology_support_snapshot = yes
         }
     }
 }
