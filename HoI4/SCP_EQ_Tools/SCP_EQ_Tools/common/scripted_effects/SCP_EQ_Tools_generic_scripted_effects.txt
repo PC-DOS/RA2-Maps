@@ -351,9 +351,10 @@ SCP_EQ_Tools_generic_scripted_effects_store_ideology_support_snapshot = {
 }
 
 SCP_EQ_Tools_generic_scripted_effects_recover_ideology_support_snapshot = {
+    set_variable = { SCP_EQ_Tools_party_support_value_next_index = 0 }
     meta_effect = {
         text = {
-            log = "SCP_EQ_Tools_generic_scripted_effects_puppet_country: recovering party support: [IDEOLOGY_SUPPORT_ARRAY]"
+            log = "SCP_EQ_Tools_generic_scripted_effects_recover_ideology_support_snapshot: recovering party support: [IDEOLOGY_SUPPORT_ARRAY]"
             set_popularities = {
                 [IDEOLOGY_SUPPORT_ARRAY]
             }
