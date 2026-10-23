@@ -3,9 +3,9 @@ defined_text = {
     name = SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportList
     text = {
         trigger = { 
-            set_temp_variable = { temp_current_arr_index = SCP_EQ_Tools_party_support_value_next_index }
+            set_temp_variable = { temp_current_arr_index = temp_next_arr_index }
             check_variable = { temp_current_arr_index < SCP_EQ_Tools_party_support_values^num }
-            add_to_variable = { SCP_EQ_Tools_party_support_value_next_index = 1 }
+            add_to_temp_variable = { temp_next_arr_index = 1 }
         }
         localization_key = "[?global.ideology_groups^temp_current_arr_index.GetTokenKey]=[?SCP_EQ_Tools_party_support_values^temp_current_arr_index] [SCP_EQ_Tools_genetic_scripted_localisations_GetIdeologySupportList]"
     }
