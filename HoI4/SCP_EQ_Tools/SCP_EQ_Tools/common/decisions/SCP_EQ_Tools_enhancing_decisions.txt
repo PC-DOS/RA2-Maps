@@ -739,6 +739,9 @@ SCP_EQ_Tools_enhancing_decisions_category = {
                     type = convoy
                     amount = 24500
                 }
+                every_military_industrial_organization = {
+                    add_mio_funds = 245245
+                }
             }
         }
     }
