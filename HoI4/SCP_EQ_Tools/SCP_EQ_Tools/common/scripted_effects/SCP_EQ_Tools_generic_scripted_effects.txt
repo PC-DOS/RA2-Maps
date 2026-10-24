@@ -418,6 +418,10 @@ SCP_EQ_Tools_generic_scripted_effects_puppet_country = {
     }
 }
 
+SCP_EQ_Tools_generic_scripted_effects_delete_all_equipment = {
+    set_equipment_fraction = 1.0
+}
+
 SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
     every_possible_country = {
         recall_volunteers_from = PREV
@@ -425,6 +429,7 @@ SCP_EQ_Tools_generic_scripted_effects_delete_all_units = {
     delete_unit = {
         disband = no
     }
+    SCP_EQ_Tools_generic_scripted_effects_delete_all_equipment = yes
     destroy_ships = {
         type = battle_cruiser
         count = all

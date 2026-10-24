@@ -21,3 +21,23 @@ country_event = {
         name = SCP_EQ_Tools_enhancing_decisions_confirmation.1.b
     }
 }
+
+# Confirmation - delete all owned equipment
+country_event = {
+    id = SCP_EQ_Tools_enhancing_decisions_confirmation.2
+    title = SCP_EQ_Tools_enhancing_decisions_confirmation.2.t
+    desc = SCP_EQ_Tools_enhancing_decisions_confirmation.2.d
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = SCP_EQ_Tools_enhancing_decisions_confirmation.2.a
+        
+        var:ROOT.SCP_EQ_Tools_enhancing_decisions_global_target = {
+            SCP_EQ_Tools_generic_scripted_effects_delete_all_equipment = yes
+        }
+    }
+    option = {
+        name = SCP_EQ_Tools_enhancing_decisions_confirmation.2.b
+    }
+}
