@@ -205,8 +205,6 @@
  SCP_EQ_Tools_enhancing_decisions_own_all_claimed_but_not_controlled_states_desc:0 "警报，心灵支配仪已启动"
  SCP_EQ_Tools_enhancing_decisions_delete_all_armies:0 "删除所有我方部队"
  SCP_EQ_Tools_enhancing_decisions_delete_all_armies_desc:0 "爱 兵 如 子\n\n§R警告：§!\n§Y这将删除您当前控制的所有部队！请务必三思。本决议执行前会弹出确认窗口。§!"
- SCP_EQ_Tools_enhancing_decisions_delete_all_equipment:0 "清空装备库存"
- SCP_EQ_Tools_enhancing_decisions_delete_all_equipment_desc:0 "我们直接卖掉基地，显得专业\n\n§R警告：§!\n§Y这将清空您当前的装备库存！请务必三思。本决议执行前会弹出确认窗口。§!"
  SCP_EQ_Tools_enhancing_decisions_add_nuke:0 "添加245颗核弹"
  SCP_EQ_Tools_enhancing_decisions_add_nuke_desc:0 "警报，侦测到核弹发射井"
  SCP_EQ_Tools_enhancing_decisions_nuke_our_enemies:0 "核爆全部敌国所有控制区"
